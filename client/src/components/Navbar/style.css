@@ -10,7 +10,7 @@
     font-family: sans-serif;
   } 
   a {
-    color: #646167;
+    color: #e8d7f9;
     text-decoration: none;
     background-color: transparent;
   }
@@ -21,7 +21,7 @@
     width: 100%;
     -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.2), 0 10px 10px rgba(0, 0, 0, 0.22);
     box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
-    color: #646167;
+    color: #e8d7f9;
     font-size: calc(10px + 14 * (100vw - 320px)/ 800);
     z-index: 99;
     white-space: nowrap;
@@ -53,7 +53,7 @@
     order: 2;
     padding: .75rem;
     max-width: calc(29.16667% + .75rem);
-    color: #646167;
+    color: #e8d7f9;
   }
   .ordered-list {
     display: flex;
@@ -68,7 +68,7 @@
     position: relative;
     line-height: 1.5;
     letter-spacing: .0125rem;
-    color: #646167;
+    color: #e8d7f9;
     font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
     font-size: 1rem;
     font-weight: 400;
@@ -79,7 +79,7 @@
     border: 0;
     overflow: visible;
     padding: 1rem;
-    color: #646167;
+    color: #e8d7f9;
   }
   .user-interaction {
     padding-right: 1.5rem;
@@ -110,9 +110,10 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     opacity: .8;
-    border: 1px solid #646167;
+    border: 1px solid #e8d7f9;
     border-radius: 5px;
     margin-right: 10rem;
+    
   }
   li {
     display: list-item;

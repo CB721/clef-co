@@ -33,7 +33,9 @@ function Navbar() {
                 </nav>
                 <div className="user-interaction">
                     <IconButton aria-label="search" >
-                        <SearchIcon />
+                        <SearchIcon 
+                            color="action"
+                        />
                     </IconButton>
                     <div className="search-box">
                             <InputBase

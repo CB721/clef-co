@@ -1,0 +1,21 @@
+.footer>.bottom {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
+    font-weight: bolder;
+}
+.footer {
+    display: block;
+    background-image:  linear-gradient(to top ,#120129,	rgb(29, 3, 84), rgb(62, 7, 104), rgb(108, 28, 187), rgb(167, 66, 244), rgb(246, 185, 255));
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    color: #e8d7f9;
+    overflow: auto;
+    text-align: center;
+    padding: 10px;
+    z-index: 10;
+    bottom: 0;
+}
