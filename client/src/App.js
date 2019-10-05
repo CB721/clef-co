@@ -16,7 +16,7 @@ function App() {
     <Router>
       <div>
         <Navbar />
-        <div>
+        <div className="main-area-margins">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/products" component={Products} />

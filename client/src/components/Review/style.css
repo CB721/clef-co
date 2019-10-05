@@ -1,0 +1,22 @@
+.review-image {
+    height: 100px;
+    width: 25%;
+    border-radius: 50%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.review-text {
+    padding: 4px;
+    text-align: center;
+    mix-blend-mode: luminosity;
+    font-weight: bolder;
+    /* color: #e8d7f9; */
+}
+.review {
+    box-shadow: 5px 10px;
+    margin: 10px;
+    border: 1px solid #e8d7f9;
+    border-radius: 3px;
+    margin-bottom: 25px;
+    
+}

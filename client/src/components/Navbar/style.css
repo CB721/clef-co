@@ -59,6 +59,7 @@
     padding: .75rem;
     max-width: calc(29.16667% + .75rem);
     color: #e8d7f9;
+    text-transform: uppercase;
   }
   .ordered-list {
     display: flex;
