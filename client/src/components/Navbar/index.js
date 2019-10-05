@@ -7,13 +7,21 @@ import AlbumIcon from '@material-ui/icons/Album';
 import "./style.css";
 
 function Navbar() {
+    function GoHome() {
+        window.location.href = "/";
+    }
+    function CheckCart() {
+        window.location.href = "/cart";
+    }
     return (
         <header className="head-bar">
             <div className="header-wrapper">
                 <div className="company-logo">
-                    <AlbumIcon 
-                        fontSize="large"
-                    />
+                    <IconButton onClick={GoHome} aria-label="logo">
+                        <AlbumIcon
+                            fontSize="large"
+                        />
+                    </IconButton>
                 </div>
                 <nav className="nav-list">
                     <ol className="ordered-list">
@@ -36,14 +44,16 @@ function Navbar() {
                         <SearchIcon />
                     </IconButton>
                     <div className="search-box">
-                            <InputBase
-                                fullWidth={true}
-                                // value="What are you looking for?"
-                                // onChange={props.handleInputChange}
-                                placeholder="What are you looking for?"
-                            />
+                        <InputBase
+                            fullWidth={true}
+                            // value="What are you looking for?"
+                            // onChange={props.handleInputChange}
+                            placeholder="What are you looking for?"
+                        />
                     </div>
-                    <ShoppingCartOutlinedIcon />
+                    <IconButton onClick={CheckCart} aria-label="Go to cart">
+                        <ShoppingCartOutlinedIcon />
+                    </IconButton>
                 </div>
             </div>
         </header>
