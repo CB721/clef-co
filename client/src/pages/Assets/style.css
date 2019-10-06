@@ -48,6 +48,18 @@ h3 {
     padding-top: 5%;
     mix-blend-mode: difference;
 }
+h6 {
+    font-weight: bolder;
+    color: #6f22bb;
+    text-align: left;
+    font-weight: 100;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    padding: 7px 10px;
+}
 .container-fluid {
     padding: 0;
 }
@@ -73,4 +85,37 @@ h3 {
     background-image: url("https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
     background-repeat: no-repeat;
     background-size: cover;
+}
+img {
+    max-width:100%;
+    max-height:100%;
+}
+p {
+    font-weight: bolder;
+    color: #6f22bb;
+    text-align: center;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    padding: 7px 10px;
+    padding-top: 25%;
+}
+span {
+    font-weight: bolder;
+    color: #6f22bb;
+    text-align: center;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    padding: 7px 10px;
+}
+.current-highlighted-product-section {
+    background: rgb(169, 110, 250);
+    padding: 2rem;
 }

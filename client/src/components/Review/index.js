@@ -9,7 +9,7 @@ function Review(props) {
                 <Typography variant="h5" component="h3">
                     {props.reviewerName}
                 </Typography>
-                <Typography component="p" className="review-text">
+                <Typography component="q" className="review-text">
                     {props.review}
                 </Typography>
         </div>
