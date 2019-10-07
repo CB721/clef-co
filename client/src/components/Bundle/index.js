@@ -4,7 +4,7 @@ import "./style.css";
 
 function Bundle(props) {
     return (
-        <div className="bundle">
+        <div className="bundle purple">
             <img src={props.bundleImage} alt={props.bundleTitle} className="bundle-image"></img>
             <div>
                 <h4>

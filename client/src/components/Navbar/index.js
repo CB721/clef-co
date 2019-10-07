@@ -18,7 +18,7 @@ function Navbar() {
         <header className="head-bar">
             <div className="header-wrapper">
                 <div className="company-logo">
-                    <IconButton onClick={GoHome} aria-label="logo">
+                    <IconButton onClick={GoHome} aria-label="logo" className="white">
                         <AlbumIconOutlinedIcon
                             fontSize="large"
                         />
@@ -26,7 +26,7 @@ function Navbar() {
                 </div>
                 <nav className="nav-list">
                     <ol className="ordered-list">
-                        <li className="list-items">
+                        <li className="list-items white">
                             <a href="/products">Products</a>
                         </li>
                         <li className="list-items">

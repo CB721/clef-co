@@ -19,19 +19,19 @@ function ProductCard(props) {
                         title={props.imageTitle}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
+                        <Typography gutterBottom variant="h5" className="purple" component="h2">
                             {props.cardTitle}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="h6">
+                        <Typography variant="body2" className="purple" component="h6">
                             {props.cardDescription}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="#e8d7f9">
+                    <Button size="small" className="purple">
                         View
                     </Button>
-                    <Button size="small" color="#e8d7f9">
+                    <Button size="small" className="purple">
                         Purchase
                     </Button>
                 </CardActions>

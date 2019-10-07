@@ -6,10 +6,10 @@ function Review(props) {
     return (
         <div className="review">
                 <img src={props.reviewerImage} alt={props.reviewerName} className="review-image"></img>
-                <Typography variant="h5" component="h3">
+                <Typography variant="h5" component="h3" className="purple">
                     {props.reviewerName}
                 </Typography>
-                <Typography component="q" className="review-text">
+                <Typography component="q" className="review-text purple">
                     {props.review}
                 </Typography>
         </div>

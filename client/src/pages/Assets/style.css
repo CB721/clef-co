@@ -7,7 +7,6 @@
 }
 h1 {
     font-weight: bolder;
-    color: #e8d7f9;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -17,11 +16,9 @@ h1 {
     letter-spacing: .2em;
     padding: 7px 10px;
     padding-top: 25%;
-    mix-blend-mode: difference;
 }
 h2 {
     font-weight: bolder;
-    color: #e8d7f9;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -31,11 +28,9 @@ h2 {
     letter-spacing: .2em;
     padding: 7px 10px;
     padding-top: 5%;
-    mix-blend-mode: difference;
 }
 h3 {
     font-weight: bolder;
-    color: #e8d7f9;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -46,11 +41,9 @@ h3 {
     letter-spacing: .2em;
     padding: 7px 10px;
     padding-top: 5%;
-    mix-blend-mode: difference;
 }
 h5 {
     font-weight: bolder;
-    color: #e8d7f9;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -60,11 +53,9 @@ h5 {
     letter-spacing: .2em;
     padding: 7px 10px;
     padding-top: 10%;
-    mix-blend-mode: difference;
 }
 h6 {
     font-weight: bolder;
-    color: #6f22bb;
     text-align: left;
     font-weight: 100;
     display: flex;
@@ -100,13 +91,17 @@ h6 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.expert-title {
+    background: white;
+    border: 3px solid rgb(62, 7, 104);
+    border-radius: 5px;
+}
 img {
     max-width:100%;
     max-height:100%;
 }
 p {
     font-weight: bolder;
-    color: #6f22bb;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -119,7 +114,6 @@ p {
 }
 span {
     font-weight: bolder;
-    color: #6f22bb;
     text-align: center;
     font-weight: 100;
     display: flex;
@@ -130,7 +124,7 @@ span {
     padding: 7px 10px;
 }
 .current-highlighted-product-section {
-    background: rgb(169, 110, 250);
+    background: rgb(62, 7, 104);
     padding: 2rem;
 }
 .so-bold {
@@ -140,11 +134,21 @@ span {
     background: #090A05;
     margin-top: 50px;
 }
+.social-media {
+    background: rgb(62, 7, 104);
+    margin-top: 50px;
+}
 .company-section {
     align-items: center;
     justify-content: flex-end;
-    background: #090A05;
+    background: rgb(62, 7, 104);
 }
 .video {
     height: 400px;
+}
+.white {
+    color: white;
+}
+.purple {
+    color: rgb(62, 7, 104);
 }

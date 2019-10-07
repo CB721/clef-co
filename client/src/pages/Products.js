@@ -29,12 +29,12 @@ class Products extends Component {
                 <Container fluid>
                     <Row>
                         <Col size="md-6">
-                            <h1>
+                            <h1 className="purple">
                                 All Products
                             </h1>
                         </Col>
                         <Col size="md-6">
-                            <p>
+                            <p className="purple">
                                 Browse our collection of state-of-the-art music equipment and software plugins.
                             </p>
                         </Col>
@@ -43,13 +43,13 @@ class Products extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <h6>
+                                <h6 className="white">
                                     New and on Sale!
                                 </h6>
-                                <h3>
+                                <h3 className="white">
                                     Erzetich Headphone Amp
                                 </h3>
-                                <span>
+                                <span className="white">
                                     Integer sollicitudin turpis ligula, eget convallis metus tincidunt a. Morbi ut turpis dapibus, volutpat lectus et, consectetur lectus. Sed maximus dui quis odio blandit ultrices. Nulla imperdiet malesuada ante, nec sollicitudin metus molestie vitae. Proin sed imperdiet dui, in aliquam purus.
                                 </span>
                                 <Row>
@@ -78,7 +78,7 @@ class Products extends Component {
                     </div>
                     <Row>
                         <Col size="md-12">
-                            <h3>
+                            <h3 className="purple">
                                 Purchase our product bundles
                             </h3>
                         </Col>
@@ -111,7 +111,7 @@ class Products extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <div className="secondary-highlighted-product">
+                            <div className="secondary-highlighted-product white">
                                 <Row>
                                     <Col size="md-6">
                                         <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="Demo Company Microphone"></img>
@@ -149,7 +149,7 @@ class Products extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <h3>
+                            <h3 className="purple">
                                 All Products
                             </h3>
                         </Col>
@@ -161,7 +161,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
                                 imageTitle="Headphones"
                                 cardTitle="Headphones"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                         <Col size="md-2" />
@@ -170,7 +170,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1492879291357-620e858bd26a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
                                 imageTitle="Microphone"
                                 cardTitle="Microphone"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                         <Col size="md-2" />
@@ -179,7 +179,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
                                 imageTitle="Guitar Amp"
                                 cardTitle="Guitar Amp"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                     </Row>
@@ -190,7 +190,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
                                 imageTitle="Headphones"
                                 cardTitle="Headphones"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                         <Col size="md-2" />
@@ -199,7 +199,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1492879291357-620e858bd26a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
                                 imageTitle="Microphone"
                                 cardTitle="Microphone"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                         <Col size="md-2" />
@@ -208,7 +208,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
                                 imageTitle="Guitar Amp"
                                 cardTitle="Guitar Amp"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                     </Row>
@@ -219,7 +219,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
                                 imageTitle="Headphones"
                                 cardTitle="Headphones"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                         <Col size="md-2" />
@@ -228,7 +228,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1492879291357-620e858bd26a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
                                 imageTitle="Microphone"
                                 cardTitle="Microphone"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                         <Col size="md-2" />
@@ -237,7 +237,7 @@ class Products extends Component {
                                 image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
                                 imageTitle="Guitar Amp"
                                 cardTitle="Guitar Amp"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."
+                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
                             />
                         </Col>
                     </Row>
@@ -246,11 +246,11 @@ class Products extends Component {
                             <Col size="md-12">
                                 <Row>
                                     <Col size="md-1" />
-                                    <Col size="md-3">
-                                        <h3>
+                                    <Col size="md-2">
+                                        <h3 className="white">
                                             Contact Us
                                         </h3>
-                                        <h6>
+                                        <h6 className="white">
                                             Our award-winning support team is available 24/7 to help with your questions
                                         </h6>
                                         <IconButton onClick={this.goToSupport} aria-label="support">
@@ -259,12 +259,12 @@ class Products extends Component {
                                             />
                                         </IconButton>
                                     </Col>
-                                    <Col size="md-1" />
-                                    <Col size="md-3">
-                                        <h3>
+                                    <Col size="md-2" />
+                                    <Col size="md-2">
+                                        <h3 className="white">
                                             Tutorials
                                         </h3>
-                                        <h6>
+                                        <h6 className="white">
                                             Watch videos made by our team members walking through a variety of our most popular products
                                         </h6>
                                         <IconButton onClick={this.goToTutorials} aria-label="support">
@@ -273,12 +273,12 @@ class Products extends Component {
                                             />
                                         </IconButton>
                                     </Col>
-                                    <Col size="md-1" />
-                                    <Col size="md-3">
-                                        <h3>
+                                    <Col size="md-2" />
+                                    <Col size="md-2">
+                                        <h3 className="white">
                                             Check Cart
                                         </h3>
-                                        <h6>
+                                        <h6 className="white">
                                             View and purchase your currently selected products
                                         </h6>
                                         <IconButton onClick={this.goToCart} aria-label="Go to cart">

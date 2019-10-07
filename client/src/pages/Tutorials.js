@@ -13,7 +13,7 @@ class Tutorials extends Component {
                 <Container fluid>
                     <Row>
                         <Col size="md-12">
-                            <h5>
+                            <h5 className="purple">
                                 Tutorial Videos
                             </h5>
                         </Col>
@@ -22,7 +22,7 @@ class Tutorials extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <div className="video">
+                                <div className="video purple">
                                     <ReactPlayer
                                         url='https://www.youtube.com/watch?v=hU5XhG5Ywbk&t=3s'
                                         playing={this.state.playing}
