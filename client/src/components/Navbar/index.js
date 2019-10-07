@@ -3,7 +3,7 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import AlbumIcon from '@material-ui/icons/Album';
+import AlbumIconOutlinedIcon from '@material-ui/icons/AlbumOutlined';
 import "./style.css";
 
 function Navbar() {
@@ -18,7 +18,7 @@ function Navbar() {
             <div className="header-wrapper">
                 <div className="company-logo">
                     <IconButton onClick={GoHome} aria-label="logo">
-                        <AlbumIcon
+                        <AlbumIconOutlinedIcon
                             fontSize="large"
                         />
                     </IconButton>

@@ -119,3 +119,15 @@ span {
     background: rgb(169, 110, 250);
     padding: 2rem;
 }
+.so-bold {
+    font-weight: 900;
+}
+.secondary-highlighted-product {
+    background: #090A05;
+    margin-top: 50px;
+}
+.company-section {
+    align-items: center;
+    justify-content: flex-end;
+    background: #090A05;
+}

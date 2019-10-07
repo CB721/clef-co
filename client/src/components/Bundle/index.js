@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Button";
+import { Col, Row } from "../Grid";
 import "./style.css";
 
 function Bundle(props) {
@@ -14,10 +14,13 @@ function Bundle(props) {
                     {props.bundleDescription}
                 </h6>
             </div>
-            <Button
-                buttonClass="shop-now"
-                text="Learn More"
-            />
+            <Row>
+                <Col size="md-1" />
+                <Col size="md-5">
+                    {props.button}
+                </Col>
+            </Row>
+
         </div>
     )
 }
