@@ -4,7 +4,7 @@ import "./style.css";
 function CustomButton(props) {
     return (
         <button className={props.buttonClass}>
-{props.text}
+            {props.text}
         </button>
     )
 }

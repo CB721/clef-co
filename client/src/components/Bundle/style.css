@@ -1,0 +1,9 @@
+.bundle-image {
+    height: 300px;
+    width: 100%;
+}
+.bundle {
+    height: 500px;
+    background: white;
+    box-shadow: 2px 4px #e8d7f9;
+}

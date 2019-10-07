@@ -22,7 +22,7 @@ function ProductCard(props) {
                         <Typography gutterBottom variant="h5" component="h2">
                             {props.cardTitle}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
+                        <Typography variant="body2" color="textSecondary" component="h6">
                             {props.cardDescription}
                         </Typography>
                     </CardContent>
