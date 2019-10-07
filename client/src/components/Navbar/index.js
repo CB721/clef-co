@@ -13,6 +13,7 @@ function Navbar() {
     function CheckCart() {
         window.location.href = "/cart";
     }
+
     return (
         <header className="head-bar">
             <div className="header-wrapper">
