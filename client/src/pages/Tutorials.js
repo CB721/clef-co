@@ -32,7 +32,7 @@ class Tutorials extends Component {
                                         width="100%"
                                         height="75%"
                                     />
-                                    <h6>
+                                    <h6 className="center">
                                         Logic Pro X Setup
                                     </h6>
                                 </div>
@@ -47,7 +47,7 @@ class Tutorials extends Component {
                                         width="100%"
                                         height="75%"
                                     />
-                                    <h6>
+                                    <h6 className="center">
                                         Vocal Recording
                                     </h6>
                                 </div>
@@ -63,7 +63,7 @@ class Tutorials extends Component {
                                         width="100%"
                                         height="75%"
                                     />
-                                    <h6>
+                                    <h6 className="center">
                                         Tune Your Guitar
                                     </h6>
                                 </div>
@@ -78,7 +78,7 @@ class Tutorials extends Component {
                                         width="100%"
                                         height="75%"
                                     />
-                                    <h6>
+                                    <h6 className="center">
                                         Mic A Guitar Amp
                                     </h6>
                                 </div>
@@ -94,7 +94,7 @@ class Tutorials extends Component {
                                         width="100%"
                                         height="75%"
                                     />
-                                    <h6>
+                                    <h6 className="center">
                                         Intro to EQ
                                     </h6>
                                 </div>
@@ -109,7 +109,7 @@ class Tutorials extends Component {
                                         width="100%"
                                         height="75%"
                                     />
-                                    <h6>
+                                    <h6 className="center">
                                         DJ Controller Review
                                     </h6>
                                 </div>
