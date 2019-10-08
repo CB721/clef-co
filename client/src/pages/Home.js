@@ -16,7 +16,7 @@ class Home extends Component {
                     <Row>
                         <Col size="md-12">
                             <div className="home-bg">
-                                <h1 className="white">
+                                <h1 className="white q-top-pad">
                                     Demo Company
                                 </h1>
                             </div>
@@ -25,14 +25,14 @@ class Home extends Component {
                     <Row>
                         <Col size="md-6">
                             <div className="home-item-one">
-                                <h3 className="white">
+                                <h3 className="white f-top-pad center">
                                     Product One
                                 </h3>
                             </div>
                         </Col>
                         <Col size="md-6">
                             <div className="home-item-two">
-                                <h3 className="white">
+                                <h3 className="white f-top-pad center">
                                     Product Two
                                 </h3>
                             </div>
@@ -41,7 +41,7 @@ class Home extends Component {
                     <Row>
                         <Col size="md-4" />
                         <Col size="md-4">
-                            <h2 className="purple">
+                            <h2 className="purple f-top-pad">
                                 Top Products
                             </h2>
                         </Col>
@@ -75,13 +75,18 @@ class Home extends Component {
                             />
                         </Col>
                     </Row>
+                    <Row>
+                        <Col size="md-12">
+                        <h2 className="purple f-top-pad">
+                                    What the Experts are Saying
+                            </h2>
+                        </Col>
+                    </Row>
                     <div className="review-section">
                         <Row>
                             <Col size="md-4" />
                             <Col size="md-4">
-                                <h2 className="expert-title purple">
-                                    What the Experts are Saying
-                            </h2>
+                                
                             </Col>
                         </Row>
                         <Row>

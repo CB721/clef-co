@@ -29,12 +29,12 @@ class Products extends Component {
                 <Container fluid>
                     <Row>
                         <Col size="md-6">
-                            <h1 className="purple">
+                            <h1 className="purple q-top-pad">
                                 All Products
                             </h1>
                         </Col>
                         <Col size="md-6">
-                            <p className="purple">
+                            <p className="purple q-top-pad">
                                 Browse our collection of state-of-the-art music equipment and software plugins.
                             </p>
                         </Col>
@@ -46,7 +46,7 @@ class Products extends Component {
                                 <h6 className="white">
                                     New and on Sale!
                                 </h6>
-                                <h3 className="white">
+                                <h3 className="white f-top-pad center">
                                     Erzetich Headphone Amp
                                 </h3>
                                 <span className="white">
@@ -78,7 +78,7 @@ class Products extends Component {
                     </div>
                     <Row>
                         <Col size="md-12">
-                            <h3 className="purple">
+                            <h3 className="purple f-top-pad center">
                                 Purchase our product bundles
                             </h3>
                         </Col>
@@ -117,10 +117,10 @@ class Products extends Component {
                                         <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="Demo Company Microphone"></img>
                                     </Col>
                                     <Col size="md-6">
-                                        <h3 className="so-bold">
+                                        <h3 className="so-bold f-top-pad center">
                                             Demo Company Microphone
                                         </h3>
-                                        <h3>
+                                        <h3 className="f-top-pad center">
                                             Magical microphone to capture the future of sound
                                         </h3>
                                         <h6>
@@ -149,7 +149,7 @@ class Products extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <h3 className="purple">
+                            <h3 className="purple f-top-pad center">
                                 All Products
                             </h3>
                         </Col>
@@ -247,7 +247,7 @@ class Products extends Component {
                                 <Row>
                                     <Col size="md-1" />
                                     <Col size="md-2">
-                                        <h3 className="white">
+                                        <h3 className="white f-top-pad center">
                                             Contact Us
                                         </h3>
                                         <h6 className="white">
@@ -261,7 +261,7 @@ class Products extends Component {
                                     </Col>
                                     <Col size="md-2" />
                                     <Col size="md-2">
-                                        <h3 className="white">
+                                        <h3 className="white f-top-pad center">
                                             Tutorials
                                         </h3>
                                         <h6 className="white">
@@ -275,7 +275,7 @@ class Products extends Component {
                                     </Col>
                                     <Col size="md-2" />
                                     <Col size="md-2">
-                                        <h3 className="white">
+                                        <h3 className="white f-top-pad center">
                                             Check Cart
                                         </h3>
                                         <h6 className="white">

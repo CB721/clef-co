@@ -15,7 +15,12 @@ h1 {
     text-transform: uppercase;
     letter-spacing: .2em;
     padding: 7px 10px;
+}
+.q-top-pad {
     padding-top: 25%;
+}
+.f-top-pad {
+    padding-top: 5%;
 }
 h2 {
     font-weight: bolder;
@@ -27,20 +32,21 @@ h2 {
     text-transform: uppercase;
     letter-spacing: .2em;
     padding: 7px 10px;
-    padding-top: 5%;
 }
 h3 {
     font-weight: bolder;
     text-align: center;
     font-weight: 100;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    vertical-align: middle;
     text-transform: uppercase;
     letter-spacing: .2em;
     padding: 7px 10px;
     padding-top: 5%;
+}
+.center {
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 h5 {
     font-weight: bolder;
@@ -52,7 +58,6 @@ h5 {
     text-transform: uppercase;
     letter-spacing: .2em;
     padding: 7px 10px;
-    padding-top: 10%;
 }
 h6 {
     font-weight: bolder;
@@ -91,11 +96,6 @@ h6 {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.expert-title {
-    background: white;
-    border: 3px solid rgb(62, 7, 104);
-    border-radius: 5px;
-}
 img {
     max-width:100%;
     max-height:100%;
@@ -110,7 +110,6 @@ p {
     text-transform: uppercase;
     letter-spacing: .2em;
     padding: 7px 10px;
-    padding-top: 25%;
 }
 span {
     font-weight: bolder;
@@ -151,4 +150,14 @@ span {
 }
 .purple {
     color: rgb(62, 7, 104);
+}
+#search-top-image {
+    height: 550px;
+    width: 100%;
+}
+a:visited {
+    color: rgb(246, 185, 255);
+}
+a:link {
+    text-decoration: none;
 }

@@ -8,6 +8,19 @@
     padding: .25rem 2rem;
     min-width: 9rem;
 }
+.explore:hover {
+    background: white;
+    color: rgb(62, 7, 104);
+    animation-iteration-count: 1s;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
+    box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+    transition: .1s;
+}
 .shop-now {
     border: 3px solid rgb(62, 7, 104);
     background: white;
@@ -17,6 +30,19 @@
     border-radius: 24px;
     padding: .25rem 2rem;
     min-width: 10rem;
+}
+.shop-now:hover {
+    background: rgb(62, 7, 104);
+    color: white;
+    animation-iteration-count: 1s;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
+    box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+    transition: .1s;
 }
 h4 {
     color: rgb(62, 7, 104);

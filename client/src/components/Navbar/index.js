@@ -13,6 +13,9 @@ function Navbar() {
     function CheckCart() {
         window.location.href = "/cart";
     }
+    function Search() {
+        window.location.href = "/search";
+    }
 
     return (
         <header className="head-bar">
@@ -41,7 +44,7 @@ function Navbar() {
                     </ol>
                 </nav>
                 <div className="user-interaction">
-                    <IconButton aria-label="search" >
+                    <IconButton onClick={Search} aria-label="search" >
                         <SearchIcon />
                     </IconButton>
                     <div className="search-box">

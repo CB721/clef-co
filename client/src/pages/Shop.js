@@ -20,7 +20,7 @@ class Shop extends Component {
                                 <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
                             </Col>
                             <Col size="md-6">
-                                <h1 className="white">
+                                <h1 className="white q-top-pad">
                                     Current special on our product!
                             </h1>
                                 <h6 className="white">
@@ -35,7 +35,7 @@ class Shop extends Component {
 
                             />
                         </Col>
-                        <Col size="md-9">
+                        <Col size="md-10">
                             <Row>
                                 <Col size="md-3">
                                     <Product
