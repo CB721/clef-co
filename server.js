@@ -19,10 +19,7 @@ var connection;
 var env = process.env.JAWSDB_URL;
 connection = mysql.createConnection(env);
 connection.connect(function(err) {
-  if (err) {
-    console.error("Connection error: " + err.stack);
-    return;
-  }
+  if (err) throw err;
 });
 
 app.get("*", (req, res) => {
@@ -30,5 +27,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+  console.log(`API server now on port ${PORT}!`);
 });

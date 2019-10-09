@@ -125,6 +125,16 @@ function ShopMenu(props) {
                     <Row>
                         <Col size="md-8">
                             <h6>
+                                DJ Equipment
+                            </h6>
+                        </Col>
+                        <Col size="md-4">
+                            <Radio />
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="md-8">
+                            <h6>
                                 Recording Software
                             </h6>
                         </Col>
@@ -171,7 +181,7 @@ function ShopMenu(props) {
                     <Row>
                         <Col size="md-8">
                             <h6>
-                                Begineer Recording
+                                Begineers
                             </h6>
                         </Col>
                         <Col size="md-4">

@@ -43,7 +43,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -56,7 +56,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -69,7 +69,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -82,7 +82,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -95,7 +95,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -108,7 +108,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -121,7 +121,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -134,7 +134,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -147,7 +147,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -160,7 +160,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -173,7 +173,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -186,7 +186,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -199,7 +199,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -212,7 +212,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -225,7 +225,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
@@ -238,7 +238,7 @@ class Shop extends Component {
                                         imageTitle="Guitar Amp"
                                         cardTitle="Guitar Amp"
                                         cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349"
+                                        price="349.99"
                                         button={<Button
                                             buttonClass="explore"
                                             text="Add to cart"
