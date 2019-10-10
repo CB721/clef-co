@@ -1,5 +1,4 @@
 const express = require("express");
-const mysql = require("mysql");
 const path = require("path");
 require('dotenv').config();
 const routes = require("./routes");
@@ -14,13 +13,6 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(routes);
-
-var connection;
-var env = process.env.JAWSDB_URL;
-connection = mysql.createConnection(env);
-connection.connect(function(err) {
-  if (err) throw err;
-});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

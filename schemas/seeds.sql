@@ -1,4 +1,4 @@
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -23,7 +23,7 @@ VALUES
         FALSE
         );
         
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -48,7 +48,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -73,7 +73,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -98,7 +98,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -123,7 +123,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -148,7 +148,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -173,7 +173,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -198,7 +198,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -223,7 +223,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -248,7 +248,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -273,7 +273,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -298,7 +298,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -323,7 +323,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -348,7 +348,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -373,7 +373,7 @@ VALUES
         FALSE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -381,7 +381,6 @@ INSERT INTO products
     image_link,
     product_description,
     instrument_type,
-    quantity,
     hardware,
     software
     )
@@ -397,7 +396,7 @@ VALUES
         TRUE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -405,7 +404,6 @@ INSERT INTO products
     image_link,
     product_description,
     instrument_type,
-    quantity,
     hardware,
     software
     )
@@ -421,7 +419,7 @@ VALUES
         TRUE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -429,7 +427,6 @@ INSERT INTO products
     image_link,
     product_description,
     instrument_type,
-    quantity,
     hardware,
     software
     )
@@ -445,7 +442,7 @@ VALUES
         TRUE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -453,7 +450,6 @@ INSERT INTO products
     image_link,
     product_description,
     instrument_type,
-    quantity,
     hardware,
     software
     )
@@ -469,7 +465,7 @@ VALUES
         TRUE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -477,7 +473,6 @@ INSERT INTO products
     image_link,
     product_description,
     instrument_type,
-    quantity,
     hardware,
     software
     )
@@ -493,7 +488,7 @@ VALUES
         TRUE
         );
 
-INSERT INTO products
+INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,
     price,
@@ -501,7 +496,6 @@ INSERT INTO products
     image_link,
     product_description,
     instrument_type,
-    quantity,
     hardware,
     software
     )

@@ -1,6 +1,4 @@
-CREATE DATABASE virtual_store;
-
-USE virtual_store;
+USE oxn711nfcpjgwcr2;
 
 CREATE TABLE products
 (
@@ -17,4 +15,4 @@ CREATE TABLE products
 	, PRIMARY KEY (id)
 );
 
-SELECT * FROM products;
+SELECT * FROM oxn711nfcpjgwcr2.products;
