@@ -5,33 +5,41 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Textfit } from 'react-textfit';
 import "./style.css";
 
 function Product(props) {
     return (
-        <div className="">
+        <div>
             <Card className="card product-card">
                 <CardActionArea>
                     <CardMedia
-                        className="card-media"
+                        className="card-media product-image"
                         image={props.image}
                         title={props.imageTitle}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" className="purple" component="h2">
+                        <Textfit
+                            mode="single"
+                            className="purple"
+                            min={15}
+                        >
                             {props.cardTitle}
-                        </Typography>
-                        <Typography variant="body2" className="purple" component="h6">
+                        </Textfit>
+                        <Textfit
+                            mode="multi"
+                            className="purple">
                             {props.cardDescription}
-                        </Typography>
+                        </Textfit>
                         <Typography gutterBottom variant="h5" className="purple" component="h2">
                             {"$" + props.price}
                         </Typography>
                     </CardContent>
+                    <CardActions className="product-button">
+                        {props.button}
+                    </CardActions>
                 </CardActionArea>
-                <CardActions>
-                    {props.button}
-                </CardActions>
+
             </Card>
         </div>
     )

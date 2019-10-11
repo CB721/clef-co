@@ -1,5 +1,18 @@
 .product-card {
     height: 450px;
-    padding: 10px;
-    
+}
+.product-description {
+    overflow: hidden;
+    padding: 1vh;
+}
+.product-image:hover {
+    animation-iteration-count: 1s;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+    transition: .1s;
 }

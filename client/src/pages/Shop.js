@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Button from "../components/Button";
 import Menu from "../components/Menu";
 import Product from "../components/Product";
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 class Shop extends Component {
@@ -15,6 +16,22 @@ class Shop extends Component {
         instrumentItems: "content-collapse",
         bundleItems: "content-collapse",
         typeItems: "content-collapse",
+        products: [],
+    }
+    componentDidMount() {
+        this.getProducts();
+    }
+    getProducts = () => {
+        API.getAllProducts()
+            .then(res =>
+                this.setState({ products: res.data.results })
+            )
+            .catch(err => console.log("Error getting products: " + err))
+
+    }
+    checkState() {
+        const products = this.state.products;
+        console.log(products);
     }
     expandFeatured = () => (event) => {
         event.preventDefault();
@@ -116,214 +133,26 @@ class Shop extends Component {
                         </Col>
                         <Col size="md-9">
                             <Row>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
-                                <Col size="md-3">
-                                    <Product
-                                        image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                        imageTitle="Guitar Amp"
-                                        cardTitle="Guitar Amp"
-                                        cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                                        price="349.99"
-                                        button={<Button
-                                            buttonClass="explore"
-                                            text="Add to cart"
-                                        />}
-                                    />
-                                </Col>
+                                {this.state.products.map(product => (
+                                    <Col
+                                        size="md-3"
+                                        key={product.id}
+                                    >
+                                        <Product
+                                            key={product.id}
+                                            image={product.image_link}
+                                            imageTitle={product.product_name}
+                                            cardTitle={product.product_name}
+                                            cardDescription={product.product_description.slice(0, 65) + "..."}
+                                            price={product.price}
+                                            button={<Button
+                                                key={product.id}
+                                                buttonClass="explore"
+                                                text="Add to cart"
+                                            />}
+                                        />
+                                    </Col>
+                                ))}
                             </Row>
                         </Col>
                     </Row>
