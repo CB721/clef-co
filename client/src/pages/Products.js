@@ -22,6 +22,9 @@ class Products extends Component {
     goToCart() {
         window.location.href = "/cart";
     }
+    goToShop() {
+        window.location.href = "/shop";
+    }
 
     render() {
         return (
@@ -65,12 +68,13 @@ class Products extends Component {
                                         <Button
                                             buttonClass="shop-now"
                                             text="Shop Now"
+                                            action={this.goToShop}
                                         />
                                     </Col>
                                 </Row>
                             </Col>
                             <Col size="md-7">
-                                <a href="#">
+                                <a href="/products">
                                     <img src="https://images.unsplash.com/photo-1560917473-a92132ff01fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2025&q=80" alt="Erzetich Headphone Amp" ></img>
                                 </a>
                             </Col>

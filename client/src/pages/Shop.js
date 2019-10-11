@@ -7,8 +7,77 @@ import "./Assets/style.css";
 
 class Shop extends Component {
     state = {
-
+        featuredMenu: "menu-collapse white",
+        instrumentsMenu: "menu-collapse white",
+        bundlesMenu: "menu-collapse white",
+        typeMenu: "menu-collapse white",
+        featuredItems: "content-collapse",
+        instrumentItems: "content-collapse",
+        bundleItems: "content-collapse",
+        typeMenu: "menu-collapse white",
+        typeItems: "content-collapse",
     }
+    expandFeatured = () => (event) => {
+        event.preventDefault();
+        const expanded = this.state.featuredMenu;
+        if (expanded === "menu-collapse white") {
+            this.setState({
+                featuredMenu: "menu-expand white",
+                featuredItems: "content-expand"
+            });
+        } else {
+            this.setState({
+                featuredMenu: "menu-collapse white",
+                featuredItems: "content-collapse"
+            });
+        }
+    }
+    expandInstruments = () => (event) => {
+        event.preventDefault();
+        const expanded = this.state.instrumentsMenu;
+        if (expanded === "menu-collapse white") {
+            this.setState({
+                instrumentsMenu: "menu-expand white",
+                instrumentItems: "content-expand",
+            });
+        } else {
+            this.setState({
+                instrumentsMenu: "menu-collapse white",
+                instrumentItems: "content-collapse",
+            });
+        }
+    }
+    expandBundles = () => (event) => {
+        event.preventDefault();
+        const expanded = this.state.bundlesMenu;
+        if (expanded === "menu-collapse white") {
+            this.setState({
+                bundlesMenu: "menu-expand white",
+                bundleItems: "content-expand",
+            });
+        } else {
+            this.setState({
+                bundlesMenu: "menu-collapse white",
+                bundleItems: "content-collapse",
+            });
+        }
+    }
+    expandType = () => (event) => {
+        event.preventDefault();
+        const expanded = this.state.typeMenu;
+        if (expanded === "menu-collapse white") {
+            this.setState({
+                typeMenu: "menu-expand white",
+                typeItems: "content-expand",
+            });
+        } else {
+            this.setState({
+                typeMenu: "menu-collapse white",
+                typeItems: "content-collapse",
+            });
+        }
+    }
+
 
     render() {
         return (
@@ -32,10 +101,21 @@ class Shop extends Component {
                     <Row>
                         <Col size="md-2">
                             <Menu
-
+                                collapseFeatured={this.expandFeatured()}
+                                featuredClass={this.state.featuredMenu}
+                                collapseFeaturedItems={this.state.featuredItems}
+                                collapseInsturments={this.expandInstruments()}
+                                instrumentClass={this.state.instrumentsMenu}
+                                collapseInstrumentItems={this.state.instrumentItems}
+                                collapseBundles={this.expandBundles()}
+                                bundleClass={this.state.bundlesMenu}
+                                collapseBundleItems={this.state.bundleItems}
+                                collapseTypes={this.expandType()}
+                                typeClass={this.state.typeMenu}
+                                collapseTypeItems={this.state.typeItems}
                             />
                         </Col>
-                        <Col size="md-10">
+                        <Col size="md-9">
                             <Row>
                                 <Col size="md-3">
                                     <Product
