@@ -14,7 +14,6 @@ class Shop extends Component {
         featuredItems: "content-collapse",
         instrumentItems: "content-collapse",
         bundleItems: "content-collapse",
-        typeMenu: "menu-collapse white",
         typeItems: "content-collapse",
     }
     expandFeatured = () => (event) => {

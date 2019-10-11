@@ -6,7 +6,6 @@ import Divider from '@material-ui/core/Divider';
 import "./style.css";
 
 function ShopMenu(props) {
-
     return (
         <div className="menu white">
             <Row>
