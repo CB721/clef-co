@@ -140,6 +140,11 @@ span {
     align-items: center;
     justify-content: flex-end;
     background: rgb(62, 7, 104);
+    -webkit-box-shadow: 0 1400px 2800px rgba(0, 0, 0, 0.632),0 10px 10px rgba(0, 0, 0, 0.632);
+    box-shadow: 0 1400px 2800px rgba(0, 0, 0, 0.632),0 10px 10px rgba(0, 0, 0, 0.632);
+    -moz-box-shadow: 0 0 10px #000000;
+    -webkit-box-shadow: 0 0 10px #000000;
+    box-shadow: 0 0 10px #000000;
 }
 .video {
     height: 400px;

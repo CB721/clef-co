@@ -21,25 +21,28 @@ function Product(props) {
                     <CardContent>
                         <Textfit
                             mode="single"
-                            className="purple"
-                            min={15}
+                            className="purple product-title"
+                            min={10}
+                            max={20}
                         >
                             {props.cardTitle}
                         </Textfit>
                         <Textfit
                             mode="multi"
-                            className="purple">
+                            className="purple product-title"
+                            min={6}
+                            max={9}
+                        >
                             {props.cardDescription}
                         </Textfit>
-                        <Typography gutterBottom variant="h5" className="purple" component="h2">
+                        <Typography gutterBottom variant="h5" className="purple product-title" component="h2">
                             {"$" + props.price}
                         </Typography>
+                        <CardActions className="product-button">
+                            {props.button}
+                        </CardActions>
                     </CardContent>
-                    <CardActions className="product-button">
-                        {props.button}
-                    </CardActions>
                 </CardActionArea>
-
             </Card>
         </div>
     )

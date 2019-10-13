@@ -17,6 +17,22 @@ class Shop extends Component {
         bundleItems: "content-collapse",
         typeItems: "content-collapse",
         products: [],
+        selectedCategories: [],
+        onSale: false,
+        bestsellers: false,
+        guitars: false,
+        microphones: false,
+        keyboards: false,
+        bass: false,
+        headphones: false,
+        drums: false,
+        dj: false,
+        recording: false,
+        vocalists: false,
+        synths: false,
+        begineers: false,
+        hardware: false,
+        software: false,
     }
     componentDidMount() {
         this.getProducts();
@@ -93,6 +109,23 @@ class Shop extends Component {
             });
         }
     }
+    handleInputChange = (event) => {
+        const name = event.target.name;
+        const selectedCategories = this.state.selectedCategories;
+        if (selectedCategories.indexOf(name) >= 0) {
+            const newSelectedCategories = selectedCategories.filter(category => category !== name);
+            this.setState({
+                [name]: false,
+                selectedCategories: newSelectedCategories
+            });
+        } else {
+            const newSelectedCategories = selectedCategories.concat(name);
+            this.setState({
+                [name]: true,
+                selectedCategories: newSelectedCategories
+            });
+        }
+    }
 
 
     render() {
@@ -129,6 +162,22 @@ class Shop extends Component {
                                 collapseTypes={this.expandType()}
                                 typeClass={this.state.typeMenu}
                                 collapseTypeItems={this.state.typeItems}
+                                onSale={this.state.onSale}
+                                bestsellers={this.state.bestsellers}
+                                guitars={this.state.guitars}
+                                microphones={this.state.microphones}
+                                keyboards={this.state.keyboards}
+                                bass={this.state.bass}
+                                headphones={this.state.headphones}
+                                drums={this.state.drums}
+                                dj={this.state.dj}
+                                recording={this.state.recording}
+                                vocalists={this.state.vocalists}
+                                synths={this.state.synths}
+                                begineers={this.state.begineers}
+                                hardware={this.state.hardware}
+                                software={this.state.software}
+                                handleChange={this.handleInputChange}
                             />
                         </Col>
                         <Col size="md-9">
