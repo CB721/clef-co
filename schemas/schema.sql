@@ -16,3 +16,7 @@ CREATE TABLE products
 );
 
 SELECT * FROM oxn711nfcpjgwcr2.products;
+SELECT * FROM oxn711nfcpjgwcr2.products WHERE id = 3;
+--  example queries for product filter
+SELECT * FROM oxn711nfcpjgwcr2.products WHERE instrument_type = "amp" OR instrument_type = "guitar" OR instrument_type = "bass";
+SELECT * FROM oxn711nfcpjgwcr2.products WHERE hardware = false;

@@ -45,6 +45,14 @@ class Shop extends Component {
             .catch(err => console.log("Error getting products: " + err))
 
     }
+    getFilteredProducts = () => {
+        const categories = this.state.selectedCategories;
+        API.getFilteredProducts(categories)
+            .then(res =>
+                console.log(res.data)
+            )
+            .catch(err => console.log(err))
+    }
     checkState() {
         const products = this.state.products;
         console.log(products);
@@ -112,18 +120,29 @@ class Shop extends Component {
     handleInputChange = (event) => {
         const name = event.target.name;
         const selectedCategories = this.state.selectedCategories;
+        const thisIsThis = this;
+        let updateCategories = function (clicked, newCategories) {
+            return new Promise(function (resolve, reject) {
+                resolve(
+                    thisIsThis.setState({
+                        [name]: clicked,
+                        selectedCategories: newCategories
+                    })
+                )
+            })
+        }
         if (selectedCategories.indexOf(name) >= 0) {
             const newSelectedCategories = selectedCategories.filter(category => category !== name);
-            this.setState({
-                [name]: false,
-                selectedCategories: newSelectedCategories
-            });
+            updateCategories(false, newSelectedCategories)
+                .then(function () {
+                    thisIsThis.getFilteredProducts();
+                });
         } else {
             const newSelectedCategories = selectedCategories.concat(name);
-            this.setState({
-                [name]: true,
-                selectedCategories: newSelectedCategories
-            });
+            updateCategories(true, newSelectedCategories)
+                .then(function () {
+                    thisIsThis.getFilteredProducts();
+                });
         }
     }
 

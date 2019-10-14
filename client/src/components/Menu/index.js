@@ -2,10 +2,16 @@ import React from 'react';
 import { Col, Row } from "../Grid";
 import Radio from '@material-ui/core/Radio';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import "./style.css";
 
 function ShopMenu(props) {
+    const theme = createMuiTheme({
+        palette: {
+            primary: { main: '#3E0768' }
+        },
+    });
     return (
         <div className="menu white">
             <Row>
@@ -41,11 +47,14 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="onSale"
-                                                    onClick={props.handleChange}
-                                                    checked={props.onSale}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="onSale"
+                                                        onClick={props.handleChange}
+                                                        checked={props.onSale}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -62,12 +71,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="bestsellers"
-                                                    value={props.bestsellers}
-                                                    onClick={props.handleChange}
-                                                    checked={props.bestsellers}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="bestsellers"
+                                                        value={props.bestsellers}
+                                                        onClick={props.handleChange}
+                                                        checked={props.bestsellers}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -110,12 +122,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="guitars"
-                                                    value={props.guitars}
-                                                    onClick={props.handleChange}
-                                                    checked={props.guitars}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="guitars"
+                                                        value={props.guitars}
+                                                        onClick={props.handleChange}
+                                                        checked={props.guitars}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -132,12 +147,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="microphones"
-                                                    value={props.microphones}
-                                                    onClick={props.handleChange}
-                                                    checked={props.microphones}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="microphones"
+                                                        value={props.microphones}
+                                                        onClick={props.handleChange}
+                                                        checked={props.microphones}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -154,12 +172,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="keyboards"
-                                                    value={props.keyboards}
-                                                    onClick={props.handleChange}
-                                                    checked={props.keyboards}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="keyboards"
+                                                        value={props.keyboards}
+                                                        onClick={props.handleChange}
+                                                        checked={props.keyboards}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -176,12 +197,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="bass"
-                                                    value={props.bass}
-                                                    onClick={props.handleChange}
-                                                    checked={props.bass}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="bass"
+                                                        value={props.bass}
+                                                        onClick={props.handleChange}
+                                                        checked={props.bass}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -198,12 +222,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="headphones"
-                                                    value={props.headphones}
-                                                    onClick={props.handleChange}
-                                                    checked={props.headphones}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="headphones"
+                                                        value={props.headphones}
+                                                        onClick={props.handleChange}
+                                                        checked={props.headphones}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -221,12 +248,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="drums"
-                                                    value={props.drums}
-                                                    onClick={props.handleChange}
-                                                    checked={props.drums}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="drums"
+                                                        value={props.drums}
+                                                        onClick={props.handleChange}
+                                                        checked={props.drums}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -243,12 +273,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="dj"
-                                                    value={props.dj}
-                                                    onClick={props.handleChange}
-                                                    checked={props.dj}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="dj"
+                                                        value={props.dj}
+                                                        onClick={props.handleChange}
+                                                        checked={props.dj}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -265,12 +298,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="recording"
-                                                    value={props.recording}
-                                                    onClick={props.handleChange}
-                                                    checked={props.recording}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="recording"
+                                                        value={props.recording}
+                                                        onClick={props.handleChange}
+                                                        checked={props.recording}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -314,12 +350,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="vocalists"
-                                                    value={props.vocalists}
-                                                    onClick={props.handleChange}
-                                                    checked={props.vocalists}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="vocalists"
+                                                        value={props.vocalists}
+                                                        onClick={props.handleChange}
+                                                        checked={props.vocalists}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -336,12 +375,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="synths"
-                                                    value={props.synths}
-                                                    onClick={props.handleChange}
-                                                    checked={props.synths}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="synths"
+                                                        value={props.synths}
+                                                        onClick={props.handleChange}
+                                                        checked={props.synths}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -358,12 +400,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="begineers"
-                                                    value={props.begineers}
-                                                    onClick={props.handleChange}
-                                                    checked={props.begineers}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="begineers"
+                                                        value={props.begineers}
+                                                        onClick={props.handleChange}
+                                                        checked={props.begineers}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -406,12 +451,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="hardware"
-                                                    value={props.hardware}
-                                                    onClick={props.handleChange}
-                                                    checked={props.hardware}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="hardware"
+                                                        value={props.hardware}
+                                                        onClick={props.handleChange}
+                                                        checked={props.hardware}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
@@ -428,12 +476,15 @@ function ShopMenu(props) {
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
-                                                <Radio 
-                                                    name="software"
-                                                    value={props.software}
-                                                    onClick={props.handleChange}
-                                                    checked={props.software}
-                                                />
+                                                <MuiThemeProvider theme={theme}>
+                                                    <Radio
+                                                        color="primary"
+                                                        name="software"
+                                                        value={props.software}
+                                                        onClick={props.handleChange}
+                                                        checked={props.software}
+                                                    />
+                                                </MuiThemeProvider>
                                             </Col>
                                         </Row>
                                     </div>
