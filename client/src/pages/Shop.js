@@ -21,7 +21,7 @@ class Shop extends Component {
         onSale: false,
         bestsellers: false,
         guitars: false,
-        microphones: false,
+        microphone: false,
         keyboards: false,
         bass: false,
         headphones: false,
@@ -121,6 +121,21 @@ class Shop extends Component {
         const name = event.target.name;
         const selectedCategories = this.state.selectedCategories;
         const thisIsThis = this;
+        if (selectedCategories.indexOf(name) >= 0) {
+            const newSelectedCategories = selectedCategories.filter(category => category !== name);
+            updateCategories(false, newSelectedCategories)
+                .then(function () {
+                    thisIsThis.getFilteredProducts();
+                })
+                .catch(err => console.log(err));
+        } else {
+            const newSelectedCategories = selectedCategories.concat(name);
+            updateCategories(true, newSelectedCategories)
+                .then(function () {
+                    thisIsThis.getFilteredProducts();
+                })
+                .catch(err => console.log(err));
+        }
         let updateCategories = function (clicked, newCategories) {
             return new Promise(function (resolve, reject) {
                 resolve(
@@ -130,19 +145,6 @@ class Shop extends Component {
                     })
                 )
             })
-        }
-        if (selectedCategories.indexOf(name) >= 0) {
-            const newSelectedCategories = selectedCategories.filter(category => category !== name);
-            updateCategories(false, newSelectedCategories)
-                .then(function () {
-                    thisIsThis.getFilteredProducts();
-                });
-        } else {
-            const newSelectedCategories = selectedCategories.concat(name);
-            updateCategories(true, newSelectedCategories)
-                .then(function () {
-                    thisIsThis.getFilteredProducts();
-                });
         }
     }
 
@@ -184,7 +186,7 @@ class Shop extends Component {
                                 onSale={this.state.onSale}
                                 bestsellers={this.state.bestsellers}
                                 guitars={this.state.guitars}
-                                microphones={this.state.microphones}
+                                microphone={this.state.microphone}
                                 keyboards={this.state.keyboards}
                                 bass={this.state.bass}
                                 headphones={this.state.headphones}

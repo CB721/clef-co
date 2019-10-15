@@ -18,7 +18,7 @@
     border-radius: 3%;
 }
 .menu {
-    background: rgb(62, 7, 104);
+    background-color: black;
     border-radius: 5%;
     -webkit-box-shadow: 0 1400px 2800px rgba(0, 0, 0, 0.632),0 10px 10px rgba(0, 0, 0, 0.632);
     box-shadow: 0 1400px 2800px rgba(0, 0, 0, 0.632),0 10px 10px rgba(0, 0, 0, 0.632);
@@ -34,15 +34,18 @@
 .content-expand {
     max-height: 100%;
     opacity: 1;
-    background: rgb(167, 66, 244);
+    
+}
+.category-header {
+    background: rgb(62, 7, 104);
 }
 .category-header:hover {
     animation-iteration-count: 1s;
-    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
-    box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
-    -moz-box-shadow: inset 0 0 10px #000000;
-    -webkit-box-shadow: inset 0 0 10px #000000;
-    box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: 0 4px 8px rgba(0,0,0,.25),0 5px 5px rgba(0,0,0,.22);
+    box-shadow: 0 4px 8px rgba(0,0,0,.25),0 5px 5px rgba(0,0,0,.22);
+    -moz-box-shadow: inset 0 0 10px #ffffff64;
+    -webkit-box-shadow: inset 0 0 10px #ffffff64;
+    box-shadow: inset 0 0 10px #ffffff64;
     -webkit-transition: .1s;
     -o-transition: .1s;
     transition: .1s;
@@ -62,12 +65,10 @@
     -webkit-transition: .1s;
     -o-transition: .1s;
     transition: .1s;
-    /* border-radius: 3%; */
-    /* border-top-right-radius: 5%;
-    border-bottom-right-radius: 5%; */
 }
 .menu-sub-category {
     padding-left: .5vh;
+    background: rgb(167, 66, 244);
 }
 .black-key-menu:hover {
     background: black;
@@ -83,4 +84,21 @@
     transition: .1s;
     border-top-right-radius: 5%;
     border-bottom-right-radius: 5%;
+}
+.menu-top {
+    border-top-right-radius: 75%;
+}
+.menu-bottom {
+    border-bottom-left-radius: 75%;
+}
+.radio-button:hover {
+    animation-iteration-count: 1s;
+    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
+    box-shadow: 0 14px 28px rgba(0,0,0,.25),0 10px 10px rgba(0,0,0,.22);
+    -moz-box-shadow: inset 0 0 10px #ffffff85;
+    -webkit-box-shadow: inset 0 0 10px #ffffff85;
+    box-shadow: inset 0 0 10px #ffffff85;
+    -webkit-transition: .1s;
+    -o-transition: .1s;
+    transition: .1s;
 }

@@ -16,7 +16,7 @@ function ShopMenu(props) {
         <div className="menu white">
             <Row>
                 <Col size="md-12">
-                    <div className="category-header" onClick={props.collapseFeatured}>
+                    <div className="category-header menu-top" onClick={props.collapseFeatured}>
                         <Row>
                             <Col size="md-9">
                                 <h4 className="white">
@@ -32,7 +32,7 @@ function ShopMenu(props) {
                     </div>
                 </Col>
             </Row>
-            <Divider orientation="horizontal" />
+                <Divider orientation="horizonal" />
             <Row classname={props.collapseFeaturedItems}>
                 <Col size="md-12">
                     {props.collapseFeaturedItems === "content-expand" ? (
@@ -60,7 +60,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -107,7 +107,7 @@ function ShopMenu(props) {
                     </div>
                 </Col>
             </Row>
-            <Divider orientation="horizontal" />
+            <Divider orientation="horizonal" />
             <Row className={props.collapseInstrumentItems}>
                 <Col size="md-12">
                     {props.collapseInstrumentItems === "content-expand" ? (
@@ -136,7 +136,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -150,10 +150,10 @@ function ShopMenu(props) {
                                                 <MuiThemeProvider theme={theme}>
                                                     <Radio
                                                         color="primary"
-                                                        name="microphones"
-                                                        value={props.microphones}
+                                                        name="microphone"
+                                                        value={props.microphone}
                                                         onClick={props.handleChange}
-                                                        checked={props.microphones}
+                                                        checked={props.microphone}
                                                     />
                                                 </MuiThemeProvider>
                                             </Col>
@@ -161,7 +161,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -186,7 +186,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -211,7 +211,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -237,14 +237,14 @@ function ShopMenu(props) {
                                 </Col>
 
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
                                         <Row>
                                             <Col size="md-8">
                                                 <h6>
-                                                    Drums & Drum Machines
+                                                    Drums
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
@@ -262,7 +262,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -287,7 +287,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -311,7 +311,7 @@ function ShopMenu(props) {
                                         </Row>
                                     </div>
                                 </Col>
-
+                                <Divider orientation="horizonal" />
                             </Row>
                         </div>
                     ) : (<div />)}
@@ -335,7 +335,7 @@ function ShopMenu(props) {
                     </div>
                 </Col>
             </Row>
-            <Divider orientation="horizontal" />
+            <Divider orientation="horizonal" />
             <Row className={props.collapseBundleItems}>
                 <Col size="md-12">
                     {props.collapseBundleItems === "content-expand" ? (
@@ -364,7 +364,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -389,7 +389,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
@@ -420,7 +420,7 @@ function ShopMenu(props) {
             </Row>
             <Row>
                 <Col size="md-12">
-                    <div className="category-header" onClick={props.collapseTypes}>
+                    <div className="category-header menu-bottom" onClick={props.collapseTypes}>
                         <Row>
                             <Col size="md-9">
                                 <h4 className="white">
@@ -436,7 +436,7 @@ function ShopMenu(props) {
                     </div>
                 </Col>
             </Row>
-            <Divider orientation="horizontal" />
+            <Divider orientation="horizonal" />
             <Row>
                 <Col size="md-12">
                     {props.collapseTypeItems === "content-expand" ? (
@@ -465,7 +465,7 @@ function ShopMenu(props) {
                                     </div>
                                 </Col>
                             </Row>
-                            <Divider orientation="horizontal" />
+                            <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
                                     <div className="menu-sub-category">
