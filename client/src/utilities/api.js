@@ -6,7 +6,6 @@ export default {
     },
     getFilteredProducts: function (categories) {
         const categoryStr = categories.join("&");
-        console.log(categoryStr);
-        return axios.get("/api/search/filter/", categoryStr);
+        return axios.get("/api/search/filter/" + categoryStr);
     }
 }

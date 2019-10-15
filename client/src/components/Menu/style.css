@@ -26,6 +26,7 @@
     -webkit-box-shadow: 0 0 10px #000000;
     box-shadow: 0 0 10px #000000;
     margin-top: 10%;
+    margin-left: 10%;
 }
 .content-collapse {
     height: 0px;
@@ -87,9 +88,11 @@
 }
 .menu-top {
     border-top-right-radius: 75%;
+    border-top-left-radius: 75%;
 }
 .menu-bottom {
     border-bottom-left-radius: 75%;
+    border-bottom-right-radius: 75%;
 }
 .radio-button:hover {
     animation-iteration-count: 1s;

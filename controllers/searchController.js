@@ -2,6 +2,7 @@ const db = require("../connection/connection");
 
 module.exports = {
     getFilteredProducts: function (req, res) {
+        console.log("Search query " + req.params.categories);
         let queryStr = "SELECT * FROM oxn711nfcpjgwcr2.products";
         let queryFilter = " WHERE ";
         const queryCategories = [];

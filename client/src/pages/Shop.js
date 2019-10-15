@@ -47,11 +47,15 @@ class Shop extends Component {
     }
     getFilteredProducts = () => {
         const categories = this.state.selectedCategories;
-        API.getFilteredProducts(categories)
+        if (categories.length > 0) {
+            API.getFilteredProducts(categories)
             .then(res =>
-                console.log(res.data)
+                this.setState({ products: res.data.results })
             )
             .catch(err => console.log(err))
+        } else {
+            this.getProducts();
+        }
     }
     checkState() {
         const products = this.state.products;
@@ -121,6 +125,16 @@ class Shop extends Component {
         const name = event.target.name;
         const selectedCategories = this.state.selectedCategories;
         const thisIsThis = this;
+        let updateCategories = function (clicked, newCategories) {
+            return new Promise(function (resolve, reject) {
+                resolve(
+                    thisIsThis.setState({
+                        [name]: clicked,
+                        selectedCategories: newCategories
+                    })
+                )
+            })
+        }
         if (selectedCategories.indexOf(name) >= 0) {
             const newSelectedCategories = selectedCategories.filter(category => category !== name);
             updateCategories(false, newSelectedCategories)
@@ -135,16 +149,6 @@ class Shop extends Component {
                     thisIsThis.getFilteredProducts();
                 })
                 .catch(err => console.log(err));
-        }
-        let updateCategories = function (clicked, newCategories) {
-            return new Promise(function (resolve, reject) {
-                resolve(
-                    thisIsThis.setState({
-                        [name]: clicked,
-                        selectedCategories: newCategories
-                    })
-                )
-            })
         }
     }
 
