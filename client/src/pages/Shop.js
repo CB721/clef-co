@@ -43,7 +43,6 @@ class Shop extends Component {
                 this.setState({ products: res.data.results })
             )
             .catch(err => console.log("Error getting products: " + err))
-
     }
     getFilteredProducts = () => {
         const categories = this.state.selectedCategories;
