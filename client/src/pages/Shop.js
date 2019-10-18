@@ -30,7 +30,7 @@ class Shop extends Component {
         recording: false,
         vocalists: false,
         synths: false,
-        begineers: false,
+        beginners: false,
         hardware: false,
         software: false,
     }
@@ -199,7 +199,7 @@ class Shop extends Component {
                                 recording={this.state.recording}
                                 vocalists={this.state.vocalists}
                                 synths={this.state.synths}
-                                begineers={this.state.begineers}
+                                beginners={this.state.beginners}
                                 hardware={this.state.hardware}
                                 software={this.state.software}
                                 handleChange={this.handleInputChange}

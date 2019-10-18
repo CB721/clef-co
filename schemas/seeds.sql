@@ -22,7 +22,7 @@ VALUES
         TRUE,
         FALSE
         );
-        
+
 INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,

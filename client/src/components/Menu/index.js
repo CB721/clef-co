@@ -396,17 +396,17 @@ function ShopMenu(props) {
                                         <Row>
                                             <Col size="md-8">
                                                 <h6>
-                                                    Begineers
+                                                    beginners
                                                 </h6>
                                             </Col>
                                             <Col size="md-4">
                                                 <MuiThemeProvider theme={theme}>
                                                     <Radio
                                                         color="primary"
-                                                        name="begineers"
-                                                        value={props.begineers}
+                                                        name="beginners"
+                                                        value={props.beginners}
                                                         onClick={props.handleChange}
-                                                        checked={props.begineers}
+                                                        checked={props.beginners}
                                                     />
                                                 </MuiThemeProvider>
                                             </Col>

@@ -2,7 +2,6 @@ const db = require("../connection/connection");
 
 module.exports = {
     getFilteredProducts: function (req, res) {
-        console.log("Search query " + req.params.categories);
         let queryStr = "SELECT * FROM oxn711nfcpjgwcr2.products";
         let queryFilter = " WHERE ";
         const queryCategories = [];
@@ -39,7 +38,7 @@ module.exports = {
                     console.log(cat[i] + " is a bundle");
                 } else if (cat[i] === "synths") {
                     console.log(cat[i] + " is a bundle");
-                } else if (cat[i] === "begineers") {
+                } else if (cat[i] === "beginners") {
                     console.log(cat[i] + " is a bundle");
                 } else if (cat[i] === "hardware") {
                     console.log(cat[i] + " selected")
