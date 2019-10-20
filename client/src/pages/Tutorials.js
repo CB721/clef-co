@@ -16,9 +16,9 @@ class Tutorials extends Component {
                             <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Learn" id="search-top-image"></img>
                         </Col>
                         <Col size="md-12">
-                            <h5 className="purple f-top-pad">
+                            <h1 className="purple f-top-pad">
                                 Tutorial Videos
-                            </h5>
+                            </h1>
                         </Col>
                     </Row>
                     <div className="tutorial-videos">

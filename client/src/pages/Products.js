@@ -3,7 +3,6 @@ import { Col, Row, Container } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
 import Bundle from "../components/Bundle";
-import Card from "../components/Card";
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
@@ -33,7 +32,7 @@ class Products extends Component {
                     <Row>
                         <Col size="md-6">
                             <h1 className="purple q-top-pad">
-                                All Products
+                                Products
                             </h1>
                         </Col>
                         <Col size="md-6">
@@ -151,107 +150,13 @@ class Products extends Component {
                             </div>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col size="md-12">
-                            <h3 className="purple f-top-pad center">
-                                All Products
-                            </h3>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-1" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                                imageTitle="Headphones"
-                                cardTitle="Headphones"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                        <Col size="md-2" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1492879291357-620e858bd26a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
-                                imageTitle="Microphone"
-                                cardTitle="Microphone"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                        <Col size="md-2" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                imageTitle="Guitar Amp"
-                                cardTitle="Guitar Amp"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-1" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                                imageTitle="Headphones"
-                                cardTitle="Headphones"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                        <Col size="md-2" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1492879291357-620e858bd26a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
-                                imageTitle="Microphone"
-                                cardTitle="Microphone"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                        <Col size="md-2" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                imageTitle="Guitar Amp"
-                                cardTitle="Guitar Amp"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-1" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1491927570842-0261e477d937?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                                imageTitle="Headphones"
-                                cardTitle="Headphones"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                        <Col size="md-2" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1492879291357-620e858bd26a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
-                                imageTitle="Microphone"
-                                cardTitle="Microphone"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                        <Col size="md-2" />
-                        <Col size="md-2">
-                            <Card
-                                image="https://images.unsplash.com/photo-1507245921392-e902673ca772?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                imageTitle="Guitar Amp"
-                                cardTitle="Guitar Amp"
-                                cardDescription="Contrary to popular belief, Lorem Ipsum is not simply random text."
-                            />
-                        </Col>
-                    </Row>
                     <div className="company-section">
                         <Row>
                             <Col size="md-12">
                                 <Row>
                                     <Col size="md-1" />
                                     <Col size="md-2">
-                                        <h3 className="white f-top-pad center">
+                                        <h3 className="white f-top-pad center section-headers">
                                             Contact Us
                                         </h3>
                                         <h6 className="white">

@@ -16,9 +16,7 @@ class App extends Component {
   render() {
     return (
         <Router>
-          <div>
             <Navbar />
-            <div className="main-area-margins">
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/products" component={Products} />
@@ -28,9 +26,7 @@ class App extends Component {
                 <Route exact path="/search" component={Search} />
                 <Route exact path="/cart" component={Cart} />
               </Switch>
-            </div>
             <Footer />
-          </div>
         </Router>
     );
   }

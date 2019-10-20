@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import { Textfit } from 'react-textfit';
 import "./style.css";
 
 function ProductCard(props) {
@@ -19,12 +19,22 @@ function ProductCard(props) {
                         title={props.imageTitle}
                     />
                     <CardContent>
-                        <Typography gutterBottom variant="h5" className="purple" component="h2">
+                    <Textfit
+                            mode="single"
+                            className="purple product-title"
+                            min={10}
+                            max={20}
+                        >
                             {props.cardTitle}
-                        </Typography>
-                        <Typography variant="body2" className="purple" component="h6">
+                        </Textfit>
+                        <Textfit
+                            mode="multi"
+                            className="purple product-title"
+                            min={6}
+                            max={9}
+                        >
                             {props.cardDescription}
-                        </Typography>
+                        </Textfit>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>

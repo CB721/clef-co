@@ -35,7 +35,7 @@ class Contact extends Component {
                         <Col size="md-2" />
                         <Col size="md-8">
                             <h1 className="purple q-top-pad">
-                                Submit a request
+                                Contact us
                             </h1>
                         </Col>
                     </Row>
