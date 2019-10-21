@@ -48,10 +48,10 @@ class Shop extends Component {
         const categories = this.state.selectedCategories;
         if (categories.length > 0) {
             API.getFilteredProducts(categories)
-            .then(res =>
-                this.setState({ products: res.data.results })
-            )
-            .catch(err => console.log(err))
+                .then(res =>
+                    this.setState({ products: res.data.results })
+                )
+                .catch(err => console.log(err))
         } else {
             this.getProducts();
         }
@@ -156,80 +156,92 @@ class Shop extends Component {
         return (
             <div>
                 <Container fluid>
-                    <div className="company-section">
-                        <Row>
-                            <Col size="md-6">
-                                <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
-                            </Col>
-                            <Col size="md-6">
-                                <h1 className="white q-top-pad">
-                                    Current special on our product!
-                            </h1>
-                                <h6 className="white">
-                                    Morbi tincidunt risus sit amet varius tempus. Nullam ac felis augue. Aliquam euismod lobortis metus, sit amet aliquam diam pulvinar vel. Quisque viverra consequat mi.
-                            </h6>
-                            </Col>
-                        </Row>
-                    </div>
                     <Row>
-                        <Col size="md-2">
-                            <Menu
-                                collapseFeatured={this.expandFeatured()}
-                                featuredClass={this.state.featuredMenu}
-                                collapseFeaturedItems={this.state.featuredItems}
-                                collapseInsturments={this.expandInstruments()}
-                                instrumentClass={this.state.instrumentsMenu}
-                                collapseInstrumentItems={this.state.instrumentItems}
-                                collapseBundles={this.expandBundles()}
-                                bundleClass={this.state.bundlesMenu}
-                                collapseBundleItems={this.state.bundleItems}
-                                collapseTypes={this.expandType()}
-                                typeClass={this.state.typeMenu}
-                                collapseTypeItems={this.state.typeItems}
-                                onSale={this.state.onSale}
-                                bestsellers={this.state.bestsellers}
-                                guitars={this.state.guitars}
-                                microphone={this.state.microphone}
-                                keyboards={this.state.keyboards}
-                                bass={this.state.bass}
-                                headphones={this.state.headphones}
-                                drums={this.state.drums}
-                                dj={this.state.dj}
-                                recording={this.state.recording}
-                                vocalists={this.state.vocalists}
-                                synths={this.state.synths}
-                                beginners={this.state.beginners}
-                                hardware={this.state.hardware}
-                                software={this.state.software}
-                                handleChange={this.handleInputChange}
-                            />
-                        </Col>
-                        <Col size="md-9">
-                            <Row>
-                                {this.state.products.map(product => (
-                                    <Col
-                                        size="md-3"
-                                        key={product.id}
-                                    >
-                                        <Product
-                                            key={product.id}
-                                            image={product.image_link}
-                                            imageTitle={product.product_name}
-                                            cardTitle={product.product_name}
-                                            cardDescription={product.product_description.slice(0, 65) + "..."}
-                                            price={product.price}
-                                            button={<Button
-                                                key={product.id}
-                                                buttonClass="explore"
-                                                text="Add to cart"
-                                            />}
-                                        />
+                        <Col size="md-12">
+                            <div className="company-section">
+                                <Row>
+                                    <Col size="md-6">
+                                        <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
                                     </Col>
-                                ))}
-                            </Row>
+                                    <Col size="md-6">
+                                        <h1 className="white q-top-pad">
+                                            Current special on our product!
+                                        </h1>
+                                        <h6 className="white">
+                                            Morbi tincidunt risus sit amet varius tempus. Nullam ac felis augue. Aliquam euismod lobortis metus, sit amet aliquam diam pulvinar vel. Quisque viverra consequat mi.
+                                        </h6>
+                                    </Col>
+                                </Row>
+                            </div>
                         </Col>
                     </Row>
 
+                    <Row>
+                        <Col size="md-12">
+                            <div className="all-products">
+                                <Row>
+                                    <Col size="md-2">
+                                        <Menu
+                                            collapseFeatured={this.expandFeatured()}
+                                            featuredClass={this.state.featuredMenu}
+                                            collapseFeaturedItems={this.state.featuredItems}
+                                            collapseInsturments={this.expandInstruments()}
+                                            instrumentClass={this.state.instrumentsMenu}
+                                            collapseInstrumentItems={this.state.instrumentItems}
+                                            collapseBundles={this.expandBundles()}
+                                            bundleClass={this.state.bundlesMenu}
+                                            collapseBundleItems={this.state.bundleItems}
+                                            collapseTypes={this.expandType()}
+                                            typeClass={this.state.typeMenu}
+                                            collapseTypeItems={this.state.typeItems}
+                                            onSale={this.state.onSale}
+                                            bestsellers={this.state.bestsellers}
+                                            guitars={this.state.guitars}
+                                            microphone={this.state.microphone}
+                                            keyboards={this.state.keyboards}
+                                            bass={this.state.bass}
+                                            headphones={this.state.headphones}
+                                            drums={this.state.drums}
+                                            dj={this.state.dj}
+                                            recording={this.state.recording}
+                                            vocalists={this.state.vocalists}
+                                            synths={this.state.synths}
+                                            beginners={this.state.beginners}
+                                            hardware={this.state.hardware}
+                                            software={this.state.software}
+                                            handleChange={this.handleInputChange}
+                                        />
+                                    </Col>
+                                    {this.state.products.length > 0 ? (
+                                        <Col size="md-9">
+                                            <Row>
+                                                {this.state.products.map(product => (
+                                                    <Col
+                                                        size="md-3"
+                                                        key={product.id}
+                                                    >
+                                                        <Product
+                                                            key={product.id}
+                                                            image={product.image_link}
+                                                            imageTitle={product.product_name}
+                                                            cardTitle={product.product_name}
+                                                            cardDescription={product.product_description.slice(0, 65) + "..."}
+                                                            price={product.price}
+                                                            button={<Button
+                                                                key={product.id}
+                                                                buttonClass="explore"
+                                                                text="Add to cart"
+                                                            />}
+                                                        />
+                                                    </Col>
+                                                ))}
+                                            </Row>
+                                        </Col>
+                                    ) : (<div />)}
+                                </Row>
+                            </div>
+                        </Col>
+                    </Row>
                 </Container>
             </div>
         )

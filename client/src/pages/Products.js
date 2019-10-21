@@ -6,11 +6,15 @@ import Bundle from "../components/Bundle";
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 class Products extends Component {
     state = {
-
+        products: [],
+    }
+    componentDidMount() {
+        this.getProducts();
     }
     goToSupport() {
         window.location.href = "/contact";
@@ -24,64 +28,95 @@ class Products extends Component {
     goToShop() {
         window.location.href = "/shop";
     }
+    getProducts = () => {
+        API.getAllProducts()
+            .then(res =>
+                this.setState({ products: res.data.results })
+            )
+            .catch(err => console.log("Error getting products: " + err));
+    }
 
     render() {
         return (
             <div>
                 <Container fluid>
                     <Row>
-                        <Col size="md-6">
-                            <h1 className="purple q-top-pad">
-                                Products
-                            </h1>
-                        </Col>
-                        <Col size="md-6">
-                            <p className="purple q-top-pad">
-                                Browse our collection of state-of-the-art music equipment and software plugins.
-                            </p>
+                        <Col size="md-12">
+                            <Row>
+                                <Col size="md-6">
+                                    <h1 className="purple q-top-pad">
+                                        Products
+                                    </h1>
+                                </Col>
+                                <Col size="md-6">
+                                    <p className="purple q-top-pad">
+                                        Browse our collection of state-of-the-art music equipment and software plugins.
+                                    </p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
-                    <div className="current-highlighted-product-section">
-                        <Row>
-                            <Col size="md-1" />
-                            <Col size="md-4">
-                                <h6 className="white">
-                                    New and on Sale!
-                                </h6>
-                                <h3 className="white f-top-pad center">
-                                    Erzetich Headphone Amp
-                                </h3>
-                                <span className="white">
-                                    Integer sollicitudin turpis ligula, eget convallis metus tincidunt a. Morbi ut turpis dapibus, volutpat lectus et, consectetur lectus. Sed maximus dui quis odio blandit ultrices. Nulla imperdiet malesuada ante, nec sollicitudin metus molestie vitae. Proin sed imperdiet dui, in aliquam purus.
-                                </span>
-                                <Row>
-                                    <Col size="md-1" />
-                                    <Col size="md-1">
-                                        <Button
-                                            buttonClass="explore"
-                                            text="Explore"
-                                        />
-                                    </Col>
-                                    <Col size="md-4" />
-                                    <Col size="md-1">
-                                        <Button
-                                            buttonClass="shop-now"
-                                            text="Shop Now"
-                                            action={this.goToShop}
-                                        />
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col size="md-7">
-                                <a href="/products">
-                                    <img src="https://images.unsplash.com/photo-1560917473-a92132ff01fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2025&q=80" alt="Erzetich Headphone Amp" ></img>
-                                </a>
-                            </Col>
-                        </Row>
-                    </div>
+
                     <Row>
                         <Col size="md-12">
-                            <h3 className="purple f-top-pad center">
+                            <div className="">
+                                <h3 className="purple center-text">
+                                    Newest arrival!
+                                </h3>
+                            </div>
+
+                        </Col>
+                        <Col size="md-12">
+                            <div className="current-highlighted-product-section">
+                                {/* replace with most recently added product when configured */}
+                                {this.state.products.length > 0 ? (
+                                    <Row>
+                                        <Col size="md-4">
+                                            <Row>
+                                                <Col size="md-12">
+                                                    <h3 className="white">
+                                                        {this.state.products[10].product_name}
+                                                    </h3>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col size="md-12">
+                                                    <span className="white">
+                                                        {this.state.products[10].product_description}
+                                                    </span>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col size="md-1" />
+                                                <Col size="md-1">
+                                                    <Button
+                                                        buttonClass="explore"
+                                                        text="Explore"
+                                                    />
+                                                </Col>
+                                                <Col size="md-4" />
+                                                <Col size="md-1">
+                                                    <Button
+                                                        buttonClass="shop-now"
+                                                        text="Shop Now"
+                                                        action={this.goToShop}
+                                                    />
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                        <Col size="md-8">
+                                            <a href="/products">
+                                                <img src={this.state.products[10].image_link} alt={this.state.products[10].product_name} id="current-promo-image"></img>
+                                            </a>
+                                        </Col>
+                                    </Row>
+                                ) : (<div />)}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="md-12">
+                            <h3 className="purple f-top-pad">
                                 Purchase our product bundles
                             </h3>
                         </Col>

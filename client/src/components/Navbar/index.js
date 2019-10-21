@@ -7,7 +7,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AlbumIconOutlinedIcon from '@material-ui/icons/AlbumOutlined';
 import "./style.css";
 
-function Navbar() {
+function Navbar(props) {
     function CheckCart() {
         window.location.href = "/cart";
     }
@@ -19,7 +19,7 @@ function Navbar() {
         <Container fluid>
             <Row>
                 <Col size="md-12">
-                    <header className="head-bar">
+                    <header className={props.visibility}>
                         <div className="header-wrapper">
                             <Row>
                                 <Col size="md-12">

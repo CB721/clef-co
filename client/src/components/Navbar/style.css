@@ -26,6 +26,53 @@
     z-index: 99;
     white-space: nowrap;
   }
+  .invisibility-cloak {
+    opacity: 0;
+  }
+  .invisibility-cloak:hover {
+    animation: reveal 0.2s forwards;
+  }
+  .disillusionment-charm {
+    animation: reveal 0.2s backwards;
+  }
+  .disillusionment-charm:hover {
+    animation: reveal 0.2s forwards;
+  }
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.1;
+    }
+    20% {
+      opacity: 0.2;
+    }
+    30% {
+      opacity: 0.3;
+    }
+    40% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    60%{
+      opacity: 0.6;
+    }
+    70%{
+      opacity: 0.7;
+    }
+    80%{
+      opacity: 0.8;
+    }
+    90%{
+      opacity: 0.9;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
   /* .head-bar:hover {
     background-image:  linear-gradient(to bottom ,#120129,	rgb(29, 3, 84), rgb(62, 7, 104), rgb(108, 28, 187), rgb(167, 66, 244), rgb(246, 185, 255));
     -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.2), 0 10px 10px rgba(0, 0, 0, 0.22);

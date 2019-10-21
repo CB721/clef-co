@@ -15,6 +15,10 @@ h1 {
 .f-top-pad {
     padding-top: 5%;
 }
+#current-promo-image {
+    height: 75vh;
+    width: 100%;
+}
 h2 {
     font-weight: bolder;
     text-align: center;
@@ -49,6 +53,12 @@ h3 {
     justify-content: center;
     vertical-align: middle;
     position: absolute;
+}
+.center-text {
+    text-align: center;
+}
+.center-div {
+    padding-left: 50%;
 }
 h5 {
     font-weight: bolder;
@@ -317,7 +327,7 @@ span {
 }
 .current-highlighted-product-section {
     background: rgb(62, 7, 104);
-    padding: 2rem;
+    height: 100%;
 }
 .so-bold {
     font-weight: 900;
@@ -354,6 +364,9 @@ span {
 }
 .bottom-pad-f {
     margin-bottom: 20%;
+}
+.all-products {
+    margin-bottom: 5%;
 }
 .text-grow {
     color: rgba(62, 7, 104, 0);

@@ -12,6 +12,7 @@ class Home extends Component {
         productTwo: [],
         highlightProducts: "home-promo-image",
         topProducts: "black padding-top-bottom",
+        scrollDirection: 0,
         honeyUL: "",
         honeyLI: ""
     }
@@ -54,17 +55,22 @@ class Home extends Component {
         }
     }
     scrollEvent = () => {
-        console.log(window.scrollY);
-        if (window.scrollY < 200) {
+        const direction = this.state.scrollDirection - window.scrollY;
+        this.setState({
+            scrollDirection: window.scrollY
+        });
+        // if direction is negative, user is scrolling down, positive, scrolling up
+        console.log(direction);
+        if (window.scrollY < 175) {
             this.setState({ highlightProducts: "home-promo-image" });
         }
-        if (window.scrollY > 200 && window.scrollY < 900) {
+        if (window.scrollY > 200 && window.scrollY < 900 && direction < 0) {
             this.setState({
                 highlightProducts: "image-grow home-promo-image",
                 topProducts: "black padding-top-bottom"
             });
         }
-        if (window.scrollX > 900 && window.scrollY < 1096) {
+        if (window.scrollX > 900 && window.scrollY < 1096 & direction < 0) {
             this.setState({
                 topProducts: "black padding-top-bottom text-grow"
             });
@@ -84,7 +90,7 @@ class Home extends Component {
                             }}
                             src={videoBG}>
                         </video>
-                        <h1 className="white t-top-pad center middle video-text-overlay">
+                        <h1 className="white center middle video-text-overlay">
                             Demo Company
                         </h1>
                     </Col>
@@ -122,6 +128,7 @@ class Home extends Component {
                                     </h2>
                                 </Col>
                             </Row>
+                            {/* change to top selling products once configured */}
                             {this.state.products.length > 5 ? (
                                 <Row>
                                     <Col size="md-4" />

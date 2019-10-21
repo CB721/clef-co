@@ -13,10 +13,36 @@ import './App.css';
 
 
 class App extends Component {
+  state = {
+    scrollDirection: 0,
+    direction: "head-bar invisibility-cloak"
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", this.scrollEvent)
+}
+scrollEvent = () => {
+  const direction = this.state.scrollDirection - window.scrollY;
+  this.setState({
+      scrollDirection: window.scrollY
+  });
+  if (direction >= 0) {
+    this.setState({
+      direction: "head-bar invisibility-cloak"
+    })
+  }
+  if (direction < 0) {
+    this.setState({
+      direction: "head-bar disillusionment-charm"
+    })
+  }
+}
+
   render() {
     return (
         <Router>
-            <Navbar />
+            <Navbar 
+              visibility={this.state.direction}
+            />
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/products" component={Products} />

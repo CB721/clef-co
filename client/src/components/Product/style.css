@@ -1,9 +1,13 @@
 .product-card {
     height: 43vh;
+    margin-top: 10%;
 }
 .product-description {
     overflow: hidden;
     padding: 1vh;
+}
+.product-image {
+    height: 20vh;
 }
 .product-image:hover {
     animation-iteration-count: 1s;
