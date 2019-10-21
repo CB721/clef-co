@@ -1,9 +1,22 @@
 .bundle-image {
     height: 300px;
     width: 100%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
 }
 .bundle {
-    height: 550px;
+    height: 75vh;
     background: white;
-    box-shadow: 2px 4px #e8d7f9;
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+    border-radius: 25%;
+}
+.bundle-text {
+    padding: 7px;
+    padding-left: 1%;
+    text-align: center;
+}
+.center-bundle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

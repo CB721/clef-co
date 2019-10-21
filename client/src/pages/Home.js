@@ -61,10 +61,10 @@ class Home extends Component {
         });
         // if direction is negative, user is scrolling down, positive, scrolling up
         console.log(direction);
-        if (window.scrollY < 175) {
+        if (window.scrollY < 75) {
             this.setState({ highlightProducts: "home-promo-image" });
         }
-        if (window.scrollY > 200 && window.scrollY < 900 && direction < 0) {
+        if (window.scrollY > 75 && window.scrollY < 900 && direction < 0) {
             this.setState({
                 highlightProducts: "image-grow home-promo-image",
                 topProducts: "black padding-top-bottom"
@@ -82,7 +82,7 @@ class Home extends Component {
             <Container fluid >
                 <Row>
                     <Col size="md-12">
-                        <video className="video-background" loop autoPlay playsInline muted
+                        <video className="video-background add-shadow" loop autoPlay playsInline muted
                             style={{
                                 objectFit: 'cover',
                                 width: '100%',
@@ -97,29 +97,31 @@ class Home extends Component {
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <Row>
-                            <Col size="md-6">
-                                <div className="home-item-one">
-                                    <img className={this.state.highlightProducts} src={this.state.productOne.image_link} alt={this.state.productOne.product_name}></img>
-                                    <h3 className="white f-top-pad center middle hover-title">
-                                        {this.state.productOne.product_name}
-                                    </h3>
-                                </div>
-                            </Col>
-                            <Col size="md-6">
-                                <div className="home-item-two">
-                                    <img className={this.state.highlightProducts} src={this.state.productTwo.image_link} alt={this.state.productTwo.product_name}></img>
-                                    <h3 className="white f-top-pad center middle hover-title">
-                                        {this.state.productTwo.product_name}
-                                    </h3>
-                                </div>
-                            </Col>
-                        </Row>
+                        <div className="black">
+                            <Row>
+                                <Col size="md-6">
+                                    <div className="home-item-one add-shadow">
+                                        <img className={this.state.highlightProducts} src={this.state.productOne.image_link} alt={this.state.productOne.product_name}></img>
+                                        <h3 className="white f-top-pad center middle hover-title">
+                                            {this.state.productOne.product_name}
+                                        </h3>
+                                    </div>
+                                </Col>
+                                <Col size="md-6">
+                                    <div className="home-item-two add-shadow ">
+                                        <img className={this.state.highlightProducts} src={this.state.productTwo.image_link} alt={this.state.productTwo.product_name}></img>
+                                        <h3 className="white f-top-pad center middle hover-title">
+                                            {this.state.productTwo.product_name}
+                                        </h3>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <div className="black padding-top-bottom text-grow" id="top-products-section">
+                        <div className="black-purple padding-top-bottom t-top-margin text-grow" id="top-products-section">
                             <Row>
                                 <Col size="md-4" />
                                 <Col size="md-4">
@@ -162,63 +164,64 @@ class Home extends Component {
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <div className="purple-background">
-                            <Row>
+                    <div className="purple-background t-top-margin add-shadow">
+                        <Row>
+                            
                                 <Col size="md-12">
-
                                     <h2 className="white f-top-pad padding-bottom">
                                         What the Experts are Saying
                                     </h2>
                                 </Col>
-                            </Row>
-                            <Row>
-                                <Col size="md-12">
-                                    <div className="review-section">
-                                        <Row>
-                                            <Col size="md-4" />
-                                            <Col size="md-4">
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col size="md-1" />
-                                            <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
-                                                    reviewerName="Bruce Wayne"
-                                                    review="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
-                                                />
-                                            </Col>
-                                            <Col size="md-2" />
-                                            <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
-                                                    reviewerName="Tony Stark"
-                                                    review="All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
-                                                />
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col size="md-1" />
-                                            <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1525954322486-aa196091220f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                                                    reviewerName="Harry Potter"
-                                                    review="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                                                />
-                                            </Col>
-                                            <Col size="md-2" />
-                                            <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1454024183771-42d54053cd75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                                    reviewerName="Harley Quinn"
-                                                    review="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
-                                                />
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                </Col>
-                            </Row>
+                            
+                        </Row>
                         </div>
+                        <Row>
+                            <Col size="md-12">
+                                <div className="review-section">
+                                    <Row>
+                                        <Col size="md-4" />
+                                        <Col size="md-4">
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col size="md-1" />
+                                        <Col size="md-4">
+                                            <Review
+                                                reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
+                                                reviewerName="Bruce Wayne"
+                                                review="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+                                            />
+                                        </Col>
+                                        <Col size="md-2" />
+                                        <Col size="md-4">
+                                            <Review
+                                                reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
+                                                reviewerName="Tony Stark"
+                                                review="All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
+                                            />
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col size="md-1" />
+                                        <Col size="md-4">
+                                            <Review
+                                                reviewerImage="https://images.unsplash.com/photo-1525954322486-aa196091220f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                                                reviewerName="Harry Potter"
+                                                review="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                                            />
+                                        </Col>
+                                        <Col size="md-2" />
+                                        <Col size="md-4">
+                                            <Review
+                                                reviewerImage="https://images.unsplash.com/photo-1454024183771-42d54053cd75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                reviewerName="Harley Quinn"
+                                                review="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+                                            />
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
             </Container>

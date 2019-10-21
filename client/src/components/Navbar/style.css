@@ -73,11 +73,6 @@
       opacity: 1;
     }
   }
-  /* .head-bar:hover {
-    background-image:  linear-gradient(to bottom ,#120129,	rgb(29, 3, 84), rgb(62, 7, 104), rgb(108, 28, 187), rgb(167, 66, 244), rgb(246, 185, 255));
-    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.2), 0 10px 10px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
-  } */
   .header-wrapper {
     display: flex;
     align-items: center;

@@ -15,7 +15,7 @@ h1 {
 .f-top-pad {
     padding-top: 5%;
 }
-#current-promo-image {
+.current-promo-image {
     height: 75vh;
     width: 100%;
 }
@@ -41,7 +41,7 @@ h3 {
     float: left;
 }
 .section-headers {
-    margin: 5%;
+    padding-top: 5%;
 }
 .middle {
     top: 50%;
@@ -53,6 +53,11 @@ h3 {
     justify-content: center;
     vertical-align: middle;
     position: absolute;
+}
+.center-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .center-text {
     text-align: center;
@@ -294,10 +299,13 @@ h6 {
 }
 .review-section {
     width: 100%;
-    padding: 3%;
-    background-image: url("https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+    /* padding: 3%; */
+    /* background-image: url("https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+}
+.q-top-pad {
+    padding-top: 25%;
 }
 img {
     max-width:100%;
@@ -335,11 +343,19 @@ span {
 .secondary-highlighted-product {
     background: #090A05;
     margin-top: 50px;
+    margin-bottom: 5%;
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 .social-media {
     background: rgb(62, 7, 104);
     margin-top: 50px;
     padding-bottom: 10px;
+}
+.t-top-margin {
+    margin-top: 10%;
+}
+.add-shadow {
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 .padding-top-bottom {
     padding-top: 25%;
@@ -349,6 +365,8 @@ span {
     padding-bottom: 7vh;
 }
 .company-section {
+    min-height: 40vh;
+    max-height: 150vh;
     align-items: center;
     justify-content: flex-end;
     background: rgb(62, 7, 104);
@@ -476,10 +494,20 @@ span {
 }
 .purple-background {
     background: rgb(62, 7, 104);
+    padding: 5%;
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
-.black {
+.black-purple {
     background: rgb(0,0,0);
     background: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(62,7,104,1) 50%, rgba(0,0,0,1) 60%);
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+}
+.black-background {
+    background: black;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 5%;
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 #search-top-image {
     height: 550px;

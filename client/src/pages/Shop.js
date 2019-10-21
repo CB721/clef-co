@@ -167,9 +167,9 @@ class Shop extends Component {
                                         <h1 className="white q-top-pad">
                                             Current special on our product!
                                         </h1>
-                                        <h6 className="white">
+                                        <span className="white">
                                             Morbi tincidunt risus sit amet varius tempus. Nullam ac felis augue. Aliquam euismod lobortis metus, sit amet aliquam diam pulvinar vel. Quisque viverra consequat mi.
-                                        </h6>
+                                        </span>
                                     </Col>
                                 </Row>
                             </div>

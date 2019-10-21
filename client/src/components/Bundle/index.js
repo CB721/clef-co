@@ -1,27 +1,43 @@
 import React from "react";
 import { Col, Row } from "../Grid";
+import { Textfit } from 'react-textfit';
 import "./style.css";
 
 function Bundle(props) {
     return (
-        <div className="bundle purple">
-            <img src={props.bundleImage} alt={props.bundleTitle} className="bundle-image"></img>
-            <div>
-                <h4>
-                    {props.bundleTitle}
-                </h4>
-                <h6>
-                    {props.bundleDescription}
-                </h6>
-            </div>
-            <Row>
-                <Col size="md-1" />
-                <Col size="md-5">
-                    {props.button}
-                </Col>
-            </Row>
-
-        </div>
+        <Row>
+            <Col size="md-12">
+                <div className="bundle purple">
+                    <Row>
+                        <Col size="md-12">
+                            <img src={props.bundleImage} alt={props.bundleTitle} className="bundle-image"></img>
+                        </Col>
+                        <div className="bundle-text">
+                            <Col size="md-12">
+                                <Textfit
+                                    mode="single"
+                                    className="purple product-title"
+                                    min={10}
+                                    max={20}
+                                >
+                                    {props.bundleTitle}
+                                </Textfit>
+                            </Col>
+                            <Col size="md-12">
+                                <span>
+                                    {props.bundleDescription.slice(0, 500) + "..."}
+                                </span>
+                            </Col>
+                        </div>
+                        <Col size="md-12">
+                            <div className="center-bundle-button">
+                                {props.button}
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
+            </Col>
+        </Row>
     )
 }
 
