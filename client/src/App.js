@@ -19,41 +19,46 @@ class App extends Component {
   }
   componentDidMount() {
     window.addEventListener("scroll", this.scrollEvent)
-}
-scrollEvent = () => {
-  const direction = this.state.scrollDirection - window.scrollY;
-  this.setState({
+  }
+  scrollEvent = () => {
+    if (window.location.pathname !== "/") {
+      this.setState({
+        direction: "head-bar"
+      });
+    }
+    const direction = this.state.scrollDirection - window.scrollY;
+    this.setState({
       scrollDirection: window.scrollY
-  });
-  if (direction >= 0) {
-    this.setState({
-      direction: "head-bar invisibility-cloak"
-    })
+    });
+    if (direction >= 0) {
+      this.setState({
+        direction: "head-bar invisibility-cloak"
+      })
+    }
+    if (direction < 0) {
+      this.setState({
+        direction: "head-bar disillusionment-charm"
+      })
+    }
   }
-  if (direction < 0) {
-    this.setState({
-      direction: "head-bar disillusionment-charm"
-    })
-  }
-}
 
   render() {
     return (
-        <Router>
-            <Navbar 
-              visibility={this.state.direction}
-            />
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/products" component={Products} />
-                <Route exact path="/tutorials" component={Tutorials} />
-                <Route exact path="/shop" component={Shop} />
-                <Route exact path="/contact" component={Contact} />
-                <Route exact path="/search" component={Search} />
-                <Route exact path="/cart" component={Cart} />
-              </Switch>
-            <Footer />
-        </Router>
+      <Router>
+        <Navbar
+          visibility={this.state.direction}
+        />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/tutorials" component={Tutorials} />
+          <Route exact path="/shop" component={Shop} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/cart" component={Cart} />
+        </Switch>
+        <Footer />
+      </Router>
     );
   }
 }
