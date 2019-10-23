@@ -7,13 +7,23 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 class Contact extends Component {
     state = {
-
+        products: [],
     }
-
+    componentDidMount() {
+        this.getProducts();
+    }
+    getProducts = () => {
+        API.getAllProducts()
+            .then(res =>
+                this.setState({ products: res.data.results })
+            )
+            .catch(err => console.log("Error getting products: " + err));
+    }
     goToTwitter() {
         window.location.href = "https://twitter.com";
     }
@@ -43,6 +53,7 @@ class Contact extends Component {
                         <Col size="md-2" />
                         <Col size="md-8">
                             <Form
+                                products={this.state.products}
                                 button={<Button
                                     buttonClass="explore"
                                     text="Submit"

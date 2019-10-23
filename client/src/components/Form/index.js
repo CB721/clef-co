@@ -44,9 +44,9 @@ function Form(props) {
                     onChange={props.handleDropDownChange}
                     name="products"
                 >
-                    <MenuItem value={"Product One"}>Product One</MenuItem>
-                    <MenuItem value={"Product Two"}>Product Two</MenuItem>
-                    <MenuItem value={"Product Three"}>Product Three</MenuItem>
+                {props.products.map(product => (
+                    <MenuItem key={product.id} value={product.id}>{product.product_name}</MenuItem>
+                ))}
                 </Select>
             </FormControl>
             <div className="form-titles">
