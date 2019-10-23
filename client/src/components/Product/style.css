@@ -29,3 +29,6 @@
     justify-content: center;
     text-transform: uppercase;
 }
+.product-shadow:hover {
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+}

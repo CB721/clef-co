@@ -127,7 +127,7 @@
     color: #e8d7f9;
   }
   .user-interaction {
-    padding-right: 1.5rem;
+    /* padding-right: 1.5rem; */
     flex: 0 0 50%;
     order: 3;
     display: flex;
@@ -143,20 +143,20 @@
     align-items: center;
     justify-content: flex-end;
     order: 2;
-    padding: .75rem 1rem .75rem .75rem;
   }
   .search-box {
     display: flex;
     flex-direction: row;
     width: 100%;
-    min-width: 0;
-    max-width: 75%;
+    min-width: 10vh;
+    max-width: 40%;
     flex-wrap: wrap;
     justify-content: flex-start;
     opacity: .8;
     border: 1px solid #e8d7f9;
     border-radius: 5px;
-    margin-right: 10rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     color: white;
   }
   li {
@@ -165,4 +165,8 @@
   }
   .nav-company-title {
     font-size: 1rem;
+  }
+
+  @media only screen and (max-width: 1300px) {
+    
   }

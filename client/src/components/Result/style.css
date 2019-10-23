@@ -1,5 +1,9 @@
 .result {
     cursor: pointer;
     padding-bottom: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+}
+.result:hover {
+    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }

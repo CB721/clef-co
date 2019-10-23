@@ -48,12 +48,12 @@ class Products extends Component {
                                         <Col size="md-6">
                                             <h1 className="white">
                                                 Products
-                                        </h1>
+                                            </h1>
                                         </Col>
                                         <Col size="md-6">
                                             <p className="white">
                                                 Browse our collection of state-of-the-art music equipment and software plugins.
-                                        </p>
+                                            </p>
                                         </Col>
                                     </Row>
                                 </div>
@@ -67,7 +67,7 @@ class Products extends Component {
                             </h2>
                         </Col>
                         <Col size="md-12">
-                            <div className="current-highlighted-product-section">
+                            <div className="current-highlighted-product-section add-shadow">
                                 {/* replace with most recently added product when configured */}
                                 {this.state.products.length > 0 ? (
                                     <Row>
@@ -122,7 +122,7 @@ class Products extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <h1 className="purple f-top-pad padding-bottom">
+                            <h1 className="purple f-top-pad padding-bottom text-shadow">
                                 Purchase our product bundles
                             </h1>
                         </Col>

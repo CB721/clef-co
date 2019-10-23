@@ -20,3 +20,6 @@
     align-items: center;
     justify-content: center;
 }
+.bundle:hover {
+    box-shadow: 42px 46px 44px -24px rgba(0,0,0,0.5);
+}

@@ -9,9 +9,9 @@ function Result(props) {
                     <h3>
                         {props.productName}
                     </h3>
-                    <h6>
+                    <p>
                         {props.productDescription}
-                    </h6>
+                    </p>
             </Card>
         </div>
     )

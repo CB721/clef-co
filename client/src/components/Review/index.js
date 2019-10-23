@@ -5,7 +5,7 @@ import "./style.css";
 
 function Review(props) {
     return (
-        <div className="review shadow-effect">
+        <div className="review shadow-effect hover-shadow-review">
             <Row>
                 <Col size="md-7">
                     <img src={props.reviewerImage} alt={props.reviewerName} className="review-image"></img>

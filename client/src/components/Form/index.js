@@ -11,15 +11,16 @@ function Form(props) {
             <FormControl
                 fullWidth={true}
             >
-                <h6 className="form-titles">
+                <h6 className="form-titles text-shadow">
                     Email Address
                 </h6>
                 <Input
+                    className="text-shadow"
                     inputProps={{
                         'aria-label': 'email',
                     }}
                 />
-                <h6 className="form-titles">
+                <h6 className="form-titles text-shadow">
                     Subject
                 </h6>
                 <Input
@@ -27,7 +28,7 @@ function Form(props) {
                         'aria-label': 'subject',
                     }}
                 />
-                <h6 className="form-titles">
+                <h6 className="form-titles text-shadow">
                     Description
                 </h6>
                 <Input
@@ -35,7 +36,7 @@ function Form(props) {
                         'aria-label': 'description',
                     }}
                 />
-                <h6 className="form-titles">
+                <h6 className="form-titles text-shadow">
                     Select a Product
                 </h6>
                 <Select

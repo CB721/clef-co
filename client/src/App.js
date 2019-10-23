@@ -15,7 +15,7 @@ import './App.css';
 class App extends Component {
   state = {
     scrollDirection: 0,
-    direction: "head-bar invisibility-cloak"
+    direction: "head-bar"
   }
   componentDidMount() {
     window.addEventListener("scroll", this.scrollEvent)
@@ -25,20 +25,22 @@ class App extends Component {
       this.setState({
         direction: "head-bar"
       });
-    }
-    const direction = this.state.scrollDirection - window.scrollY;
-    this.setState({
-      scrollDirection: window.scrollY
-    });
-    if (direction >= 0) {
+    } else {
+      const direction = this.state.scrollDirection - window.scrollY;
+      // console.log(this.getBoundingClientRect());
       this.setState({
-        direction: "head-bar invisibility-cloak"
-      })
-    }
-    if (direction < 0) {
-      this.setState({
-        direction: "head-bar disillusionment-charm"
-      })
+        scrollDirection: window.scrollY
+      });
+      if (direction >= 0) {
+        this.setState({
+          direction: "head-bar invisibility-cloak"
+        });
+      }
+      if (direction < 0) {
+        this.setState({
+          direction: "head-bar disillusionment-charm"
+        });
+      }
     }
   }
 

@@ -34,7 +34,7 @@ class Contact extends Component {
                     <Row>
                         <Col size="md-2" />
                         <Col size="md-8">
-                            <h1 className="purple q-top-pad">
+                            <h1 className="purple q-top-pad text-shadow">
                                 Contact us
                             </h1>
                         </Col>
@@ -54,9 +54,9 @@ class Contact extends Component {
                         <Row>
                             <Col size="md-2" />
                             <Col size="md-8">
-                                <h3 className="white f-top-pad center">
+                                <h2 className="white f-top-pad">
                                     Connect with us on social media
-                            </h3>
+                            </h2>
                             </Col>
                         </Row>
                         <Row>

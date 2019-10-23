@@ -62,7 +62,7 @@ function Navbar(props) {
                                                 fullWidth={true}
                                                 // value="What are you looking for?"
                                                 // onChange={props.handleInputChange}
-                                                placeholder="   Search website"
+                                                placeholder=" Search website"
                                             />
                                         </div>
                                         <IconButton onClick={CheckCart} aria-label="Go to cart">
