@@ -52,7 +52,7 @@ class Contact extends Component {
                     <Row>
                         <Col size="md-2" />
                         <Col size="md-8">
-                            <h1 className="purple q-top-pad text-shadow">
+                            <h1 className="white q-top-pad text-shadow">
                                 Contact us
                             </h1>
                         </Col>

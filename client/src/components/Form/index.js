@@ -7,7 +7,7 @@ import "./style.css";
 
 function Form(props) {
     return (
-        <div className="purple">
+        <div className="white">
             <FormControl
                 fullWidth={true}
             >

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import Button from "../components/Button";
 import Menu from "../components/Menu";
@@ -228,19 +229,21 @@ class Shop extends Component {
                                                         size="md-3"
                                                         key={product.id}
                                                     >
-                                                        <Product
-                                                            key={product.id}
-                                                            image={product.image_link}
-                                                            imageTitle={product.product_name}
-                                                            cardTitle={product.product_name}
-                                                            cardDescription={product.product_description.slice(0, 65) + "..."}
-                                                            price={product.price}
-                                                            button={<Button
+                                                        <Fade bottom>
+                                                            <Product
                                                                 key={product.id}
-                                                                buttonClass="explore"
-                                                                text="Add to cart"
-                                                            />}
-                                                        />
+                                                                image={product.image_link}
+                                                                imageTitle={product.product_name}
+                                                                cardTitle={product.product_name}
+                                                                cardDescription={product.product_description.slice(0, 65) + "..."}
+                                                                price={product.price}
+                                                                button={<Button
+                                                                    key={product.id}
+                                                                    buttonClass="explore"
+                                                                    text="Add to cart"
+                                                                />}
+                                                            />
+                                                        </Fade>
                                                     </Col>
                                                 ))}
                                             </Row>

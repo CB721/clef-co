@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import Fade from 'react-reveal/Fade';
+import RubberBand from 'react-reveal/RubberBand';
+import Flip from 'react-reveal/Flip';
+import Zoom from 'react-reveal/Zoom';
 import { Col, Row, Container } from "../components/Grid";
 import videoBG from "../pages/Assets/video/audio-visual2.mp4";
 import Review from "../components/Review";
@@ -93,20 +97,22 @@ class Home extends Component {
                             </video>
                             <h1 className="white center middle video-text-overlay">
                                 Demo Company
-                        </h1>
+                            </h1>
                         </Col>
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <div className="purple-background t-top-margin add-shadow all-products">
-                                <Row>
-                                    <Col size="md-12">
-                                        <h2 className="white f-top-pad padding-bottom">
-                                            Here is our slogan || Our slogan here is
-                                    </h2>
-                                    </Col>
-                                </Row>
-                            </div>
+                            <Fade bottom>
+                                <div className="purple-background t-top-margin add-shadow all-products">
+                                    <Row>
+                                        <Col size="md-12">
+                                            <h2 className="white f-top-pad padding-bottom">
+                                                Here is our slogan || Our slogan here is
+                                            </h2>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Fade>
                         </Col>
                     </Row>
                     <Row>
@@ -141,9 +147,11 @@ class Home extends Component {
                                 <Row>
                                     <Col size="md-4" />
                                     <Col size="md-4">
-                                        <h2 className="f-top-pad bottom-pad-f">
-                                            Top Products
-                                    </h2>
+                                        <RubberBand>
+                                            <h2 className="f-top-pad bottom-pad-f">
+                                                Top Products
+                                            </h2>
+                                        </RubberBand>
                                     </Col>
                                 </Row>
                                 {/* change to top selling products once configured */}
@@ -152,24 +160,26 @@ class Home extends Component {
                                         <Col size="md-4" />
                                         <Col size="md-4">
                                             <ul id="ul-honey-comb">
-                                                <li className="li-honey-comb">
-                                                    <img className="img-honey-comb" src={this.state.products[0].image_link} alt={this.state.products[0].product_name}></img>
-                                                </li>
-                                                <li className="li-honey-comb">
-                                                    <img className="img-honey-comb" src={this.state.products[1].image_link} alt={this.state.products[0].product_name}></img>
-                                                </li>
-                                                <li className="li-honey-comb">
-                                                    <img className="img-honey-comb" src={this.state.products[2].image_link} alt={this.state.products[2].product_name}></img>
-                                                </li>
-                                                <li className="li-honey-comb">
-                                                    <img className="img-honey-comb" src={this.state.products[3].image_link} alt={this.state.products[3].product_name}></img>
-                                                </li>
-                                                <li className="li-honey-comb">
-                                                    <img className="img-honey-comb" src={this.state.products[4].image_link} alt={this.state.products[4].product_name}></img>
-                                                </li>
-                                                <li className="li-honey-comb">
-                                                    <img className="img-honey-comb" src={this.state.products[5].image_link} alt={this.state.products[5].product_name}></img>
-                                                </li>
+                                                <Zoom left cascade>
+                                                    <li className="li-honey-comb">
+                                                        <img className="img-honey-comb" src={this.state.products[0].image_link} alt={this.state.products[0].product_name}></img>
+                                                    </li>
+                                                    <li className="li-honey-comb">
+                                                        <img className="img-honey-comb" src={this.state.products[1].image_link} alt={this.state.products[0].product_name}></img>
+                                                    </li>
+                                                    <li className="li-honey-comb">
+                                                        <img className="img-honey-comb" src={this.state.products[2].image_link} alt={this.state.products[2].product_name}></img>
+                                                    </li>
+                                                    <li className="li-honey-comb">
+                                                        <img className="img-honey-comb" src={this.state.products[3].image_link} alt={this.state.products[3].product_name}></img>
+                                                    </li>
+                                                    <li className="li-honey-comb">
+                                                        <img className="img-honey-comb" src={this.state.products[4].image_link} alt={this.state.products[4].product_name}></img>
+                                                    </li>
+                                                    <li className="li-honey-comb">
+                                                        <img className="img-honey-comb" src={this.state.products[5].image_link} alt={this.state.products[5].product_name}></img>
+                                                    </li>
+                                                </Zoom>
                                             </ul>
                                         </Col>
                                         <Col size="md-4" />
@@ -180,15 +190,17 @@ class Home extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <div className="purple-background t-top-margin add-shadow">
-                                <Row>
-                                    <Col size="md-12">
-                                        <h2 className="white f-top-pad padding-bottom">
-                                            What the Experts are Saying
-                                    </h2>
-                                    </Col>
-                                </Row>
-                            </div>
+                            <Fade bottom>
+                                <div className="purple-background t-top-margin add-shadow">
+                                    <Row>
+                                        <Col size="md-12">
+                                            <h2 className="white f-top-pad padding-bottom">
+                                                What the Experts are Saying
+                                            </h2>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Fade>
                             <Row>
                                 <Col size="md-12">
                                     <div className="review-section">
@@ -200,41 +212,49 @@ class Home extends Component {
                                         <Row>
                                             <Col size="md-1" />
                                             <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
-                                                    reviewerName="Bruce Wayne"
-                                                    review="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
-                                                    bio="https://en.wikipedia.org/wiki/Batman"
-                                                />
+                                                <Flip top>
+                                                    <Review
+                                                        reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
+                                                        reviewerName="Bruce Wayne"
+                                                        review="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
+                                                        bio="https://en.wikipedia.org/wiki/Batman"
+                                                    />
+                                                </Flip>
                                             </Col>
                                             <Col size="md-2" />
                                             <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
-                                                    reviewerName="Tony Stark"
-                                                    review="All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
-                                                    bio="https://en.wikipedia.org/wiki/Tony_Stark_(Marvel_Cinematic_Universe)"
-                                                />
+                                                <Flip top>
+                                                    <Review
+                                                        reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
+                                                        reviewerName="Tony Stark"
+                                                        review="All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
+                                                        bio="https://en.wikipedia.org/wiki/Tony_Stark_(Marvel_Cinematic_Universe)"
+                                                    />
+                                                </Flip>
                                             </Col>
                                         </Row>
                                         <Row>
                                             <Col size="md-1" />
                                             <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1525954322486-aa196091220f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                                                    reviewerName="Harry Potter"
-                                                    review="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                                                    bio="https://en.wikipedia.org/wiki/Harry_Potter"
-                                                />
+                                                <Flip top>
+                                                    <Review
+                                                        reviewerImage="https://images.unsplash.com/photo-1525954322486-aa196091220f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+                                                        reviewerName="Harry Potter"
+                                                        review="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                                                        bio="https://en.wikipedia.org/wiki/Harry_Potter"
+                                                    />
+                                                </Flip>
                                             </Col>
                                             <Col size="md-2" />
                                             <Col size="md-4">
-                                                <Review
-                                                    reviewerImage="https://images.unsplash.com/photo-1454024183771-42d54053cd75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                                    reviewerName="Harley Quinn"
-                                                    review="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
-                                                    bio="https://en.wikipedia.org/wiki/Harley_Quinn"
-                                                />
+                                                <Flip top>
+                                                    <Review
+                                                        reviewerImage="https://images.unsplash.com/photo-1454024183771-42d54053cd75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                        reviewerName="Harley Quinn"
+                                                        review="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
+                                                        bio="https://en.wikipedia.org/wiki/Harley_Quinn"
+                                                    />
+                                                </Flip>
                                             </Col>
                                         </Row>
                                     </div>

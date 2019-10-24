@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Pulse from 'react-reveal/Pulse';
 import { Col, Row, Container } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
@@ -130,9 +131,11 @@ class Products extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
-                            <h1 className="purple f-top-pad padding-bottom text-shadow">
-                                Purchase our product bundles
-                            </h1>
+                            <Pulse>
+                                <h1 className="white f-top-pad padding-bottom text-shadow">
+                                    Purchase our product bundles
+                                </h1>
+                            </Pulse>
                         </Col>
                     </Row>
                     <Row>

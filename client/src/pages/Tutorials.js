@@ -24,7 +24,7 @@ class Tutorials extends Component {
                             <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Learn" className="add-shadow" id="search-top-image"></img>
                         </Col>
                         <Col size="md-12">
-                            <h1 className="purple f-top-pad text-shadow padding-bottom">
+                            <h1 className="white f-top-pad text-shadow padding-bottom">
                                 Tutorial Videos
                             </h1>
                         </Col>
@@ -32,7 +32,7 @@ class Tutorials extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <div className="video purple">
+                                <div className="video white">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=hU5XhG5Ywbk&t=3s'
@@ -48,7 +48,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                                <div className="video  purple">
+                                <div className="video  white">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=qMaVhqSsPcE'
@@ -65,7 +65,7 @@ class Tutorials extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <div className="video purple">
+                                <div className="video white">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=5jTsSvkBv60'
@@ -81,7 +81,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                                <div className="video purple">
+                                <div className="video white">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=E51zYgMSRb0'
@@ -98,7 +98,7 @@ class Tutorials extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <div className="video purple">
+                                <div className="video white">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=dqNdnxpCmSI'
@@ -114,7 +114,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                                <div className="video purple">
+                                <div className="video white">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=oBK2re5wRmE'
