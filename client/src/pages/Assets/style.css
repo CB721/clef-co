@@ -645,11 +645,11 @@ a:link {
 }
 @keyframes ir {
     from {
-        filter: drop-shadow(0 0 12px rgb(62, 7, 104));
+        filter: drop-shadow(0 0 12px rgb(62, 7, 104, 0));
         transform: rotate(-360deg) scale(1);
     }
     to {
-        filter: drop-shadow(0 0 12px rgba(62, 7, 104, 0));
+        filter: drop-shadow(0 0 12px rgba(62, 7, 104));
         transform: rotate(0) scale(1.05);
     }
     100% {
@@ -684,8 +684,10 @@ ul {
 	position: sticky;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
+    bottom: 0;
     transform-style: preserve-3d;
     transform: perspective(50000px);
 }
@@ -695,9 +697,10 @@ ul {
 	position: sticky;
     top: 0;
     left: 0;
+    right: 0;
     border-top: 100vw solid transparent;
-    border-left: 100vh solid #fff;
-    border-right: 100vh solid #fff;
+    border-left: 100vh solid rgb(255, 255, 255);
+    border-right: 100vh solid rgb(255, 255, 255);
     opacity: 0.1;
 }
 .three-d-objects {
@@ -725,53 +728,57 @@ ul {
     left: 1250px;
     width: 150px;
     height: 100px;
-    animation-duration: 25s;
+    animation-delay: 17s;
+    animation-duration: 35s;
 }
 .three-d-objects:nth-child(2){
     left: 300px;
     width: 80px;
     height: 60px;
     animation-delay: 7s;
-    animation-duration: 20s;
+    animation-duration: 30s;
 }
 .three-d-objects:nth-child(3){
     left: 100px;
     width: 150px;
     height: 100px;
-    animation-duration: 28s;
+    animation-delay: 11s;
+    animation-duration: 38s;
 }
 .three-d-objects:nth-child(4){
     left: 500px;
     width: 200px;
     height: 150px;
     animation-delay: 1s;
-    animation-duration: 35s;
+    animation-duration: 45s;
 }
 .three-d-objects:nth-child(5){
     left: 1000px;
     width: 150px;
     height: 100px;
-    animation-duration: 18s;
+    animation-delay: 12s;
+    animation-duration: 28s;
 }
 .three-d-objects:nth-child(6){
     left: 400px;
     width: 70px;
     height: 53px;
     animation-delay: 2s;
-    animation-duration: 16s;
+    animation-duration: 26s;
 }
 .three-d-objects:nth-child(7){
     left: 650px;
     width: 170px;
     height: 120px;
-    animation-duration: 21s;
+    animation-delay: 13s;
+    animation-duration: 31s;
 }
 .three-d-objects:nth-child(8){
     left: 850px;
     width: 120px;
     height: 75px;
     animation-delay: 3s;
-    animation-duration: 24s;
+    animation-duration: 34s;
 }
 .three-d-objects::before {
     content: '';

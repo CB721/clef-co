@@ -1,5 +1,6 @@
 .product-card {
     height: 43vh;
+    min-height: 43vh;
     margin-top: 10%;
 }
 .product-description {
@@ -30,5 +31,8 @@
     text-transform: uppercase;
 }
 .product-shadow:hover {
-    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+    box-shadow: 21px 23px 22px -12px rgba(62, 7, 104, 0.646);
+}
+.product-button {
+    margin-bottom: 3%;
 }

@@ -10,7 +10,7 @@
     display: block;
     background-image:  linear-gradient(to top ,rgb(62, 7, 104), rgb(108, 28, 187), rgb(167, 66, 244), rgb(246, 185, 255));
     position: absolute;
-    width: 100%;
+    width: 100vw;
     color: #e8d7f9;
     overflow: auto;
     text-align: center;

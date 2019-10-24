@@ -6,6 +6,7 @@ import Zoom from 'react-reveal/Zoom';
 import { Col, Row, Container } from "../components/Grid";
 import videoBG from "../pages/Assets/video/audio-visual2.mp4";
 import Review from "../components/Review";
+import Tooltip from '@material-ui/core/Tooltip';
 import API from "../utilities/api";
 import "./Assets/style.css";
 
@@ -63,8 +64,6 @@ class Home extends Component {
         this.setState({
             scrollDirection: window.scrollY
         });
-        // if direction is negative, user is scrolling down, positive, scrolling up
-        console.log(direction);
         if (window.scrollY < 75) {
             this.setState({ highlightProducts: "home-promo-image" });
         }
@@ -162,22 +161,58 @@ class Home extends Component {
                                             <ul id="ul-honey-comb">
                                                 <Zoom left cascade>
                                                     <li className="li-honey-comb">
-                                                        <img className="img-honey-comb" src={this.state.products[0].image_link} alt={this.state.products[0].product_name}></img>
+                                                        <Tooltip
+                                                            title={this.state.products[0].product_name}
+                                                            leaveDelay={3}
+                                                            placement="top"
+                                                        >
+                                                            <img className="img-honey-comb" src={this.state.products[0].image_link} alt={this.state.products[0].product_name}></img>
+                                                        </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
-                                                        <img className="img-honey-comb" src={this.state.products[1].image_link} alt={this.state.products[0].product_name}></img>
+                                                        <Tooltip
+                                                            title={this.state.products[1].product_name}
+                                                            leaveDelay={3}
+                                                            placement="left"
+                                                        >
+                                                            <img className="img-honey-comb" src={this.state.products[1].image_link} alt={this.state.products[1].product_name}></img>
+                                                        </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
-                                                        <img className="img-honey-comb" src={this.state.products[2].image_link} alt={this.state.products[2].product_name}></img>
+                                                        <Tooltip
+                                                            title={this.state.products[2].product_name}
+                                                            leaveDelay={3}
+                                                            placement="left"
+                                                        >
+                                                            <img className="img-honey-comb" src={this.state.products[2].image_link} alt={this.state.products[2].product_name}></img>
+                                                        </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
-                                                        <img className="img-honey-comb" src={this.state.products[3].image_link} alt={this.state.products[3].product_name}></img>
+                                                        <Tooltip
+                                                            title={this.state.products[3].product_name}
+                                                            leaveDelay={3}
+                                                            placement="bottom"
+                                                        >
+                                                            <img className="img-honey-comb" src={this.state.products[3].image_link} alt={this.state.products[3].product_name}></img>
+                                                        </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
-                                                        <img className="img-honey-comb" src={this.state.products[4].image_link} alt={this.state.products[4].product_name}></img>
+                                                        <Tooltip
+                                                            title={this.state.products[4].product_name}
+                                                            leaveDelay={3}
+                                                            placement="right"
+                                                        >
+                                                            <img className="img-honey-comb" src={this.state.products[4].image_link} alt={this.state.products[4].product_name}></img>
+                                                        </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
-                                                        <img className="img-honey-comb" src={this.state.products[5].image_link} alt={this.state.products[5].product_name}></img>
+                                                        <Tooltip
+                                                            title={this.state.products[5].product_name}
+                                                            leaveDelay={3}
+                                                            placement="right"
+                                                        >
+                                                            <img className="img-honey-comb" src={this.state.products[5].image_link} alt={this.state.products[5].product_name}></img>
+                                                        </Tooltip>
                                                     </li>
                                                 </Zoom>
                                             </ul>
