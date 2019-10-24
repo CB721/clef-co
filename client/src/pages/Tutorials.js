@@ -9,10 +9,18 @@ class Tutorials extends Component {
 
     render() {
         return (
-            <div>
+            <div className="three-d-background">
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
                 <Container fluid>
                     <Row>
-                    <Col size="md-12">
+                        <Col size="md-12">
                             <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Learn" className="add-shadow" id="search-top-image"></img>
                         </Col>
                         <Col size="md-12">
@@ -41,7 +49,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                            <div className="video">
+                                <div className="video">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=qMaVhqSsPcE'
@@ -74,7 +82,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                            <div className="video">
+                                <div className="video">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=E51zYgMSRb0'
@@ -107,7 +115,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                            <div className="video">
+                                <div className="video">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=oBK2re5wRmE'

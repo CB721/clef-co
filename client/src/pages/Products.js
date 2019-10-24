@@ -38,7 +38,15 @@ class Products extends Component {
 
     render() {
         return (
-            <div>
+            <div className="three-d-background">
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
                 <Container fluid>
                     <div className="t-top-pad">
                         <Row>
@@ -159,7 +167,7 @@ class Products extends Component {
                                 <div className="secondary-highlighted-product white">
                                     <Row>
                                         <Col size="md-6">
-                                            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="Demo Company Microphone" className="current-promo-image"></img>
+                                            <img src={this.state.products[6].image_link} alt="Demo Company Microphone" className="current-promo-image"></img>
                                         </Col>
                                         <Col size="md-6">
                                             <Row>

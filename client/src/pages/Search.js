@@ -15,7 +15,15 @@ class Search extends Component {
 
     render() {
         return (
-            <div>
+            <div className="three-d-background">
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
                 <Container fluid>
                     <Row>
                         <Col size="md-12">

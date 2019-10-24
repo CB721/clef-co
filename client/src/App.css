@@ -21,8 +21,20 @@
   color: #09d3ac;
 }
 body {
-  background: #F2F3F5;
+  /* background: #F2F3F5; */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, rgb(118, 58, 162), rgb(111, 111, 111));
+  width: 100%;
+  min-height: 100vh;
+  background-attachment: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* animation: background-sizing 30s infinite; */
 }
+
+
 @keyframes background-sizing {
   0% {
     transform: scale(1)

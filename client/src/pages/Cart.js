@@ -9,12 +9,20 @@ class Cart extends Component {
 
     render() {
         return (
-            <div>
+            <div className="three-d-background">
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
+                <div className="three-d-objects" />
                 <Container fluid>
                     <Row>
                         <Col size="md-2" />
                         <Col size="md-8">
-                            
+
                         </Col>
                     </Row>
                 </Container>
