@@ -80,14 +80,6 @@ class Home extends Component {
     render() {
         return (
             <div className="three-d-background">
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
                 <Container fluid >
                     <Row>
                         <Col size="md-12">
@@ -95,7 +87,7 @@ class Home extends Component {
                                 style={{
                                     objectFit: 'cover',
                                     width: '100%',
-                                    height: '100vh'
+                                    height: '100vh',
                                 }}
                                 src={videoBG}>
                             </video>

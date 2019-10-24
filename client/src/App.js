@@ -27,7 +27,6 @@ class App extends Component {
       });
     } else {
       const direction = this.state.scrollDirection - window.scrollY;
-      // console.log(this.getBoundingClientRect());
       this.setState({
         scrollDirection: window.scrollY
       });

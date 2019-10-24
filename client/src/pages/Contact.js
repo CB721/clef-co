@@ -79,37 +79,41 @@ class Contact extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col size="md-1" />
-                            <Col size="md-2">
-                                <IconButton onClick={this.goToTwitter} aria-label="twitter">
-                                    <TwitterIcon
-                                        fontSize="large"
-                                    />
-                                </IconButton>
-                            </Col>
-                            <Col size="md-1" />
-                            <Col size="md-2">
-                                <IconButton onClick={this.goToFacebook} aria-label="facebook">
-                                    <FacebookIcon
-                                        fontSize="large"
-                                    />
-                                </IconButton>
-                            </Col>
-                            <Col size="md-1" />
-                            <Col size="md-2">
-                                <IconButton onClick={this.goToInstagram} aria-label="instagram">
-                                    <InstagramIcon
-                                        fontSize="large"
-                                    />
-                                </IconButton>
-                            </Col>
-                            <Col size="md-1" />
-                            <Col size="md-2">
-                                <IconButton onClick={this.goToYouTube} aria-label="youtube">
-                                    <YouTubeIcon
-                                        fontSize="large"
-                                    />
-                                </IconButton>
+                            <Col size="md-12">
+                                <Row>
+                                    <Col size="md-1" />
+                                    <Col size="md-2">
+                                        <IconButton onClick={this.goToTwitter} aria-label="twitter">
+                                            <TwitterIcon
+                                                fontSize="large"
+                                            />
+                                        </IconButton>
+                                    </Col>
+                                    <Col size="md-1" />
+                                    <Col size="md-2">
+                                        <IconButton onClick={this.goToFacebook} aria-label="facebook">
+                                            <FacebookIcon
+                                                fontSize="large"
+                                            />
+                                        </IconButton>
+                                    </Col>
+                                    <Col size="md-1" />
+                                    <Col size="md-2">
+                                        <IconButton onClick={this.goToInstagram} aria-label="instagram">
+                                            <InstagramIcon
+                                                fontSize="large"
+                                            />
+                                        </IconButton>
+                                    </Col>
+                                    <Col size="md-1" />
+                                    <Col size="md-2">
+                                        <IconButton onClick={this.goToYouTube} aria-label="youtube">
+                                            <YouTubeIcon
+                                                fontSize="large"
+                                            />
+                                        </IconButton>
+                                    </Col>
+                                </Row>
                             </Col>
                         </Row>
                     </div>

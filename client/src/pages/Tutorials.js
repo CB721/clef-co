@@ -29,7 +29,6 @@ class Tutorials extends Component {
                             </h1>
                         </Col>
                     </Row>
-                    <div className="tutorial-videos">
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
@@ -49,7 +48,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                                <div className="video">
+                                <div className="video  purple">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=qMaVhqSsPcE'
@@ -66,7 +65,7 @@ class Tutorials extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <div className="video">
+                                <div className="video purple">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=5jTsSvkBv60'
@@ -82,7 +81,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                                <div className="video">
+                                <div className="video purple">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=E51zYgMSRb0'
@@ -99,7 +98,7 @@ class Tutorials extends Component {
                         <Row>
                             <Col size="md-1" />
                             <Col size="md-4">
-                                <div className="video">
+                                <div className="video purple">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=dqNdnxpCmSI'
@@ -115,7 +114,7 @@ class Tutorials extends Component {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-4">
-                                <div className="video">
+                                <div className="video purple">
                                     <ReactPlayer
                                         className="add-shadow"
                                         url='https://www.youtube.com/watch?v=oBK2re5wRmE'
@@ -129,7 +128,6 @@ class Tutorials extends Component {
                                 </div>
                             </Col>
                         </Row>
-                    </div>
                 </Container>
             </div>
         )
