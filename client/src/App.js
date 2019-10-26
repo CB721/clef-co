@@ -9,6 +9,7 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
 import Cart from "./pages/Cart";
+import ProductPage from "./pages/ProductPage";
 import './App.css';
 
 
@@ -57,6 +58,7 @@ class App extends Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/cart" component={Cart} />
+          <Route exact path="/products/product" component={ProductPage} />
         </Switch>
         <Footer />
       </Router>

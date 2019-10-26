@@ -20,10 +20,11 @@
     box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
     min-height: 50px;
     position: fixed;
+    display: block;
     width: 100%;
     color: #e8d7f9;
     font-size: calc(10px + 14 * (100vw - 320px)/ 800);
-    z-index: 99;
+    z-index: 1;
     white-space: nowrap;
   }
   .invisibility-cloak {
