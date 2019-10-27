@@ -1,10 +1,8 @@
-import counter from './counter';
-import logged from './isLogged';
+import products from './products';
 import { combineReducers } from 'redux';
 
 const rootReducers = combineReducers({
-    counter,
-    logged
+    products
 })
 
 export default rootReducers;
