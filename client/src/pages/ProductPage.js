@@ -94,6 +94,13 @@ class ProductPage extends Component {
                                                         </form>
                                                     </div>
                                                 ) : (<div />)}
+                                                {this.state.product.hardware && this.state.product.quantity <= 0 ? (
+                                                    <div>
+                                                        <p>
+                                                            Item out of stock.  Please check back later.
+                                                        </p>
+                                                    </div>
+                                                ) : (<div />)}
                                                 {this.state.product.software ? (
                                                     <div>
                                                         <p>

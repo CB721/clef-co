@@ -57,6 +57,10 @@ class Shop extends Component {
             this.getProducts();
         }
     }
+    goToProductPage = (id) => (event) => {
+        event.preventDefault();
+        window.location.href = "/shop/product/" + id;
+    }
     checkState() {
         const products = this.state.products;
         console.log(products);
@@ -232,6 +236,7 @@ class Shop extends Component {
                                                         <Fade bottom>
                                                             <Product
                                                                 key={product.id}
+                                                                action={this.goToProductPage(product.id)}
                                                                 image={product.image_link}
                                                                 imageTitle={product.product_name}
                                                                 cardTitle={product.product_name}

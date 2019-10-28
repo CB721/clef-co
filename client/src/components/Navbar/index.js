@@ -19,7 +19,7 @@ function Navbar(props) {
         <Container fluid>
             <Row>
                 <Col size="md-12">
-                    <header className={props.visibility}>
+                    <header className="head-bar">
                         <div className="header-wrapper">
                             <Row>
                                 <Col size="md-12">

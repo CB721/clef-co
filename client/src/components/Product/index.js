@@ -11,7 +11,7 @@ import "./style.css";
 function Product(props) {
     return (
         <div>
-            <Card className="card product-card product-shadow">
+            <Card className="card product-card product-shadow" onClick={props.action}>
                 <CardActionArea>
                     <CardMedia
                         className="card-media product-image"

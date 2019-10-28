@@ -62,6 +62,7 @@ function App() {
         <Route exact path="/cart" component={Cart} />
         {products.map(product => (
           <Route
+            key={product.id}
             exact path={`/shop/product/${product.id}`}
             component={ProductPage}
           />
