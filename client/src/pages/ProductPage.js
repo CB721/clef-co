@@ -3,17 +3,32 @@ import { Col, Row, Container } from "../components/Grid";
 import Flip from 'react-reveal/Flip';
 import Review from "../components/Review";
 import Input from '@material-ui/core/Input';
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 class ProductPage extends Component {
-    src = 'https://images.unsplash.com/photo-1572049286973-0101a47078c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80';
     state = {
-        backgroundImage: `url(${this.src})`,
+        product: [],
+        backgroundImage: ``,
         backgroundPosition: '0% 0%',
         borderRadius: "4px",
     }
+    componentDidMount() {
+        this.getProduct(window.location.pathname.slice(14));
+    }
+    getProduct = (id) => {
+        API.getProductById(id)
+            .then(res =>
+                this.setState({
+                    product: res.data.results[0],
+                    backgroundImage: `url(${res.data.results[0].image_link})`
+                })
+            )
+            .catch(err => console.log(err));
+    }
     addToCart = (id) => (event) => {
         event.preventDefault();
+        console.log(this.state.product.product_description);
         console.log("Product added to cart");
     }
     handleMouseMove = e => {
@@ -38,7 +53,7 @@ class ProductPage extends Component {
                         <Col size="md-12">
                             <div className="product-header t-top-pad white">
                                 <p>
-                                    Here is the product name
+                                    {this.state.product.product_name}
                                 </p>
                             </div>
                         </Col>
@@ -47,13 +62,13 @@ class ProductPage extends Component {
                                 <Col size="md-1" />
                                 <Col size="md-6">
                                     <figure
-                                        className="product-image-zoom "
+                                        className="product-image-zoom"
                                         onMouseMove={this.handleMouseMove}
                                         style={this.state}
                                     >
                                         <img
-                                            src={this.src}
-                                            alt="product-name"
+                                            src={this.state.product.image_link}
+                                            alt={this.state.product.product_name}
                                             className="product-image-page"
 
                                         />
@@ -64,22 +79,33 @@ class ProductPage extends Component {
                                         <Col size="md-12">
                                             <div className="product-shipping white f-top-pad">
                                                 <p className="price-text white">
-                                                    $499.99
+                                                    ${this.state.product.price}
                                                 </p>
-                                                <p>
-                                                    Orders of $99.99 or more ship free!
-                                                </p>
-                                                <p>
-                                                    In stock!
-                                                </p>
-                                                <form>
-                                                    <Input type="number" placeholder="Quantity" fullWidth={true}/>
-                                                </form>
+                                                {this.state.product.hardware && this.state.product.quantity > 0 ? (
+                                                    <div>
+                                                        <p>
+                                                            Orders of $99.99 or more ship free!
+                                                        </p>
+                                                        <p>
+                                                            In stock!
+                                                        </p>
+                                                        <form>
+                                                            <Input type="number" placeholder="Quantity" fullWidth={true} />
+                                                        </form>
+                                                    </div>
+                                                ) : (<div />)}
+                                                {this.state.product.software ? (
+                                                    <div>
+                                                        <p>
+                                                            Direct download after purchase!
+                                                        </p>
+                                                    </div>
+                                                ) : (<div/>)}
                                             </div>
                                         </Col>
                                         <Col size="md-12">
                                             <div className="product-add-cart f-top-pad">
-                                                <button className="cart-add-button white" onClick={this.addToCart()}>
+                                                <button className="cart-add-button white" onClick={this.addToCart(this.state.product.id)}>
                                                     Add to cart
                                                 </button>
                                             </div>
@@ -94,7 +120,7 @@ class ProductPage extends Component {
                         <Col size="md-8">
                             <div className="product-description-page white t-top-pad">
                                 <p>
-                                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    {this.state.product.product_description}
                                 </p>
                             </div>
                         </Col>

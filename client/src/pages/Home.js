@@ -79,6 +79,10 @@ class Home extends Component {
             });
         }
     }
+    goToProductPage = (link) => (event) => {
+        event.preventDefault();
+        window.location.href = "/shop/product/" + link;
+    }
 
     render() {
         return (
@@ -120,7 +124,7 @@ class Home extends Component {
                                 <Row>
                                     <Col size="md-1" />
                                     <Col size="md-4">
-                                        <div className="home-item-one add-shadow">
+                                        <div className="home-item-one add-shadow" onClick={this.goToProductPage(this.state.productOne.id)}>
                                             <img className={this.state.highlightProducts} src={this.state.productOne.image_link} alt={this.state.productOne.product_name}></img>
                                             <h3 className="white f-top-pad center middle hover-title add-shadow">
                                                 {this.state.productOne.product_name}
@@ -129,7 +133,7 @@ class Home extends Component {
                                     </Col>
                                     <Col size="md-2" />
                                     <Col size="md-4">
-                                        <div className="home-item-two add-shadow">
+                                        <div className="home-item-two add-shadow" onClick={this.goToProductPage(this.state.productTwo.id)}>
                                             <img className={this.state.highlightProducts} src={this.state.productTwo.image_link} alt={this.state.productTwo.product_name}></img>
                                             <h3 className="white f-top-pad center middle hover-title add-shadow">
                                                 {this.state.productTwo.product_name}
@@ -166,7 +170,12 @@ class Home extends Component {
                                                             leaveDelay={3}
                                                             placement="top"
                                                         >
-                                                            <img className="img-honey-comb" src={this.state.products[0].image_link} alt={this.state.products[0].product_name}></img>
+                                                            <img 
+                                                            className="img-honey-comb" 
+                                                            src={this.state.products[0].image_link} 
+                                                            alt={this.state.products[0].product_name}
+                                                            onClick={this.goToProductPage(this.state.products[0].id)}
+                                                            ></img>
                                                         </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
@@ -175,7 +184,10 @@ class Home extends Component {
                                                             leaveDelay={3}
                                                             placement="left"
                                                         >
-                                                            <img className="img-honey-comb" src={this.state.products[1].image_link} alt={this.state.products[1].product_name}></img>
+                                                            <img className="img-honey-comb" 
+                                                            src={this.state.products[1].image_link} 
+                                                            alt={this.state.products[1].product_name}
+                                                            onClick={this.goToProductPage(this.state.products[1].id)}></img>
                                                         </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
@@ -184,7 +196,10 @@ class Home extends Component {
                                                             leaveDelay={3}
                                                             placement="left"
                                                         >
-                                                            <img className="img-honey-comb" src={this.state.products[2].image_link} alt={this.state.products[2].product_name}></img>
+                                                            <img className="img-honey-comb" 
+                                                            src={this.state.products[2].image_link} 
+                                                            alt={this.state.products[2].product_name}
+                                                            onClick={this.goToProductPage(this.state.products[2].id)}></img>
                                                         </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
@@ -193,7 +208,10 @@ class Home extends Component {
                                                             leaveDelay={3}
                                                             placement="bottom"
                                                         >
-                                                            <img className="img-honey-comb" src={this.state.products[3].image_link} alt={this.state.products[3].product_name}></img>
+                                                            <img className="img-honey-comb" 
+                                                            src={this.state.products[3].image_link} 
+                                                            alt={this.state.products[3].product_name}
+                                                            onClick={this.goToProductPage(this.state.products[3].id)}></img>
                                                         </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
@@ -202,7 +220,10 @@ class Home extends Component {
                                                             leaveDelay={3}
                                                             placement="right"
                                                         >
-                                                            <img className="img-honey-comb" src={this.state.products[4].image_link} alt={this.state.products[4].product_name}></img>
+                                                            <img className="img-honey-comb" 
+                                                            src={this.state.products[4].image_link} 
+                                                            alt={this.state.products[4].product_name}
+                                                            onClick={this.goToProductPage(this.state.products[4].id)}></img>
                                                         </Tooltip>
                                                     </li>
                                                     <li className="li-honey-comb">
@@ -211,7 +232,10 @@ class Home extends Component {
                                                             leaveDelay={3}
                                                             placement="right"
                                                         >
-                                                            <img className="img-honey-comb" src={this.state.products[5].image_link} alt={this.state.products[5].product_name}></img>
+                                                            <img className="img-honey-comb" 
+                                                            src={this.state.products[5].image_link} 
+                                                            alt={this.state.products[5].product_name}
+                                                            onClick={this.goToProductPage(this.state.products[5].id)}></img>
                                                         </Tooltip>
                                                     </li>
                                                 </Zoom>

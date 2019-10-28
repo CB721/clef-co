@@ -13,7 +13,7 @@ CREATE TABLE products
 	, image_link VARCHAR
 	(255) NOT NULL
 	, product_description VARCHAR
-	(255)NOT NULL
+	(2550)NOT NULL
 	, instrument_type VARCHAR
 	(255) NOT NULL
 	, quantity SMALLINT

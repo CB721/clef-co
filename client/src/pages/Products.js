@@ -29,6 +29,10 @@ class Products extends Component {
     goToShop() {
         window.location.href = "/shop";
     }
+    goToProductPage = (link) => (event) => {
+        event.preventDefault();
+        window.location.href = "/shop/product/" + link;
+    }
     getProducts = () => {
         API.getAllProducts()
             .then(res =>
@@ -104,6 +108,7 @@ class Products extends Component {
                                                                 <Button
                                                                     buttonClass="explore"
                                                                     text="Explore"
+                                                                    action={this.goToProductPage(this.state.products[10].id)}
                                                                 />
                                                             </Col>
                                                             <Col size="md-4" />
@@ -197,6 +202,7 @@ class Products extends Component {
                                                                 <Button
                                                                     buttonClass="explore"
                                                                     text="Explore"
+                                                                    action={this.goToProductPage(this.state.products[6].id)}
                                                                 />
                                                             </Col>
                                                             <Col size="md-6" />
@@ -204,6 +210,7 @@ class Products extends Component {
                                                                 <Button
                                                                     buttonClass="shop-now"
                                                                     text="Shop Now"
+                                                                    action={this.goToShop}
                                                                 />
                                                             </Col>
                                                         </Row>
