@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Navbar from "./components/Navbar";
@@ -73,7 +73,7 @@ function App() {
         ))}
         <Route exact path="/login" component={Login} />
         <Route exact path="/create_account" component={SignUp} />
-        <Route exact path="/user/id" component={User} />
+        <Route exact path="/user/profile/id" component={User} />
         <Route exact path="/user/id/logoout" component={Logout} />
       </Switch>
       <Footer />
