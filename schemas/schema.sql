@@ -71,7 +71,7 @@ CREATE TABLE products
 		, last_name VARCHAR(255) NOT NULL
 		, user_password VARCHAR(255) NOT NULL
 		, email VARCHAR(255) NOT NULL
-		, phone VARCHAR(255) NOT NULL
+		, phone VARCHAR(255)
 		, user_address VARCHAR(255) NOT NULL
 		, last_visit DATETIME
 		, joined_date DATE NOT NULL
