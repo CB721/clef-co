@@ -2,76 +2,65 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import moment from "moment";
+import headerImages from "../pages/Assets/Data/profile-headers.json";
+import profileImages from "../pages/Assets/Data/profile-status.json";
 import "./Assets/style.css";
 
 class User extends Component {
     state = {
-        headerImages: [
-            "https://images.unsplash.com/photo-1526142684086-7ebd69df27a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
-            "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
-            "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
-            "https://images.unsplash.com/photo-1468164016595-6108e4c60c8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
-            "https://images.unsplash.com/photo-1495305379050-64540d6ee95d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
-            "https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80",
-            "https://images.unsplash.com/photo-1508515250198-d9cf6419470f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
-            "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1566&q=80",
-            "https://images.unsplash.com/photo-1487180144351-b8472da7d491?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80",
-            "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80",
-            "https://images.unsplash.com/photo-1546708497-5206823f291b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80",
-            "https://images.unsplash.com/photo-1507676385008-e7fb562d11f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1649&q=80",
-            "https://images.unsplash.com/photo-1453738773917-9c3eff1db985?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-        ],
-        statusImages: [
-            "https://cdn140.picsart.com/272396747028211.png?r1024x1024",
-            "https://png.pngtree.com/png-vector/20190119/ourmid/pngtree-lovely-gray-grey-elephant-cartoon-png-image_474383.jpg",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTqAjtr-sK2raEMi5y7YoFa7mSFjdF7s-8MpdyT1cgXcrjp6Avm",
-            "https://www.pinclipart.com/picdir/big/192-1927745_sleepy-cub-cartoon-baby-lion-clipart.png",
-        ],
         firstName: "Kara",
         joinedDate: "2019-10-27",
         headerImage: "",
         statusImage: "",
-        userStatus: "beginner"
+        userStatus: "beginner",
+        editContact: false,
     }
     componentDidMount() {
         this.generateRandomImage();
         this.determineStatus(this.state.joinedDate);
     }
     generateRandomImage() {
-        const imagesArr = this.state.headerImages;
+        const imagesArr = headerImages;
         const index = Math.floor((Math.random() * imagesArr.length));
         this.setState({
-            headerImage: imagesArr[index]
+            headerImage: imagesArr[index].image
         });
     }
     determineStatus(dateJoined) {
         const today = moment().format("YYYY-MM-DD");
         if (moment(today).diff(dateJoined, 'days') < 7) {
             this.setState({
-                statusImage: this.state.statusImages[0],
+                statusImage: profileImages[0].image,
                 userStatus: "beginner"
             });
         }
         if (moment(today).diff(dateJoined, 'days') >= 7 &&
             moment(today).diff(dateJoined, 'months') < 1) {
             this.setState({
-                statusImage: this.state.statusImages[1],
+                statusImage: profileImages[1].image,
                 userStatus: "novice"
             });
         }
         if (moment(today).diff(dateJoined, 'months') >= 1 &&
             moment(today).diff(dateJoined, 'years') < 1) {
             this.setState({
-                statusImage: this.state.statusImages[2],
+                statusImage: profileImages[2].image,
                 userStatus: "expert"
             });
         }
         if (moment(today).diff(dateJoined, 'years') >= 1) {
             this.setState({
-                statusImage: this.state.statusImages[3],
+                statusImage: profileImages[3].image,
                 userStatus: "master"
             });
         }
+    }
+    editProfile = () => (event) => {
+        event.preventDefault();
+        const edit = this.state.editContact;
+        this.setState({
+            editContact: !edit
+        });
     }
     render() {
         return (
@@ -101,11 +90,13 @@ class User extends Component {
                                         firstName={this.state.firstName}
                                         email="wifey@cb721.com"
                                         phone="2064252530"
+                                        address="800 Occidental Ave S, Seattle, WA 98134"
                                         joinedDate={this.state.joinedDate}
+                                        edit={this.state.editContact}
+                                        editAction={this.editProfile()}
                                     />
                                 </Col>
                             </Row>
-
                         </Col>
                     </Row>
                 </Container>

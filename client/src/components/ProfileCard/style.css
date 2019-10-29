@@ -24,6 +24,9 @@
     width: 100%;
     height: 33%;
 }
+.profile-edit-icon {
+    float: right;
+}
 .waves {
     position: absolute;
     width: 100%;
