@@ -28,7 +28,6 @@ class ProductPage extends Component {
     }
     addToCart = (id) => (event) => {
         event.preventDefault();
-        console.log(this.state.product.product_description);
         console.log("Product added to cart");
     }
     handleMouseMove = e => {

@@ -2,7 +2,7 @@ USE oxn711nfcpjgwcr2;
 
 CREATE TABLE products
 (
-	id INT NOT NULL
+	id INT NOT NULL UNIQUE 
 	AUTO_INCREMENT
 	, product_name VARCHAR
 	(255) NOT NULL
@@ -12,8 +12,7 @@ CREATE TABLE products
 	(10, 2) NOT NULL
 	, image_link VARCHAR
 	(255) NOT NULL
-	, product_description VARCHAR
-	(2550)NOT NULL
+	, product_description MEDIUMTEXT NOT NULL
 	, instrument_type VARCHAR
 	(255) NOT NULL
 	, quantity SMALLINT
@@ -65,15 +64,17 @@ CREATE TABLE products
 	-- datetime checked out
 	-- user id
 );
-	CREATE TABLE [user]
+	CREATE TABLE users
 	(
-		-- id
-		-- first name
-		-- last name
-		-- email
-		-- phone number
-		-- address
+		id INT NOT NULL UNIQUE AUTO_INCREMENT
+		, first_name VARCHAR(255) NOT NULL
+		, last_name VARCHAR(255) NOT NULL
+		, user_password VARCHAR(255) NOT NULL
+		, email VARCHAR(255) NOT NULL
+		, phone VARCHAR(255) NOT NULL
+		, user_address VARCHAR(255) NOT NULL
+		, last_visit DATETIME
+		, joined_date DATE NOT NULL
+		, PRIMARY KEY (id)
 		-- cart id (string of cart ids?)
-		-- datetime last visit
-		-- dataetime joined
 	);

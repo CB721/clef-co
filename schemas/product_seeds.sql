@@ -337,10 +337,10 @@ INSERT INTO oxn711nfcpjgwcr2.products
     )
 VALUES
     (
-        'Treet Stix - 2-pack',
+        'Treet Stix - PROMARK 2-pack',
         19.99,
         500,
-        "https://media.sweetwater.com/api/i/f-webp__q-82__ha-b40ad59c912f3012__hmac-4c3ba6090e23b572702df8d62c8e45aa79b72338/images/items/750/VF5AN-large.jpg.auto.webp",
+        "https://images.unsplash.com/photo-1506806973190-641b92858532?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80",
         "Treet Stix drumsticks are the choice of top players in all kinds of genres. Whether you play rock, jazz, country, pop, or other musical styles, there's a pair of Treet Stix drumsticks made to fit your taste. From their precision manufacturing and matching methods to their amazing product range, Treet Stix offers quality you can depend on, no matter what you play.",
         "drums",
         5,
@@ -389,7 +389,7 @@ VALUES
         'Logic Pro X',
         199.99,
         4.99,
-        "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwirwYjS8I_lAhVsHDQIHZ9eCEUQjRx6BAgBEAQ&url=https%3A%2F%2Fapps.apple.com%2Fgb%2Fapp%2Flogic-pro-x%2Fid634148309%3Fmt%3D12&psig=AOvVaw3wU8SG9rJ8b6Ja_kE6QXpH&ust=1570734617827186",
+        "https://www.musicianonamission.com/wp-content/uploads/2019/02/logic-pro-x-10-3-screenshot-1200x751.jpg",
         "Logic Pro X is a digital audio workstation and MIDI sequencer software application for the macOS platform. It was originally created in the early 1990s as Notator Logic, or Logic, by German software developer C-Lab, later Emagic.",
         "daw",
         FALSE,
@@ -509,4 +509,79 @@ VALUES
         "utility",
         FALSE,
         TRUE
+        );
+
+INSERT INTO oxn711nfcpjgwcr2.products
+    (
+    product_name,
+    price,
+    cost,
+    image_link,
+    product_description,
+    instrument_type,
+    quantity,
+    hardware,
+    software
+    )
+VALUES
+    (
+        'Destroid Arrow Back X',
+        1217.58,
+        432.12,
+        "https://media.sweetwater.com/api/i/f-webp__q-82__ha-4b364e5947218f56__hmac-3ae7a6581a9d8887ad19fd2acd64560769b28a0f/images/items/750/LARROWBKMBLKS-large.jpg.auto.webp",
+        "Sonic and visual transgression — these are the sole purpose for the Destroid Arrow Back X. From its aggressive offset-V body shape to its scorching-hot active EMG humbucker, everything about this axe screams extreme metal. Nevertheless, it plays like butter, courtesy of a comfortable Thin U-shaped neck and fast-playing Macassar ebony fingerboard. This electric guitar comes armed with a single volume knob and a X kill switch — everything you need to conquer the underground with abrasive riffs and metallic screams.",
+        "guitar",
+        371,
+        TRUE,
+        FALSE
+        );
+
+INSERT INTO oxn711nfcpjgwcr2.products
+    (
+    product_name,
+    price,
+    cost,
+    image_link,
+    product_description,
+    instrument_type,
+    quantity,
+    hardware,
+    software
+    )
+VALUES
+    (
+        'Heisenburg 5-piece Drum Set',
+        899.99,
+        45.32,
+        "https://media.sweetwater.com/api/i/f-webp__q-82__ha-fa32c595521a9d34__hmac-35b9a30595ad4ec018192e1bf75b866e14f420e7/images/items/750/IE50CHLB-large.jpg.auto.webp",
+        "Buying a budget set of drums can sometimes feel like a bit of a gamble. But at Demo Company, we're committed to making sure you get your money's worth out of the gear you buy. That's why we stand behind our Heisenburg complete drum sets. For starters, you just can't beat the value of these kits, which come with a complete set of stage-ready hardware and quality cymbals. The 6-ply poplar shells themselves sound remarkably balanced and responsive, too, making this the kind of kit you buy as your first and end up holding onto for life. A host of exciting new wrapped finishes for 2019 makes the Heisenburg an addiction that will last for at least 5 seasons.",
+        "drums",
+        93,
+        TRUE,
+        FALSE
+        );
+
+INSERT INTO oxn711nfcpjgwcr2.products
+    (
+    product_name,
+    price,
+    cost,
+    image_link,
+    product_description,
+    instrument_type,
+    quantity,
+    hardware,
+    software
+    )
+VALUES
+    (
+        'Demo Company Keystep: Arturia Edition',
+        37.49,
+        3,
+        "https://media.sweetwater.com/api/i/f-webp__q-82__ha-47f20211deb0d2e0__hmac-247869a7f82c9aaa593b1d96726d405e3c8578a5/images/items/750/KeyStep-large.jpg.auto.webp",
+        "Get an amazing compact keyboard controller and a polyphonic sequencer in one, with the Demo Comapny KeyStep. For starters, this compact controller keyboard includes a 32-note Arturia keybed, which is far more playable than typical under-sized keys. Keyboardists also appreciate the capacitive pitch and mod strips, which are easy to play but don't include moving parts that can get damaged in transit. But the coolest thing about the KeyStep is its advanced functions, such as Chord Play, which allows you to play a chord and then trigger it with single keys across the keyboard. Equally impressive is the onboard polyphonic 64-step sequencer, and when you combine that with its extensive CV, MIDI, DIN Sync, and Sync connectivity, the KeyStep is one of the most versatile compact keyboard controls around.",
+        "keyboard",
+        273,
+        TRUE,
+        FALSE
         );
