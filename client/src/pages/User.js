@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
+import UserNews from "../components/UserNews";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
@@ -9,7 +10,7 @@ import "./Assets/style.css";
 class User extends Component {
     state = {
         firstName: "Kara",
-        joinedDate: "2019-10-27",
+        joinedDate: "2018-03-21",
         headerImage: "",
         statusImage: "",
         userStatus: "beginner",
@@ -57,6 +58,7 @@ class User extends Component {
     }
     editProfile = () => (event) => {
         event.preventDefault();
+        console.log(this.state.editContact);
         const edit = this.state.editContact;
         this.setState({
             editContact: !edit
@@ -94,6 +96,16 @@ class User extends Component {
                                         joinedDate={this.state.joinedDate}
                                         edit={this.state.editContact}
                                         editAction={this.editProfile()}
+                                    />
+                                </Col>
+                                <Col size="md-2" />
+                                <Col size="md-6">
+                                    <UserNews
+                                        news={[
+                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 
+                                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", 
+                                            "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+                                            ]}
                                     />
                                 </Col>
                             </Row>

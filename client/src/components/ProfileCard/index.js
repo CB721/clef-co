@@ -2,15 +2,26 @@ import React from "react";
 import CreateIcon from '@material-ui/icons/Create';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
+import IconButton from '@material-ui/core/IconButton';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import "./style.css";
 
 function ProfileCard(props) {
+    const theme = createMuiTheme({
+        palette: {
+            primary: { main: '#3E0768' }
+        },
+    });
     return (
         <div className="profile-card">
-            <CreateIcon
-                className="profile-edit-icon"
-                onClick={props.editAction}
-            />
+            <MuiThemeProvider theme={theme}>
+                <IconButton onClick={props.editAction} className="edit-icon">
+                    <CreateIcon
+                        className="profile-edit-icon"
+                        color="primary"
+                    />
+                </IconButton>
+            </MuiThemeProvider>
             <div className="profile-card-image">
                 <img src={props.image} alt={props.status} />
             </div>
@@ -55,6 +66,11 @@ function ProfileCard(props) {
                             <div className="profile-card-phone white">
                                 <span>
                                     {props.phone}
+                                </span>
+                            </div>
+                            <div className="profile-card-address white">
+                                <span>
+                                    {props.address}
                                 </span>
                             </div>
                         </div >
