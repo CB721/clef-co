@@ -468,7 +468,7 @@ function ShopMenu(props) {
                             <Divider orientation="horizonal" />
                             <Row>
                                 <Col size="md-12">
-                                    <div className="menu-sub-category">
+                                    <div className="menu-sub-category last-sub-category">
                                         <Row>
                                             <Col size="md-8">
                                                 <h6>

@@ -1,0 +1,103 @@
+.user-orders {
+    position: relative;
+    width: 100%;
+    height: auto;
+    -webkit-box-shadow: 18px -18px 14px 2px #00000077; 
+    box-shadow: 18px -18px 14px 2px #00000077;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.order-summary {
+    display: block;
+    border: 1px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    height: 100px;
+}
+.order-details {
+    width: 75%;
+}
+.order-number {
+    width: 35%;
+    margin-right: -15%;
+    float: right;
+}
+.order-column {
+    margin-right: 2%;
+    float: left;
+    min-height: 1px;
+    overflow: visible;
+}
+.detail-date {
+    margin-bottom: 1%;
+    width: 23.448%;
+}
+.order-column-header {
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+.order-items {
+    display: block;
+    height: 175px;
+    border: 1px solid black;
+}
+.order-items:last-child {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.order-item-details {
+    margin-top: 18px!important;
+}
+.item-details-left {
+    margin-top: 7px;
+    padding-right: 3.2%;
+    float: left;
+}
+.item-row {
+    width: 100%;
+    margin-bottom: 0px!important;
+}
+.order-item-img-column {
+    width: 100px;
+    margin-left: -95%;
+    float: left;
+}
+.item-view-left-column-inner {
+    position: relative;
+    display: inline-block;
+}
+.order-item-img {
+    height: 90px;
+    width: 160px;
+}
+.item-details-section {
+    padding-left:1.5%;
+    float:left;
+}
+.order-item-button {
+    margin-top: 6px!important;
+    color: white;
+    background: black;
+    border-radius: 25px;
+    border-color: rgb(62,7,104);
+    border-width: 1px;
+    -webkit-box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
+    -moz-box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
+    box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
+}
+.order-item-button:hover {
+    border-color: white;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+}
+.button-stack {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    display: block;
+}

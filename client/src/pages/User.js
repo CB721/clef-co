@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import UserNews from "../components/UserNews";
+import Order from "../components/Order";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
@@ -58,7 +59,6 @@ class User extends Component {
     }
     editProfile = () => (event) => {
         event.preventDefault();
-        console.log(this.state.editContact);
         const edit = this.state.editContact;
         this.setState({
             editContact: !edit
@@ -102,14 +102,41 @@ class User extends Component {
                                 <Col size="md-6">
                                     <UserNews
                                         news={[
-                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", 
-                                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", 
+                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
                                             "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
-                                            ]}
+                                        ]}
                                     />
                                 </Col>
                             </Row>
                         </Col>
+                        <Col size="md-1" />
+                    </Row>
+                    <Row>
+                        <Col size="md-12">
+                            <h1 className="white f-top-pad">
+                                Orders
+                            </h1>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="md-1" />
+                        <Col size="md-10">
+                        {/* map orders by date */}
+                            <Order
+                                date="October 25, 2019"
+                                total="257.45"
+                                name="Kara"
+                                number="1234"
+                            />
+                            <Order
+                                date="August 10, 2018"
+                                total="63.49"
+                                name="Kara"
+                                number="1233"
+                            />
+                        </Col>
+                        <Col size="md-1" />
                     </Row>
                 </Container>
             </div>

@@ -71,6 +71,10 @@
     padding-left: .5vh;
     background: rgb(167, 66, 244);
 }
+.last-sub-category {
+    border-bottom-right-radius: 75%;
+    border-bottom-left-radius: 75%;
+}
 .black-key-menu:hover {
     background: black;
     color: rgb(255, 255, 255);

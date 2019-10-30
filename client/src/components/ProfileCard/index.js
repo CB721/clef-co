@@ -9,7 +9,7 @@ import "./style.css";
 function ProfileCard(props) {
     const theme = createMuiTheme({
         palette: {
-            primary: { main: '#3E0768' }
+            primary: { main: '#ffffff' }
         },
     });
     return (
