@@ -8,5 +8,8 @@ router
     .route("/:id")
     .get(controller.getUserByID)
     .put(controller.updateUser)
+router
+    .route("/login/:email/:password")
+    .get(controller.getUserByEmail)
 
 module.exports = router;

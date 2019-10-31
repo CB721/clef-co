@@ -10,5 +10,8 @@ export default {
     },
     getProductById: function (productID) {
         return axios.get("/api/products/" + productID);
+    },
+    createUser: function (user) {
+        return axios.post("/api/users/create", user);
     }
 }
