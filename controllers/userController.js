@@ -31,5 +31,25 @@ module.exports = {
                     });
                 }
             })
+    },
+    updateUser: function(req, res) {
+        const ID = req.params.id;
+        const update = req.body[0];
+        let queryUpdate = "UPDATE oxn711nfcpjgwcr2.users SET"
+        for (const prop in update) {
+                queryUpdate += " " + `${prop}` + " = " + "'" + `${update[prop]}` + "'" + ",";
+        }
+        let queryStr = queryUpdate.slice(0, -1);
+        queryStr += " WHERE id = " + ID + ";";
+        db.query(queryStr,
+            function(err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            })
     }
 }

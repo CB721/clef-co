@@ -64,20 +64,21 @@ CREATE TABLE products
 	-- datetime checked out
 	-- user id
 );
-	CREATE TABLE users
+
+CREATE TABLE users
 	(
 		id INT NOT NULL UNIQUE AUTO_INCREMENT
 		, first_name VARCHAR(255) NOT NULL
 		, last_name VARCHAR(255) NOT NULL
 		, user_password VARCHAR(255) NOT NULL
 		, email VARCHAR(255) NOT NULL
-		, phone VARCHAR(255)
+		, phone SMALLINT(10)
 		, street_address VARCHAR(255)
 		, secondary_address VARCHAR(255)
 		, city VARCHAR(255)
-		, user_state VARCHAR(255)
-		, zip_code VARCHAR(255)
-		, last_visit DATETIME
-		, joined_date DATE NOT NULL
+		, user_state VARCHAR(25)
+		, zip_code CHAR(5)
+		, last_visit CHAR(10)
+		, joined_date CHAR(10)
 		, PRIMARY KEY (id)
 	);
