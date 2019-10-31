@@ -5,7 +5,6 @@ INSERT INTO oxn711nfcpjgwcr2.users
     user_password,
     email,
     phone,
-    user_address,
     joined_date
 )
 VALUES
@@ -15,6 +14,5 @@ VALUES
     "password",
     "spideysense@avengers.gov",
     "3016167321",
-    "20 Ingram Street, Forest Hills NY 11375",
     2019-10-28
 );

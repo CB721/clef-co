@@ -27,9 +27,11 @@ function Navbar(props) {
                                         <ol className="ordered-list">
                                             <li className="list-items white">
                                                 <a href="/">
+
                                                     <AlbumIconOutlinedIcon
                                                         fontSize="large"
                                                     />
+
                                                 </a>
                                             </li>
                                             <li className="list-items white">

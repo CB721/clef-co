@@ -122,7 +122,7 @@ class User extends Component {
                     <Row>
                         <Col size="md-1" />
                         <Col size="md-10">
-                        {/* map orders by date */}
+                            {/* map orders by date */}
                             <Order
                                 date="October 25, 2019"
                                 total="257.45"

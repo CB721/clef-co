@@ -72,9 +72,12 @@ CREATE TABLE products
 		, user_password VARCHAR(255) NOT NULL
 		, email VARCHAR(255) NOT NULL
 		, phone VARCHAR(255)
-		, user_address VARCHAR(255) NOT NULL
+		, street_address VARCHAR(255)
+		, secondary_address VARCHAR(255)
+		, city VARCHAR(255)
+		, user_state VARCHAR(255)
+		, zip_code VARCHAR(255)
 		, last_visit DATETIME
 		, joined_date DATE NOT NULL
 		, PRIMARY KEY (id)
-		-- cart id (string of cart ids?)
 	);
