@@ -1,0 +1,135 @@
+.delete-account-section {
+    width: 100%;
+    height: 200px;
+    border-radius: 25px;
+    perspective: 600px;
+}
+.delete-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    padding-bottom: 10%;
+    border-radius: 25px;
+    border: 3px solid rgb(0, 0, 0);
+}
+.delete-card-face {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    text-align: center;
+    padding: 70px 0;
+    color: white;
+    font-size: 20px;
+}
+.delete-card-front {
+    border-radius: 25px;
+    background: rgba(255, 0, 0, 0);
+}
+.delete-card-back {
+    border-radius: 25px;
+    background: rgb(116,41,142);
+    background: linear-gradient(0deg, rgba(116,41,142,1) 0%, rgba(0,0,0,0.9864320728291317) 100%);
+    transform: rotateX( 180deg );
+}
+.delete-card.is-flipped {
+    transform: rotateX(180deg);
+}
+.delete-text {
+    padding: 10px;
+}
+.delete-text:hover {
+    color: red;
+    cursor: pointer;
+}
+.dont-delete-button {
+    margin-top: 6px!important;
+    margin-right: 5%;
+    color: rgb(62,7,104);
+    background: white;
+    border-radius: 25px;
+    border-color: rgb(255, 255, 255);
+    border-width: 1px;
+    -webkit-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+}
+.dont-delete-button:hover {
+    border-color: white;
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+}
+.delete-account-button {
+    margin-top: 6px!important;
+    margin-left: 5%;
+    color: white;
+    background: black;
+    border-radius: 25px;
+    border-color: rgb(62,7,104);
+    border-width: 1px;
+    -webkit-box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
+    -moz-box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
+    box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
+}
+.delete-account-button:hover {
+    border-color: rgb(167, 5, 5);
+    background: rgb(167, 5, 5);
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+    box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
+}
+.waves {
+    position: absolute;
+    width: 100%;
+    height: 71.5px;
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: url(../../pages/Assets/images/purple-wave.png);
+    animation: wave-after-wave 10s linear infinite;
+}
+.waves::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 71.5px;
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: url(../../pages/Assets/images/purple-wave.png);
+    opacity: 0.5;
+    animation: wave-after-wave 12s linear infinite reverse;
+}
+.waves::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 71.5px;
+    bottom: 0;
+    left: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: url(../../pages/Assets/images/purple-wave.png);
+    opacity: 0.2;
+    animation: wave-after-wave 15s linear infinite;
+}
+
+@keyframes wave-after-wave {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 1360px;
+    }
+}

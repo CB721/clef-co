@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import UserNews from "../components/UserNews";
 import Order from "../components/Order";
+import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
@@ -16,6 +17,7 @@ class User extends Component {
         statusImage: "",
         userStatus: "beginner",
         editContact: false,
+        deleteCard: "delete-card",
     }
     componentDidMount() {
         this.generateRandomImage();
@@ -63,6 +65,20 @@ class User extends Component {
         this.setState({
             editContact: !edit
         });
+    }
+    flipCard = () => (event) => {
+        event.preventDefault();
+        if (this.state.deleteCard === "delete-card") {
+            this.setState({ deleteCard: "delete-card is-flipped" });
+        } else {
+            this.setState({ deleteCard: "delete-card" });
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    }
+    deleteAccount = (id) => (event) => {
+        event.preventDefault();
+        console.log("Delete account");
+        window.location.href = "/create_account";
     }
     render() {
         return (
@@ -137,6 +153,17 @@ class User extends Component {
                             />
                         </Col>
                         <Col size="md-1" />
+                    </Row>
+                    <Row>
+                        <Col size="md-3" />
+                        <Col size="md-6">
+                            <DeleteAccount
+                                flip={this.flipCard()}
+                                card={this.state.deleteCard}
+                                delete={this.deleteAccount()}
+                            />
+                        </Col>
+                        <Col size="md-3" />
                     </Row>
                 </Container>
             </div>
