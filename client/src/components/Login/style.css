@@ -2,5 +2,20 @@
     margin-top: 35px;
 }
 .login-form {
+    background: white;
     margin-bottom: 25vh;
+    padding: 10px;
+    border-radius: 25px;
+}
+.fade-error-message {
+    transition: .5s;
+    animation: fade-in 1s linear;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

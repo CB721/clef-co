@@ -2,22 +2,49 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 class Login extends Component {
     state = {
         email: "",
         password: "",
+        formMessage: "",
+        errorClass: ""
+    }
+    userLogin = (email, password) => {
+        API.userLogin(email, password)
+            .then(res =>
+                console.log(res)
+            )
+            .catch(err => console.log(err))
     }
     handleInputChange = () => event => {
-        let value = event.target.value;
-        const name = event.target.name;
+        let value = event.target.value.trim();
+        const name = event.target.name.trim();
         this.setState({
             [name]: value
         });
     }
     handleFormSubmit = () => event => {
         event.preventDefault();
+        this.setState({ formMessage: "" });
+        if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+            if (this.state.password.length < 8) {
+                this.setState({
+                    formMessage: "Passwords must be a least 8 characters",
+                    errorClass: "form-titles fade-error-message"
+                })
+            } else {
+                this.userLogin(this.state.email, this.state.password);
+            }
+        } else {
+            this.setState({
+                formMessage: "Please enter a valid email",
+                email: "",
+                errorClass: "form-titles fade-error-message"
+            });
+        }
     }
     render() {
         return (
@@ -45,6 +72,8 @@ class Login extends Component {
                                 <Col size="md-4" />
                                 <Col size="md-4">
                                     <LoginForm
+                                        errorClass={this.state.errorClass}
+                                        formMessage={this.state.formMessage}
                                         handleInputChange={this.handleInputChange()}
                                         email={this.state.email}
                                         password={this.state.password}

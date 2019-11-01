@@ -5,6 +5,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     max-width: 345px;
+    border: 1px solid black;
     border-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;

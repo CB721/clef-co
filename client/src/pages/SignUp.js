@@ -11,7 +11,8 @@ class SignUp extends Component {
         email: "",
         password: "",
         conPassword: "",
-        formMessage: ""
+        formMessage: "",
+        errorClass: "",
     }
     handleInputChange = () => event => {
         let value = event.target.value;
@@ -25,14 +26,16 @@ class SignUp extends Component {
         this.setState({ formMessage: "" });
         if (this.state.password.length < 8) {
             this.setState({
-                formMessage: "Password length must be a least 8 characters",
+                formMessage: "Passwords must be a least 8 characters",
+                errorClass: "form-titles fade-error-message",
             });
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
             if (this.state.password === this.state.conPassword) {
                 if (this.state.email === "" || this.state.last === "" || this.state.first === "" || this.state.password === "") {
                     this.setState({
-                        formMessage: "Please complete all fields"
+                        formMessage: "Please complete all fields",
+                        errorClass: "form-titles fade-error-message",
                     });
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
@@ -41,7 +44,8 @@ class SignUp extends Component {
                     } else {
                         this.setState({
                             formMessage: "Please enter a valid email",
-                            email: ""
+                            email: "",
+                            errorClass: "form-titles fade-error-message",
                         });
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }
@@ -50,7 +54,7 @@ class SignUp extends Component {
                 this.setState({
                     password: "",
                     conPassword: "",
-                    formMessage: "Password must match"
+                    formMessage: "Passwords must match"
                 });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -83,6 +87,7 @@ class SignUp extends Component {
                                 <Col size="md-4" />
                                 <Col size="md-4">
                                     <SignUpForm
+                                        errorClass={this.state.errorClass}
                                         formMessage={this.state.formMessage}
                                         first={this.state.first}
                                         last={this.state.last}

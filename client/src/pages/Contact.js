@@ -13,6 +13,12 @@ import "./Assets/style.css";
 class Contact extends Component {
     state = {
         products: [],
+        email: "",
+        subject: "",
+        description: "",
+        productSelection: [],
+        formMessage: "",
+        errorClass: "",
     }
     componentDidMount() {
         this.getProducts();
@@ -23,6 +29,36 @@ class Contact extends Component {
                 this.setState({ products: res.data.results })
             )
             .catch(err => console.log("Error getting products: " + err));
+    }
+    handleInputChange = () => event => {
+        let value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+    handleFormSubmit = () => event => {
+        event.preventDefault();
+        this.setState({ formMessage: "" });
+        if (this.state.description.trim() === "" ||
+            this.state.email.trim() === "" ||
+            this.state.subject.trim() === "" ||
+            this.state.description.length < 1) {
+            this.setState({
+                formMessage: "Please complete all fields",
+                errorClass: "form-titles fade-error-message",
+            })
+        } else {
+            if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+                console.log("success")
+            } else {
+                this.setState({
+                    formMessage: "Please enter a valid email",
+                    errorClass: "form-titles fade-error-message",
+                })
+            }
+
+        }
     }
     goToTwitter() {
         window.location.href = "https://twitter.com";
@@ -61,8 +97,16 @@ class Contact extends Component {
                         <Col size="md-2" />
                         <Col size="md-8">
                             <Form
+                                handleInputChange={this.handleInputChange()}
+                                email={this.state.email}
+                                subject={this.state.subject}
+                                description={this.state.description}
+                                productSelection={this.state.productSelection}
+                                formMessage={this.state.formMessage}
+                                errorClass={this.state.errorClass}
                                 products={this.state.products}
                                 button={<Button
+                                    action={this.handleFormSubmit()}
                                     buttonClass="explore"
                                     text="Submit"
                                 />}

@@ -11,13 +11,13 @@ function SignUp(props) {
         },
     });
     return (
-        <div className="white login-form">
+        <div className="purple login-form">
             <MuiThemeProvider theme={theme}>
                 <FormControl fullWidth={true}>
-                    <h6 className="form-titles text-shadow">
+                    <span className={props.errorClass}>
                         {props.formMessage}
-                    </h6>
-                    <h6 className="form-titles text-shadow">
+                    </span>
+                    <h6 className="form-titles">
                         First Name
                     </h6>
                     <Input
@@ -25,12 +25,11 @@ function SignUp(props) {
                         name="first"
                         onChange={props.handleInputChange}
                         type="text"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'name',
                         }}
                     />
-                    <h6 className="form-titles text-shadow">
+                    <h6 className="form-titles">
                         Last Name
                     </h6>
                     <Input
@@ -38,12 +37,11 @@ function SignUp(props) {
                         name="last"
                         onChange={props.handleInputChange}
                         type="text"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'name',
                         }}
                     />
-                    <h6 className="form-titles text-shadow">
+                    <h6 className="form-titles">
                         Email Address
                     </h6>
                     <Input
@@ -51,12 +49,11 @@ function SignUp(props) {
                         name="email"
                         onChange={props.handleInputChange}
                         type="text"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'email',
                         }}
                     />
-                    <h6 className="form-titles text-shadow">
+                    <h6 className="form-titles">
                         Password
                     </h6>
                     <Input
@@ -64,12 +61,11 @@ function SignUp(props) {
                         name="password"
                         onChange={props.handleInputChange}
                         type="password"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'password',
                         }}
                     />
-                    <h6 className="form-titles text-shadow">
+                    <h6 className="form-titles">
                         Re-type Password
                     </h6>
                     <Input
@@ -77,7 +73,6 @@ function SignUp(props) {
                         name="conPassword"
                         onChange={props.handleInputChange}
                         type="password"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'password',
                         }}

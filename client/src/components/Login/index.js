@@ -11,9 +11,12 @@ function Login(props) {
         },
     });
     return (
-        <div className="white login-form">
+        <div className="purple login-form">
             <FormControl fullWidth={true}>
-                <h6 className="form-titles text-shadow">
+                <span className={props.errorClass}>
+                    {props.formMessage}
+                </span>
+                <h6 className="form-titles">
                     Email Address
                 </h6>
                 <MuiThemeProvider theme={theme}>
@@ -22,13 +25,12 @@ function Login(props) {
                         name="email"
                         onChange={props.handleInputChange}
                         type="text"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'email',
                         }}
                     />
                 </MuiThemeProvider>
-                <h6 className="form-titles text-shadow">
+                <h6 className="form-titles">
                     Password
                 </h6>
                 <MuiThemeProvider theme={theme}>
@@ -37,7 +39,6 @@ function Login(props) {
                         name="password"
                         onChange={props.handleInputChange}
                         type="password"
-                        className="text-shadow"
                         inputProps={{
                             'aria-label': 'password',
                         }}
