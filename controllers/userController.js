@@ -1,9 +1,11 @@
 const db = require("../connection/connection");
 const moment = require("moment");
+const bcrypt = require("bcryptjs");
 
 const today = moment().format("YYYY-MM-DD");
 const rightNow = moment().format("YYYY-MM-DD HH:mm:ss");
 const table = "oxn711nfcpjgwcr2.users";
+
 module.exports = {
     getUserByID: function (req, res) {
         const userID = req.params.id;
@@ -18,49 +20,78 @@ module.exports = {
                 }
             })
     },
-    getUserByEmail: function (req, res, email) {
+    getUserByEmail: function (req, res) {
         const userEmail = "'" + req.params.email + "'";
-        const password = "'" + req.params.password + "'";
-        db.query("SELECT * FROM " + table + " WHERE email = " + userEmail + " AND user_password = " + password + ";",
+        db.query("SELECT * FROM " + table + " WHERE email = " + userEmail + ";",
             function (err, results) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    if (results.length < 1) {
-                        return res.send("No user found");
-                    } else {
-                        return res.json({
-                            results
-                        });
-                    }
+                    bcrypt.compare(req.params.password, results[0].user_password)
+                    .then(
+                        match => {
+                            if (match) {
+                                return res.json({
+                                    results
+                                });
+                            } else {
+                                return res.send("No user found");
+                            }
+                        }
+                    )
                 }
             })
     },
     createUser: function (req, res) {
         const user = req.body[0];
-        const queryInsert = "INSERT INTO " + table + " (first_name, last_name, user_password, email, phone, joined_date) VALUES (";
-        const queryValues = "'" + user.first_name + "'," + "'" + user.last_name + "'," + "'" + user.user_password + "'," + "'" + user.email + "'," + "" + user.phone + "," + "'" + today + "');";
-        db.query("SELECT * FROM " + table + "WHERE email = " + user.email + ";",
-            function (err, results) {
-                if (err) {
-                    return res.send(err);
-                } else {
-                    if (results.length > 0) {
-                        return res.send("Account already created with that email address");
-                    } else {
-                        db.query(queryInsert + queryValues,
-                            function (err, results) {
-                                if (err) {
-                                    return res.send(err);
-                                } else {
-                                    return res.json({
-                                        results
-                                    });
-                                }
-                            })
-                    }
-                }
+        let corbato = function (resistance) {
+            return new Promise(function (resolve, reject) {
+                resolve(
+                    bcrypt.genSalt(10, (err, salt) => {
+                        bcrypt.hash(resistance, salt, (err, hash) => {
+                            if (err) throw err;
+                            completeUser(hash);
+                        });
+                    })
+                )
             })
+        }
+        if (user.first_name == undefined ||
+            user.last_name == undefined ||
+            user.user_password == undefined ||
+            user.email == undefined ||
+            user.phone == undefined) {
+            return res.send("Complete all fields before continuing");
+        } else {
+            corbato(user.user_password)
+                .then()
+                .catch(err => console.log(err));
+        }
+        let completeUser = function (pass) {
+            const queryInsert = "INSERT INTO " + table + " (first_name, last_name, user_password, email, phone, joined_date) VALUES (";
+            const queryValues = "'" + user.first_name + "'," + "'" + user.last_name + "'," + "'" + pass + "'," + "'" + user.email + "'," + "" + user.phone + "," + "'" + today + "');";
+            db.query("SELECT * FROM " + table + " WHERE email = '" + user.email + "';",
+                function (err, results) {
+                    if (err) {
+                        return res.send(err);
+                    } else {
+                        if (results.length > 0) {
+                            return res.send("Account already created with that email address");
+                        } else {
+                            db.query(queryInsert + queryValues,
+                                function (err, results) {
+                                    if (err) {
+                                        return res.send(err);
+                                    } else {
+                                        return res.json({
+                                            results
+                                        });
+                                    }
+                                })
+                        }
+                    }
+                })
+        }
     },
     updateUser: function (req, res) {
         const ID = req.params.id;
