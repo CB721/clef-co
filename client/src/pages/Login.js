@@ -6,7 +6,18 @@ import "./Assets/style.css";
 
 class Login extends Component {
     state = {
-
+        email: "",
+        password: "",
+    }
+    handleInputChange = () => event => {
+        let value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+    handleFormSubmit = () => event => {
+        event.preventDefault();
     }
     render() {
         return (
@@ -34,7 +45,11 @@ class Login extends Component {
                                 <Col size="md-4" />
                                 <Col size="md-4">
                                     <LoginForm
+                                        handleInputChange={this.handleInputChange()}
+                                        email={this.state.email}
+                                        password={this.state.password}
                                         button={<Button
+                                            action={this.handleFormSubmit()}
                                             buttonClass="explore"
                                             text="Log In"
                                         />}
