@@ -15,9 +15,20 @@ class Login extends Component {
     userLogin = (email, password) => {
         API.userLogin(email, password)
             .then(res =>
-                console.log(res)
+                this.handleInvalidLogin(res.data)
             )
             .catch(err => console.log(err))
+    }
+    handleInvalidLogin = (data) => {
+        if (data === "login error") {
+            this.setState({
+                formMessage: "Trouble logging in.  Please try again.",
+                errorClass: "form-titles fade-error-message",
+                password: ""
+            });
+        } else {
+            console.log(data.results)
+        }
     }
     handleInputChange = () => event => {
         let value = event.target.value.trim();

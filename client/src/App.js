@@ -19,43 +19,11 @@ import './App.css';
 
 
 function App() {
-  // state = {
-  //   scrollDirection: 0,
-  //   direction: "head-bar"
-  // }
-  // componentDidMount() {
-  //   // console.log(this.products);
-  //   window.addEventListener("scroll", this.scrollEvent)
-  // }
-  // scrollEvent = () => {
-  //   if (window.location.pathname !== "/") {
-  //     this.setState({
-  //       direction: "head-bar"
-  //     });
-  //   } else {
-  //     const direction = this.state.scrollDirection - window.scrollY;
-  //     this.setState({
-  //       scrollDirection: window.scrollY
-  //     });
-  //     if (direction >= 0) {
-  //       this.setState({
-  //         direction: "head-bar invisibility-cloak"
-  //       });
-  //     }
-  //     if (direction < 0) {
-  //       this.setState({
-  //         direction: "head-bar disillusionment-charm"
-  //       });
-  //     }
-  //   }
-  // }
   const products = useSelector(state => state.products);
 
   return (
     <Router>
-      <Navbar
-      // visibility={this.state.direction}
-      />
+      <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/products" component={Products} />

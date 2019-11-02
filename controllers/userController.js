@@ -27,18 +27,22 @@ module.exports = {
                 if (err) {
                     return res.send(err);
                 } else {
-                    bcrypt.compare(req.params.password, results[0].user_password)
-                    .then(
-                        match => {
-                            if (match) {
-                                return res.json({
-                                    results
-                                });
-                            } else {
-                                return res.send("No user found");
-                            }
-                        }
-                    )
+                    if (results.length > 0) {
+                        bcrypt.compare(req.params.password, results[0].user_password)
+                            .then(
+                                match => {
+                                    if (match) {
+                                        return res.json({
+                                            results
+                                        });
+                                    } else {
+                                        return res.send("login error");
+                                    }
+                                }
+                            )
+                    } else {
+                        return res.send("login error");
+                    }
                 }
             })
     },

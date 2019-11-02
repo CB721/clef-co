@@ -15,6 +15,6 @@ export default {
         return axios.post("/api/users/create", user);
     },
     userLogin: function(email, password) {
-        return axios.get("/api/users/login/:email/:password", email, password)
+        return axios.get("/api/users/login/" + email + "/" + password)
     }
 }
