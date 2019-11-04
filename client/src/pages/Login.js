@@ -1,107 +1,108 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { saveUser, switchLoggedStatus } from '../actions';
 import { Col, Row, Container } from "../components/Grid";
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
 import API from "../utilities/api";
 import "./Assets/style.css";
 
-class Login extends Component {
-    state = {
-        email: "",
-        password: "",
-        formMessage: "",
-        errorClass: ""
-    }
-    userLogin = (email, password) => {
+
+function Login() {
+    const [errorClass, setErrorClass] = useState("");
+    const [formMessage, setFormMessage] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState([]);
+
+    const dispatch = useDispatch();
+    function userLogin(email, password) {
         API.userLogin(email, password)
             .then(res =>
-                this.handleInvalidLogin(res.data)
+                handleInvalidLogin(res.data)
             )
             .catch(err => console.log(err))
     }
-    handleInvalidLogin = (data) => {
-        if (data === "login error") {
-            this.setState({
-                formMessage: "Trouble logging in.  Please try again.",
-                errorClass: "form-titles fade-error-message",
-                password: ""
-            });
+    function handleInvalidLogin(user) {
+        if (user === "login error") {
+            setErrorClass("form-titles fade-error-message");
+            setFormMessage("Trouble logging in.  Please try again.");
+            setPassword("");
         } else {
-            console.log(data.results)
+            dispatch(saveUser(user.results[0]));
+            dispatch(switchLoggedStatus());
         }
-    }
-    handleInputChange = () => event => {
+    };
+    function handleInputChange(event) {
         let value = event.target.value.trim();
         const name = event.target.name.trim();
-        this.setState({
-            [name]: value
-        });
-    }
-    handleFormSubmit = () => event => {
-        event.preventDefault();
-        this.setState({ formMessage: "" });
-        if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-            if (this.state.password.length < 8) {
-                this.setState({
-                    formMessage: "Passwords must be a least 8 characters",
-                    errorClass: "form-titles fade-error-message"
-                })
-            } else {
-                this.userLogin(this.state.email, this.state.password);
-            }
-        } else {
-            this.setState({
-                formMessage: "Please enter a valid email",
-                email: "",
-                errorClass: "form-titles fade-error-message"
-            });
+        if (name === "email") {
+            setEmail(value);
+        }
+        if (name === "password") {
+            setPassword(value);
         }
     }
-    render() {
-        return (
-            <div className="three-d-background">
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <Container fluid>
-                    <Row>
-                        <Col size="md-2" />
-                        <Col size="md-8">
-                            <h1 className="white q-top-pad text-shadow">
-                                Login
-                            </h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-12">
-                            <Row>
-                                <Col size="md-4" />
-                                <Col size="md-4">
-                                    <LoginForm
-                                        errorClass={this.state.errorClass}
-                                        formMessage={this.state.formMessage}
-                                        handleInputChange={this.handleInputChange()}
-                                        email={this.state.email}
-                                        password={this.state.password}
-                                        button={<Button
-                                            action={this.handleFormSubmit()}
-                                            buttonClass="explore"
-                                            text="Log In"
-                                        />}
-                                    />
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-        )
+    function handleFormSubmit() {
+        setFormMessage("");
+        if (email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+            if (password.length < 8) {
+                setFormMessage("Passwords must be a least 8 characters");
+                setPassword("");
+                setErrorClass("form-titles fade-error-message");
+            } else {
+                userLogin(email, password);
+            }
+        } else {
+            setFormMessage("Please enter a valid email");
+            setEmail("");
+            setErrorClass("form-titles fade-error-message");
+        }
     }
+
+    return (
+        <div className="three-d-background">
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <div className="three-d-objects" />
+            <Container fluid>
+                <Row>
+                    <Col size="md-2" />
+                    <Col size="md-8">
+                        <h1 className="white q-top-pad text-shadow">
+                            Login
+                            </h1>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-12">
+                        <Row>
+                            <Col size="md-4" />
+                            <Col size="md-4">
+                                <LoginForm
+                                    errorClass={errorClass}
+                                    formMessage={formMessage}
+                                    handleInputChange={handleInputChange}
+                                    email={email}
+                                    password={password}
+                                    button={<Button
+                                        action={handleFormSubmit}
+                                        buttonClass="explore"
+                                        text="Log In"
+                                    />}
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
+    )
 }
 
 export default Login;

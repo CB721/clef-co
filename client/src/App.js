@@ -20,6 +20,7 @@ import './App.css';
 
 function App() {
   const products = useSelector(state => state.products);
+  const isLogged = useSelector(state => state.isLogged);
 
   return (
     <Router>
