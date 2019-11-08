@@ -70,7 +70,15 @@ function ProfileCard(props) {
                             </div>
                             <div className="profile-card-address white">
                                 <span>
-                                    {props.address}
+                                    {props.streetAddress}
+                                </span>
+                                {props.secondaryAddress ? (
+                                    <span>
+                                        {props.secondaryAddress}
+                                    </span>
+                                ) : (<div />)}
+                                <span>
+                                    {props.city + ", " + props.state + " " + props.zip}
                                 </span>
                             </div>
                         </div >

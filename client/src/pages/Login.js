@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveUser, switchLoggedStatus } from '../actions';
 import { Col, Row, Container } from "../components/Grid";
 import LoginForm from "../components/Login";
@@ -13,7 +13,10 @@ function Login() {
     const [formMessage, setFormMessage] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser] = useState([]);
+
+    useEffect(() => {
+        console.log(window.sessionStorage)
+    });
 
     const dispatch = useDispatch();
     function userLogin(email, password) {
@@ -31,6 +34,19 @@ function Login() {
         } else {
             dispatch(saveUser(user.results[0]));
             dispatch(switchLoggedStatus());
+            sessionStorage.setItem("logged_in", true);
+            sessionStorage.setItem("first_name", user.results[0].first_name);
+            sessionStorage.setItem("last_name", user.results[0].last_name);
+            sessionStorage.setItem("email", user.results[0].email);
+            sessionStorage.setItem("phone", user.results[0].phone);
+            sessionStorage.setItem("street_address", user.results[0].street_address);
+            sessionStorage.setItem("secondary_address", user.results[0].secondary_address);
+            sessionStorage.setItem("city", user.results[0].city);
+            sessionStorage.setItem("user_state", user.results[0].user_state);
+            sessionStorage.setItem("zip_code", user.results[0].zip_code);
+            sessionStorage.setItem("last_visit", user.results[0].last_visit);
+            sessionStorage.setItem("joined_date", user.results[0].joined_date);
+            sessionStorage.setItem("id", user.results[0].id);
         }
     };
     function handleInputChange(event) {
@@ -44,6 +60,7 @@ function Login() {
         }
     }
     function handleFormSubmit() {
+        sessionStorage.clear();
         setFormMessage("");
         if (email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
             if (password.length < 8) {

@@ -3,6 +3,7 @@
     height: 200px;
     border-radius: 25px;
     perspective: 600px;
+    margin-bottom: 4vh;
 }
 .delete-card {
     width: 100%;

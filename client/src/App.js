@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Navbar from "./components/Navbar";
@@ -20,7 +20,16 @@ import './App.css';
 
 function App() {
   const products = useSelector(state => state.products);
-  const isLogged = useSelector(state => state.isLogged);
+  let loggedIn = false;
+
+  useEffect(() => {
+    if (window.sessionStorage.logged_in) {
+      console.log("logged in");
+      loggedIn = true;
+    } else {
+      console.log("not logged in");
+    }
+  });
 
   return (
     <Router>
@@ -42,7 +51,7 @@ function App() {
         ))}
         <Route exact path="/login" component={Login} />
         <Route exact path="/create_account" component={SignUp} />
-        <Route exact path="/user/profile/id" component={User} />
+        <Route exact path="/user/profile" component={User} />
         <Route exact path="/user/id/logoout" component={Logout} />
       </Switch>
       <Footer />

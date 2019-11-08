@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import UserNews from "../components/UserNews";
@@ -9,166 +9,176 @@ import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
 import "./Assets/style.css";
 
-class User extends Component {
-    state = {
-        firstName: "Kara",
-        joinedDate: "2018-03-21",
-        headerImage: "",
-        statusImage: "",
-        userStatus: "beginner",
-        editContact: false,
-        deleteCard: "delete-card",
+function User() {
+    const [first, setFirst] = useState("");
+    const [last, setLast] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [streetAddress, setStreetAddress] = useState("");
+    const [secondaryAddress, setSecondaryAddress] = useState("");
+    const [city, setCity] = useState("");
+    const [state, setState] = useState("");
+    const [zip, setZip] = useState("");
+    const [joinedDate, setJoinedDate] = useState("");
+    const [headerImage, setheaderImage] = useState("");
+    const [statusImage, setstatusImage] = useState("");
+    const [userStatus, setuserStatus] = useState("");
+    const [editContact, setEditContact] = useState(false);
+    const [deleteCard, setDeleteCard] = useState("");
+
+    useEffect(() => {
+        generateRandomImage();
+        determineStatus(window.sessionStorage.joined_date);
+        setUpUser();
+    })
+    function setUpUser() {
+        setFirst(window.sessionStorage.first_name);
+        setJoinedDate(window.sessionStorage.joined_date);
+        setLast(window.sessionStorage.last_name);
+        setEmail(window.sessionStorage.email);
+        setPhone(window.sessionStorage.phone);
+        setSecondaryAddress(window.sessionStorage.secondary_address);
+        setStreetAddress(window.sessionStorage.street_address);
+        setCity(window.sessionStorage.city);
+        setState(window.sessionStorage.user_state);
+        setZip(window.sessionStorage.zip_code);
     }
-    componentDidMount() {
-        this.generateRandomImage();
-        this.determineStatus(this.state.joinedDate);
-    }
-    generateRandomImage() {
+    function generateRandomImage() {
         const imagesArr = headerImages;
         const index = Math.floor((Math.random() * imagesArr.length));
-        this.setState({
-            headerImage: imagesArr[index].image
-        });
+        setheaderImage(imagesArr[index].image);
     }
-    determineStatus(dateJoined) {
+    function determineStatus(dateJoined) {
         const today = moment().format("YYYY-MM-DD");
         if (moment(today).diff(dateJoined, 'days') < 7) {
-            this.setState({
-                statusImage: profileImages[0].image,
-                userStatus: "beginner"
-            });
+            setstatusImage(profileImages[0].image);
+            setuserStatus("beginner");
         }
         if (moment(today).diff(dateJoined, 'days') >= 7 &&
             moment(today).diff(dateJoined, 'months') < 1) {
-            this.setState({
-                statusImage: profileImages[1].image,
-                userStatus: "novice"
-            });
+            setstatusImage(profileImages[1].image);
+            setuserStatus("novice");
         }
         if (moment(today).diff(dateJoined, 'months') >= 1 &&
             moment(today).diff(dateJoined, 'years') < 1) {
-            this.setState({
-                statusImage: profileImages[2].image,
-                userStatus: "expert"
-            });
+            setstatusImage(profileImages[2].image);
+            setuserStatus("expert");
         }
         if (moment(today).diff(dateJoined, 'years') >= 1) {
-            this.setState({
-                statusImage: profileImages[3].image,
-                userStatus: "master"
-            });
+            setstatusImage(profileImages[3].image);
+            setuserStatus("master");
         }
     }
-    editProfile = () => (event) => {
+    function editProfile(event) {
         event.preventDefault();
-        const edit = this.state.editContact;
-        this.setState({
-            editContact: !edit
-        });
+        const edit = editContact;
+        setEditContact(!edit);
     }
-    flipCard = () => (event) => {
+    function flipCard(event) {
         event.preventDefault();
-        if (this.state.deleteCard === "delete-card") {
-            this.setState({ deleteCard: "delete-card is-flipped" });
+        if (deleteCard === "delete-card") {
+            setDeleteCard("delete-card is-flipped");
         } else {
-            this.setState({ deleteCard: "delete-card" });
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            setDeleteCard("delete-card");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
-    deleteAccount = (id) => (event) => {
+    function deleteAccount(id, event) {
         event.preventDefault();
         console.log("Delete account");
         window.location.href = "/create_account";
     }
-    render() {
-        return (
-            <div className="user-profile-background">
-                <Container fluid>
-                    <Row>
-                        <Col size="md-12">
-                            {this.state.headerImage ? (
-                                <img src={this.state.headerImage} alt="User" className="add-shadow" id="search-top-image"></img>
-                            ) : (<div />)}
+    return (
+        <div className="user-profile-background">
+            <Container fluid>
+                <Row>
+                    <Col size="md-12">
+                        {headerImage ? (
+                            <img src={headerImage} alt="User" className="add-shadow" id="search-top-image"></img>
+                        ) : (<div />)}
 
-                        </Col>
-                        <Col size="md-12">
-                            <h1 className="white f-top-pad">
-                                Welcome {this.state.firstName}!
+                    </Col>
+                    <Col size="md-12">
+                        <h1 className="white f-top-pad">
+                            Welcome {first}!
                             </h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-1" />
-                        <Col size="md-10">
-                            <Row>
-                                <Col size="md-4">
-                                    <ProfileCard
-                                        image={this.state.statusImage}
-                                        status={this.state.userStatus}
-                                        firstName={this.state.firstName}
-                                        email="wifey@cb721.com"
-                                        phone="2064252530"
-                                        address="800 Occidental Ave S, Seattle, WA 98134"
-                                        joinedDate={this.state.joinedDate}
-                                        edit={this.state.editContact}
-                                        editAction={this.editProfile()}
-                                    />
-                                </Col>
-                                <Col size="md-2" />
-                                <Col size="md-6">
-                                    <UserNews
-                                        news={[
-                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                                            "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
-                                        ]}
-                                    />
-                                </Col>
-                            </Row>
-                        </Col>
-                        <Col size="md-1" />
-                    </Row>
-                    <Row>
-                        <Col size="md-12">
-                            <h1 className="white f-top-pad">
-                                Orders
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-1" />
+                    <Col size="md-10">
+                        <Row>
+                            <Col size="md-4">
+                                <ProfileCard
+                                    image={statusImage}
+                                    status={userStatus}
+                                    firstName={first}
+                                    email={email}
+                                    phone={phone}
+                                    streetAddress={streetAddress}
+                                    secondaryAddress={secondaryAddress}
+                                    city={city}
+                                    state={state}
+                                    zip={zip}
+                                    joinedDate={joinedDate}
+                                    edit={editContact}
+                                    editAction={editProfile}
+                                />
+                            </Col>
+                            <Col size="md-2" />
+                            <Col size="md-6">
+                                <UserNews
+                                    news={[
+                                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                                        "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+                                    ]}
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col size="md-1" />
+                </Row>
+                <Row>
+                    <Col size="md-12">
+                        <h1 className="white f-top-pad">
+                            Orders
                             </h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-1" />
-                        <Col size="md-10">
-                            {/* map orders by date */}
-                            <Order
-                                date="October 25, 2019"
-                                total="257.45"
-                                name="Kara"
-                                number="1234"
-                            />
-                            <Order
-                                date="August 10, 2018"
-                                total="63.49"
-                                name="Kara"
-                                number="1233"
-                            />
-                        </Col>
-                        <Col size="md-1" />
-                    </Row>
-                    <Row>
-                        <Col size="md-3" />
-                        <Col size="md-6">
-                            <DeleteAccount
-                                flip={this.flipCard()}
-                                card={this.state.deleteCard}
-                                delete={this.deleteAccount()}
-                            />
-                        </Col>
-                        <Col size="md-3" />
-                    </Row>
-                </Container>
-            </div>
-        )
-    }
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-1" />
+                    <Col size="md-10">
+                        {/* map orders by date */}
+                        <Order
+                            date="October 25, 2019"
+                            total="257.45"
+                            name="Kara"
+                            number="1234"
+                        />
+                        <Order
+                            date="August 10, 2018"
+                            total="63.49"
+                            name="Kara"
+                            number="1233"
+                        />
+                    </Col>
+                    <Col size="md-1" />
+                </Row>
+                <Row>
+                    <Col size="md-3" />
+                    <Col size="md-6">
+                        <DeleteAccount
+                            flip={flipCard}
+                            card={deleteCard}
+                            delete={deleteAccount}
+                        />
+                    </Col>
+                    <Col size="md-3" />
+                </Row>
+            </Container>
+        </div>
+    )
 }
 
 export default User;
