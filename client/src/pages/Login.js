@@ -15,7 +15,7 @@ function Login() {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        console.log(window.sessionStorage)
+        
     });
 
     const dispatch = useDispatch();

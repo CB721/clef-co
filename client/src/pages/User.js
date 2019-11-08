@@ -7,6 +7,7 @@ import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 function User() {
@@ -25,6 +26,7 @@ function User() {
     const [userStatus, setuserStatus] = useState("");
     const [editContact, setEditContact] = useState(false);
     const [deleteCard, setDeleteCard] = useState("");
+    const [cardClass, setCardClass] = useState("profile-card");
 
     useEffect(() => {
         generateRandomImage();
@@ -42,6 +44,40 @@ function User() {
         setCity(window.sessionStorage.city);
         setState(window.sessionStorage.user_state);
         setZip(window.sessionStorage.zip_code);
+    }
+    function updateUser(newEmail, newPhone, newStreet, newSecond, newCity, newState, newZip) {
+        const user = {
+            "email": newEmail.trim(),
+            "phone": newPhone.trim(),
+            "street_address": newStreet.trim(),
+            "secondary_address": newSecond.trim(),
+            "city": newCity.trim(),
+            "user_state": newState.trim(),
+            "zip_code": newZip.trim(),
+            "last_visit": moment().format("YYYY-MM-DDTHH:mm:ss")
+        }
+        API.updateUser(window.sessionStorage.id, user)
+            .then(
+                getUser()
+            )
+            .catch(err => console.log(err));
+    }
+    function getUser() {
+        API.getUser(window.sessionStorage.id)
+            .then(res =>
+                updateSession(res.data.results[0])
+            )
+            .catch(err => console.log(err));
+    }
+    function updateSession(updatedUser) {
+        sessionStorage.setItem("email", updatedUser.email);
+        sessionStorage.setItem("phone", updatedUser.phone);
+        sessionStorage.setItem("street_address", updatedUser.street_address);
+        sessionStorage.setItem("secondary_address", updatedUser.secondary_address);
+        sessionStorage.setItem("city", updatedUser.city);
+        sessionStorage.setItem("user_state", updatedUser.user_state);
+        sessionStorage.setItem("zip_code", updatedUser.zip_code);
+        sessionStorage.setItem("last_visit", updatedUser.last_visit);
     }
     function generateRandomImage() {
         const imagesArr = headerImages;
@@ -69,10 +105,15 @@ function User() {
             setuserStatus("master");
         }
     }
-    function editProfile(event) {
+    function EditProfile(event) {
         event.preventDefault();
         const edit = editContact;
         setEditContact(!edit);
+        if (editContact) {
+            setCardClass("profile-card");
+        } else {
+            setCardClass("profile-card-edit");
+        }
     }
     function flipCard(event) {
         event.preventDefault();
@@ -110,6 +151,7 @@ function User() {
                         <Row>
                             <Col size="md-4">
                                 <ProfileCard
+                                    cardClass={cardClass}
                                     image={statusImage}
                                     status={userStatus}
                                     firstName={first}
@@ -122,7 +164,8 @@ function User() {
                                     zip={zip}
                                     joinedDate={joinedDate}
                                     edit={editContact}
-                                    editAction={editProfile}
+                                    editAction={EditProfile}
+                                    updateUser={updateUser}
                                 />
                             </Col>
                             <Col size="md-2" />

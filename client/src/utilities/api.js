@@ -15,6 +15,12 @@ export default {
         return axios.post("/api/users/create", user);
     },
     userLogin: function(email, password) {
-        return axios.get("/api/users/login/" + email + "/" + password)
+        return axios.get("/api/users/login/" + email + "/" + password);
+    },
+    updateUser: function (userID, userData) {
+        return axios.put("/api/users/" + userID, userData);
+    },
+    getUser: function(userID) {
+        return axios.get("/api/users/" + userID);
     }
 }

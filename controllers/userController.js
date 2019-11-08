@@ -99,10 +99,12 @@ module.exports = {
     },
     updateUser: function (req, res) {
         const ID = req.params.id;
-        const update = req.body[0];
+        const update = req.body;
         let queryUpdate = "UPDATE " + table + " SET"
         for (const prop in update) {
-            queryUpdate += " " + `${prop}` + " = " + "'" + `${update[prop]}` + "'" + ",";
+            if (update[prop] !== "null") {
+                queryUpdate += " " + `${prop}` + " = " + "'" + `${update[prop]}` + "'" + ",";
+            }
         }
         let queryStr = queryUpdate.slice(0, -1);
         queryStr += " WHERE id = " + ID + ";";
