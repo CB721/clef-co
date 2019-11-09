@@ -29,9 +29,14 @@ function User() {
     const [cardClass, setCardClass] = useState("profile-card");
 
     useEffect(() => {
-        generateRandomImage();
-        determineStatus(window.sessionStorage.joined_date);
-        setUpUser();
+        if (window.sessionStorage.logged_in) {
+            generateRandomImage();
+            determineStatus(window.sessionStorage.joined_date);
+            setUpUser();
+        } else {
+            window.location.href = "/login";
+        }
+
     })
     function setUpUser() {
         setFirst(window.sessionStorage.first_name);
