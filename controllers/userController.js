@@ -47,7 +47,7 @@ module.exports = {
             })
     },
     createUser: function (req, res) {
-        const user = req.body[0];
+        const user = req.body;
         let corbato = function (resistance) {
             return new Promise(function (resolve, reject) {
                 resolve(
@@ -63,8 +63,7 @@ module.exports = {
         if (user.first_name == undefined ||
             user.last_name == undefined ||
             user.user_password == undefined ||
-            user.email == undefined ||
-            user.phone == undefined) {
+            user.email == undefined) {
             return res.send("Complete all fields before continuing");
         } else {
             corbato(user.user_password)
@@ -72,8 +71,8 @@ module.exports = {
                 .catch(err => console.log(err));
         }
         let completeUser = function (pass) {
-            const queryInsert = "INSERT INTO " + table + " (first_name, last_name, user_password, email, phone, joined_date) VALUES (";
-            const queryValues = "'" + user.first_name + "'," + "'" + user.last_name + "'," + "'" + pass + "'," + "'" + user.email + "'," + "" + user.phone + "," + "'" + today + "');";
+            const queryInsert = "INSERT INTO " + table + " (first_name, last_name, user_password, email, joined_date) VALUES (";
+            const queryValues = "'" + user.first_name + "'," + "'" + user.last_name + "'," + "'" + pass + "'," + "'" + user.email + "'," + "'" + today + "');";
             db.query("SELECT * FROM " + table + " WHERE email = '" + user.email + "';",
                 function (err, results) {
                     if (err) {

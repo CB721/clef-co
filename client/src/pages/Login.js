@@ -47,6 +47,7 @@ function Login() {
             sessionStorage.setItem("last_visit", user.results[0].last_visit);
             sessionStorage.setItem("joined_date", user.results[0].joined_date);
             sessionStorage.setItem("id", user.results[0].id);
+            window.location.href = "/user/profile";
         }
     };
     function handleInputChange(event) {

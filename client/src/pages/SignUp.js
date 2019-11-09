@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import SignUpForm from "../components/SignUp";
 import Button from "../components/Button";
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 class SignUp extends Component {
@@ -24,6 +25,12 @@ class SignUp extends Component {
     handleFormSubmit = () => event => {
         event.preventDefault();
         this.setState({ formMessage: "" });
+        const user = {
+            "first_name": this.state.first,
+            "last_name": this.state.last,
+            "user_password": this.state.password,
+            "email": this.state.email
+        }
         if (this.state.password.length < 8) {
             this.setState({
                 formMessage: "Passwords must be a least 8 characters",
@@ -41,6 +48,14 @@ class SignUp extends Component {
                 } else {
                     if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
                         console.log("success");
+                        API.createUser(user)
+                            .then(
+                                this.setState({
+                                    formMessage: "Success!"
+                                }),
+                                window.location.href = "/login"
+                            )
+                            .catch(err => console.log(err));
                     } else {
                         this.setState({
                             formMessage: "Please enter a valid email",
