@@ -22,5 +22,9 @@ export default {
     },
     getUser: function(userID) {
         return axios.get("/api/users/" + userID);
+    },
+    deleteUser: function(id, email, password) {
+        return axios.delete("/api/users/delete/" + id + "/" + email + "/" + password);
+        
     }
 }

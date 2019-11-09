@@ -7,9 +7,12 @@ router
 router
     .route("/:id")
     .get(controller.getUserByID)
-    .put(controller.updateUser)
+    .put(controller.updateUser);
 router
     .route("/login/:email/:password")
-    .get(controller.getUserByEmail)
+    .get(controller.getUserByEmail);
+router
+    .route("/delete/:id/:email/:password")
+    .delete(controller.deleteUser);
 
 module.exports = router;

@@ -117,5 +117,42 @@ module.exports = {
                     });
                 }
             })
+    },
+    deleteUser: function (req, res) {
+        const ID = req.params.id;
+        const password = req.params.password;
+        const email = req.params.email;
+        db.query("SELECT * FROM " + table + " WHERE email = '" + email + "';",
+            function(err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    if (results.length > 0) {
+                        bcrypt.compare(password, results[0].user_password)
+                            .then(
+                                match => {
+                                    if (match) {
+                                        db.query("DELETE FROM " + table + "WHERE id = " + ID + ";",
+                                        function(err, results) {
+                                            if (err) {
+                                                return res.send(err);
+                                            } else {
+                                                return res.json({
+                                                    results
+                                                });
+                                            }
+                                        }
+                                        )
+                                    } else {
+                                        return res.send("Incorrect password");
+                                    }
+                                }
+                            )
+                    } else {
+                        return res.send("No account found");
+                    }
+                }
+            }
+        )
     }
 }
