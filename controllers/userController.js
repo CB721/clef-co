@@ -122,6 +122,9 @@ module.exports = {
         const ID = req.params.id;
         const password = req.params.password;
         const email = req.params.email;
+        console.log(ID);
+        console.log(email);
+        console.log(password);
         db.query("SELECT * FROM " + table + " WHERE email = '" + email + "';",
             function(err, results) {
                 if (err) {
@@ -132,7 +135,7 @@ module.exports = {
                             .then(
                                 match => {
                                     if (match) {
-                                        db.query("DELETE FROM " + table + "WHERE id = " + ID + ";",
+                                        db.query("DELETE FROM " + table + " WHERE id = " + ID + ";",
                                         function(err, results) {
                                             if (err) {
                                                 return res.send(err);

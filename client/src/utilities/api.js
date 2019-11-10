@@ -25,6 +25,5 @@ export default {
     },
     deleteUser: function(id, email, password) {
         return axios.delete("/api/users/delete/" + id + "/" + email + "/" + password);
-        
     }
 }

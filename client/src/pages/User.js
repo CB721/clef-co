@@ -27,6 +27,9 @@ function User() {
     const [editContact, setEditContact] = useState(false);
     const [deleteCard, setDeleteCard] = useState("");
     const [cardClass, setCardClass] = useState("profile-card");
+    const [deleteOption, setDeleteOption] = useState(false);
+    const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);
+    const [passwordError, setPasswordError] = useState("");
 
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
@@ -36,7 +39,6 @@ function User() {
         } else {
             window.location.href = "/login";
         }
-
     })
     function setUpUser() {
         setFirst(window.sessionStorage.first_name);
@@ -124,107 +126,128 @@ function User() {
         event.preventDefault();
         if (deleteCard === "delete-card") {
             setDeleteCard("delete-card is-flipped");
+            setDeleteOption(true);
         } else {
             setDeleteCard("delete-card");
+            setDeleteOption(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
-    function deleteAccount(id, event) {
-        event.preventDefault();
-        console.log("Delete account");
-        window.location.href = "/create_account";
+    function deleteAccount() {
+        setconfirmDeleteOption(true);
+    }
+    function confirmDelete(password) {
+        API.deleteUser(window.sessionStorage.id, window.sessionStorage.email, password)
+            .then(res =>
+                validateAccountDelete(res.data)
+            )
+            .catch(err => console.log(err));
+    }
+    function validateAccountDelete(res) {
+        if (res === "Incorrect password") {
+            setPasswordError("Incorrect Password");
+        } else {
+            sessionStorage.clear();
+            window.location.href = "/create_account";
+        }
     }
     return (
         <div className="user-profile-background">
-            <Container fluid>
-                <Row>
-                    <Col size="md-12">
-                        {headerImage ? (
-                            <img src={headerImage} alt="User" className="add-shadow" id="search-top-image"></img>
-                        ) : (<div />)}
+            {window.sessionStorage.logged_in ? (
+                <Container fluid>
+                    <Row>
+                        <Col size="md-12">
+                            {headerImage ? (
+                                <img src={headerImage} alt="User" className="add-shadow" id="search-top-image"></img>
+                            ) : (<div />)}
 
-                    </Col>
-                    <Col size="md-12">
-                        <h1 className="white f-top-pad">
-                            Welcome {first}!
+                        </Col>
+                        <Col size="md-12">
+                            <h1 className="white f-top-pad">
+                                Welcome {first}!
                             </h1>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-1" />
-                    <Col size="md-10">
-                        <Row>
-                            <Col size="md-4">
-                                <ProfileCard
-                                    cardClass={cardClass}
-                                    image={statusImage}
-                                    status={userStatus}
-                                    firstName={first}
-                                    email={email}
-                                    phone={phone}
-                                    streetAddress={streetAddress}
-                                    secondaryAddress={secondaryAddress}
-                                    city={city}
-                                    state={state}
-                                    zip={zip}
-                                    joinedDate={joinedDate}
-                                    edit={editContact}
-                                    editAction={EditProfile}
-                                    updateUser={updateUser}
-                                />
-                            </Col>
-                            <Col size="md-2" />
-                            <Col size="md-6">
-                                <UserNews
-                                    news={[
-                                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                                        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                                        "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
-                                    ]}
-                                />
-                            </Col>
-                        </Row>
-                    </Col>
-                    <Col size="md-1" />
-                </Row>
-                <Row>
-                    <Col size="md-12">
-                        <h1 className="white f-top-pad">
-                            Orders
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="md-1" />
+                        <Col size="md-10">
+                            <Row>
+                                <Col size="md-4">
+                                    <ProfileCard
+                                        cardClass={cardClass}
+                                        image={statusImage}
+                                        status={userStatus}
+                                        firstName={first}
+                                        email={email}
+                                        phone={phone}
+                                        streetAddress={streetAddress}
+                                        secondaryAddress={secondaryAddress}
+                                        city={city}
+                                        state={state}
+                                        zip={zip}
+                                        joinedDate={joinedDate}
+                                        edit={editContact}
+                                        editAction={EditProfile}
+                                        updateUser={updateUser}
+                                    />
+                                </Col>
+                                <Col size="md-2" />
+                                <Col size="md-6">
+                                    <UserNews
+                                        news={[
+                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+                                            "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
+                                        ]}
+                                    />
+                                </Col>
+                            </Row>
+                        </Col>
+                        <Col size="md-1" />
+                    </Row>
+                    <Row>
+                        <Col size="md-12">
+                            <h1 className="white f-top-pad">
+                                Orders
                             </h1>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-1" />
-                    <Col size="md-10">
-                        {/* map orders by date */}
-                        <Order
-                            date="October 25, 2019"
-                            total="257.45"
-                            name="Kara"
-                            number="1234"
-                        />
-                        <Order
-                            date="August 10, 2018"
-                            total="63.49"
-                            name="Kara"
-                            number="1233"
-                        />
-                    </Col>
-                    <Col size="md-1" />
-                </Row>
-                <Row>
-                    <Col size="md-3" />
-                    <Col size="md-6">
-                        <DeleteAccount
-                            flip={flipCard}
-                            card={deleteCard}
-                            delete={deleteAccount}
-                        />
-                    </Col>
-                    <Col size="md-3" />
-                </Row>
-            </Container>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="md-1" />
+                        <Col size="md-10">
+                            {/* map orders by date */}
+                            <Order
+                                date="October 25, 2019"
+                                total="257.45"
+                                name="Kara"
+                                number="1234"
+                            />
+                            <Order
+                                date="August 10, 2018"
+                                total="63.49"
+                                name="Kara"
+                                number="1233"
+                            />
+                        </Col>
+                        <Col size="md-1" />
+                    </Row>
+                    <Row>
+                        <Col size="md-3" />
+                        <Col size="md-6">
+                            <DeleteAccount
+                                flip={flipCard}
+                                card={deleteCard}
+                                delete={deleteAccount}
+                                confirmDelete={confirmDelete}
+                                deleteOption={deleteOption}
+                                confirmDeleteOption={confirmDeleteOption}
+                                passwordError={passwordError}
+                            />
+                        </Col>
+                        <Col size="md-3" />
+                    </Row>
+                </Container>
+            ) : (<div />)}
         </div>
     )
 }

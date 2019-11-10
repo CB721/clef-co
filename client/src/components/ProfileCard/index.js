@@ -54,7 +54,6 @@ function ProfileCard(props) {
                                 onChange={(event) => setNewEmail(event.target.value)}
                                 value={newEmail}
                                 placeholder={props.email}
-                                color="primary"
                                 name="newEmail"
                                 type="text"
                                 inputProps={{
