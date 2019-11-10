@@ -50,6 +50,9 @@ function Login() {
             window.location.href = "/user/profile";
         }
     };
+    function updateLastVisit(user) {
+        
+    }
     function handleInputChange(event) {
         let value = event.target.value.trim();
         const name = event.target.name.trim();

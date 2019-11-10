@@ -7,6 +7,7 @@ import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
+import moment from "moment";
 import API from "../utilities/api";
 import "./Assets/style.css";
 
@@ -51,6 +52,12 @@ function User() {
         setCity(window.sessionStorage.city);
         setState(window.sessionStorage.user_state);
         setZip(window.sessionStorage.zip_code);
+        const user = {
+            "last_visit": moment().format("YYYY-MM-DD")
+        }
+        API.updateUser(window.sessionStorage.id, user)
+            .then()
+            .catch(err => console.log(err));
     }
     function updateUser(newEmail, newPhone, newStreet, newSecond, newCity, newState, newZip) {
         const user = {
