@@ -2,8 +2,7 @@ const db = require("../connection/connection");
 const moment = require("moment");
 const bcrypt = require("bcryptjs");
 
-const today = moment().format("YYYY-MM-DD");
-const rightNow = moment().format("YYYY-MM-DD HH:mm:ss");
+const today = moment().format("YYYY-MM-DDTHH:mm:ss");
 const table = "oxn711nfcpjgwcr2.users";
 
 module.exports = {

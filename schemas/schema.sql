@@ -50,19 +50,23 @@ CREATE TABLE products
 );
 	CREATE TABLE cartItems
 (
-	-- productID
-	-- quantity - default 1
-	-- datetime added
-	-- cartID
-	-- id
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, quantity INT NOT NULL
+	, product_id INT NOT NULL
+	, cart_id INT NOT NULL
+	, FOREIGN KEY (product_id) REFERENCES products(id)
+	, FOREIGN KEY (cart_id) REFERENCES cart(id)
+	, PRIMARY KEY (id)
 );
 	CREATE TABLE cart
 (
-	-- id
-	-- cartItems id (string of cartItem ids?)
-	-- datetime added
-	-- datetime checked out
-	-- user id
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, user_id INT NOT NULL
+	, created_at CHAR(20)
+	, checked_out_at CHAR(20)
+	, checked_out BOOLEAN DEFAULT FALSE
+	, FOREIGN KEY (user_id) REFERENCES users(id)
+	, PRIMARY KEY (id)
 );
 
 CREATE TABLE users

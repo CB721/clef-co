@@ -68,7 +68,7 @@ function User() {
             "city": newCity.trim(),
             "user_state": newState.trim(),
             "zip_code": newZip.trim(),
-            "last_visit": moment().format("YYYY-MM-DDTHH:mm:ss")
+            "last_visit": moment().format("YYYY-MM-DD")
         }
         API.updateUser(window.sessionStorage.id, user)
             .then(
