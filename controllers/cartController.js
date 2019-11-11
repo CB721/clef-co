@@ -3,6 +3,8 @@ const moment = require("moment");
 
 const cartTable = "oxn711nfcpjgwcr2.cart";
 const cartItemsTable = "oxn711nfcpjgwcr2.cartItems";
+const ordersTable = "oxn711nfcpjgwcr2.orders";
+const orderItemsTable = "oxn711nfcpjgwcr2.orderItems";
 const rightNow = "'" + moment().format("YYYY-MM-DDTHH:mm:ss") + "'";
 
 module.exports = {
@@ -75,7 +77,7 @@ module.exports = {
         const cartID = req.params.cartid;
         const cartItemID = req.params.cartitemid;
         const quantity = req.params.quantity;
-        db.query("UPDATE " + cartItemsTable + " SET quantity = " + quantity + " WHERE cart_id = " + cartID + ";",
+        db.query("UPDATE " + cartItemsTable + " SET quantity = " + quantity + " WHERE cart_id = " + cartID + " AND id = " + cartItemID + ";",
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -131,5 +133,56 @@ module.exports = {
                 }
             }
         )
+    },
+    completeOrder: function (req, res) {
+        const cartID = req.params.cartid;
+        db.query("UPDATE " + cartTable + " SET checked_out_at = " + rightNow + ", checked_out = TRUE WHERE id = " + cartID + ";",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    db.query("INSERT INTO " + ordersTable + " (user_id, created_at, checked_out_at) SELECT user_id, created_at, checked_out_at FROM " + cartTable + " WHERE id = " + cartID + ";",
+                        function (err, results) {
+                            if (err) {
+                                return res.send(err);
+                            } else {
+                                db.query("SELECT id FROM " + ordersTable + " WHERE id = LAST_INSERT_ID();",
+                                    function (err, results) {
+                                        if (err) {
+                                            return res.send(err);
+                                        } else {
+                                            const orderID = results[0].id;
+                                            db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+                                                function (err, results) {
+                                                    if (err) {
+                                                        return res.send(err);
+                                                    } else {
+                                                        const itemLen = results.length;
+                                                        for (let i = 0; i < itemLen; i++) {
+                                                            db.query("INSERT INTO " + orderItemsTable + "(quantity, product_id, order_id) VALUES (" + results[i].quantity + ", " + results[i].product_id + ", " + orderID + ");",
+                                                                function (err, results) {
+                                                                    if (err) {
+                                                                        return res.send(err);
+                                                                    }
+                                                                    
+                                                                }
+                                                            )
+                                                            if (i == itemLen - 1) {
+                                                                return res.send("success");
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            )
+                                        }
+                                    }
+                                )
+                            }
+                        }
+                    )
+                }
+            }
+        )
+
     }
 }
