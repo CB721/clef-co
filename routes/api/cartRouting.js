@@ -10,5 +10,11 @@ router
 router
     .route("/item/update/:cartid/:cartitemid/:quantity")
     .put(controller.updateCartItem);
+router
+    .route("/user/:userid")
+    .get(controller.getCartByUser);
+router
+    .route("/delete/:cartid")
+    .delete(controller.deleteCart);
 
 module.exports = router;

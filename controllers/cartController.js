@@ -86,5 +86,41 @@ module.exports = {
                 }
             }
         )
+    },
+    getCartByUser: function (req, res) {
+        const userID = req.params.userid;
+        db.query("SELECT * FROM " + cartTable + " WHERE user_id = " + userID + ";",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
+    },
+    deleteCart: function (req, res) {
+        const cartID = req.params.cartid;
+        db.query("DELETE FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    db.query("DELETE FROM " + cartTable + " WHERE id = " + cartID + ";",
+                        function (err, results) {
+                            if (err) {
+                                return res.send(err);
+                            } else {
+                                return res.json({
+                                    results
+                                });
+                            }
+                        }
+                    )
+                }
+            }
+        )
     }
 }
