@@ -86,3 +86,23 @@ CREATE TABLE users
 		, joined_date CHAR(10)
 		, PRIMARY KEY (id)
 	);
+
+CREATE TABLE orders
+(
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, user_id INT NOT NULL
+	, created_at CHAR(20)
+	, checked_out_at CHAR(20)
+	, FOREIGN KEY (user_id) REFERENCES users(id)
+	, PRIMARY KEY (id)
+);
+CREATE TABLE orderItems
+(
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, quantity INT NOT NULL
+	, product_id INT NOT NULL
+	, order_id INT NOT NULL
+	, FOREIGN KEY (product_id) REFERENCES products(id)
+	, FOREIGN KEY (order_id) REFERENCES orders(id)
+	, PRIMARY KEY (id)
+);
