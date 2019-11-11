@@ -94,9 +94,18 @@ module.exports = {
                 if (err) {
                     return res.send(err);
                 } else {
-                    return res.json({
-                        results
-                    });
+                    const cartID = results[0].id
+                    db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+                        function (err, results) {
+                            if (err) {
+                                return res.send(err);
+                            } else {
+                                return res.json({
+                                    results
+                                });
+                            }
+                        }
+                    )
                 }
             }
         )
