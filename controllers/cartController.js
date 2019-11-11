@@ -70,5 +70,21 @@ module.exports = {
                 }
             }
         )
+    },
+    updateCartItem: function (req, res) {
+        const cartID = req.params.cartid;
+        const cartItemID = req.params.cartitemid;
+        const quantity = req.params.quantity;
+        db.query("UPDATE " + cartItemsTable + " SET quantity = " + quantity + " WHERE cart_id = " + cartID + ";",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
     }
 }

@@ -7,5 +7,8 @@ router
 router
     .route("/update/:cartid/:productid/:quantity")
     .put(controller.addItemToCart);
+router
+    .route("/item/update/:cartid/:cartitemid/:quantity")
+    .put(controller.updateCartItem);
 
 module.exports = router;
