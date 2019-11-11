@@ -7,7 +7,6 @@ import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
-import moment from "moment";
 import API from "../utilities/api";
 import "./Assets/style.css";
 

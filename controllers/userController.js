@@ -2,7 +2,7 @@ const db = require("../connection/connection");
 const moment = require("moment");
 const bcrypt = require("bcryptjs");
 
-const today = moment().format("YYYY-MM-DDTHH:mm:ss");
+const today = moment().format("YYYY-MM-DD");
 const table = "oxn711nfcpjgwcr2.users";
 
 module.exports = {
@@ -121,9 +121,6 @@ module.exports = {
         const ID = req.params.id;
         const password = req.params.password;
         const email = req.params.email;
-        console.log(ID);
-        console.log(email);
-        console.log(password);
         db.query("SELECT * FROM " + table + " WHERE email = '" + email + "';",
             function(err, results) {
                 if (err) {
