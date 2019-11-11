@@ -46,5 +46,29 @@ module.exports = {
                 }
             }
         )
+    },
+    addItemToCart: function (req, res) {
+        const cartID = req.params.cartid;
+        const quantity = req.params.quantity;
+        const productID = req.params.productid;
+        db.query("INSERT INTO " + cartItemsTable + " (quantity, product_id, cart_id) VALUES (" + quantity + ", " + productID + ", " + cartID + ");",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+                        function (err, results) {
+                            if (err) {
+                                return res.send(err);
+                            } else {
+                                return res.json({
+                                    results
+                                });
+                            }
+                        }
+                    )
+                }
+            }
+        )
     }
 }
