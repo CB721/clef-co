@@ -8,7 +8,6 @@ import { Col, Row, Container } from "../components/Grid";
 import videoBG from "../pages/Assets/video/audio-visual2.mp4";
 import Review from "../components/Review";
 import Tooltip from '@material-ui/core/Tooltip';
-import API from "../utilities/api";
 import "./Assets/style.css";
 
 function Home() {

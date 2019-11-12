@@ -168,6 +168,12 @@
   .nav-company-title {
     font-size: 1rem;
   }
+  .white-to-purple {
+    color: white;
+  }
+  .white-to-purple:hover {
+    color: rgb(62,7,104);
+  }
 
   @media only screen and (max-width: 1300px) {
     

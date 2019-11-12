@@ -71,11 +71,12 @@ function Navbar() {
                                 <Col size="md-12">
                                     <div className="user-interaction">
                                         <IconButton onClick={Search} aria-label="search" >
-                                            <SearchIcon className="white" />
+                                            <SearchIcon className="white-to-purple" />
                                         </IconButton>
                                         <div className="search-box">
                                             <InputBase
                                                 fullWidth={true}
+                                                className="white-to-purple"
                                                 // value="What are you looking for?"
                                                 // onChange={props.handleInputChange}
                                                 placeholder=" Search website"
@@ -91,7 +92,7 @@ function Navbar() {
                                                     color="primary"
                                                 >
 
-                                                    <ShoppingCartOutlinedIcon className="white" />
+                                                    <ShoppingCartOutlinedIcon className="white-to-purple" />
                                                 </Badge>
                                             </MuiThemeProvider>
                                         </IconButton>

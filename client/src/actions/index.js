@@ -1,4 +1,4 @@
-import { Get_Products, Save_User, Logged_In, Get_Cart } from './types';
+import { Get_Products, Save_User, Logged_In, Get_Cart, Get_Orders } from './types';
 import axios from 'axios';
 
 export const getProducts = (products) => {
@@ -38,13 +38,42 @@ export const getCart = (cart) => {
     }
 };
 export const getCartByUser = () => {
-    return (dispatch) => {
-        return axios.get("/api/cart/user/" + window.sessionStorage.id)
-            .then(res => {
-                dispatch(getCart(res.data.results))
-            })
-            .catch(err => {
-                throw (err);
-            })
+    if (window.sessionStorage.id) {
+        return (dispatch) => {
+            return axios.get("/api/cart/user/" + window.sessionStorage.id)
+                .then(res => {
+                    dispatch(getCart(res.data.results))
+                })
+                .catch(err => {
+                    throw (err);
+                })
+        }
+    } else {
+        return dispatch => {
+            dispatch(getCart([]))
+        }
+    }
+}
+export const getOrders = (orders) => {
+    return {
+        type: Get_Orders,
+        orders
+    }
+};
+export const getOrdersByUser = () => {
+    if (window.sessionStorage.id) {
+        return (dispatch) => {
+            return axios.get("/api/orders/" + window.sessionStorage.id)
+                .then(res => {
+                    dispatch(getOrders(res.data.ordersArr))
+                })
+                .catch(err => {
+                    throw (err);
+                })
+        }
+    } else {
+        return dispatch => {
+            dispatch(getOrders([]))
+        }
     }
 }

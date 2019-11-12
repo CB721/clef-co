@@ -3,7 +3,7 @@ const db = require("../connection/connection");
 module.exports = {
     getOrdersByUserID: function (req, res) {
         const userID = req.params.userid;
-        db.query("SELECT * FROM oxn711nfcpjgwcr2.orders WHERE id = " + userID + " ORDER BY checked_out_at;",
+        db.query("SELECT * FROM oxn711nfcpjgwcr2.orders WHERE user_id = " + userID + " ORDER BY checked_out_at;",
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -29,12 +29,13 @@ module.exports = {
                                 }
                             }
                         )
-                        setTimeout(function() {
-                            return res.json({
-                                ordersArr
-                            });
-                        }, resLen * 100);
+                        
                     }
+                    setTimeout(function() {
+                        return res.json({
+                            ordersArr
+                        });
+                    }, resLen * 100);
                 }
             }
         )

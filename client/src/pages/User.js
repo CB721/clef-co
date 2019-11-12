@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
@@ -31,20 +32,14 @@ function User() {
     const [deleteOption, setDeleteOption] = useState(false);
     const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);
     const [passwordError, setPasswordError] = useState("");
-    const [orders, setOrders] = useState([]);
+    const orders = useSelector(state => state.orders);
 
 
-    const getUserOrders = () => {
-        API.getOrders(window.sessionStorage.id)
-            .then(res => setOrders(res.data.ordersArr))
-            .catch(err => console.log(err));
-    }
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
             generateRandomImage();
             determineStatus(window.sessionStorage.joined_date);
             setUpUser();
-            getUserOrders();
         } else {
             window.location.href = "/login";
         }
