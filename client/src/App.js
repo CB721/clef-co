@@ -20,12 +20,11 @@ import './App.css';
 
 function App() {
   const products = useSelector(state => state.products);
-  let loggedIn = false;
+  const cart = useSelector(state => state.cart);
 
   useEffect(() => {
     if (window.sessionStorage.logged_in) {
-      console.log("logged in");
-      loggedIn = true;
+      
     } else {
       console.log("not logged in");
     }

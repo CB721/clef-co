@@ -1,5 +1,4 @@
 import axios from "axios";
-import { func } from "prop-types";
 
 export default {
     getAllProducts: function () {
@@ -29,5 +28,20 @@ export default {
     },
     getOrders: function(id) {
         return axios.get("/api/orders/" + id);
+    },
+    createCart: function(userID, productID, quantity) {
+        return axios.post("/api/cart/" + userID + "/" + productID + "/" + quantity);
+    },
+    addItemToCart: function(cartID, productID, quantity) {
+        return axios.put("/api/cart/update/" + cartID + "/" + productID + "/" + quantity);
+    },
+    getCartByUser: function(userID) {
+        return axios.get("/api/cart/user/" + userID);
+    },
+    deleteCart: function(cartID) {
+        return axios.delete("/api/cart/delete/" + cartID);
+    },
+    completeCart: function(cartID) {
+        return axios.put("/api/cart/complete/" + cartID);
     }
 }

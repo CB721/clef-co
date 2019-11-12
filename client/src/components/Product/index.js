@@ -11,12 +11,13 @@ import "./style.css";
 function Product(props) {
     return (
         <div>
-            <Card className="card product-card product-shadow" onClick={props.action}>
+            <Card className="card product-card product-shadow">
                 <CardActionArea>
                     <CardMedia
                         className="card-media product-image"
                         image={props.image}
                         title={props.imageTitle}
+                        onClick={props.action}
                     />
                     <CardContent>
                         <Textfit

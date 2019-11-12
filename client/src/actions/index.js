@@ -1,4 +1,4 @@
-import { Get_Products, Save_User, Logged_In } from './types';
+import { Get_Products, Save_User, Logged_In, Get_Cart } from './types';
 import axios from 'axios';
 
 export const getProducts = (products) => {
@@ -29,5 +29,22 @@ export const switchLoggedStatus = (isLogged) => {
     return {
         type: Logged_In,
         isLogged
+    }
+};
+export const getCart = (cart) => {
+    return {
+        type: Get_Cart,
+        cart
+    }
+};
+export const getCartByUser = () => {
+    return (dispatch) => {
+        return axios.get("/api/cart/user/" + window.sessionStorage.id)
+            .then(res => {
+                dispatch(getCart(res.data.results))
+            })
+            .catch(err => {
+                throw (err);
+            })
     }
 }

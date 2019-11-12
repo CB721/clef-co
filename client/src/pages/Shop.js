@@ -35,7 +35,7 @@ class Shop extends Component {
         hardware: false,
         software: false,
     }
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         this.getProducts();
     }
     getProducts = () => {
@@ -155,6 +155,15 @@ class Shop extends Component {
                 .catch(err => console.log(err));
         }
     }
+    addToCart = (id) => (event) => {
+        event.preventDefault();
+        if(window.sessionStorage.logged_in) {
+            console.log(id);
+
+        } else {
+            console.log("user must be logged in to add items to cart");
+        }
+    }
 
 
     render() {
@@ -246,6 +255,7 @@ class Shop extends Component {
                                                                     key={product.id}
                                                                     buttonClass="explore"
                                                                     text="Add to cart"
+                                                                    action={this.addToCart(product.id)}
                                                                 />}
                                                             />
                                                         </Fade>

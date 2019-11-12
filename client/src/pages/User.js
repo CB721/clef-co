@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import UserNews from "../components/UserNews";
@@ -89,12 +90,6 @@ function User() {
                 updateSession(res.data.results[0])
             )
             .catch(err => console.log(err));
-    }
-    function displayOrders() {
-        orders.map(order =>
-            console.log(order.order_id)
-        )
-        console.log(orders);
     }
     function updateSession(updatedUser) {
         sessionStorage.setItem("email", updatedUser.email);
@@ -193,7 +188,6 @@ function User() {
                         <Col size="md-10">
                             <Row>
                                 <Col size="md-4">
-                                    <button onClick={displayOrders}>Check orders</button>
                                     <ProfileCard
                                         cardClass={cardClass}
                                         image={statusImage}
@@ -237,29 +231,34 @@ function User() {
                         <Col size="md-1" />
                         <Col size="md-10">
                             {orders.map(order =>
-                                <Order
-                                    key={order.order_id}
-                                    id={order.order_id}
-                                    number={order.order_id}
-                                    date={order.checked_out_at.split('T')[0]}
-                                    lineItems={order.line_items}
-                                    name={first + " " + last}
-                                />)}
+                                <Fade bottom>
+                                    <Order
+                                        key={order.order_id}
+                                        id={order.order_id}
+                                        number={order.order_id}
+                                        date={order.checked_out_at.split('T')[0]}
+                                        lineItems={order.line_items}
+                                        name={first + " " + last}
+                                    />
+                                </Fade>
+                            )}
                         </Col>
                         <Col size="md-1" />
                     </Row>
                     <Row>
                         <Col size="md-3" />
                         <Col size="md-6">
-                            <DeleteAccount
-                                flip={flipCard}
-                                card={deleteCard}
-                                delete={deleteAccount}
-                                confirmDelete={confirmDelete}
-                                deleteOption={deleteOption}
-                                confirmDeleteOption={confirmDeleteOption}
-                                passwordError={passwordError}
-                            />
+                            <Fade bottom>
+                                <DeleteAccount
+                                    flip={flipCard}
+                                    card={deleteCard}
+                                    delete={deleteAccount}
+                                    confirmDelete={confirmDelete}
+                                    deleteOption={deleteOption}
+                                    confirmDeleteOption={confirmDeleteOption}
+                                    passwordError={passwordError}
+                                />
+                            </Fade>
                         </Col>
                         <Col size="md-3" />
                     </Row>
