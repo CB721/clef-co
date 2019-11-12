@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import { Col, Row, Container } from "../Grid";
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AlbumIconOutlinedIcon from '@material-ui/icons/AlbumOutlined';
+import Badge from '@material-ui/core/Badge';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import "./style.css";
 
-function Navbar(props) {
+
+function Navbar() {
+    const cart = useSelector(state => state.cart);
+    const [cartTotal, setCartTotal] = useState(0)
+    useEffect(() => {
+        setCartTotal(cart.length);
+    });
     function CheckCart() {
         window.location.href = "/cart";
     }
     function Search() {
         window.location.href = "/search";
     }
+    const theme = createMuiTheme({
+        palette: {
+            primary: { main: '#3E0768' }
+        },
+    });
 
     return (
         <Container fluid>
@@ -57,7 +71,7 @@ function Navbar(props) {
                                 <Col size="md-12">
                                     <div className="user-interaction">
                                         <IconButton onClick={Search} aria-label="search" >
-                                            <SearchIcon />
+                                            <SearchIcon className="white" />
                                         </IconButton>
                                         <div className="search-box">
                                             <InputBase
@@ -67,8 +81,19 @@ function Navbar(props) {
                                                 placeholder=" Search website"
                                             />
                                         </div>
-                                        <IconButton onClick={CheckCart} aria-label="Go to cart">
-                                            <ShoppingCartOutlinedIcon />
+                                        <IconButton
+                                            onClick={CheckCart}
+                                            aria-label="Go to cart"
+                                        >
+                                            <MuiThemeProvider theme={theme}>
+                                                <Badge
+                                                    badgeContent={cartTotal}
+                                                    color="primary"
+                                                >
+
+                                                    <ShoppingCartOutlinedIcon className="white" />
+                                                </Badge>
+                                            </MuiThemeProvider>
                                         </IconButton>
                                     </div>
                                 </Col>
