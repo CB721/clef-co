@@ -30,16 +30,24 @@ function User() {
     const [deleteOption, setDeleteOption] = useState(false);
     const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);
     const [passwordError, setPasswordError] = useState("");
+    const [orders, setOrders] = useState([]);
 
+
+    const getUserOrders = () => {
+        API.getOrders(window.sessionStorage.id)
+            .then(res => setOrders(res.data.ordersArr))
+            .catch(err => console.log(err));
+    }
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
             generateRandomImage();
             determineStatus(window.sessionStorage.joined_date);
             setUpUser();
+            getUserOrders();
         } else {
             window.location.href = "/login";
         }
-    })
+    }, [])
     function setUpUser() {
         setFirst(window.sessionStorage.first_name);
         setJoinedDate(window.sessionStorage.joined_date);
@@ -81,6 +89,12 @@ function User() {
                 updateSession(res.data.results[0])
             )
             .catch(err => console.log(err));
+    }
+    function displayOrders() {
+        orders.map(order =>
+            console.log(order.order_id)
+        )
+        console.log(orders);
     }
     function updateSession(updatedUser) {
         sessionStorage.setItem("email", updatedUser.email);
@@ -179,6 +193,7 @@ function User() {
                         <Col size="md-10">
                             <Row>
                                 <Col size="md-4">
+                                    <button onClick={displayOrders}>Check orders</button>
                                     <ProfileCard
                                         cardClass={cardClass}
                                         image={statusImage}
@@ -221,19 +236,15 @@ function User() {
                     <Row>
                         <Col size="md-1" />
                         <Col size="md-10">
-                            {/* map orders by date */}
-                            <Order
-                                date="October 25, 2019"
-                                total="257.45"
-                                name="Kara"
-                                number="1234"
-                            />
-                            <Order
-                                date="August 10, 2018"
-                                total="63.49"
-                                name="Kara"
-                                number="1233"
-                            />
+                            {orders.map(order =>
+                                <Order
+                                    key={order.order_id}
+                                    id={order.order_id}
+                                    number={order.order_id}
+                                    date={order.checked_out_at.split('T')[0]}
+                                    lineItems={order.line_items}
+                                    name={first + " " + last}
+                                />)}
                         </Col>
                         <Col size="md-1" />
                     </Row>

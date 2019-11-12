@@ -1,4 +1,5 @@
 import axios from "axios";
+import { func } from "prop-types";
 
 export default {
     getAllProducts: function () {
@@ -25,5 +26,8 @@ export default {
     },
     deleteUser: function(id, email, password) {
         return axios.delete("/api/users/delete/" + id + "/" + email + "/" + password);
+    },
+    getOrders: function(id) {
+        return axios.get("/api/orders/" + id);
     }
 }

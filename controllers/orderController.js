@@ -3,7 +3,7 @@ const db = require("../connection/connection");
 module.exports = {
     getOrdersByUserID: function (req, res) {
         const userID = req.params.userid;
-        db.query("SELECT * FROM oxn711nfcpjgwcr2.orders WHERE id = " + userID + ";",
+        db.query("SELECT * FROM oxn711nfcpjgwcr2.orders WHERE id = " + userID + " ORDER BY checked_out_at;",
             function (err, results) {
                 if (err) {
                     return res.send(err);
