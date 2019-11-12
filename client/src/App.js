@@ -20,7 +20,6 @@ import './App.css';
 
 function App() {
   const products = useSelector(state => state.products);
-  const cart = useSelector(state => state.cart);
 
   useEffect(() => {
     if (window.sessionStorage.logged_in) {

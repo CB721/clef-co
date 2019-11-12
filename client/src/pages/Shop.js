@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import Button from "../components/Button";
@@ -197,7 +198,6 @@ class Shop extends Component {
                             </div>
                         </Col>
                     </Row>
-
                     <Row>
                         <Col size="md-12">
                             <div className="all-products">
