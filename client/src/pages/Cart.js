@@ -1,15 +1,21 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 import { Col, Row, Container } from "../components/Grid";
 import "./Assets/style.css";
 
-class Cart extends Component {
-    state = {
+function Cart(){
+    const products = useSelector(state => state.products);
+    const [cart, setCart] = useState([]);
 
+    useEffect(() => {
+        createCart();
+    })
+    function createCart() {
+        console.log(window.sessionStorage.cart);
     }
 
-    render() {
-        return (
-            <div className="three-d-background">
+    return (
+        <div className="three-d-background">
                 <div className="three-d-objects" />
                 <div className="three-d-objects" />
                 <div className="three-d-objects" />
@@ -27,8 +33,7 @@ class Cart extends Component {
                     </Row>
                 </Container>
             </div>
-        )
-    }
+    )
 }
 
 export default Cart;

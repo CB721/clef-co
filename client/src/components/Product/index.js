@@ -17,7 +17,9 @@ function Product(props) {
                         className="card-media product-image"
                         image={props.image}
                         title={props.imageTitle}
-                        onClick={props.action}
+                        onClick={(event) => {
+                            props.action(event, props.id)
+                        }}
                     />
                     <CardContent>
                         <Textfit

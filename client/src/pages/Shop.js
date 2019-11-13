@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import Button from "../components/Button";
@@ -35,9 +34,11 @@ class Shop extends Component {
         beginners: false,
         hardware: false,
         software: false,
+        cart: [],
     }
     UNSAFE_componentWillMount() {
         this.getProducts();
+        this.getCart();
     }
     getProducts = () => {
         API.getAllProducts()
@@ -45,6 +46,15 @@ class Shop extends Component {
                 this.setState({ products: res.data.results })
             )
             .catch(err => console.log("Error getting products: " + err));
+    }
+    getCart = () => {
+        if (window.sessionStorage.logged_in) {
+            API.getCartByUser(window.sessionStorage.id)
+                .then(res =>
+                    this.setState({ cart: res.data.results })
+                )
+                .catch(err => console.log(err));
+        }
     }
     getFilteredProducts = () => {
         const categories = this.state.selectedCategories;
@@ -61,10 +71,6 @@ class Shop extends Component {
     goToProductPage = (id) => (event) => {
         event.preventDefault();
         window.location.href = "/shop/product/" + id;
-    }
-    checkState() {
-        const products = this.state.products;
-        console.log(products);
     }
     expandFeatured = () => (event) => {
         event.preventDefault();
@@ -158,9 +164,26 @@ class Shop extends Component {
     }
     addToCart = (id) => (event) => {
         event.preventDefault();
-        if(window.sessionStorage.logged_in) {
-            console.log(id);
-
+        const cart = this.state.cart;
+        if (window.sessionStorage.logged_in) {
+            if (cart.length > 0) {
+                const checkCart = cart.findIndex(item => item.product_id === id);
+                if (checkCart >= 0) {
+                    alert("Item added to cart");
+                } else {
+                    API.addItemToCart(this.state.cart[0].cart_id, id, 1)
+                        .then(res =>
+                            console.log(res.data.results)
+                        )
+                        .catch(err => console.log(err));
+                }
+            } else {
+                API.createCart(window.sessionStorage.id, id, 1)
+                    .then(res =>
+                        this.setState({ cart: res.data.results })
+                    )
+                    .catch(err => console.log(err));
+            }
         } else {
             console.log("user must be logged in to add items to cart");
         }

@@ -96,18 +96,25 @@ module.exports = {
                 if (err) {
                     return res.send(err);
                 } else {
-                    const cartID = results[0].id
-                    db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
-                        function (err, results) {
-                            if (err) {
-                                return res.send(err);
-                            } else {
-                                return res.json({
-                                    results
-                                });
+                    if (results.length > 0) {
+                        const cartID = results[0].id
+                        db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+                            function (err, results) {
+                                if (err) {
+                                    return res.send(err);
+                                } else {
+                                    return res.json({
+                                        results
+                                    });
+                                }
                             }
-                        }
-                    )
+                        )
+                    } else {
+                        return res.json({
+                            results: ""
+                        })
+                    }
+
                 }
             }
         )
@@ -164,7 +171,7 @@ module.exports = {
                                                                     if (err) {
                                                                         return res.send(err);
                                                                     }
-                                                                    
+
                                                                 }
                                                             )
                                                             if (i == itemLen - 1) {

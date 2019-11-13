@@ -43,5 +43,8 @@ export default {
     },
     completeCart: function(cartID) {
         return axios.put("/api/cart/complete/" + cartID);
+    },
+    updateCartItem: function(cartID, cartItemID, quantity) {
+        return axios.put("/api/cart/item/update/" + cartID + "/" + cartItemID + "/" + quantity);
     }
 }
