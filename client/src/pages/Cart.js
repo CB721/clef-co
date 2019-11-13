@@ -4,14 +4,18 @@ import { Col, Row, Container } from "../components/Grid";
 import "./Assets/style.css";
 
 function Cart(){
-    const products = useSelector(state => state.products);
-    const [cart, setCart] = useState([]);
+    const cart = useSelector(state => state.cart);
+    const [completeCart, setCompleteCart] = useState([]);
 
     useEffect(() => {
         createCart();
     })
     function createCart() {
-        console.log(window.sessionStorage.cart);
+        const uniqueCartItems = [];
+        cart.forEach(item => {
+            
+            console.log(item.product_id)
+        });
     }
 
     return (

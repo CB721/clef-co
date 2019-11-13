@@ -49,4 +49,22 @@ h4 {
     padding: .2rem;
     text-align: left;
 }
+.cart-add-button {
+    width: 100%;
+    border-radius: 4px;
+    background: rgb(62, 7, 104);
+    border-width: 3px;
+    border-color: white;
+}
+.cart-add-button:hover {
+    color: rgb(62, 7, 104);
+    background: white;
+    border-color: rgb(62, 7, 104);
+    border-width: 3px;
+}
+.cart-add-button:active {
+    -webkit-box-shadow: 0px 0px 21px 10px rgba(60,7,104,1);
+    -moz-box-shadow: 0px 0px 21px 10px rgba(60,7,104,1);
+    box-shadow: 0px 0px 21px 10px rgba(60,7,104,1);
+}
 

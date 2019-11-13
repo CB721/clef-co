@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "../components/Grid";
 import Flip from 'react-reveal/Flip';
 import Review from "../components/Review";
-import Input from '@material-ui/core/Input';
+import Button from "../components/Button";
+import ProductOrder from "../components/ProductOrder";
 import API from "../utilities/api";
 import "./Assets/style.css";
 
@@ -12,9 +13,12 @@ class ProductPage extends Component {
         backgroundImage: ``,
         backgroundPosition: '0% 0%',
         borderRadius: "4px",
+        cart: [],
+        quantity: 0,
     }
     componentDidMount() {
         this.getProduct(window.location.pathname.slice(14));
+        this.getCart();
     }
     getProduct = (id) => {
         API.getProductById(id)
@@ -26,10 +30,58 @@ class ProductPage extends Component {
             )
             .catch(err => console.log(err));
     }
+    getCart = () => {
+        if (window.sessionStorage.logged_in) {
+            API.getCartByUser(window.sessionStorage.id)
+                .then(res =>
+                    this.setState({ cart: res.data.results })
+                )
+                .catch(err => console.log(err));
+        }
+    }
     addToCart = (id) => (event) => {
         event.preventDefault();
-        console.log("Product added to cart");
+        const cart = this.state.cart;
+        if (window.sessionStorage.logged_in) {
+            if (cart.length > 0) {
+                const checkCart = cart.findIndex(item => item.product_id === id);
+                if (checkCart >= 0) {
+                    alert("Item already added to cart");
+                } else {
+                    if (this.state.product.hardware && this.state.product.quantity > 0) {
+                        if (this.state.quantity > 0) {
+                            API.addItemToCart(this.state.cart[0].cart_id, id, this.state.quantity)
+                            .then(res =>
+                                this.setState({ cart: res.data.results })
+                            )
+                            .catch(err => console.log(err));
+                        } else {
+                            alert("Please select a quantity");
+                        }
+                    } else {
+                        API.addItemToCart(this.state.cart[0].cart_id, id, 1)
+                            .then(res =>
+                                this.setState({ cart: res.data.results })
+                            )
+                            .catch(err => console.log(err));
+                    }
+                }
+            } else {
+                API.createCart(window.sessionStorage.id, id, 1)
+                    .then(res =>
+                        this.setState({ cart: res.data.results })
+                    )
+                    .catch(err => console.log(err));
+            }
+        } else {
+            console.log("user must be logged in to add items to cart");
+        }
     }
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({ [name]: value });
+    };
     handleMouseMove = e => {
         const { left, top, width, height } = e.target.getBoundingClientRect();
         const x = (e.pageX - left) / width * 100;
@@ -75,47 +127,19 @@ class ProductPage extends Component {
                                 </Col>
                                 <Col size="md-4">
                                     <Row>
-                                        <Col size="md-12">
-                                            <div className="product-shipping white f-top-pad">
-                                                <p className="price-text white">
-                                                    ${this.state.product.price}
-                                                </p>
-                                                {this.state.product.hardware && this.state.product.quantity > 0 ? (
-                                                    <div>
-                                                        <p>
-                                                            Orders of $99.99 or more ship free!
-                                                        </p>
-                                                        <p>
-                                                            In stock!
-                                                        </p>
-                                                        <form>
-                                                            <Input type="number" placeholder="Quantity" fullWidth={true} />
-                                                        </form>
-                                                    </div>
-                                                ) : (<div />)}
-                                                {this.state.product.hardware && this.state.product.quantity <= 0 ? (
-                                                    <div>
-                                                        <p>
-                                                            Item out of stock.  Please check back later.
-                                                        </p>
-                                                    </div>
-                                                ) : (<div />)}
-                                                {this.state.product.software ? (
-                                                    <div>
-                                                        <p>
-                                                            Direct download after purchase!
-                                                        </p>
-                                                    </div>
-                                                ) : (<div/>)}
-                                            </div>
-                                        </Col>
-                                        <Col size="md-12">
-                                            <div className="product-add-cart f-top-pad">
-                                                <button className="cart-add-button white" onClick={this.addToCart(this.state.product.id)}>
-                                                    Add to cart
-                                                </button>
-                                            </div>
-                                        </Col>
+                                        <ProductOrder
+                                            price={this.state.product.price}
+                                            hardware={this.state.product.hardware}
+                                            quantity={this.state.product.quantity}
+                                            software={this.state.product.software}
+                                            id={window.location.pathname.slice(14)}
+                                            handleInputChange={this.handleInputChange}
+                                            button={<Button 
+                                                action={this.addToCart(window.location.pathname.slice(14))}
+                                                buttonClass="cart-add-button white"
+                                                text="Add to cart"
+                                            />}
+                                        />
                                     </Row>
                                 </Col>
                             </Row>

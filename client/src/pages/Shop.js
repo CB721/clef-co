@@ -169,11 +169,11 @@ class Shop extends Component {
             if (cart.length > 0) {
                 const checkCart = cart.findIndex(item => item.product_id === id);
                 if (checkCart >= 0) {
-                    alert("Item added to cart");
+                    alert("Item already added to cart");
                 } else {
                     API.addItemToCart(this.state.cart[0].cart_id, id, 1)
                         .then(res =>
-                            console.log(res.data.results)
+                            this.setState({ cart: res.data.results })
                         )
                         .catch(err => console.log(err));
                 }
