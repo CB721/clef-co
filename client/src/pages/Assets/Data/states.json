@@ -1,0 +1,206 @@
+[
+    {
+        "name": "Alabama",
+        "tax": 0.04
+    },
+    {
+        "name": "Alaska",
+        "tax": 0
+    },
+    {
+        "name": "Arizona",
+        "tax": 0.056
+    },
+    {
+        "name": "Arkansas",
+        "tax": 0.065
+    },
+    {
+        "name": "California",
+        "tax": 0.0725
+    },
+    {
+        "name": "Colorado",
+        "tax": 0.029
+    },
+    {
+        "name": "Connecticut",
+        "tax": 0.0635
+    },
+    {
+        "name": "Delaware",
+        "tax": 0
+    },
+    {
+        "name": "District of Columbia",
+        "tax": 0.06
+    },
+    {
+        "name": "Florida",
+        "tax": 0.06
+    },
+    {
+        "name": "Georgia",
+        "tax": 0.04
+    },
+    {
+        "name": "Hawaii",
+        "tax": 0.04
+    },
+    {
+        "name": "Idaho",
+        "tax": 0.06
+    },
+    {
+        "name": "Illinois",
+        "tax": 0.0625
+    },
+    {
+        "name": "Indiana",
+        "tax": 0.07
+    },
+    {
+        "name": "Iowa",
+        "tax": 0.06
+    },
+    {
+        "name": "Kansas",
+        "tax": 0.065
+    },
+    {
+        "name": "Kentucky",
+        "tax": 0.06
+    },
+    {
+        "name": "Louisiana",
+        "tax": 0.0445
+    },
+    {
+        "name": "Maine",
+        "tax": 0.055
+    },
+    {
+        "name": "Maryland",
+        "tax": 0.06
+    },
+    {
+        "name": "Massachusetts",
+        "tax": 0.0625
+    },
+    {
+        "name": "Michigan",
+        "tax": 0.06
+    },
+    {
+        "name": "Minnesota",
+        "tax": 0.06857
+    },
+    {
+        "name": "Mississippi",
+        "tax": 0.07
+    },
+    {
+        "name": "Missouri",
+        "tax": 0.04225
+    },
+    {
+        "name": "Montana",
+        "tax": 0
+    },
+    {
+        "name": "Nebraska",
+        "tax": 0.055
+    },
+    {
+        "name": "Nevada",
+        "tax": 0.0685
+    },
+    {
+        "name": "New Hampshire",
+        "tax": 0
+    },
+    {
+        "name": "New Jersey",
+        "tax": 0.06625
+    },
+    {
+        "name": "New Mexico",
+        "tax": 0.05125
+    },
+    {
+        "name": "New York",
+        "tax": 0.04
+    },
+    {
+        "name": "North Carolina",
+        "tax": 0.0475
+    },
+    {
+        "name": "North Dakota",
+        "tax": 0.05
+    },
+    {
+        "name": "Ohio",
+        "tax": 0.0575
+    },
+    {
+        "name": "Oklahoma",
+        "tax": 0.45
+    },
+    {
+        "name": "Oregon",
+        "tax": 0
+    },
+    {
+        "name": "Pennsylvania",
+        "tax": 0.06
+    },
+    {
+        "name": "Rhode Island",
+        "tax": 0.07
+    },
+    {
+        "name": "South Carolina",
+        "tax": 0.06
+    },
+    {
+        "name": "South Dakota",
+        "tax": 0.045
+    },
+    {
+        "name": "Tennessee",
+        "tax": 0.07
+    },
+    {
+        "name": "Texas",
+        "tax": 0.0625
+    },
+    {
+        "name": "Utah",
+        "tax": 0.0485
+    },
+    {
+        "name": "Vermont",
+        "tax": 0.06
+    },
+    {
+        "name": "Virginia",
+        "tax": 0.043
+    },
+    {
+        "name": "Washington",
+        "tax": 0.065
+    },
+    {
+        "name": "West Virginia",
+        "tax": 0.06
+    },
+    {
+        "name": "Wisconsin",
+        "tax": 0.05
+    },
+    {
+        "name": "Wyoming",
+        "tax": 0.04
+    }
+]

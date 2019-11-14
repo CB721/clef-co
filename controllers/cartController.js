@@ -97,24 +97,33 @@ module.exports = {
                     return res.send(err);
                 } else {
                     if (results.length > 0) {
-                        const cartID = results[0].id
-                        db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
-                            function (err, results) {
-                                if (err) {
-                                    return res.send(err);
-                                } else {
-                                    return res.json({
-                                        results
-                                    });
+                        const cartArr = [];
+                        for (let i = 0; i < results.length; i++) {
+                            const cartID = results[i].id;
+                            db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+                                function (err, response) {
+                                    if (err) {
+                                        return res.send(err);
+                                    } else {
+                                        const cart = {
+                                            "cart_id": cartID,
+                                            "line_items": response
+                                        }
+                                        cartArr.push(cart);
+                                    }
                                 }
-                            }
-                        )
+                            )
+                        }
+                        setTimeout(function () {
+                            return res.json({
+                                cartArr
+                            });
+                        }, 1000);
                     } else {
                         return res.json({
                             results: ""
                         })
                     }
-
                 }
             }
         )

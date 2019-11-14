@@ -1,4 +1,4 @@
-import { Get_Products, Save_User, Logged_In, Get_Cart, Get_Orders } from './types';
+import { Get_Products, Save_User, Logged_In, Get_Cart, Get_Orders, Complete_Cart } from './types';
 import axios from 'axios';
 
 export const getProducts = (products) => {
@@ -42,7 +42,7 @@ export const getCartByUser = () => {
         return (dispatch) => {
             return axios.get("/api/cart/user/" + window.sessionStorage.id)
                 .then(res => {
-                    dispatch(getCart(res.data.results))
+                    dispatch(getCart(res.data.cartArr))
                 })
                 .catch(err => {
                     throw (err);
@@ -53,7 +53,13 @@ export const getCartByUser = () => {
             dispatch(getCart([]))
         }
     }
-}
+};
+export const completeCart = (cart) => {
+    return {
+        type: Complete_Cart,
+        cart
+    }
+};
 export const getOrders = (orders) => {
     return {
         type: Get_Orders,

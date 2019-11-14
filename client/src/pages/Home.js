@@ -17,7 +17,7 @@ function Home() {
 
     useEffect(() => {
         displayRandomProducts();
-    });
+    }, [displayRandomProducts]);
 
     function displayRandomProducts() {
         const productArrLen = products.length - 1;

@@ -15,8 +15,10 @@ function Navbar() {
     const cart = useSelector(state => state.cart);
     const [cartTotal, setCartTotal] = useState(0)
     useEffect(() => {
-        setCartTotal(cart.length);
-    });
+        if (cart[0]) {
+            setCartTotal(cart[0].line_items.length)
+        }
+    }, [cart[0]]);
     function CheckCart() {
         window.location.href = "/cart";
     }

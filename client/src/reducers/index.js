@@ -3,6 +3,7 @@ import user from './user';
 import isLogged from './isLogged';
 import cart from './cart';
 import orders from './orders';
+import completeCart from './completeCart';
 import { combineReducers } from 'redux';
 
 const rootReducers = combineReducers({
@@ -10,7 +11,8 @@ const rootReducers = combineReducers({
     user,
     isLogged,
     cart,
-    orders
+    orders,
+    completeCart
 })
 
 export default rootReducers;
