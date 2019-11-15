@@ -226,9 +226,8 @@ function User() {
                         <Col size="md-1" />
                         <Col size="md-10">
                             {orders.map(order =>
-                                <Fade bottom>
+                                <Fade bottom key={order.order_id}>
                                     <Order
-                                        key={order.order_id}
                                         id={order.order_id}
                                         number={order.order_id}
                                         date={order.checked_out_at.split('T')[0]}

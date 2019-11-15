@@ -48,6 +48,7 @@ function Cart() {
                                 id={cart[0].cart_id}
                                 number={cart[0].cart_id}
                                 lineItems={cart[0].line_items}
+                                
                             />
                         ) : (
                             <div className="no-cart-area">

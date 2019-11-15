@@ -1,6 +1,6 @@
 .product-card {
     height: auto;
-    /* min-height: 43vh; */
+    min-height: 43vh;
     margin-top: 10%;
 }
 .product-description {

@@ -46,5 +46,8 @@ export default {
     },
     updateCartItem: function(cartID, cartItemID, quantity) {
         return axios.put("/api/cart/item/update/" + cartID + "/" + cartItemID + "/" + quantity);
+    },
+    deleteItemFromCart: function(cartID, cartItemID) {
+        return axios.delete("/api/cart/item/delete/" + cartID + "/" + cartItemID);
     }
 }
