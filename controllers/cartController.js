@@ -73,6 +73,21 @@ module.exports = {
             }
         )
     },
+    deleteItemFromCart: function (req, res) {
+        const cartID = req.params.cartid;
+        const cartItemID = req.params.cartitemid;
+        db.query("DELETE FROM " + cartItemsTable + " WHERE cart_id = " + cartID + " AND product_id = " + cartItemID + ";",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
+    },
     updateCartItem: function (req, res) {
         const cartID = req.params.cartid;
         const cartItemID = req.params.cartitemid;
@@ -118,7 +133,7 @@ module.exports = {
                             return res.json({
                                 cartArr
                             });
-                        }, 1000);
+                        }, 1055);
                     } else {
                         return res.json({
                             results: ""

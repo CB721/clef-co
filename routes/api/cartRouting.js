@@ -19,5 +19,8 @@ router
 router
     .route("/complete/:cartid")
     .put(controller.completeOrder);
+router
+    .route("/item/delete/:cartid/:cartitemid")
+    .delete(controller.deleteItemFromCart);
 
 module.exports = router;

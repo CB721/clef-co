@@ -306,7 +306,7 @@ function Checkout(props) {
                                                     value={first}
                                                     name="first"
                                                     fullWidth={true}
-                                                // onChange={}
+                                                    onChange={(event) => setFirst(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -321,7 +321,7 @@ function Checkout(props) {
                                                     value={last}
                                                     name="last"
                                                     fullWidth={true}
-                                                // onChange={}
+                                                    onChange={(event) => setLast(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -338,7 +338,7 @@ function Checkout(props) {
                                                     value={street}
                                                     name="street"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setStreet(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -356,7 +356,7 @@ function Checkout(props) {
                                                     value={second}
                                                     name="second"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setSecond(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -374,7 +374,7 @@ function Checkout(props) {
                                                     value={city}
                                                     name="city"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setCity(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -386,7 +386,7 @@ function Checkout(props) {
                                             </h6>
                                                 <Select
                                                     value={userState}
-                                                    // onChange={props.handleInputChange}
+                                                    onChange={(event) => setUserState(event.target.value)}
                                                     name="userState"
                                                     fullWidth={true}
                                                 >
@@ -415,7 +415,7 @@ function Checkout(props) {
                                                     value={zip}
                                                     name="zip"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setZip(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -424,13 +424,13 @@ function Checkout(props) {
                                             <Slide left={leftSlide} right={rightSlide} cascade>
                                                 <h6 className="form-titles">
                                                     Phone Number
-                                            </h6>
+                                                </h6>
                                                 <Input
                                                     type="number"
                                                     value={phone}
                                                     name="phone"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setPhone(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -541,44 +541,44 @@ function Checkout(props) {
                                     <Col size="md-1" />
                                     <Col size="md-4">
                                         <Row>
-                                        <Slide left={leftSlide} right={rightSlide} cascade>
-                                            <Col size="md-12">
-                                                <h6 className="form-titles">
-                                                    Delivery Details
-                                            </h6>
-                                            </Col>
-                                            <Col size="md-12">
-                                                <h6 className="form-titles">
-                                                    {first + " " + last}
-                                                </h6>
-                                            </Col>
-                                            <Col size="md-12">
-                                                <h6 className="form-titles">
-                                                    {street}
-                                                </h6>
-                                            </Col>
-                                            {second ? (
+                                            <Slide left={leftSlide} right={rightSlide}>
                                                 <Col size="md-12">
                                                     <h6 className="form-titles">
-                                                        {second}
+                                                        Delivery Details
+                                            </h6>
+                                                </Col>
+                                                <Col size="md-12">
+                                                    <h6 className="form-titles">
+                                                        {first + " " + last}
                                                     </h6>
                                                 </Col>
-                                            ) : (<div />)}
-                                            <Col size="md-12">
-                                                <h6 className="form-titles">
-                                                    {city}
-                                                </h6>
-                                            </Col>
-                                            <Col size="md-12">
-                                                <h6 className="form-titles">
-                                                    {userState}
-                                                </h6>
-                                            </Col>
-                                            <Col size="md-12">
-                                                <h6 className="form-titles">
-                                                    {zip}
-                                                </h6>
-                                            </Col>
+                                                <Col size="md-12">
+                                                    <h6 className="form-titles">
+                                                        {street}
+                                                    </h6>
+                                                </Col>
+                                                {second ? (
+                                                    <Col size="md-12">
+                                                        <h6 className="form-titles">
+                                                            {second}
+                                                        </h6>
+                                                    </Col>
+                                                ) : (<div />)}
+                                                <Col size="md-12">
+                                                    <h6 className="form-titles">
+                                                        {city}
+                                                    </h6>
+                                                </Col>
+                                                <Col size="md-12">
+                                                    <h6 className="form-titles">
+                                                        {userState}
+                                                    </h6>
+                                                </Col>
+                                                <Col size="md-12">
+                                                    <h6 className="form-titles">
+                                                        {zip}
+                                                    </h6>
+                                                </Col>
                                             </Slide>
                                         </Row>
                                     </Col>
@@ -657,29 +657,44 @@ function Checkout(props) {
                 {userState ? (
                     <div className="cart-total-bg cart-total-section">
                         <Row>
-                            {/* <div className="cart-total-section"> */}
-                            <Col size="md-3">
-                                <h6 className="form-titles">
+                            <Col size="md-4">
+                                <h6 className="form-titles price-text">
                                     Order Price Information
                                     </h6>
                             </Col>
-                            <Col size="md-3" />
                             <Col size="md-2">
-                                <h6 className="form-titles">
+                                <h6 className="form-titles price-text">
                                     Before Tax: ${total.toFixed(2)}
                                 </h6>
                             </Col>
                             <Col size="md-2">
-                                <h6 className="form-titles">
+                                <h6 className="form-titles price-text">
                                     {userState} Tax: ${(tax * total).toFixed(2)}
                                 </h6>
                             </Col>
                             <Col size="md-2">
-                                <h6 className="form-titles">
-                                    Order Total: ${(total + (tax * total)).toFixed(2)}
-                                </h6>
+                                {total > 99 ? (
+                                    <h6 className="form-titles price-text">
+                                        Free shipping!
+                                        </h6>
+                                ) : (
+                                        <h6 className="form-titles price-text">
+                                            Shipping: ${(total * 0.0125).toFixed(2)}
+                                        </h6>
+                                    )}
                             </Col>
-                            {/* </div> */}
+                            <Col size="md-2">
+                                {total > 99 ? (
+                                    <h6 className="form-titles price-text">
+                                        Order Total: ${(total + (tax * total)).toFixed(2)}
+                                    </h6>
+                                ) : (
+                                        <h6 className="form-titles price-text">
+                                            Order Total: ${((total + (tax * total)) + (total * 0.0125)).toFixed(2)}
+                                        </h6>
+                                    )}
+
+                            </Col>
                         </Row>
                     </div>
                 ) : (
@@ -687,13 +702,13 @@ function Checkout(props) {
                             <Row>
                                 <div className="cart-total-section">
                                     <Col size="md-3">
-                                        <h6 className="form-titles">
+                                        <h6 className="form-titles price-text">
                                             Order Price Information
                                         </h6>
                                     </Col>
                                     <Col size="md-3" />
                                     <Col size="md-2">
-                                        <span className="form-titles">
+                                        <span className="form-titles price-text">
                                             Order Total: ${total.toFixed(2)}
                                         </span>
                                     </Col>
