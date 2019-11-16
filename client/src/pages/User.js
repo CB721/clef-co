@@ -168,7 +168,7 @@ function User() {
                     <Row>
                         <Col size="md-12">
                             {headerImage ? (
-                                <img src={headerImage} alt="User" className="add-shadow" id="search-top-image"></img>
+                                <img src={headerImage} alt="User" className="add-shadow rounded-corners" id="search-top-image"></img>
                             ) : (<div />)}
 
                         </Col>

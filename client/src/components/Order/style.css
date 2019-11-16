@@ -56,7 +56,7 @@
     float: left;
 }
 .item-row {
-    width: 100%;
+    /* width: 100%; */
     margin-bottom: 0px!important;
 }
 .order-item-img-column {

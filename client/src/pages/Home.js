@@ -44,7 +44,7 @@ function Home() {
             <Container fluid >
                 <Row>
                     <Col size="md-12">
-                        <video className="video-background" loop autoPlay playsInline muted
+                        <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted
                             style={{
                                 objectFit: 'cover',
                                 width: '100%',
@@ -60,7 +60,7 @@ function Home() {
                 <Row>
                     <Col size="md-12">
                         <Fade bottom>
-                            <div className="purple-background t-top-margin add-shadow all-products">
+                            <div className="purple-background rounded-corners t-top-margin add-shadow all-products">
                                 <Row>
                                     <Col size="md-12">
                                         <h2 className="white f-top-pad padding-bottom">
@@ -112,7 +112,7 @@ function Home() {
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <div className="black-purple padding-top-bottom t-top-margin text-grow add-shadow" id="top-products-section">
+                        <div className="padding-top-bottom t-top-margin text-grow black-background rounded-corners add-shadow" id="top-products-section">
                             <Row>
                                 <Col size="md-4" />
                                 <Col size="md-4">
@@ -228,7 +228,7 @@ function Home() {
                 <Row>
                     <Col size="md-12">
                         <Fade bottom>
-                            <div className="purple-background t-top-margin add-shadow">
+                            <div className="purple-background t-top-margin add-shadow rounded-corners">
                                 <Row>
                                     <Col size="md-12">
                                         <h2 className="white f-top-pad padding-bottom">

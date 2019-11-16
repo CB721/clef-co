@@ -7,7 +7,7 @@ function Bundle(props) {
     return (
         <Row>
             <Col size="md-12">
-                <div className="bundle purple">
+                <div className="bundle white">
                     <Row>
                         <Col size="md-12">
                             <img src={props.bundleImage} alt={props.bundleTitle} className="bundle-image"></img>
@@ -16,7 +16,7 @@ function Bundle(props) {
                             <Col size="md-12">
                                 <Textfit
                                     mode="single"
-                                    className="purple product-title"
+                                    className="white product-title"
                                     min={10}
                                     max={20}
                                 >
@@ -24,9 +24,13 @@ function Bundle(props) {
                                 </Textfit>
                             </Col>
                             <Col size="md-12">
-                                <span>
-                                    {props.bundleDescription.slice(0, 500) + "..."}
-                                </span>
+                                <div className="ipod-bg">
+                                    <div className="ipod-cover">
+                                        <span>
+                                            {props.bundleDescription.slice(0, 700) + "..."}
+                                        </span>
+                                    </div>
+                                </div>
                             </Col>
                         </div>
                         <Col size="md-12">

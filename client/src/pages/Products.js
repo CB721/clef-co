@@ -56,7 +56,7 @@ class Products extends Component {
                     <div className="t-top-pad">
                         <Row>
                             <Col size="md-12">
-                                <div className="purple-background add-shadow">
+                                <div className="purple-background add-shadow rounded-corners">
                                     <Row>
                                         <Col size="md-6">
                                             <h1 className="white">
@@ -75,12 +75,12 @@ class Products extends Component {
                     </div>
                     <Row>
                         <Col size="md-12">
-                            <h2 className="white center-text black-background">
+                            <h2 className="white center-text black-background rounded-corners">
                                 Newest arrival!
                             </h2>
                         </Col>
                         <Col size="md-12">
-                            <div className="current-highlighted-product-section add-shadow">
+                            <div className="current-highlighted-product-section add-shadow rounded-corners">
                                 {/* replace with most recently added product when configured */}
                                 {this.state.products.length > 0 ? (
                                     <Row>
@@ -172,7 +172,7 @@ class Products extends Component {
                     <Row>
                         <Col size="md-12">
                             {this.state.products.length > 0 ? (
-                                <div className="secondary-highlighted-product white">
+                                <div className="secondary-highlighted-product white rounded-corners">
                                     <Row>
                                         <Col size="md-6">
                                             <img src={this.state.products[6].image_link} alt="Demo Company Microphone" className="current-promo-image"></img>

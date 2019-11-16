@@ -204,7 +204,7 @@ class Shop extends Component {
                 <Container fluid>
                     <Row>
                         <Col size="md-12">
-                            <div className="company-section">
+                            <div className="company-section rounded-corners">
                                 <Row>
                                     <Col size="md-6">
                                         <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>

@@ -8,10 +8,10 @@
 }
 .footer {
     display: block;
-    background: rgb(62,7,104);
-    position: absolute;
+    background: #3e0768;
+    position: relative;
     width: 100vw;
-    color: #e8d7f9;
+    color: white;
     overflow: auto;
     text-align: center;
     padding: 10px;

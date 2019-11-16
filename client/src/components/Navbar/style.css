@@ -21,7 +21,7 @@
     min-height: 85px;
     position: fixed;
     display: block;
-    width: 100%;
+    width: 100vw;
     font-size: calc(10px + 14 * (100vw - 320px)/ 800);
     z-index: 1;
     white-space: nowrap;
@@ -88,6 +88,10 @@
   .search-box:focus {
     background-color: white;
     border: 3px solid rgb(62,7,104);
+  }
+  .search-box::placeholder {
+    color: white;
+    text-align: center;
   }
   li {
     display: list-item;

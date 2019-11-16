@@ -19,7 +19,7 @@ function Cart() {
 
 
     return (
-        <div className="three-d-background">
+        <div className="">
             {/* <div className="three-d-objects" />
                 <div className="three-d-objects" />
                 <div className="three-d-objects" />
