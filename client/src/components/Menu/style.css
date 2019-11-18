@@ -27,6 +27,8 @@
     box-shadow: 0 0 10px #000000;
     margin-top: 10%;
     margin-left: 10%;
+    width: 250px;
+    position: sticky;
 }
 .content-collapse {
     height: 0px;

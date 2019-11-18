@@ -92,7 +92,7 @@ module.exports = {
         const cartID = req.params.cartid;
         const cartItemID = req.params.cartitemid;
         const quantity = req.params.quantity;
-        db.query("UPDATE " + cartItemsTable + " SET quantity = " + quantity + " WHERE cart_id = " + cartID + " AND id = " + cartItemID + ";",
+        db.query("UPDATE " + cartItemsTable + " SET quantity = " + quantity + " WHERE cart_id = " + cartID + " AND product_id = " + cartItemID + ";",
             function (err, results) {
                 if (err) {
                     return res.send(err);

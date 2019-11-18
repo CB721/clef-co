@@ -15,8 +15,20 @@ function Cart() {
             alert("Please create an account before proceeding");
             window.location.href = "/create_account";
         }
-    }, [cart])
+    }, [cart]);
 
+    function updateItem(itemID, amount) {
+        console.log(itemID);
+        API.updateCartItem(cart[0].cart_id, itemID, amount)
+            .then()
+            .catch(err => console.log(err));
+
+    }
+    function deleteItem(itemID) {
+        API.deleteItemFromCart(cart[0].cart_id, itemID)
+            .then(window.location.reload(true))
+            .catch(err => console.log(err));
+    }
 
     return (
         <div className="">
@@ -42,23 +54,24 @@ function Cart() {
                     <Col size="md-3" />
                     <Col size="md-6">
                         <div className="cart-bg add-shadow">
-                        {cart.length >= 1 ? (
-                            <Checkout
-                                key={cart[0].cart_id}
-                                id={cart[0].cart_id}
-                                number={cart[0].cart_id}
-                                lineItems={cart[0].line_items}
-                                
-                            />
-                        ) : (
-                            <div className="no-cart-area">
-                                <h1 className="purple">
-                                    Your Cart Is Empty
-                                </h1>
-                                {/* instruments unattended animation */}
-                            </div>
-                            )}
-                            </div>
+                            {cart.length >= 1 ? (
+                                <Checkout
+                                    key={cart[0].cart_id}
+                                    id={cart[0].cart_id}
+                                    number={cart[0].cart_id}
+                                    lineItems={cart[0].line_items}
+                                    updateItem={updateItem}
+                                    deleteItem={deleteItem}
+                                />
+                            ) : (
+                                    <div className="no-cart-area">
+                                        <h1 className="purple">
+                                            Your Cart Is Empty
+                                        </h1>
+                                        {/* instruments unattended animation */}
+                                    </div>
+                                )}
+                        </div>
                     </Col>
                     <Col size="md-3" />
                 </Row>

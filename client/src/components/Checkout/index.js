@@ -75,6 +75,7 @@ function Checkout(props) {
     const [cardName, setCardName] = useState("");
     const [cardDate, setCardDate] = useState("");
     const [cardCode, setCardCode] = useState();
+    const [errorMessage, setErrorMessage] = useState("");
 
     function goToSupport() {
         window.location.href = "/contact"
@@ -124,7 +125,9 @@ function Checkout(props) {
         }
     }
     function getTotal(item, amount) {
-        setProduct(product => [...product, item]);
+        let itemInfo = item;
+        itemInfo.amount = amount;
+        setProduct(product => [...product, itemInfo]);
         setQuantity(quantity => [...quantity, amount]);
         const cost = item.price * amount;
         setTotal(total => total + cost);
@@ -165,6 +168,53 @@ function Checkout(props) {
     const goToProfile = () => {
         window.location.href = "/user/profile";
     };
+    function updateItemQuantity(event, itemID, index) {
+        event.preventDefault();
+        setErrorMessage("");
+        const productInfo = product.find(({ product_name }) => product_name === event.target.name);
+        const newAmount = parseInt(event.target.value);
+        if (productInfo.hardware) {
+            if (newAmount > 0) {
+                if (newAmount <= productInfo.quantity) {
+                    let newProduct = {
+                        "id": productInfo.id,
+                        "product_name": productInfo.product_name,
+                        "price": productInfo.price,
+                        "cost": productInfo.cost,
+                        "image_link": productInfo.image_link,
+                        "product_description": productInfo.product_description,
+                        "instrument_type": productInfo.instrument_type,
+                        "quantity": productInfo.quantity,
+                        "hardware": productInfo.hardware,
+                        "software": productInfo.software,
+                        "amount": newAmount,
+                    }
+                    props.updateItem(itemID, event.target.value);
+                    let productArr = [...product];
+                    productArr[index] = newProduct;
+                    setProduct(productArr);
+                } else {
+                    alert("Sorry, we are out of stock!");
+                }
+            } else {
+                if (window.confirm("Do you want to remove " + productInfo.product_name + " from your cart?")) {
+                    props.deleteItem(itemID);
+                    product.splice(index, 1);
+                    setProduct(product);
+                }
+            }
+        } else {
+            setErrorMessage("Software can onl")
+        }
+    }
+    function deleteItem(event, itemID, name, index) {
+        event.preventDefault();
+        if (window.confirm("Do you want to remove " + name + " from your cart?")) {
+            props.deleteItem(itemID);
+            product.splice(index, 1);
+            setProduct(product);
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -221,6 +271,7 @@ function Checkout(props) {
                     <div className="cart-area">
                         <Typography className={classes.instructions}>
                             {getStepContent(activeStep)}
+                            {props.errorMessage}
                         </Typography>
                         {product.map((item, index) => (
                             <Slide left={leftSlide} right={rightSlide} key={index}>
@@ -250,14 +301,20 @@ function Checkout(props) {
                                                     <FormControl
                                                         fullWidth={true}
                                                     >
-                                                        <Input
-                                                            type="number"
-                                                            placeholder="Quantity"
-                                                            name="quantity"
-                                                            fullWidth={true}
-                                                            value={quantity[index]}
-                                                        // onChange={props.handleInputChange}
-                                                        />
+                                                        {item.hardware ? (
+                                                            <Input
+                                                                type="number"
+                                                                placeholder="Quantity"
+                                                                name={item.product_name}
+                                                                fullWidth={true}
+                                                                value={item.amount}
+                                                                onChange={(event) => updateItemQuantity(event, item.id, index, item.amount, item.cost, item.hardware, item.instrument_type, item.image_link, item.product_name, item.price, item.product_description, item.quantity, item.software)}
+                                                            />
+                                                        ) : (
+                                                                <span>
+                                                                    Download after purchase
+                                                                </span>
+                                                            )}
                                                     </FormControl>
                                                 </MuiThemeProvider>
                                             </div>
@@ -265,7 +322,7 @@ function Checkout(props) {
                                         <Col size="md-2">
                                             <div className="cart-item-quantity">
                                                 <IconButton
-                                                    // onClick={Search} 
+                                                    onClick={(event) => deleteItem(event, item.id, item.product_name, index)}
                                                     aria-label="remove"
                                                 >
                                                     <CancelIcon className="purple" />
