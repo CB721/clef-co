@@ -162,7 +162,7 @@ function User() {
         }
     }
     return (
-        <div className="user-profile-background">
+        <div>
             {window.sessionStorage.logged_in ? (
                 <Container fluid>
                     <Row>

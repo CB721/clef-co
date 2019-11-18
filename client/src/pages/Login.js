@@ -78,15 +78,6 @@ function Login() {
     }
 
     return (
-        <div className="three-d-background">
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
-            <div className="three-d-objects" />
             <Container fluid>
                 <Row>
                     <Col size="md-2" />
@@ -118,7 +109,6 @@ function Login() {
                     </Col>
                 </Row>
             </Container>
-        </div>
     )
 }
 

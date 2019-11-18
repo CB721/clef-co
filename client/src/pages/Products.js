@@ -43,15 +43,6 @@ class Products extends Component {
 
     render() {
         return (
-            <div className="three-d-background">
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
                 <Container fluid>
                     <div className="t-top-pad">
                         <Row>
@@ -332,7 +323,6 @@ class Products extends Component {
                         </Row>
                     </div>
                 </Container>
-            </div>
         )
     }
 }

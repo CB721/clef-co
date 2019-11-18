@@ -34,7 +34,6 @@ function Cart() {
         }
     }
     function completeOrder() {
-        console.log(cart[0].cart_id);
         API.completeCart(cart[0].cart_id)
             .then(deleteCart())
             .catch(err => console.log(err));
@@ -46,15 +45,6 @@ function Cart() {
     }
 
     return (
-        <div className="">
-            {/* <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" /> */}
             <Container fluid>
                 <Row>
                     <Col size="md-2" />
@@ -92,7 +82,6 @@ function Cart() {
                     <Col size="md-3" />
                 </Row>
             </Container>
-        </div>
     )
 
 }

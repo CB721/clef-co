@@ -40,7 +40,6 @@ function Home() {
         window.location.href = "/shop/product/" + link;
     }
     return (
-        <div className="three-d-background">
             <Container fluid >
                 <Row>
                     <Col size="md-12">
@@ -300,7 +299,6 @@ function Home() {
                     </Col>
                 </Row>
             </Container>
-        </div>
     )
 }
 

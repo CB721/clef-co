@@ -22,7 +22,6 @@ class Logout extends Component {
     }
     render() {
         return (
-            <div className="three-d-background">
                 <Container fluid>
                     <Row>
                         <Col size="md-2" />
@@ -41,7 +40,6 @@ class Logout extends Component {
                         </Col>
                     </Row>
                 </Container>
-            </div>
         )
     }
 }

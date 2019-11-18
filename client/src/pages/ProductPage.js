@@ -90,15 +90,6 @@ class ProductPage extends Component {
     }
     render() {
         return (
-            <div className="three-d-background">
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
                 <Container fluid>
                     <Row>
                         <Col size="md-12">
@@ -187,7 +178,6 @@ class ProductPage extends Component {
                         </Col>
                     </Row>
                 </Container>
-            </div>
         )
     }
 }
