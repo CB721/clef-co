@@ -16,6 +16,7 @@ import Slide from 'react-reveal/Slide';
 import { Col, Row } from "../Grid";
 import API from "../../utilities/api";
 import "./style.css";
+import moment from "moment";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -48,6 +49,8 @@ function getStepContent(step) {
             return 'Unknown step';
     }
 }
+const today = moment().format("YYYY-MM");
+const maxDate = moment().add(6, 'years').format("YYYY-MM");
 
 function Checkout(props) {
     const theme = createMuiTheme({
@@ -152,10 +155,96 @@ function Checkout(props) {
     const steps = getSteps();
 
     const handleNext = () => {
-        setActiveStep(prevActiveStep => prevActiveStep + 1);
-        setRightSlide(true);
-        setLeftSlide(false);
-        window.scrollTo({ top: 0 });
+        setErrorMessage("");
+        if (activeStep === 1) {
+            if (!first) {
+                setErrorMessage("Please add your first name");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else if (!last) {
+                setErrorMessage("Please add your last name");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else if (!street) {
+                setErrorMessage("Please add your street address");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else if (!city) {
+                setErrorMessage("Please add your city");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else if (!userState) {
+                setErrorMessage("Please add your state");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else if (!zip) {
+                setErrorMessage("Please add your zip code");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            else if (!phone) {
+                setErrorMessage("Please add your phone number");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                setErrorMessage("");
+                setActiveStep(prevActiveStep => prevActiveStep + 1);
+                setRightSlide(true);
+                setLeftSlide(false);
+                window.scrollTo({ top: 0 });
+            }
+
+        } else if (activeStep === 2) {
+            if (!cardNumber) {
+                setErrorMessage("Please add your credit card number");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                if (cardNumber.match(
+                    /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/g
+                )) {
+                    if (!cardDate) {
+                        setErrorMessage("Please enter your card's expiration date");
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        if (cardDate.length === 7) {
+                            if (!cardName) {
+                                setErrorMessage("Who is this going to?");
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            } else {
+                                if (!cardCode) {
+                                    setErrorMessage("Please check you card code and try again");
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else if (cardCode.length !== 3) {
+                                    setErrorMessage("Please check you card code and try again");
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else {
+                                    setErrorMessage("");
+                                    setActiveStep(prevActiveStep => prevActiveStep + 1);
+                                    setRightSlide(true);
+                                    setLeftSlide(false);
+                                    window.scrollTo({ top: 0 });
+                                }
+                            }
+                        } else {
+                            setErrorMessage("Please enter a valid expiration date");
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }
+                } else {
+                    setErrorMessage("Please enter a valid credit card number");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        } else if (activeStep === 3) {
+            props.completeOrder();
+            setActiveStep(prevActiveStep => prevActiveStep + 1);
+            setRightSlide(true);
+            setLeftSlide(false);
+            window.scrollTo({ top: 0 });
+        } else {
+            setActiveStep(prevActiveStep => prevActiveStep + 1);
+            setRightSlide(true);
+            setLeftSlide(false);
+            window.scrollTo({ top: 0 });
+        }
     };
 
     const handleBack = () => {
@@ -271,8 +360,10 @@ function Checkout(props) {
                     <div className="cart-area">
                         <Typography className={classes.instructions}>
                             {getStepContent(activeStep)}
-                            {props.errorMessage}
                         </Typography>
+                        <span className="cart-error">
+                            {errorMessage}
+                        </span>
                         {product.map((item, index) => (
                             <Slide left={leftSlide} right={rightSlide} key={index}>
                                 <div className="cart-item">
@@ -340,6 +431,9 @@ function Checkout(props) {
                             <Typography className={classes.instructions}>
                                 {getStepContent(activeStep)}
                             </Typography>
+                            <span className="cart-error">
+                                {errorMessage}
+                            </span>
                             <MuiThemeProvider theme={theme}>
                                 <FormControl
                                     fullWidth={true}
@@ -384,6 +478,22 @@ function Checkout(props) {
                                         </Col>
                                     </Row>
                                     <Row>
+                                        <Col size="md-1" />
+                                        <Col size="md-10">
+                                            <Slide left={leftSlide} right={rightSlide} cascade>
+                                                <h6 className="form-titles">
+                                                    Email
+                                            </h6>
+                                                <Input
+                                                    type="text"
+                                                    value={email}
+                                                    name="email"
+                                                    fullWidth={true}
+                                                    onChange={(event) => setEmail(event.target.value)}
+                                                />
+                                            </Slide>
+                                        </Col>
+                                        <Col size="md-1" />
                                         <Col size="md-1" />
                                         <Col size="md-10">
                                             <Slide left={leftSlide} right={rightSlide} cascade>
@@ -503,6 +613,9 @@ function Checkout(props) {
                             <Typography className={classes.instructions}>
                                 {getStepContent(activeStep)}
                             </Typography>
+                            <span className="cart-error">
+                                {errorMessage}
+                            </span>
                             <MuiThemeProvider theme={theme}>
                                 <FormControl
                                     fullWidth={true}
@@ -526,7 +639,7 @@ function Checkout(props) {
                                                     value={cardNumber}
                                                     name="cardNumber"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setCardNumber(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -544,7 +657,7 @@ function Checkout(props) {
                                                     value={cardName}
                                                     name="cardName"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setCardName(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -558,11 +671,13 @@ function Checkout(props) {
                                                     Expiration Date
                                                 </h6>
                                                 <Input
-                                                    type="text"
+                                                    type="month"
                                                     value={cardDate}
                                                     name="cardDate"
+                                                    min={today}
+                                                    max={maxDate}
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setCardDate(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -577,7 +692,7 @@ function Checkout(props) {
                                                     value={cardCode}
                                                     name="cardCode"
                                                     fullWidth={true}
-                                                // onChange={props.handleInputChange}
+                                                    onChange={(event) => setCardCode(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
@@ -593,6 +708,9 @@ function Checkout(props) {
                             <Typography className={classes.instructions}>
                                 {getStepContent(activeStep)}
                             </Typography>
+                            <span className="cart-error">
+                                {errorMessage}
+                            </span>
                             <div className="delivery-details">
                                 <Row>
                                     <Col size="md-1" />
@@ -647,13 +765,14 @@ function Checkout(props) {
                                                     Payment Information
                                             </h6>
                                             </Col>
-                                            <Col size="md-12">
+                                            <Col size="md-6">
                                                 <h6 className="form-titles">
                                                     {cardBrand}
-                                                    {/* {cardNumber.charAt(cardNumber.length - 4)}
-                                                {cardNumber.charAt(cardNumber.length - 3)}
-                                                {cardNumber.charAt(cardNumber.length - 2)}
-                                                {cardNumber.charAt(cardNumber.length - 1)} */}
+                                                </h6>
+                                            </Col>
+                                            <Col size="md-6">
+                                                <h6 className="form-titles">
+                                                    {cardNumber.replace(/.(?=.{4})/g, 'x')}
                                                 </h6>
                                             </Col>
                                             <Col size="md-6">

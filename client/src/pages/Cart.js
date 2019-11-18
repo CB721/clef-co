@@ -25,8 +25,23 @@ function Cart() {
 
     }
     function deleteItem(itemID) {
-        API.deleteItemFromCart(cart[0].cart_id, itemID)
-            .then(window.location.reload(true))
+        if (cart[0].line_items.length > 1) {
+            API.deleteItemFromCart(cart[0].cart_id, itemID)
+                .then(window.location.reload(true))
+                .catch(err => console.log(err));
+        } else {
+            deleteCart();
+        }
+    }
+    function completeOrder() {
+        console.log(cart[0].cart_id);
+        API.completeCart(cart[0].cart_id)
+            .then(deleteCart())
+            .catch(err => console.log(err));
+    }
+    function deleteCart() {
+        API.deleteCart(cart[0].cart_id)
+            .then()
             .catch(err => console.log(err));
     }
 
@@ -62,6 +77,7 @@ function Cart() {
                                     lineItems={cart[0].line_items}
                                     updateItem={updateItem}
                                     deleteItem={deleteItem}
+                                    completeOrder={completeOrder}
                                 />
                             ) : (
                                     <div className="no-cart-area">

@@ -1,7 +1,7 @@
 .cart-area {
     /* height: 100%; */
     background: white;
-    /* padding-bottom: 35px; */
+    padding-bottom: 35px;
 }
 .price-text {
     font-size: 12px;
@@ -11,6 +11,11 @@
     border: 1px solid rgb(62,7,104);
     border-right: none;
     border-left: none;
+}
+.cart-error {
+    font-size: 20px;
+    padding: 10px;
+    color: rgb(218, 0, 0);
 }
 .cart-item-img {
     padding-top: 11px;
