@@ -7,12 +7,14 @@
             "https://images.unsplash.com/photo-1526749464606-83091e34a261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
             "https://images.unsplash.com/photo-1457052002176-2d16a4f4a3ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE3MzYxfQ&auto=format&fit=crop&w=1950&q=80"
         ],
+        "description": "A rock band or pop band is a small musical ensemble which performs rock music, pop music or a related genre. The four-piece band is the most common configuration in rock and pop music. Before the development of the electronic keyboard, the configuration was typically two guitarists, a bassist, and a drummer.",
         "product_ids": [
             1,
             22,
             10,
             8
-        ]
+        ],
+        "slideTime": 9000
     },
     {
         "name": "Country",
@@ -22,12 +24,14 @@
             "https://images.unsplash.com/photo-1497049698919-d05196e1b306?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
             "https://images.unsplash.com/photo-1570362242196-3aa44348389b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
         ],
+        "description": "Country music often consists of ballads and dance tunes with generally simple forms, folk lyrics, and harmonies mostly accompanied by string instruments such as banjos, electric and acoustic guitars, steel guitars (such as pedal steels and dobros), and fiddles as well as harmonicas.",
         "product_ids": [
             9,
             23,
             10,
             3
-        ]
+        ],
+        "slideTime": 6000
     },
     {
         "name": "Hip Hop",
@@ -37,12 +41,14 @@
             "https://images.unsplash.com/photo-1553970189-6b5d4ac3b97f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
             "https://images.unsplash.com/photo-1479405260053-0450545c9a3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
         ],
+        "description": "Hip hop music, also called hip-hop is a genre of popular music developed in the United States by inner-city African Americans and Latino Americans in the Bronx borough of New York City in the 1970s. It consists of a stylized rhythmic music that commonly accompanies rapping, a rhythmic and rhyming speech that is chanted.",
         "product_ids": [
             5,
             2,
             4,
             17
-        ]
+        ],
+        "slideTime": 11000
     },
     {
         "name": "EDM",
@@ -52,11 +58,13 @@
             "https://images.unsplash.com/photo-1555619662-99b91fcec542?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
             "https://images.unsplash.com/photo-1509824227185-9c5a01ceba0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80"
         ],
+        "description": "Electronic dance music (EDM), also known as dance music, club music, or simply dance, is a broad range of percussive electronic music genres made largely for nightclubs, raves and festivals. It is generally produced for playback by disc jockeys who create seamless selections of tracks, called a mix, by segueing from one recording to another. EDM producers also perform their music live in a concert or festival setting in what is sometimes called a live PA.",
         "product_ids": [
             16,
             19,
             6,
             13
-        ]
+        ],
+        "slideTime": 7000
     }
 ]

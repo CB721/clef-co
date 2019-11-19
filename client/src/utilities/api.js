@@ -49,5 +49,11 @@ export default {
     },
     deleteItemFromCart: function(cartID, cartItemID) {
         return axios.delete("/api/cart/item/delete/" + cartID + "/" + cartItemID);
+    },
+    createCartFromBundle: function(userID, bundleIDs) {
+        return axios.post("/api/bundles/" + userID, bundleIDs);
+    },
+    addBundleToCart: function(userID, bundleIDs) {
+        return axios.put("/api/bundles/add/" + userID, bundleIDs);
     }
 }

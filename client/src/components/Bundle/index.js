@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "../Grid";
 import { Textfit } from 'react-textfit';
 import "./style.css";
 
 function Bundle(props) {
+    const [image, setImage] = useState("");
+    function cycleImages() {
+        let i = 1;
+        setInterval(function() {
+            if (i < props.bundleImage.length) {
+                setImage(props.bundleImage[i]);
+                i += 1;
+            } else {
+                i = 0;
+                setImage(props.bundleImage[i]);
+            }
+        }, props.slideTime)
+    }
+    useEffect(() => {
+        setImage(props.bundleImage[0]);
+        cycleImages();
+    }, [])
+    
     return (
         <Row>
             <Col size="md-12">
                 <div className="bundle white">
                     <Row>
                         <Col size="md-12">
-                            <img src={props.bundleImage} alt={props.bundleTitle} className="bundle-image"></img>
+                            <img src={image} alt={props.bundleTitle} className="bundle-image"></img>
                         </Col>
                         <div className="bundle-text">
                             <Col size="md-12">
@@ -27,7 +45,7 @@ function Bundle(props) {
                                 <div className="ipod-bg">
                                     <div className="ipod-cover">
                                         <span>
-                                            {props.bundleDescription.slice(0, 700) + "..."}
+                                            {props.bundleDescription.slice(0, 330) + "..."}
                                         </span>
                                     </div>
                                 </div>
