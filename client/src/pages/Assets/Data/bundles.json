@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Rock Band",
+        "images": [
+            "https://images.unsplash.com/photo-1481886756534-97af88ccb438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+            "https://images.unsplash.com/photo-1495651779359-881fde1808a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1526749464606-83091e34a261?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+            "https://images.unsplash.com/photo-1457052002176-2d16a4f4a3ff?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjE3MzYxfQ&auto=format&fit=crop&w=1950&q=80"
+        ],
+        "product_ids": [
+            1,
+            22,
+            10,
+            8
+        ]
+    },
+    {
+        "name": "Country",
+        "images": [
+            "https://images.unsplash.com/photo-1563902323241-5c5ab9a25de8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+            "https://images.unsplash.com/photo-1507404684477-09c7f690976a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1497049698919-d05196e1b306?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1570362242196-3aa44348389b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+        ],
+        "product_ids": [
+            9,
+            23,
+            10,
+            3
+        ]
+    },
+    {
+        "name": "Hip Hop",
+        "images": [
+            "https://images.unsplash.com/photo-1508973379184-7517410fb0bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1535146851324-6571dc3f2672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1553970189-6b5d4ac3b97f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+            "https://images.unsplash.com/photo-1479405260053-0450545c9a3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80"
+        ],
+        "product_ids": [
+            5,
+            2,
+            4,
+            17
+        ]
+    },
+    {
+        "name": "EDM",
+        "images": [
+            "https://images.unsplash.com/photo-1557787824-93666b9f6093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+            "https://images.unsplash.com/photo-1531354580326-4f44f943946c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1555619662-99b91fcec542?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+            "https://images.unsplash.com/photo-1509824227185-9c5a01ceba0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80"
+        ],
+        "product_ids": [
+            16,
+            19,
+            6,
+            13
+        ]
+    }
+]

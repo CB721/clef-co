@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Row, Col } from "../Grid";
 import API from "../../utilities/api";
 import "./style.css";
 
@@ -68,7 +69,6 @@ function Order(props) {
                     </div>
                 </div>
             </div>
-            {/* map out items */}
             {product.map((item, index) => (
                 <div
                     className="order-items"
@@ -79,32 +79,30 @@ function Order(props) {
                             <span className="white order-column-header" />
                         </div>
                     </div>
-                    <div className="order-item-details">
-                        <div className="item-details-left">
-                            <div className="item-row">
-                                <div className="order-item-img-column">
-                                    <div className="item-view-left-column-inner">
-                                        <a href={"/shop/product/" + item.id}>
-                                            <img src={item.image_link} alt={item.product_name} className="order-item-img" />
-                                        </a>
-                                    </div>
+                    <div className="order-details">
+                        <div className="item-row">
+                            <div className="order-item-img-column">
+                                <div className="item-view-left-column-inner">
+                                    <a href={"/shop/product/" + item.id}>
+                                        <img src={item.image_link} alt={item.product_name} className="order-item-img" />
+                                    </a>
                                 </div>
-                                <div className="item-details-section">
-                                    <div className="item-row ">
-                                        <span className="white">
-                                            {item.product_name}
-                                        </span>
-                                    </div>
-                                    <div className="item-row ">
-                                        <span className="white">
-                                            ${item.price + " X " + quantity[index]}
-                                        </span>
-                                    </div>
-                                    <div className="item-row ">
-                                        <button className="order-item-button">
-                                            Buy it again
+                            </div>
+                            <div className="item-details-section">
+                                <div className="item-row ">
+                                    <span className="white">
+                                        {item.product_name}
+                                    </span>
+                                </div>
+                                <div className="item-row ">
+                                    <span className="white">
+                                        ${item.price + " X " + quantity[index]}
+                                    </span>
+                                </div>
+                                <div className="item-row ">
+                                    <button className="order-item-button">
+                                        Buy it again
                                     </button>
-                                    </div>
                                 </div>
                             </div>
                         </div>

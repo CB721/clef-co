@@ -195,7 +195,6 @@ module.exports = {
                                                                     if (err) {
                                                                         return res.send(err);
                                                                     }
-
                                                                 }
                                                             )
                                                             if (i == itemLen - 1) {
@@ -214,6 +213,5 @@ module.exports = {
                 }
             }
         )
-
     }
 }

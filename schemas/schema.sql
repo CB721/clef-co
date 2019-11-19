@@ -34,20 +34,6 @@ CREATE TABLE products
 	SELECT *
 	FROM oxn711nfcpjgwcr2.products
 	WHERE hardware = false;
-
-	CREATE TABLE discounts 
-(
-	-- product id;
-	-- percentage discounted;
-	-- id
-	-- start date
-	-- end date
-);
-	CREATE TABLE bundles 
-(
-	-- type
-	-- product id
-);
 	CREATE TABLE cartItems
 (
 	id INT NOT NULL UNIQUE AUTO_INCREMENT

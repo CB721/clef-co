@@ -52,7 +52,7 @@
 }
 .item-details-left {
     margin-top: 7px;
-    padding-right: 3.2%;
+    /* padding-right: 3.2%; */
     float: left;
 }
 .item-row {
@@ -61,12 +61,12 @@
 }
 .order-item-img-column {
     width: 100px;
-    margin-left: -95%;
+    /* margin-left: -95%; */
     float: left;
 }
 .item-view-left-column-inner {
-    position: relative;
-    display: inline-block;
+    position: sticky;
+    display: inline;
 }
 .order-item-img {
     height: 90px;
