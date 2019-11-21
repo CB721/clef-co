@@ -92,3 +92,14 @@ CREATE TABLE orderItems
 	, FOREIGN KEY (order_id) REFERENCES orders(id)
 	, PRIMARY KEY (id)
 );
+
+CREATE TABLE contactForms
+(
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, user_email VARCHAR(255) NOT NULL
+	, user_subject VARCHAR(255) NOT NULL
+	, user_description LONGTEXT NOT NULL
+	, product_id INT NOT NULL
+	, FOREIGN KEY (product_id) REFERENCES products(id)
+	, PRIMARY KEY (id)
+)

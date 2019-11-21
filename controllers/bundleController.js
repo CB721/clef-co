@@ -9,7 +9,6 @@ module.exports = {
     createCart: function (req, res) {
         const userID = req.params.userid;
         const productIDs = req.body;
-        console.log(productIDs);
         db.query("INSERT INTO " + cartTable + " (user_id, created_at) VALUES (" + userID + ", " + rightNow + ");",
             function (err, results) {
                 if (err) {
