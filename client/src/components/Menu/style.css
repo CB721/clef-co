@@ -26,20 +26,21 @@
     -webkit-box-shadow: 0 0 10px #000000;
     box-shadow: 0 0 10px #000000;
     margin-top: 10%;
-    margin-left: 10%;
-    width: 250px;
-    position: sticky;
+    width: 100%;
+    position: relative;
 }
 .content-collapse {
     height: 0px;
     opacity: 0;
+    width: 100%;
 }
 .content-expand {
     max-height: 100%;
     opacity: 1;
-    
+    width: 100%;
 }
 .category-header {
+    width: 100%;
     background: rgb(62, 7, 104);
 }
 .category-header:hover {
@@ -70,8 +71,8 @@
     transition: .1s;
 }
 .menu-sub-category {
-    padding-left: .5vh;
-    background: rgb(167, 66, 244);
+    height: 50px;
+    background: rgb(87, 15, 143);
 }
 .last-sub-category {
     border-bottom-right-radius: 75%;
