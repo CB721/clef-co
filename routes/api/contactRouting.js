@@ -4,8 +4,8 @@ const controller = require("../../controllers/contactController");
 router
     .route("/create")
     .post(controller.createForm);
-// router
-//     .route("/add/:cartid")
-//     .get(controller.addItemToCart);
+router
+    .route("/:userid")
+    .get(controller.getFormsByUserID);
 
 module.exports = router;

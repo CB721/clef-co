@@ -21,5 +21,19 @@ module.exports = {
                 }
             }
         )
+    },
+    getFormsByUserID: function(req, res) {
+        const user = req.params.userid;
+        db.query("SELECT * FROM " + contactTable + " WHERE user_id = " + user + ";",
+            function(err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
     }
 }
