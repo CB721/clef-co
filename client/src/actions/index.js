@@ -32,9 +32,17 @@ export const switchLoggedStatus = (isLogged) => {
     }
 };
 export const getCart = (cart) => {
-    return {
-        type: Get_Cart,
-        cart
+    const emptyCart = [];
+    if (cart) {
+        return {
+            type: Get_Cart,
+            cart
+        }
+    } else {
+        return {
+            type: Get_Cart,
+            emptyCart
+        }
     }
 };
 export const getCartByUser = () => {

@@ -135,9 +135,7 @@ module.exports = {
                             });
                         }, 1055);
                     } else {
-                        return res.json({
-                            results: ""
-                        })
+                        return null;
                     }
                 }
             }

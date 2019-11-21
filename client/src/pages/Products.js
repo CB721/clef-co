@@ -7,15 +7,31 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
 import Bundle from "../components/Bundle";
 import Bundles from "./Assets/Data/bundles.json";
+import Modal from "../components/Modal";
 import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutlined';
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-// import API from "../utilities/api";
+import API from "../utilities/api";
 import "./Assets/style.css";
 
 function Products() {
     const products = useSelector(state => state.products);
-    console.log(Bundles);
+    const cart = useSelector(state => state.cart);
+    const [open, setOpen] = useState(false);
+    const [title, setTitle] = useState("");
+    const [desc, setDesc] = useState("");
+    const [modalClass, setModalClass] = useState("no-modal")
+    const [bundleProductArr, setBundleProductArr] = useState([]);
+    const [bundleIDs, setBundleIDs] = useState([]);
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(() => {
+        if (window.sessionStorage.logged_in) {
+            setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
+        }
+    }, [])
     function goToSupport() {
         window.location.href = "/contact";
     }
@@ -30,6 +46,45 @@ function Products() {
     }
     function goToProductPage(link) {
         window.location.href = "/shop/product/" + link;
+    }
+    function openBundleModal(event, index) {
+        event.preventDefault();
+        setTitle(Bundles[index].name);
+        setDesc(Bundles[index].description)
+        let productArr = Bundles[index].product_ids;
+        for (let i = 0; i < productArr.length; i++) {
+            const bundleItem = products.filter(product => product.id === productArr[i]);
+            let bundleID = bundleItem[0].id;
+            setBundleIDs(bundleIDs => [...bundleIDs, bundleID]);
+            setBundleProductArr(bundleProductArr => [...bundleProductArr, bundleItem]);
+        }
+        setModalClass("bundle-modal");
+        setOpen(true);
+    }
+    function closeBundleModal(event) {
+        event.preventDefault();
+        setOpen(false);
+        setTitle("");
+        setDesc("");
+        setBundleProductArr([]);
+        setBundleIDs([]);
+        setModalClass("no-modal");
+    }
+    function addToCart(event) {
+        event.preventDefault();
+        if (cart.length > 0) {
+            API.addBundleToCart(cart[0].cart_id, bundleIDs)
+            .then(
+                res => console.log(res.data)
+            )
+            .catch(err => console.log(err));
+        } else {
+            API.createCartFromBundle(window.sessionStorage.id, bundleIDs)
+            .then(
+                res => console.log(res.data)
+            )
+            .catch(err => console.log(err));
+        }
     }
 
     return (
@@ -136,6 +191,7 @@ function Products() {
                             button={<Button
                                 buttonClass="shop-now"
                                 text="Learn More"
+                                action={(event) => openBundleModal(event, 0)}
                             />}
                         />
                     </Fade>
@@ -151,6 +207,7 @@ function Products() {
                             button={<Button
                                 buttonClass="shop-now"
                                 text="Learn More"
+                                action={(event) => openBundleModal(event, 1)}
                             />}
                         />
                     </Fade>
@@ -167,6 +224,7 @@ function Products() {
                             button={<Button
                                 buttonClass="shop-now"
                                 text="Learn More"
+                                action={(event) => openBundleModal(event, 2)}
                             />}
                         />
                     </Fade>
@@ -182,9 +240,24 @@ function Products() {
                             button={<Button
                                 buttonClass="shop-now"
                                 text="Learn More"
+                                action={(event) => openBundleModal(event, 3)}
                             />}
                         />
                     </Fade>
+                </Col>
+            </Row>
+            <Row>
+                <Col size="md-12">
+                    <Modal
+                        open={open}
+                        class={modalClass}
+                        handleClose={(event) => closeBundleModal(event)}
+                        addBundleToCart={(event) => addToCart(event, bundleProductArr[0][0].id)}
+                        loggedIn={loggedIn}
+                        title={title}
+                        description={desc}
+                        products={bundleProductArr}
+                    />
                 </Col>
             </Row>
             <Row>

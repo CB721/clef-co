@@ -5,7 +5,7 @@ router
     .route("/:userid")
     .post(controller.createCart);
 router
-    .route("/add/:userid")
+    .route("/add/:cartid")
     .put(controller.addItemToCart);
 
 module.exports = router;

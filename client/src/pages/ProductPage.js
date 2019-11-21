@@ -74,7 +74,7 @@ class ProductPage extends Component {
                     .catch(err => console.log(err));
             }
         } else {
-            console.log("user must be logged in to add items to cart");
+            alert("Please log in to add items to your cart");
         }
     }
     handleInputChange = event => {

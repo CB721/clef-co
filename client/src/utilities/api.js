@@ -53,7 +53,7 @@ export default {
     createCartFromBundle: function(userID, bundleIDs) {
         return axios.post("/api/bundles/" + userID, bundleIDs);
     },
-    addBundleToCart: function(userID, bundleIDs) {
-        return axios.put("/api/bundles/add/" + userID, bundleIDs);
+    addBundleToCart: function(cartID, bundleIDs) {
+        return axios.put("/api/bundles/add/" + cartID, bundleIDs);
     }
 }

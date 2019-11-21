@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
-import { Col, Row, Container } from "../Grid";
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';

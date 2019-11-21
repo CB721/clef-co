@@ -18,7 +18,6 @@ function Cart() {
     }, [cart]);
 
     function updateItem(itemID, amount) {
-        console.log(itemID);
         API.updateCartItem(cart[0].cart_id, itemID, amount)
             .then()
             .catch(err => console.log(err));
