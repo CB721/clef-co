@@ -100,6 +100,9 @@ CREATE TABLE contactForms
 	, user_subject VARCHAR(255) NOT NULL
 	, user_description LONGTEXT NOT NULL
 	, product_id INT NOT NULL
+	, created_at CHAR(20)
+	, user_id INT NOT NULL
 	, FOREIGN KEY (product_id) REFERENCES products(id)
+	, FOREIGN KEY (user_id) REFERENCES users(id)
 	, PRIMARY KEY (id)
-)
+);
