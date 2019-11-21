@@ -35,6 +35,7 @@
 .ipod-cover {
     background-color: rgba(0, 0, 0, 0.858);
     height: 100%;
+    overflow: scroll;
 }
 .bundle-text {
     padding: 7px;

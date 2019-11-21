@@ -7,5 +7,8 @@ router
 router
     .route("/:userid")
     .get(controller.getFormsByUserID);
+router
+    .route("/all")
+    .get(controller.getAll);
 
 module.exports = router;

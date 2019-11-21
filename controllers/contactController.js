@@ -35,5 +35,18 @@ module.exports = {
                 }
             }
         )
+    },
+    getAll: function(req, res) {
+        db.query("SELECT * FROM " + contactTable + ";",
+            function(err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
     }
 }

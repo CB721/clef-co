@@ -243,10 +243,6 @@ h6 {
 }
 .review-section {
     width: 100%;
-    /* padding: 3%; */
-    /* background-image: url("https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 .q-top-pad {
     padding-top: 18vh;
@@ -274,6 +270,7 @@ span {
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
+    letter-spacing: .2em;
 }
 .current-highlighted-product-section {
     background: rgb(62, 7, 104);

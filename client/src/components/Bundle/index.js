@@ -45,7 +45,7 @@ function Bundle(props) {
                                 <div className="ipod-bg">
                                     <div className="ipod-cover">
                                         <span>
-                                            {props.bundleDescription.slice(0, 330) + "..."}
+                                            {props.bundleDescription.slice(0, 230) + "..."}
                                         </span>
                                     </div>
                                 </div>

@@ -55,5 +55,14 @@ export default {
     },
     addBundleToCart: function(cartID, bundleIDs) {
         return axios.put("/api/bundles/add/" + cartID, bundleIDs);
+    },
+    createContactForm: function(form) {
+        return axios.post("/api/contact/create", form);
+    },
+    getContactFormByUser: function(userID) {
+        return axios.get("/api/contact/" + userID);
+    },
+    getAllContactForms: function() {
+        return axios.get("/api/contact/all");
     }
 }
