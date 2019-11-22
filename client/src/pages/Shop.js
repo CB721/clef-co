@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Menu from "../components/Menu";
 import Product from "../components/Product";
 import API from "../utilities/api";
+import { toast } from 'react-toastify';
 import "./Assets/style.css";
 
 class Shop extends Component {
@@ -34,6 +35,7 @@ class Shop extends Component {
         beginners: false,
         hardware: false,
         software: false,
+        cartID: 0,
         cart: [],
     }
     UNSAFE_componentWillMount() {
@@ -51,9 +53,24 @@ class Shop extends Component {
         if (window.sessionStorage.logged_in) {
             API.getCartByUser(window.sessionStorage.id)
                 .then(res =>
-                    this.setState({ cart: res.data.results })
+                    this.setCartState(res.data.cartArr[0])
+                    // this.setState({ cart: res.data.results })
                 )
                 .catch(err => console.log(err));
+        }
+    }
+    setCartState = (data) => {
+        this.setState({
+            cartID: data.cart_id
+        });
+        const products = data.line_items;
+        for (let i = 0; i < products.length; i++) {
+            this.setState({
+                cart: this.state.cart.concat(products[i].product_id)
+            });
+            // this.setState(prevState => ({
+            //     cart: [...prevState, products[i].product_id]
+            // }));
         }
     }
     getFilteredProducts = () => {
@@ -162,7 +179,7 @@ class Shop extends Component {
                 .catch(err => console.log(err));
         }
     }
-    addToCart = (id) => (event) => {
+    addToCart = (id, productName) => (event) => {
         event.preventDefault();
         const cart = this.state.cart;
         if (window.sessionStorage.logged_in) {
@@ -171,16 +188,16 @@ class Shop extends Component {
                 if (checkCart >= 0) {
                     alert("Item already added to cart");
                 } else {
-                    API.addItemToCart(this.state.cart[0].cart_id, id, 1)
+                    API.addItemToCart(this.state.cartID, id, 1)
                         .then(res =>
-                            this.setState({ cart: res.data.results })
+                            this.handleCartAddition(res.data.results, productName)
                         )
                         .catch(err => console.log(err));
                 }
             } else {
                 API.createCart(window.sessionStorage.id, id, 1)
                     .then(res =>
-                        this.setState({ cart: res.data.results })
+                        this.handleCartAddition(res.data.results, productName)
                     )
                     .catch(err => console.log(err));
             }
@@ -188,7 +205,10 @@ class Shop extends Component {
             console.log("user must be logged in to add items to cart");
         }
     }
-
+    handleCartAddition = (data, product) => {
+        this.setState({cart: data});
+        toast(product + " has been added to your cart!");
+    }
 
     render() {
         return (
@@ -269,7 +289,7 @@ class Shop extends Component {
                                                                     key={product.id}
                                                                     buttonClass="explore"
                                                                     text="Add to cart"
-                                                                    action={this.addToCart(product.id)}
+                                                                    action={this.addToCart(product.id, product.product_name)}
                                                                 />}
                                                             />
                                                         </Fade>

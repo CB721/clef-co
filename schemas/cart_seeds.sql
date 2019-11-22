@@ -25,3 +25,6 @@ VALUES
     4,
     1
 );
+
+user.id = cart.user_id
+cartItems.cart_id = cart.id

@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Logout from "./pages/Logout";
 import User from "./pages/User";
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 
