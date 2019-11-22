@@ -19,9 +19,15 @@ class Contact extends Component {
         productSelection: [],
         formMessage: "",
         errorClass: "",
+        displayPage: true,
     }
     componentDidMount() {
-        this.getProducts();
+        if (window.sessionStorage.logged_in) {
+            this.setState({ displayPage: true });
+            this.getProducts();
+        } else {
+            this.setState({ displayPage: false });
+        }
     }
     getProducts = () => {
         API.getAllProducts()
@@ -50,14 +56,27 @@ class Contact extends Component {
             })
         } else {
             if (this.state.email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-                console.log("success")
+                const subject = this.state.subject.trim();
+                const description = this.state.description.trim();
+                const newSub = subject.replace("'", "");
+                const newDesc = description.replace("'", "");
+                const form = {
+                    "email": this.state.email,
+                    "subject": newSub,
+                    "description": newDesc,
+                    "product_id": this.state.productSelection
+                }
+                API.createContactForm(form)
+                    .then(
+                        res => console.log(res.data)
+                    )
+                    .catch(err => console.log(err));
             } else {
                 this.setState({
                     formMessage: "Please enter a valid email",
                     errorClass: "form-titles fade-error-message",
                 })
             }
-
         }
     }
     goToTwitter() {
@@ -72,105 +91,127 @@ class Contact extends Component {
     goToYouTube() {
         window.location.href = "https://youtube.com";
     }
+    goToLogin() {
+        window.location.href = "/login";
+    }
+    goToSignUp() {
+        window.location.href = "/create_account";
+    }
 
     render() {
         return (
-            <div className="three-d-background">
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <div className="three-d-objects" />
-                <Container fluid>
-                    <Row>
-                        <Col size="md-2" />
-                        <Col size="md-8">
-                            <h1 className="white q-top-pad text-shadow">
-                                Contact us
+            <Container fluid>
+                <Row>
+                    <Col size="md-2" />
+                    <Col size="md-8">
+                        <h1 className="white q-top-pad text-shadow">
+                            Contact us
                             </h1>
-                        </Col>
-                    </Row>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-2" />
+                    <Col size="md-8">
+                        <div className="form-complete-area">
+                            {this.state.displayPage ? (
+                                <Form
+                                    handleInputChange={this.handleInputChange()}
+                                    email={this.state.email}
+                                    subject={this.state.subject}
+                                    description={this.state.description}
+                                    productSelection={this.state.productSelection}
+                                    formMessage={this.state.formMessage}
+                                    errorClass={this.state.errorClass}
+                                    products={this.state.products}
+                                    button={<Button
+                                        action={this.handleFormSubmit()}
+                                        buttonClass="explore"
+                                        text="Submit"
+                                    />}
+                                />
+                            ) : (
+                                    <div className="no-user-contact">
+                                        <div className="contact-message">
+                                            <h3 className="purple">
+                                                Please create an account or login to submit a support ticket
+                                            </h3>
+                                        </div>
+                                        <div className="contact-login-signup contact-left">
+                                            <Button
+                                                action={this.goToLogin}
+                                                buttonClass="explore"
+                                                text="Login"
+                                            />
+                                        </div>
+                                        <div className="contact-login-signup contact-right">
+                                            <Button
+                                                action={this.goToSignUp}
+                                                buttonClass="explore"
+                                                text="Create Account"
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                        </div>
+                    </Col>
+                </Row>
+                <div className="social-media">
                     <Row>
                         <Col size="md-2" />
                         <Col size="md-8">
-                            <Form
-                                handleInputChange={this.handleInputChange()}
-                                email={this.state.email}
-                                subject={this.state.subject}
-                                description={this.state.description}
-                                productSelection={this.state.productSelection}
-                                formMessage={this.state.formMessage}
-                                errorClass={this.state.errorClass}
-                                products={this.state.products}
-                                button={<Button
-                                    action={this.handleFormSubmit()}
-                                    buttonClass="explore"
-                                    text="Submit"
-                                />}
-                            />
-                        </Col>
-                    </Row>
-                    <div className="social-media">
-                        <Row>
-                            <Col size="md-2" />
-                            <Col size="md-8">
-                                <h2 className="white f-top-pad">
-                                    Connect with us on social media
+                            <h2 className="white f-top-pad">
+                                Connect with us on social media
                             </h2>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col size="md-12">
-                                <Row>
-                                    <Col size="md-1" />
-                                    <Col size="md-2">
-                                        <IconButton onClick={this.goToTwitter} aria-label="twitter">
-                                            <TwitterIcon
-                                                fontSize="large"
-                                            />
-                                        </IconButton>
-                                    </Col>
-                                    <Col size="md-1" />
-                                    <Col size="md-2">
-                                        <IconButton onClick={this.goToFacebook} aria-label="facebook">
-                                            <FacebookIcon
-                                                fontSize="large"
-                                            />
-                                        </IconButton>
-                                    </Col>
-                                    <Col size="md-1" />
-                                    <Col size="md-2">
-                                        <IconButton onClick={this.goToInstagram} aria-label="instagram">
-                                            <InstagramIcon
-                                                fontSize="large"
-                                            />
-                                        </IconButton>
-                                    </Col>
-                                    <Col size="md-1" />
-                                    <Col size="md-2">
-                                        <IconButton onClick={this.goToYouTube} aria-label="youtube">
-                                            <YouTubeIcon
-                                                fontSize="large"
-                                            />
-                                        </IconButton>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </div>
-                    <Row>
-                        <Col size="md-6">
-                            <img src="https://images.unsplash.com/photo-1562185000-12e4f02e2020?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="call center"></img>
-                        </Col>
-                        <Col size="md-6">
-                            <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="customer service"></img>
                         </Col>
                     </Row>
-                </Container>
-            </div>
+                    <Row>
+                        <Col size="md-12">
+                            <Row>
+                                <Col size="md-1" />
+                                <Col size="md-2">
+                                    <IconButton onClick={this.goToTwitter} aria-label="twitter">
+                                        <TwitterIcon
+                                            fontSize="large"
+                                        />
+                                    </IconButton>
+                                </Col>
+                                <Col size="md-1" />
+                                <Col size="md-2">
+                                    <IconButton onClick={this.goToFacebook} aria-label="facebook">
+                                        <FacebookIcon
+                                            fontSize="large"
+                                        />
+                                    </IconButton>
+                                </Col>
+                                <Col size="md-1" />
+                                <Col size="md-2">
+                                    <IconButton onClick={this.goToInstagram} aria-label="instagram">
+                                        <InstagramIcon
+                                            fontSize="large"
+                                        />
+                                    </IconButton>
+                                </Col>
+                                <Col size="md-1" />
+                                <Col size="md-2">
+                                    <IconButton onClick={this.goToYouTube} aria-label="youtube">
+                                        <YouTubeIcon
+                                            fontSize="large"
+                                        />
+                                    </IconButton>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
+                </div>
+                <Row>
+                    <Col size="md-6">
+                        <img src="https://images.unsplash.com/photo-1562185000-12e4f02e2020?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="call center"></img>
+                    </Col>
+                    <Col size="md-6">
+                        <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="customer service"></img>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }

@@ -26,6 +26,7 @@
     -webkit-box-shadow: 0 0 10px #000000;
     box-shadow: 0 0 10px #000000;
     margin-top: 10%;
+    padding: 0 15px 0 15px;
     width: 100%;
     position: relative;
 }
@@ -75,8 +76,8 @@
     background: rgb(87, 15, 143);
 }
 .last-sub-category {
-    border-bottom-right-radius: 75%;
-    border-bottom-left-radius: 75%;
+    border-bottom-right-radius: 17px;
+    border-bottom-left-radius: 17px;
 }
 .black-key-menu:hover {
     background: black;
@@ -94,12 +95,12 @@
     border-bottom-right-radius: 5%;
 }
 .menu-top {
-    border-top-right-radius: 75%;
-    border-top-left-radius: 75%;
+    border-top-right-radius: 17px;
+    border-top-left-radius: 17px;
 }
 .menu-bottom {
-    border-bottom-left-radius: 75%;
-    border-bottom-right-radius: 75%;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
 }
 .radio-button:hover {
     animation-iteration-count: 1s;

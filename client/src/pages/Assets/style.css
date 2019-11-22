@@ -100,12 +100,12 @@ h6 {
     right: 0;
     margin: 0;
     width: 100vw;
-    overflow: auto;
+    overflow: none;
     margin-bottom: 100px;
 }
 .row {
     padding: 0;
-    margin: 0;
+    /* margin: 0; */
 }
 /* .col-md-1,
 .col-md-2,
@@ -172,13 +172,7 @@ h6 {
 }
 .video-background {
     background: #000;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
     z-index: -1;
-    width: 100vw;
-    height: 100vh;
     mix-blend-mode: multiply;
 }
 .video-text-overlay {
@@ -441,6 +435,7 @@ span {
 .purple-background {
     background: rgb(62, 7, 104);
     padding: 3%;
+    /* width: 100vw; */
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 /* .black-purple {
@@ -766,6 +761,36 @@ ul {
         transform-origin: 0px 0px 0px;
     }
 } */
+.no-user-contact {
+    margin-top: 10vh;
+    height: 30vh;
+    background: white;
+    border-radius: 17px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact-message {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.contact-login-signup {
+    position: absolute;
+    margin: 0 10px 0 10px;
+    bottom: 0;
+    margin-bottom: 7px;
+}
+.contact-right {
+    right: 0;
+}
+.contact-left {
+    left: 0;
+}
+.form-complete-area {
+    height: 70vh;
+}
 .product-header {
     font-size: 32px;
 }

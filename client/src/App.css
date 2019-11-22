@@ -10,7 +10,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   place-items: center center;
-  overflow: none;
+  /* overflow: none; */
+  overflow-x: hidden;
   box-sizing: border-box;
   width: 100%;
   /* display:inline-block; */

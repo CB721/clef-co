@@ -43,7 +43,7 @@ function Home() {
             <Container fluid >
                 <Row>
                     <Col size="md-12">
-                        <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted
+                        <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
                             style={{
                                 objectFit: 'cover',
                                 width: '100%',
@@ -53,7 +53,7 @@ function Home() {
                         </video>
                         <h1 className="white center middle video-text-overlay">
                             Demo Company
-                            </h1>
+                        </h1>
                     </Col>
                 </Row>
                 <Row>
