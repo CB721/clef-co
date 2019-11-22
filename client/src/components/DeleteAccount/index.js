@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
+import Waves from "../Waves";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import "./style.css";
 
@@ -22,7 +23,7 @@ function DeleteAccount(props) {
                     <div className="delete-text" onClick={props.flip}>
                         Delete Account
                     </div>
-                    <div className="waves" />
+                    <Waves />
                 </div>
                 {props.deleteOption ? (
                     <div className="delete-card-face delete-card-back">

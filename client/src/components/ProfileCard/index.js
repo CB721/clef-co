@@ -4,7 +4,9 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../Button";
+import Waves from "../Waves";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
 import "./style.css";
 
 function ProfileCard(props) {
@@ -200,7 +202,7 @@ function ProfileCard(props) {
                         </div>
                     )}
             </div>
-            <div className="waves" />
+            <Waves />
         </div >
     )
 }

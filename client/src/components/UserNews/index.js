@@ -1,4 +1,5 @@
 import React from "react";
+import Waves from "../Waves";
 import "./style.css";
 
 function UserNews(props) {
@@ -19,7 +20,7 @@ function UserNews(props) {
                     </li>
                 )}
             </ul>
-            <div className="waves" />
+            <Waves />
         </div>
     )
 }
