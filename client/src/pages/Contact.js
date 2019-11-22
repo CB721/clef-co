@@ -13,7 +13,7 @@ import "./Assets/style.css";
 class Contact extends Component {
     state = {
         products: [],
-        email: "",
+        email: window.sessionStorage.email,
         subject: "",
         description: "",
         productSelection: [],
@@ -64,11 +64,12 @@ class Contact extends Component {
                     "email": this.state.email,
                     "subject": newSub,
                     "description": newDesc,
-                    "product_id": this.state.productSelection
+                    "product_id": this.state.productSelection,
+                    "user_id": window.sessionStorage.id
                 }
                 API.createContactForm(form)
                     .then(
-                        res => console.log(res.data)
+                        res => this.handleFormErrors(res.data)
                     )
                     .catch(err => console.log(err));
             } else {
@@ -77,6 +78,17 @@ class Contact extends Component {
                     errorClass: "form-titles fade-error-message",
                 })
             }
+        }
+    }
+    handleFormErrors(response) {
+        if (response === "success") {
+            this.setState({
+                email: window.sessionStorage.email,
+                subject: "",
+                description: "",
+                productSelection: [],
+                formMessage: "We have received your support ticket"
+            })
         }
     }
     goToTwitter() {
