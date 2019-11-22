@@ -90,7 +90,8 @@ class ProductPage extends Component {
     }
     render() {
         return (
-                <Container fluid>
+            <div className="page-container">
+                {/* <Container fluid> */}
                     <Row>
                         <Col size="md-12">
                             <div className="product-header t-top-pad white">
@@ -177,7 +178,8 @@ class ProductPage extends Component {
                             </div>
                         </Col>
                     </Row>
-                </Container>
+                {/* </Container> */}
+                </div>
         )
     }
 }

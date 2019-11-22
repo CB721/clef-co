@@ -2,9 +2,17 @@ import { Get_Products, Save_User, Logged_In, Get_Cart, Get_Orders, Complete_Cart
 import axios from 'axios';
 
 export const getProducts = (products) => {
-    return {
-        type: Get_Products,
-        products
+    const noProducts = [];
+    if (products) {
+        return {
+            type: Get_Products,
+            products
+        }
+    } else {
+        return {
+            type: Get_Products,
+            noProducts
+        }
     }
 };
 export const getAllProducts = () => {

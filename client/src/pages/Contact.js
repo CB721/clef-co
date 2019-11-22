@@ -113,7 +113,8 @@ class Contact extends Component {
 
     render() {
         return (
-            <Container fluid>
+            <div className="page-container">
+            {/* <Container fluid> */}
                 <Row>
                     <Col size="md-2" />
                     <Col size="md-8">
@@ -225,7 +226,8 @@ class Contact extends Component {
                         <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="customer service"></img>
                     </Col>
                 </Row>
-            </Container>
+            {/* </Container> */}
+            </div>
         )
     }
 }

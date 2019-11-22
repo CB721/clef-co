@@ -78,7 +78,8 @@ class SignUp extends Component {
     }
     render() {
         return (
-                <Container fluid>
+            <div className="page-container">
+                {/* <Container fluid> */}
                     <Row>
                         <Col size="md-2" />
                         <Col size="md-8">
@@ -111,7 +112,8 @@ class SignUp extends Component {
                             </Row>
                         </Col>
                     </Row>
-                </Container>
+                {/* </Container> */}
+                </div>
         )
     }
 }

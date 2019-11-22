@@ -44,7 +44,8 @@ function Cart() {
     }
 
     return (
-            <Container fluid>
+        <div className="page-container">
+            {/* <Container fluid> */}
                 <Row>
                     <Col size="md-2" />
                     <Col size="md-8">
@@ -80,9 +81,9 @@ function Cart() {
                     </Col>
                     <Col size="md-3" />
                 </Row>
-            </Container>
+            {/* </Container> */}
+            </div>
     )
-
 }
 
 

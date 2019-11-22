@@ -5,7 +5,8 @@ import Button from "../components/Button";
 import Menu from "../components/Menu";
 import Product from "../components/Product";
 import API from "../utilities/api";
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
 
 class Shop extends Component {
@@ -202,107 +203,121 @@ class Shop extends Component {
                     .catch(err => console.log(err));
             }
         } else {
+            toast("You must be logged in to purchase items");
             console.log("user must be logged in to add items to cart");
         }
     }
     handleCartAddition = (data, product) => {
-        this.setState({cart: data});
+        this.setState({ cart: data });
         toast(product + " has been added to your cart!");
     }
 
     render() {
         return (
-                <Container fluid>
-                    <Row>
-                        <Col size="md-12">
-                            <div className="company-section rounded-corners">
-                                <Row>
-                                    <Col size="md-6">
-                                        <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
-                                    </Col>
-                                    <Col size="md-6">
-                                        <h1 className="white q-top-pad">
-                                            Current special on our product!
+            <div className="page-container">
+            {/* <Container fluid> */}
+                <Row>
+                    <Col size="md-12">
+                        <div className="company-section rounded-corners">
+                            <Row>
+                                <Col size="md-6">
+                                    <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
+                                </Col>
+                                <Col size="md-6">
+                                    <h1 className="white q-top-pad">
+                                        Current special on our product!
                                         </h1>
-                                        <span className="white">
-                                            Morbi tincidunt risus sit amet varius tempus. Nullam ac felis augue. Aliquam euismod lobortis metus, sit amet aliquam diam pulvinar vel. Quisque viverra consequat mi.
+                                    <span className="white">
+                                        Morbi tincidunt risus sit amet varius tempus. Nullam ac felis augue. Aliquam euismod lobortis metus, sit amet aliquam diam pulvinar vel. Quisque viverra consequat mi.
                                         </span>
-                                    </Col>
-                                </Row>
-                            </div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col size="md-12">
-                            <div className="all-products">
-                                <Row>
-                                    <Col size="md-2">
-                                        <Menu
-                                            collapseFeatured={this.expandFeatured()}
-                                            featuredClass={this.state.featuredMenu}
-                                            collapseFeaturedItems={this.state.featuredItems}
-                                            collapseInsturments={this.expandInstruments()}
-                                            instrumentClass={this.state.instrumentsMenu}
-                                            collapseInstrumentItems={this.state.instrumentItems}
-                                            collapseBundles={this.expandBundles()}
-                                            bundleClass={this.state.bundlesMenu}
-                                            collapseBundleItems={this.state.bundleItems}
-                                            collapseTypes={this.expandType()}
-                                            typeClass={this.state.typeMenu}
-                                            collapseTypeItems={this.state.typeItems}
-                                            onSale={this.state.onSale}
-                                            bestsellers={this.state.bestsellers}
-                                            guitars={this.state.guitars}
-                                            microphone={this.state.microphone}
-                                            keyboards={this.state.keyboards}
-                                            bass={this.state.bass}
-                                            headphones={this.state.headphones}
-                                            drums={this.state.drums}
-                                            dj={this.state.dj}
-                                            recording={this.state.recording}
-                                            vocalists={this.state.vocalists}
-                                            synths={this.state.synths}
-                                            beginners={this.state.beginners}
-                                            hardware={this.state.hardware}
-                                            software={this.state.software}
-                                            handleChange={this.handleInputChange}
+                                </Col>
+                            </Row>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size="md-12">
+                        <div className="all-products">
+                            <Row>
+                                <Col size="md-2">
+                                    <Menu
+                                        collapseFeatured={this.expandFeatured()}
+                                        featuredClass={this.state.featuredMenu}
+                                        collapseFeaturedItems={this.state.featuredItems}
+                                        collapseInsturments={this.expandInstruments()}
+                                        instrumentClass={this.state.instrumentsMenu}
+                                        collapseInstrumentItems={this.state.instrumentItems}
+                                        collapseBundles={this.expandBundles()}
+                                        bundleClass={this.state.bundlesMenu}
+                                        collapseBundleItems={this.state.bundleItems}
+                                        collapseTypes={this.expandType()}
+                                        typeClass={this.state.typeMenu}
+                                        collapseTypeItems={this.state.typeItems}
+                                        onSale={this.state.onSale}
+                                        bestsellers={this.state.bestsellers}
+                                        guitars={this.state.guitars}
+                                        microphone={this.state.microphone}
+                                        keyboards={this.state.keyboards}
+                                        bass={this.state.bass}
+                                        headphones={this.state.headphones}
+                                        drums={this.state.drums}
+                                        dj={this.state.dj}
+                                        recording={this.state.recording}
+                                        vocalists={this.state.vocalists}
+                                        synths={this.state.synths}
+                                        beginners={this.state.beginners}
+                                        hardware={this.state.hardware}
+                                        software={this.state.software}
+                                        handleChange={this.handleInputChange}
+                                    />
+                                </Col>
+                                {this.state.products.length > 0 ? (
+                                    <Col size="md-9">
+                                        <Row>
+                                            {this.state.products.map(product => (
+                                                <Col
+                                                    size="md-3"
+                                                    key={product.id}
+                                                >
+                                                    <Fade bottom>
+                                                        <Product
+                                                            key={product.id}
+                                                            action={this.goToProductPage(product.id)}
+                                                            image={product.image_link}
+                                                            imageTitle={product.product_name}
+                                                            cardTitle={product.product_name}
+                                                            cardDescription={product.product_description.slice(0, 65) + "..."}
+                                                            price={product.price}
+                                                            button={<Button
+                                                                key={product.id}
+                                                                buttonClass="explore"
+                                                                text="Add to cart"
+                                                                action={this.addToCart(product.id, product.product_name)}
+                                                            />}
+                                                        />
+                                                    </Fade>
+                                                </Col>
+                                            ))}
+                                        </Row>
+                                        <ToastContainer
+                                            position="bottom-right"
+                                            autoClose={5000}
+                                            hideProgressBar={false}
+                                            newestOnTop={false}
+                                            closeOnClick
+                                            rtl={false}
+                                            pauseOnVisibilityChange
+                                            draggable
+                                            pauseOnHover
                                         />
                                     </Col>
-                                    {this.state.products.length > 0 ? (
-                                        <Col size="md-9">
-                                            <Row>
-                                                {this.state.products.map(product => (
-                                                    <Col
-                                                        size="md-3"
-                                                        key={product.id}
-                                                    >
-                                                        <Fade bottom>
-                                                            <Product
-                                                                key={product.id}
-                                                                action={this.goToProductPage(product.id)}
-                                                                image={product.image_link}
-                                                                imageTitle={product.product_name}
-                                                                cardTitle={product.product_name}
-                                                                cardDescription={product.product_description.slice(0, 65) + "..."}
-                                                                price={product.price}
-                                                                button={<Button
-                                                                    key={product.id}
-                                                                    buttonClass="explore"
-                                                                    text="Add to cart"
-                                                                    action={this.addToCart(product.id, product.product_name)}
-                                                                />}
-                                                            />
-                                                        </Fade>
-                                                    </Col>
-                                                ))}
-                                            </Row>
-                                        </Col>
-                                    ) : (<div />)}
-                                </Row>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
+                                ) : (<div />)}
+                            </Row>
+                        </div>
+                    </Col>
+                </Row>
+            {/* </Container> */}
+            </div>
         )
     }
 }

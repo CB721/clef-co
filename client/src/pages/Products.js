@@ -88,7 +88,8 @@ function Products() {
     }
 
     return (
-        <Container fluid>
+        <div className="page-container">
+        {/* <Container fluid> */}
             <div className="t-top-pad">
                 <Row>
                     <Col size="md-12">
@@ -130,7 +131,7 @@ function Products() {
                                     </Row>
                                     <Row>
                                         <Col size="md-12">
-                                            <span className="white f-top-pad">
+                                            <span className="white f-top-pad" id="promo-product-desc">
                                                 {products[10].product_description.split(".", 1) + "."}
                                             </span>
                                         </Col>
@@ -422,7 +423,8 @@ function Products() {
                     </Col>
                 </Row>
             </div>
-        </Container>
+        {/* </Container> */}
+        </div>
     )
 }
 

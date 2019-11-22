@@ -78,7 +78,8 @@ function Login() {
     }
 
     return (
-            <Container fluid>
+        <div className="page-container">
+            {/* <Container fluid> */}
                 <Row>
                     <Col size="md-2" />
                     <Col size="md-8">
@@ -108,7 +109,8 @@ function Login() {
                         </Row>
                     </Col>
                 </Row>
-            </Container>
+            {/* </Container> */}
+            </div>
     )
 }
 

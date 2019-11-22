@@ -22,7 +22,8 @@ class Logout extends Component {
     }
     render() {
         return (
-                <Container fluid>
+            <div className="page-container">
+                {/* <Container fluid> */}
                     <Row>
                         <Col size="md-2" />
                         <Col size="md-8">
@@ -39,7 +40,8 @@ class Logout extends Component {
                                 </h1>
                         </Col>
                     </Row>
-                </Container>
+                {/* </Container> */}
+                </div>
         )
     }
 }

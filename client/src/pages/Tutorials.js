@@ -9,7 +9,8 @@ class Tutorials extends Component {
 
     render() {
         return (
-                <Container fluid>
+            <div className="page-container">
+                {/* <Container fluid> */}
                     <Row>
                         <Col size="md-12">
                             <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Learn" className="add-shadow rounded-corners" id="search-top-image"></img>
@@ -119,7 +120,8 @@ class Tutorials extends Component {
                                 </div>
                             </Col>
                         </Row>
-                </Container>
+                {/* </Container> */}
+                </div>
         )
     }
 }

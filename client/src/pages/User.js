@@ -164,7 +164,8 @@ function User() {
     return (
         <div>
             {window.sessionStorage.logged_in ? (
-                <Container fluid>
+                <div className="page-container">
+                {/* <Container fluid> */}
                     <Row>
                         <Col size="md-12">
                             {headerImage ? (
@@ -256,7 +257,8 @@ function User() {
                         </Col>
                         <Col size="md-3" />
                     </Row>
-                </Container>
+                {/* </Container> */}
+                </div>
             ) : (<div />)}
         </div>
     )

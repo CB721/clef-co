@@ -40,7 +40,8 @@ function Home() {
         window.location.href = "/shop/product/" + link;
     }
     return (
-            <Container fluid >
+        <div className="page-container">
+            {/* <Container fluid > */}
                 <Row>
                     <Col size="md-12">
                         <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
@@ -298,7 +299,8 @@ function Home() {
                         </Row>
                     </Col>
                 </Row>
-            </Container>
+            {/* </Container> */}
+            </div>
     )
 }
 

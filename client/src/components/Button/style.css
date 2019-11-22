@@ -9,6 +9,7 @@
     min-width: 9rem;
 }
 .explore:hover {
+    border: 3px solid rgb(62, 7, 104);
     background: white;
     color: rgb(62, 7, 104);
     animation-iteration-count: 1s;
@@ -45,7 +46,7 @@
     transition: .1s;
 }
 h4 {
-    color: rgb(62, 7, 104);
+    /* color: rgb(62, 7, 104); */
     padding: .2rem;
     text-align: left;
 }
