@@ -4,8 +4,8 @@
     height: 71.5px;
     bottom: 0;
     left: 0;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
     background: url(../../pages/Assets/images/purple-wave.png);
     animation: wave-after-wave 10s linear infinite;
 }
@@ -16,8 +16,8 @@
     height: 71.5px;
     bottom: 0;
     left: 0;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
     background: url(../../pages/Assets/images/purple-wave.png);
     opacity: 0.5;
     animation: wave-after-wave 12s linear infinite reverse;
@@ -29,8 +29,8 @@
     height: 71.5px;
     bottom: 0;
     left: 0;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
     background: url(../../pages/Assets/images/purple-wave.png);
     opacity: 0.2;
     animation: wave-after-wave 15s linear infinite;

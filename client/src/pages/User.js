@@ -9,6 +9,8 @@ import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import API from "../utilities/api";
 import "./Assets/style.css";
 
@@ -40,6 +42,9 @@ function User() {
             generateRandomImage();
             determineStatus(window.sessionStorage.joined_date);
             setUpUser();
+            setTimeout(function () {
+                toast("Welcome back " + window.sessionStorage.first_name + "!");
+            }, 3000)
         } else {
             window.location.href = "/login";
         }
@@ -95,31 +100,69 @@ function User() {
         sessionStorage.setItem("user_state", updatedUser.user_state);
         sessionStorage.setItem("zip_code", updatedUser.zip_code);
         sessionStorage.setItem("last_visit", updatedUser.last_visit);
+        toast("Updates saved!");
     }
     function generateRandomImage() {
         const imagesArr = headerImages;
         const index = Math.floor((Math.random() * imagesArr.length));
         setheaderImage(imagesArr[index].image);
     }
+    function triggerHolidayPromos() {
+        const todayMonth = moment().format("MM-DD");
+        const holidayStart = "11-01";
+        const holidayEnd = "12-24";
+        const xmas = "12-25";
+        const finalSalesStart = "12-26";
+        const finalSatesEnd = "01-02";
+        setTimeout(function() {
+            if (moment(todayMonth).isBetween(holidayStart, holidayEnd)) {
+                toast("Give the gift of music this holiday season!");
+            } else if (moment(todayMonth).isSame(xmas)) {
+                toast("Didn't get what you wanted?");
+                toast("Get the gift you want today!");
+            } else if (moment(todayMonth).isBetween(finalSalesStart, finalSatesEnd)) {
+                toast("New year, new gear!");
+            }
+        }, 8500);
+    }
     function determineStatus(dateJoined) {
         const today = moment().format("YYYY-MM-DD");
+        triggerHolidayPromos();
         if (moment(today).diff(dateJoined, 'days') < 7) {
             setstatusImage(profileImages[0].image);
             setuserStatus("beginner");
+            if (moment(today).diff(dateJoined, 'days') % 3 === 0) {
+                toast("Thanks for beening a member for " + moment(today).diff(dateJoined, 'days'));
+            }
         }
         if (moment(today).diff(dateJoined, 'days') >= 7 &&
             moment(today).diff(dateJoined, 'months') < 1) {
             setstatusImage(profileImages[1].image);
             setuserStatus("novice");
+            if (moment(today).diff(dateJoined, 'weeks') % 3 === 0) {
+                toast("What music have you done lately?");
+            }
         }
         if (moment(today).diff(dateJoined, 'months') >= 1 &&
             moment(today).diff(dateJoined, 'years') < 1) {
             setstatusImage(profileImages[2].image);
             setuserStatus("expert");
+            if (moment(today).diff(dateJoined, 'days') % 17 === 0) {
+                toast("Have you though of writing a review?");
+            } else if (moment(today).diff(dateJoined, 'weeks') % 17 === 0) {
+                toast("We really appreciate having you as a member " + window.sessionStorage.first_name);
+            }
         }
         if (moment(today).diff(dateJoined, 'years') >= 1) {
             setstatusImage(profileImages[3].image);
             setuserStatus("master");
+            if (moment(today).diff(dateJoined, 'years') % 1 === 0) {
+                toast("One year already?  Wow!");
+            } else if (moment(today).diff(dateJoined, 'months') % 7 === 0) {
+                toast("What music have you done lately?");
+            } else if (moment(today).diff(dateJoined, 'weeks') % 23 === 0) {
+                toast("Have you though of writing a review?");
+            }
         }
     }
     function EditProfile(event) {
@@ -165,8 +208,8 @@ function User() {
         <div>
             {window.sessionStorage.logged_in ? (
                 <div className="page-container">
-                {/* <Container fluid> */}
-                    <Row>
+                    {/* <Container fluid> */}
+                    <Row no-gutters>
                         <Col size="md-12">
                             {headerImage ? (
                                 <img src={headerImage} alt="User" className="add-shadow rounded-corners" id="search-top-image"></img>
@@ -179,10 +222,10 @@ function User() {
                             </h1>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-1" />
                         <Col size="md-10">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-4">
                                     <ProfileCard
                                         cardClass={cardClass}
@@ -216,14 +259,14 @@ function User() {
                         </Col>
                         <Col size="md-1" />
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-12">
                             <h1 className="white f-top-pad">
                                 Orders
                             </h1>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-1" />
                         <Col size="md-10">
                             {orders.map(order =>
@@ -240,7 +283,7 @@ function User() {
                         </Col>
                         <Col size="md-1" />
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-3" />
                         <Col size="md-6">
                             <Fade bottom>
@@ -257,7 +300,18 @@ function User() {
                         </Col>
                         <Col size="md-3" />
                     </Row>
-                {/* </Container> */}
+                    <ToastContainer
+                        position="bottom-right"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnVisibilityChange
+                        draggable
+                        pauseOnHover
+                    />
+                    {/* </Container> */}
                 </div>
             ) : (<div />)}
         </div>

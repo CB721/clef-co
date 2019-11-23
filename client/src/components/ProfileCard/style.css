@@ -6,9 +6,9 @@
     margin-bottom: 20px;
     max-width: 345px;
     border: 1px solid black;
-    border-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 17px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
     -webkit-box-shadow: 18px -18px 14px 2px #00000077; 
     box-shadow: 18px -18px 14px 2px #00000077;
 }
@@ -19,9 +19,9 @@
     margin-bottom: 20px;
     max-width: 345px;
     border: 1px solid black;
-    border-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 17px;
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
     -webkit-box-shadow: 18px -18px 14px 2px #00000077; 
     box-shadow: 18px -18px 14px 2px #00000077;
 }

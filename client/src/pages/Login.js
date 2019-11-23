@@ -80,7 +80,7 @@ function Login() {
     return (
         <div className="page-container">
             {/* <Container fluid> */}
-                <Row>
+                <Row no-gutters>
                     <Col size="md-2" />
                     <Col size="md-8">
                         <h1 className="white q-top-pad text-shadow">
@@ -88,9 +88,9 @@ function Login() {
                             </h1>
                     </Col>
                 </Row>
-                <Row>
+                <Row no-gutters>
                     <Col size="md-12">
-                        <Row>
+                        <Row no-gutters>
                             <Col size="md-4" />
                             <Col size="md-4">
                                 <LoginForm

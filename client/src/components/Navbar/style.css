@@ -1,5 +1,5 @@
 .navbar li {
-    margin: auto;
+    margin: 0 auto;
     display: inline-block;
     padding: 26px 10px;
     font-size: 20px;
@@ -103,7 +103,9 @@
   .white-to-purple:hover {
     color: rgb(62,7,104);
   }
-  
+  input:focus {
+    outline: none;
+  }
   @media only screen and (max-width: 1300px) {
     
   }

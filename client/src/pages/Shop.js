@@ -216,10 +216,10 @@ class Shop extends Component {
         return (
             <div className="page-container">
             {/* <Container fluid> */}
-                <Row>
+                <Row no-gutters>
                     <Col size="md-12">
                         <div className="company-section rounded-corners">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-6">
                                     <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
                                 </Col>
@@ -235,10 +235,10 @@ class Shop extends Component {
                         </div>
                     </Col>
                 </Row>
-                <Row>
+                <Row no-gutters>
                     <Col size="md-12">
                         <div className="all-products">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-2">
                                     <Menu
                                         collapseFeatured={this.expandFeatured()}
@@ -273,7 +273,7 @@ class Shop extends Component {
                                 </Col>
                                 {this.state.products.length > 0 ? (
                                     <Col size="md-9">
-                                        <Row>
+                                        <Row no-gutters>
                                             {this.state.products.map(product => (
                                                 <Col
                                                     size="md-3"

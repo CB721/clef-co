@@ -11,7 +11,7 @@ class Tutorials extends Component {
         return (
             <div className="page-container">
                 {/* <Container fluid> */}
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-12">
                             <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Learn" className="add-shadow rounded-corners" id="search-top-image"></img>
                         </Col>
@@ -21,7 +21,7 @@ class Tutorials extends Component {
                             </h1>
                         </Col>
                     </Row>
-                        <Row>
+                        <Row no-gutters>
                             <Col size="md-1" />
                             <Col size="md-4">
                                 <div className="video white">
@@ -54,7 +54,7 @@ class Tutorials extends Component {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row no-gutters>
                             <Col size="md-1" />
                             <Col size="md-4">
                                 <div className="video white">
@@ -87,7 +87,7 @@ class Tutorials extends Component {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>
+                        <Row no-gutters>
                             <Col size="md-1" />
                             <Col size="md-4">
                                 <div className="video white">

@@ -1,4 +1,4 @@
-.explore {
+.go-to-product-page {
     border: 3px solid white;
     background: rgb(62, 7, 104);
     color: white;
@@ -8,7 +8,7 @@
     padding: .25rem 2rem;
     min-width: 9rem;
 }
-.explore:hover {
+.go-to-product-page:hover {
     border: 3px solid rgb(62, 7, 104);
     background: white;
     color: rgb(62, 7, 104);

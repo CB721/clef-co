@@ -9,6 +9,8 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import Waves from "../components/Waves";
 import API from "../utilities/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
 
 class Contact extends Component {
@@ -89,7 +91,10 @@ class Contact extends Component {
                 description: "",
                 productSelection: [],
                 formMessage: "We have received your support ticket"
-            })
+            });
+            toast("One of our specialists will contact you soon!");
+        } else {
+            toast("Please try again");
         }
     }
     goToTwitter() {
@@ -114,8 +119,8 @@ class Contact extends Component {
     render() {
         return (
             <div className="page-container">
-            {/* <Container fluid> */}
-                <Row>
+                {/* <Container fluid> */}
+                <Row no-gutters>
                     <Col size="md-2" />
                     <Col size="md-8">
                         <h1 className="white q-top-pad text-shadow">
@@ -123,7 +128,7 @@ class Contact extends Component {
                             </h1>
                     </Col>
                 </Row>
-                <Row>
+                <Row no-gutters>
                     <Col size="md-2" />
                     <Col size="md-8">
                         <div className="form-complete-area">
@@ -171,7 +176,7 @@ class Contact extends Component {
                     </Col>
                 </Row>
                 <div className="social-media">
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-2" />
                         <Col size="md-8">
                             <h2 className="white f-top-pad">
@@ -179,9 +184,9 @@ class Contact extends Component {
                             </h2>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-12">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-1" />
                                 <Col size="md-2">
                                     <IconButton onClick={this.goToTwitter} aria-label="twitter">
@@ -218,7 +223,7 @@ class Contact extends Component {
                         </Col>
                     </Row>
                 </div>
-                <Row>
+                <Row no-gutters>
                     <Col size="md-6">
                         <img src="https://images.unsplash.com/photo-1562185000-12e4f02e2020?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="call center"></img>
                     </Col>
@@ -226,7 +231,18 @@ class Contact extends Component {
                         <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="customer service"></img>
                     </Col>
                 </Row>
-            {/* </Container> */}
+                <ToastContainer
+                    position="bottom-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnVisibilityChange
+                    draggable
+                    pauseOnHover
+                />
+                {/* </Container> */}
             </div>
         )
     }

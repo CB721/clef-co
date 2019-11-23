@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
+import ProductButton from "../components/ProductButton";
 import Bundle from "../components/Bundle";
 import Bundles from "./Assets/Data/bundles.json";
 import Modal from "../components/Modal";
@@ -44,7 +45,8 @@ function Products() {
     function goToShop() {
         window.location.href = "/shop";
     }
-    function goToProductPage(link) {
+    function goToProductPage(event, link) {
+        event.preventDefault();
         window.location.href = "/shop/product/" + link;
     }
     function openBundleModal(event, index) {
@@ -91,10 +93,10 @@ function Products() {
         <div className="page-container">
         {/* <Container fluid> */}
             <div className="t-top-pad">
-                <Row>
+                <Row no-gutters>
                     <Col size="md-12">
                         <div className="purple-background add-shadow rounded-corners">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-6">
                                     <h1 className="white">
                                         Products
@@ -110,7 +112,7 @@ function Products() {
                     </Col>
                 </Row>
             </div>
-            <Row>
+            <Row no-gutters>
                 <Col size="md-12">
                     <h2 className="white center-text black-background rounded-corners">
                         Newest arrival!
@@ -120,32 +122,35 @@ function Products() {
                     <div className="current-highlighted-product-section add-shadow rounded-corners">
                         {/* replace with most recently added product when configured */}
                         {products.length > 0 ? (
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-4">
-                                    <Row>
+                                    <Row no-gutters>
                                         <Col size="md-12">
                                             <h2 className="white t-top-pad">
                                                 {products[10].product_name}
                                             </h2>
                                         </Col>
                                     </Row>
-                                    <Row>
+                                    <Row no-gutters>
                                         <Col size="md-12">
                                             <span className="white f-top-pad" id="promo-product-desc">
                                                 {products[10].product_description.split(".", 1) + "."}
                                             </span>
                                         </Col>
                                     </Row>
-                                    <Row>
+                                    <Row no-gutters>
                                         <Col size="md-12">
                                             <div className="t-top-pad">
-                                                <Row>
+                                                <Row no-gutters>
                                                     <Col size="md-1" />
                                                     <Col size="md-1">
+                                                        {/* <ProductButton 
+                                                            id={products[10].id}
+                                                        /> */}
                                                         <Button
                                                             buttonClass="explore"
                                                             text="Explore"
-                                                        // action={goToProductPage(products[10].id)}
+                                                        // action={(event) => goToProductPage(event, products[10].id)}
                                                         />
                                                     </Col>
                                                     <Col size="md-4" />
@@ -153,7 +158,7 @@ function Products() {
                                                         <Button
                                                             buttonClass="shop-now"
                                                             text="Shop Now"
-                                                            action={goToShop}
+                                                            // action={goToShop}
                                                         />
                                                     </Col>
                                                 </Row>
@@ -171,7 +176,7 @@ function Products() {
                     </div>
                 </Col>
             </Row>
-            <Row>
+            <Row no-gutters>
                 <Col size="md-12">
                     <Pulse>
                         <h1 className="white f-top-pad padding-bottom text-shadow">
@@ -180,7 +185,7 @@ function Products() {
                     </Pulse>
                 </Col>
             </Row>
-            <Row>
+            <Row no-gutters>
                 <Col size="md-1" />
                 <Col size="md-4">
                     <Fade bottom>
@@ -247,7 +252,7 @@ function Products() {
                     </Fade>
                 </Col>
             </Row>
-            <Row>
+            <Row no-gutters>
                 <Col size="md-12">
                     <Modal
                         open={open}
@@ -261,16 +266,16 @@ function Products() {
                     />
                 </Col>
             </Row>
-            <Row>
+            <Row no-gutters>
                 <Col size="md-12">
                     {products.length > 0 ? (
                         <div className="secondary-highlighted-product white rounded-corners">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-6">
                                     <img src={products[6].image_link} alt="Demo Company Microphone" className="current-promo-image"></img>
                                 </Col>
                                 <Col size="md-6">
-                                    <Row>
+                                    <Row no-gutters>
                                         <Col size="md-12">
                                             <h1 className="so-bold t-top-pad">
                                                 {products[6].product_name}
@@ -285,10 +290,10 @@ function Products() {
                                             </span>
                                         </Col>
                                     </Row>
-                                    <Row>
+                                    <Row no-gutters>
                                         <div className="f-top-pad">
                                             <Col size="md-12">
-                                                <Row>
+                                                <Row no-gutters>
                                                     <Col size="md-1" />
                                                     <Col size="md-1">
                                                         <Button
@@ -316,29 +321,29 @@ function Products() {
                 </Col>
             </Row>
             <div className="company-section">
-                <Row>
+                <Row no-gutters>
                     <Col size="md-12">
-                        <Row>
+                        <Row no-gutters>
                             <Col size="md-1" />
                             <Col size="md-2">
-                                <Row>
+                                <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToSupport}>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <h2 className="white f-top-pad section-headers center-text">
                                                         Contact Us
                                                             </h2>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <span className="white">
                                                         Our award-winning support team is available 24/7 to help with your questions
                                                             </span>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <div className="center-icons">
                                                         <IconButton onClick={goToSupport} aria-label="support">
@@ -355,24 +360,24 @@ function Products() {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-2">
-                                <Row>
+                                <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToTutorials}>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <h2 className="white f-top-pad">
                                                         Tutorials
                                                             </h2>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <span className="white">
                                                         Watch videos made by our team members walking through a variety of our most popular products
                                                             </span>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <div className="center-icons">
                                                         <IconButton onClick={goToTutorials} aria-label="support">
@@ -389,24 +394,24 @@ function Products() {
                             </Col>
                             <Col size="md-2" />
                             <Col size="md-2">
-                                <Row>
+                                <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToCart}>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <h2 className="white f-top-pad">
                                                         Check Cart
                                                             </h2>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <span className="white">
                                                         View and purchase your currently selected products
                                                             </span>
                                                 </Col>
                                             </Row>
-                                            <Row>
+                                            <Row no-gutters>
                                                 <Col size="md-12">
                                                     <div className="center-icons">
                                                         <IconButton onClick={goToCart} aria-label="Go to cart">

@@ -92,7 +92,7 @@ class ProductPage extends Component {
         return (
             <div className="page-container">
                 {/* <Container fluid> */}
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-12">
                             <div className="product-header t-top-pad white">
                                 <p>
@@ -101,7 +101,7 @@ class ProductPage extends Component {
                             </div>
                         </Col>
                         <Col size="md-12">
-                            <Row>
+                            <Row no-gutters>
                                 <Col size="md-1" />
                                 <Col size="md-6">
                                     <figure
@@ -118,7 +118,7 @@ class ProductPage extends Component {
                                     </figure>
                                 </Col>
                                 <Col size="md-4">
-                                    <Row>
+                                    <Row no-gutters>
                                         <ProductOrder
                                             price={this.state.product.price}
                                             hardware={this.state.product.hardware}
@@ -137,7 +137,7 @@ class ProductPage extends Component {
                             </Row>
                         </Col>
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-2" />
                         <Col size="md-8">
                             <div className="product-description-page white t-top-pad">
@@ -148,10 +148,10 @@ class ProductPage extends Component {
                         </Col>
                         <Col size="md-2" />
                     </Row>
-                    <Row>
+                    <Row no-gutters>
                         <Col size="md-12">
                             <div className="review-section">
-                                <Row>
+                                <Row no-gutters>
                                     <Col size="md-1" />
                                     <Col size="md-4">
                                         <Flip top>
