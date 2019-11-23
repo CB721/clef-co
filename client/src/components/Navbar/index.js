@@ -33,6 +33,11 @@ function Navbar() {
     function Search() {
         window.location.href = "/search";
     }
+    function logOut(event) {
+        event.preventDefault();
+        sessionStorage.clear();
+        window.location.href = "/login";
+    }
     const theme = createMuiTheme({
         palette: {
             primary: { main: '#3E0768' }
@@ -84,8 +89,13 @@ function Navbar() {
                                 <a href="/user/profile">Profile</a>
                             </li>
                             <li className="list-items white">
-                                Sign Out
-                                                </li>
+                                <div 
+                                className="white-to-purple pointer"
+                                onClick={(event) => logOut(event)}
+                                >
+                                    Sign Out
+                                </div>
+                            </li>
                             <li className="list-icons white">
                                 <IconButton
                                     onClick={CheckCart}

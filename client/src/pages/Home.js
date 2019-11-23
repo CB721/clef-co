@@ -11,6 +11,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
+import { func } from "prop-types";
 
 function Home() {
     const [productOne, setProductOne] = useState([]);
@@ -21,9 +22,15 @@ function Home() {
         displayRandomProducts();
     }, [displayRandomProducts]);
     useEffect(() => {
-        setTimeout(function() {
-            toast("Welcome!");
-        }, 5000)
+        if (window.sessionStorage.id) {
+            setTimeout(function() {
+                toast("Thanks for visiting today " + window.sessionStorage.first_name + "!");
+            }, 5000);
+        } else {
+            setTimeout(function() {
+                toast("Create an account today");
+            }, 8080);
+        }
     }, [])
 
     function displayRandomProducts() {

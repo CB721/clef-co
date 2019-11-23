@@ -103,6 +103,9 @@
   .white-to-purple:hover {
     color: rgb(62,7,104);
   }
+  .pointer:hover {
+    cursor: pointer;
+  }
   input:focus {
     outline: none;
   }
