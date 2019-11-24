@@ -113,8 +113,23 @@ module.exports = {
     searchUserOrders: function (req, res) {
         const userID = req.params.userid;
         const search = req.params.input;
-        db.query("SELECT oxn711nfcpjgwcr2.orders.created_at, oxn711nfcpjgwcr2.orders.checked_out_at, oxn711nfcpjgwcr2.orders.user_id, oxn711nfcpjgwcr2.orderItems.order_id, oxn711nfcpjgwcr2.orderItems.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.orders LEFT JOIN oxn711nfcpjgwcr2.orderItems on oxn711nfcpjgwcr2.orders.id = oxn711nfcpjgwcr2.orderItems.order_id LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.orders.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE '%" + search + "%';",
+        db.query("SELECT oxn711nfcpjgwcr2.orders.created_at, oxn711nfcpjgwcr2.orders.checked_out_at, oxn711nfcpjgwcr2.orders.user_id, oxn711nfcpjgwcr2.orderItems.order_id, oxn711nfcpjgwcr2.orderItems.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.orders LEFT JOIN oxn711nfcpjgwcr2.orderItems on oxn711nfcpjgwcr2.orders.id = oxn711nfcpjgwcr2.orderItems.order_id LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.orders.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE '%" + search + "%' ORDER BY oxn711nfcpjgwcr2.orders.checked_out_at DESC;",
             function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
+    },
+    searchUserContactForms: function(req, res) {
+        const userID = req.params.userid;
+        const search = req.params.input;
+        db.query("SELECT oxn711nfcpjgwcr2.contactForms.user_id, oxn711nfcpjgwcr2.contactForms.created_at, oxn711nfcpjgwcr2.contactForms.user_email, oxn711nfcpjgwcr2.contactForms.user_subject, oxn711nfcpjgwcr2.contactForms.user_description, oxn711nfcpjgwcr2.contactForms.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.contactForms LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.contactForms.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.contactForms.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE '%" + search + "%' ORDER BY oxn711nfcpjgwcr2.contactForms.created_at DESC;",
+            function(err, results) {
                 if (err) {
                     return res.send(err);
                 } else {

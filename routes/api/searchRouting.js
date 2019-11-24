@@ -10,5 +10,8 @@ router
 router
     .route("/orders/:userid/:input")
     .get(controller.searchUserOrders);
+router
+    .route("/contact/:userid/:input")
+    .get(controller.searchUserContactForms);
 
 module.exports = router;
