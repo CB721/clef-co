@@ -5,6 +5,7 @@ import Checkout from "../components/Checkout";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./Assets/style.css";
 
 
@@ -31,7 +32,20 @@ function Cart() {
                 .then(window.location.reload(true))
                 .catch(err => console.log(err));
         } else {
-            toast("Your cart is empty");
+            toast("Your cart is empty", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
             deleteCart();
         }
     }
@@ -41,7 +55,20 @@ function Cart() {
             .catch(err => console.log(err));
     }
     function displayOrderConfirmation() {
-        toast("Order complete!");
+        toast("Order complete!", {
+            className: css({
+                background: '#3E0768',
+                boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                borderRadius: '17px'
+            }),
+            bodyClassName: css({
+                fontSize: '20px',
+                color: 'white'
+            }),
+            progressClassName: css({
+                background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+            })
+        });
         deleteCart();
     }
     function deleteCart() {

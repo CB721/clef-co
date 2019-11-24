@@ -10,8 +10,9 @@ import Review from "../components/Review";
 import Tooltip from '@material-ui/core/Tooltip';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./Assets/style.css";
-import { func } from "prop-types";
+
 
 function Home() {
     const [productOne, setProductOne] = useState([]);
@@ -23,12 +24,38 @@ function Home() {
     }, [displayRandomProducts]);
     useEffect(() => {
         if (window.sessionStorage.id) {
-            setTimeout(function() {
-                toast("Thanks for visiting today " + window.sessionStorage.first_name + "!");
+            setTimeout(function () {
+                toast("Thanks for visiting today " + window.sessionStorage.first_name + "!", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }, 5000);
         } else {
-            setTimeout(function() {
-                toast("Create an account today");
+            setTimeout(function () {
+                toast("Create an account today", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }, 8080);
         }
     }, [])

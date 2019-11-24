@@ -13,7 +13,6 @@ import Cart from "./pages/Cart";
 import ProductPage from "./pages/ProductPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
-import Logout from "./pages/Logout";
 import User from "./pages/User";
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -51,7 +50,6 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/create_account" component={SignUp} />
           <Route exact path="/user/profile" component={User} />
-          <Route exact path="/user/id/logoout" component={Logout} />
         </Switch>
         <Footer />
       </Router>

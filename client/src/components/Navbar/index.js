@@ -6,6 +6,9 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AlbumIconOutlinedIcon from '@material-ui/icons/AlbumOutlined';
 import Badge from '@material-ui/core/Badge';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./style.css";
 
 
@@ -28,7 +31,24 @@ function Navbar() {
         }
     }, [loggedIn]);
     function CheckCart() {
-        window.location.href = "/cart";
+        if (window.sessionStorage.id) {
+            window.location.href = "/cart";
+        } else {
+            toast("Please login to view your cart", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        }
     }
     function Search() {
         window.location.href = "/search";
@@ -89,9 +109,9 @@ function Navbar() {
                                 <a href="/user/profile">Profile</a>
                             </li>
                             <li className="list-items white">
-                                <div 
-                                className="white-to-purple pointer"
-                                onClick={(event) => logOut(event)}
+                                <div
+                                    className="white-to-purple pointer"
+                                    onClick={(event) => logOut(event)}
                                 >
                                     Sign Out
                                 </div>

@@ -7,6 +7,7 @@ import Product from "../components/Product";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./Assets/style.css";
 
 class Shop extends Component {
@@ -203,13 +204,38 @@ class Shop extends Component {
                     .catch(err => console.log(err));
             }
         } else {
-            toast("You must be logged in to purchase items");
-            console.log("user must be logged in to add items to cart");
+            toast("You must be logged in to purchase items", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
         }
     }
     handleCartAddition = (data, product) => {
         this.setState({ cart: data });
-        toast(product + " has been added to your cart!");
+        toast(product + " has been added to your cart!", {
+            className: css({
+                background: '#3E0768',
+                boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                borderRadius: '17px'
+            }),
+            bodyClassName: css({
+                fontSize: '20px',
+                color: 'white'
+            }),
+            progressClassName: css({
+                background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+            })
+        });
     }
 
     render() {

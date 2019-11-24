@@ -15,7 +15,7 @@ function ProductOrder(props) {
         <FormControl>
             <Col size="md-12">
                 <div className="product-shipping white f-top-pad">
-                    <p className="price-text white">
+                    <p className="white">
                         ${props.price}
                     </p>
                     {props.hardware && props.quantity > 0 ? (

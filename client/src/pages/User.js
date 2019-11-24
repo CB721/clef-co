@@ -12,6 +12,7 @@ import profileImages from "../pages/Assets/Data/profile-status.json";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import API from "../utilities/api";
+import { css } from 'glamor';
 import "./Assets/style.css";
 
 function User() {
@@ -43,7 +44,20 @@ function User() {
             determineStatus(window.sessionStorage.joined_date);
             setUpUser();
             setTimeout(function () {
-                toast("Welcome back " + window.sessionStorage.first_name + "!");
+                toast("Welcome back " + window.sessionStorage.first_name + "!", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }, 3000)
         } else {
             window.location.href = "/login";
@@ -100,7 +114,20 @@ function User() {
         sessionStorage.setItem("user_state", updatedUser.user_state);
         sessionStorage.setItem("zip_code", updatedUser.zip_code);
         sessionStorage.setItem("last_visit", updatedUser.last_visit);
-        toast("Updates saved!");
+        toast("Updates saved!", {
+            className: css({
+                background: '#3E0768',
+                boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                borderRadius: '17px'
+            }),
+            bodyClassName: css({
+                fontSize: '20px',
+                color: 'white'
+            }),
+            progressClassName: css({
+                background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+            })
+        });
     }
     function generateRandomImage() {
         const imagesArr = headerImages;
@@ -116,12 +143,64 @@ function User() {
         const finalSatesEnd = "01-02";
         setTimeout(function() {
             if (moment(todayMonth).isBetween(holidayStart, holidayEnd)) {
-                toast("Give the gift of music this holiday season!");
+                toast("Give the gift of music this holiday season!", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             } else if (moment(todayMonth).isSame(xmas)) {
-                toast("Didn't get what you wanted?");
-                toast("Get the gift you want today!");
+                toast("Didn't get what you wanted?", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
+                toast("Get the gift you want today!", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             } else if (moment(todayMonth).isBetween(finalSalesStart, finalSatesEnd)) {
-                toast("New year, new gear!");
+                toast("New year, new gear!", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }
         }, 8500);
     }
@@ -132,7 +211,20 @@ function User() {
             setstatusImage(profileImages[0].image);
             setuserStatus("beginner");
             if (moment(today).diff(dateJoined, 'days') % 3 === 0) {
-                toast("Thanks for beening a member for " + moment(today).diff(dateJoined, 'days'));
+                toast("Thanks for beening a member for " + moment(today).diff(dateJoined, 'days'), {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }
         }
         if (moment(today).diff(dateJoined, 'days') >= 7 &&
@@ -140,7 +232,20 @@ function User() {
             setstatusImage(profileImages[1].image);
             setuserStatus("novice");
             if (moment(today).diff(dateJoined, 'weeks') % 3 === 0) {
-                toast("What music have you done lately?");
+                toast("What music have you done lately?", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }
         }
         if (moment(today).diff(dateJoined, 'months') >= 1 &&
@@ -148,20 +253,85 @@ function User() {
             setstatusImage(profileImages[2].image);
             setuserStatus("expert");
             if (moment(today).diff(dateJoined, 'days') % 17 === 0) {
-                toast("Have you though of writing a review?");
+                toast("Have you though of writing a review?", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             } else if (moment(today).diff(dateJoined, 'weeks') % 17 === 0) {
-                toast("We really appreciate having you as a member " + window.sessionStorage.first_name);
+                toast("We really appreciate having you as a member " + window.sessionStorage.first_name, {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }
         }
         if (moment(today).diff(dateJoined, 'years') >= 1) {
             setstatusImage(profileImages[3].image);
             setuserStatus("master");
             if (moment(today).diff(dateJoined, 'years') % 1 === 0) {
-                toast("One year already?  Wow!");
+                toast("One year already?  Wow!", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             } else if (moment(today).diff(dateJoined, 'months') % 7 === 0) {
-                toast("What music have you done lately?");
+                toast("What music have you done lately?", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             } else if (moment(today).diff(dateJoined, 'weeks') % 23 === 0) {
-                toast("Have you though of writing a review?");
+                toast("Have you though of writing a review?", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
             }
         }
     }

@@ -11,6 +11,7 @@ import Waves from "../components/Waves";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./Assets/style.css";
 
 class Contact extends Component {
@@ -92,9 +93,35 @@ class Contact extends Component {
                 productSelection: [],
                 formMessage: "We have received your support ticket"
             });
-            toast("One of our specialists will contact you soon!");
+            toast("One of our specialists will contact you soon!", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
         } else {
-            toast("Please try again");
+            toast("Please try again", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
         }
     }
     goToTwitter() {
