@@ -21,7 +21,7 @@ function Home() {
 
     useEffect(() => {
         displayRandomProducts();
-    }, [displayRandomProducts]);
+    });
     useEffect(() => {
         if (window.sessionStorage.id) {
             setTimeout(function () {
@@ -42,7 +42,7 @@ function Home() {
             }, 5000);
         } else {
             setTimeout(function () {
-                toast("Create an account today", {
+                toast("Create an account today!", {
                     className: css({
                         background: '#3E0768',
                         boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',

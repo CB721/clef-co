@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Button from "../components/Button";
 import Menu from "../components/Menu";
 import Product from "../components/Product";
+import Bundles from "./Assets/Data/bundles.json";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,6 +22,7 @@ class Shop extends Component {
         bundleItems: "content-collapse",
         typeItems: "content-collapse",
         products: [],
+        displayProducts: [],
         selectedCategories: [],
         onSale: false,
         bestsellers: false,
@@ -32,9 +34,10 @@ class Shop extends Component {
         drums: false,
         dj: false,
         recording: false,
-        vocalists: false,
-        synths: false,
-        beginners: false,
+        rockBand: false,
+        country: false,
+        hipHop: false,
+        edm: false,
         hardware: false,
         software: false,
         cartID: 0,
@@ -47,7 +50,10 @@ class Shop extends Component {
     getProducts = () => {
         API.getAllProducts()
             .then(res =>
-                this.setState({ products: res.data.results })
+                this.setState({
+                    products: res.data.results,
+                    displayProducts: res.data.results
+                })
             )
             .catch(err => console.log("Error getting products: " + err));
     }
@@ -56,7 +62,6 @@ class Shop extends Component {
             API.getCartByUser(window.sessionStorage.id)
                 .then(res =>
                     this.setCartState(res.data.cartArr[0])
-                    // this.setState({ cart: res.data.results })
                 )
                 .catch(err => console.log(err));
         }
@@ -70,9 +75,6 @@ class Shop extends Component {
             this.setState({
                 cart: this.state.cart.concat(products[i].product_id)
             });
-            // this.setState(prevState => ({
-            //     cart: [...prevState, products[i].product_id]
-            // }));
         }
     }
     getFilteredProducts = () => {
@@ -80,7 +82,7 @@ class Shop extends Component {
         if (categories.length > 0) {
             API.getFilteredProducts(categories)
                 .then(res =>
-                    this.setState({ products: res.data.results })
+                    this.setState({ displayProducts: res.data.results })
                 )
                 .catch(err => console.log(err))
         } else {
@@ -155,30 +157,155 @@ class Shop extends Component {
         const name = event.target.name;
         const selectedCategories = this.state.selectedCategories;
         const thisIsThis = this;
-        let updateCategories = function (clicked, newCategories) {
-            return new Promise(function (resolve, reject) {
-                resolve(
-                    thisIsThis.setState({
-                        [name]: clicked,
-                        selectedCategories: newCategories
-                    })
-                )
-            })
-        }
-        if (selectedCategories.indexOf(name) >= 0) {
-            const newSelectedCategories = selectedCategories.filter(category => category !== name);
-            updateCategories(false, newSelectedCategories)
-                .then(function () {
-                    thisIsThis.getFilteredProducts();
+        const products = this.state.products;
+        if (name === "rock-band" || name === "country" || name === "hip-hop" || name === "edm") {
+            this.setState({
+                selectedCategories: [],
+                displayProducts: []
+            });
+            let displayBundle = function (items) {
+                return new Promise(function (resolve, reject) {
+                    resolve(
+                        thisIsThis.setState({
+                            displayProducts: items
+                        })
+                    )
                 })
-                .catch(err => console.log(err));
+            }
+            switch (name) {
+                case "rock-band":
+                    if (thisIsThis.state.rockBand) {
+                        thisIsThis.setState({
+                            rockBand: false,
+                            displayProducts: products
+                        });
+                    } else {
+                        const rockArr = Bundles[0].product_ids;
+                        const rockBundle = [];
+                        thisIsThis.setState({
+                            rockBand: true,
+                            hipHop: false,
+                            country: false,
+                            edm: false
+                        });
+                        for (let i = 0; i < rockArr.length; i++) {
+                            const bundleItem = products.filter(product => product.id === rockArr[i]);
+                            rockBundle.push(bundleItem[0]);
+                        }
+                        if (rockBundle.length === rockArr.length) {
+                            displayBundle(rockBundle)
+                                .then()
+                                .catch(err => console.log(err))
+                        }
+                    }
+                    break;
+                case "country":
+                    if (thisIsThis.state.country) {
+                        thisIsThis.setState({
+                            country: false,
+                            displayProducts: products
+                        });
+                    } else {
+                        const countryArr = Bundles[1].product_ids;
+                        const countryBundle = [];
+                        thisIsThis.setState({
+                            rockBand: false,
+                            hipHop: false,
+                            country: true,
+                            edm: false
+                        });
+                        for (let i = 0; i < countryArr.length; i++) {
+                            const bundleItem = products.filter(product => product.id === countryArr[i]);
+                            countryBundle.push(bundleItem[0]);
+                        }
+                        if (countryBundle.length === countryArr.length) {
+                            displayBundle(countryBundle)
+                                .then()
+                                .catch(err => console.log(err))
+                        }
+                    }
+                    break;
+                case "hip-hop":
+                    if (thisIsThis.state.hipHop) {
+                        thisIsThis.setState({
+                            hipHop: false,
+                            displayProducts: products
+                        });
+                    } else {
+                        const hiphopArr = Bundles[2].product_ids;
+                        const hipHopBundle = [];
+                        thisIsThis.setState({
+                            rockBand: false,
+                            hipHop: true,
+                            country: false,
+                            edm: false
+                        });
+                        for (let i = 0; i < hiphopArr.length; i++) {
+                            const bundleItem = products.filter(product => product.id === hiphopArr[i]);
+                            hipHopBundle.push(bundleItem[0]);
+                        }
+                        if (hipHopBundle.length === hiphopArr.length) {
+                            displayBundle(hipHopBundle)
+                                .then()
+                                .catch(err => console.log(err))
+                        }
+                    }
+                    break;
+                case "edm":
+                    if (thisIsThis.state.edm) {
+                        thisIsThis.setState({
+                            edm: false,
+                            displayProducts: products
+                        });
+                    } else {
+                        const edmArr = Bundles[3].product_ids;
+                        const edmBundle = [];
+                        thisIsThis.setState({
+                            rockBand: false,
+                            hipHop: false,
+                            country: false,
+                            edm: true
+                        });
+                        for (let i = 0; i < edmArr.length; i++) {
+                            const bundleItem = products.filter(product => product.id === edmArr[i]);
+                            edmBundle.push(bundleItem[0]);
+                        }
+                        if (edmBundle.length === edmArr.length) {
+                            displayBundle(edmBundle)
+                                .then()
+                                .catch(err => console.log(err))
+                        }
+                    }
+                    break;
+                default:
+                    return;
+            }
         } else {
-            const newSelectedCategories = selectedCategories.concat(name);
-            updateCategories(true, newSelectedCategories)
-                .then(function () {
-                    thisIsThis.getFilteredProducts();
+            let updateCategories = function (clicked, newCategories) {
+                return new Promise(function (resolve, reject) {
+                    resolve(
+                        thisIsThis.setState({
+                            [name]: clicked,
+                            selectedCategories: newCategories
+                        })
+                    )
                 })
-                .catch(err => console.log(err));
+            }
+            if (selectedCategories.indexOf(name) >= 0) {
+                const newSelectedCategories = selectedCategories.filter(category => category !== name);
+                updateCategories(false, newSelectedCategories)
+                    .then(function () {
+                        thisIsThis.getFilteredProducts();
+                    })
+                    .catch(err => console.log(err));
+            } else {
+                const newSelectedCategories = selectedCategories.concat(name);
+                updateCategories(true, newSelectedCategories)
+                    .then(function () {
+                        thisIsThis.getFilteredProducts();
+                    })
+                    .catch(err => console.log(err));
+            }
         }
     }
     addToCart = (id, productName) => (event) => {
@@ -241,7 +368,7 @@ class Shop extends Component {
     render() {
         return (
             <div className="page-container">
-            {/* <Container fluid> */}
+                {/* <Container fluid> */}
                 <Row no-gutters>
                     <Col size="md-12">
                         <div className="company-section rounded-corners">
@@ -289,18 +416,19 @@ class Shop extends Component {
                                         drums={this.state.drums}
                                         dj={this.state.dj}
                                         recording={this.state.recording}
-                                        vocalists={this.state.vocalists}
-                                        synths={this.state.synths}
-                                        beginners={this.state.beginners}
+                                        rockBand={this.state.rockBand}
+                                        country={this.state.country}
+                                        hipHop={this.state.hipHop}
+                                        edm={this.state.edm}
                                         hardware={this.state.hardware}
                                         software={this.state.software}
                                         handleChange={this.handleInputChange}
                                     />
                                 </Col>
-                                {this.state.products.length > 0 ? (
+                                {this.state.displayProducts.length > 0 ? (
                                     <Col size="md-9">
                                         <Row no-gutters>
-                                            {this.state.products.map(product => (
+                                            {this.state.displayProducts.map(product => (
                                                 <Col
                                                     size="md-3"
                                                     key={product.id}
@@ -342,7 +470,7 @@ class Shop extends Component {
                         </div>
                     </Col>
                 </Row>
-            {/* </Container> */}
+                {/* </Container> */}
             </div>
         )
     }

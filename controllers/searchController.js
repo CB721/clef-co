@@ -33,12 +33,14 @@ module.exports = {
                     instrumentArr.push("utility");
                 } else if (cat[i] === "microphone" || cat[i] === "bass" || cat[i] === "headphones" || cat[i] === "drums" || cat[i] === "dj") {
                     instrumentArr.push(cat[i]);
-                } else if (cat[i] === "vocalists") {
+                } else if (cat[i] === "rock-band") {
                     // create bundles table
                     console.log(cat[i] + " is a bundle");
-                } else if (cat[i] === "synths") {
+                } else if (cat[i] === "country") {
                     console.log(cat[i] + " is a bundle");
-                } else if (cat[i] === "beginners") {
+                } else if (cat[i] === "hip-hop") {
+                    console.log(cat[i] + " is a bundle");
+                } else if (cat[i] === "edm") {
                     console.log(cat[i] + " is a bundle");
                 } else if (cat[i] === "hardware") {
                     console.log(cat[i] + " selected")
