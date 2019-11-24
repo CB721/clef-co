@@ -1,5 +1,7 @@
 const db = require("../connection/connection");
 
+const productsTable = "oxn711nfcpjgwcr2.products";
+
 module.exports = {
     getFilteredProducts: function (req, res) {
         let queryStr = "SELECT * FROM oxn711nfcpjgwcr2.products";
@@ -33,25 +35,14 @@ module.exports = {
                     instrumentArr.push("utility");
                 } else if (cat[i] === "microphone" || cat[i] === "bass" || cat[i] === "headphones" || cat[i] === "drums" || cat[i] === "dj") {
                     instrumentArr.push(cat[i]);
-                } else if (cat[i] === "rock-band") {
-                    // create bundles table
-                    console.log(cat[i] + " is a bundle");
-                } else if (cat[i] === "country") {
-                    console.log(cat[i] + " is a bundle");
-                } else if (cat[i] === "hip-hop") {
-                    console.log(cat[i] + " is a bundle");
-                } else if (cat[i] === "edm") {
-                    console.log(cat[i] + " is a bundle");
                 } else if (cat[i] === "hardware") {
-                    console.log(cat[i] + " selected")
                     hardware = true;
                     software = false;
                 } else if (cat[i] === "software") {
-                    console.log(cat[i] + " selected")
                     software = true;
                     hardware = false;
                 } else {
-                    console.log(cat[i] + " is not a match");
+                    return res.send(cat[i] + " is not a match");
                 }
             }
         }
@@ -102,7 +93,19 @@ module.exports = {
         setTimeout(function() {
             searchQuery(queryStr, queryFilter);
         }, 400);
-        
-        
+    },
+    searchProducts: function (req, res) {
+        const search = req.params.input;
+        db.query("SELECT * FROM " + productsTable + " WHERE product_name LIKE '%" + search + "%';",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
     }
 }
