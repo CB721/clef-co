@@ -7,5 +7,8 @@ router
 router
     .route("/products/:input")
     .get(controller.searchProducts);
+router
+    .route("/orders/:userid/:input")
+    .get(controller.searchUserOrders);
 
 module.exports = router;
