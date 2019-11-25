@@ -442,8 +442,8 @@ span {
 }
 .black-background {
     background: black;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    /* margin-top: 5%; */
+    /* margin-bottom: 5%; */
     padding: 5%;
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }

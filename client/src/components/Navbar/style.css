@@ -1,76 +1,17 @@
-.navbar li {
+  .search-field {
+    border: none;
+    height: 100%;
+    background: transparent;
     margin: 0 auto;
-    display: inline-block;
-    padding: 26px 10px;
-    font-size: 20px;
-    font-weight: bold;
-  } 
-  * {
-    box-sizing: border-box;
-    font-family: sans-serif;
-  } 
-  a {
-    color: white;
-    text-decoration: none;
-    background-color: transparent;
+    position: absolute;
   }
-  .head-bar {
-    background: black;
-    -webkit-box-shadow: 0 14px 28px rgba(0,0,0,.2), 0 10px 10px rgba(0, 0, 0, 0.22);
-    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
-    min-height: 85px;
-    position: fixed;
-    display: block;
-    width: 100vw;
-    font-size: calc(10px + 14 * (100vw - 320px)/ 800);
-    z-index: 2;
-    white-space: nowrap;
-  }
-  .header-wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .nav-list {
-    display: block;
-    position: relative;
-    flex-grow: 1;
-    flex-shrink: 1;
-    order: 2;
-    text-transform: uppercase;
-  }
-  .ordered-list {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    border: 0;
-    padding: 0;
-    list-style: none;
-    position: relative;
-    line-height: 1.5;
-    letter-spacing: .0125rem;
-    font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
-    font-size: 1rem;
-    font-weight: 400;
-  }
-  .list-items {
-    flex-basis: auto;
-    border: 0;
-    overflow: visible;
-    padding: 1.8rem 3.2rem .4rem .8rem;
-    /* padding-top: .8rem;
-    padding-right: 3rem;
-    padding-left: .5rem; */
-  }
-  .list-icons {
-    flex-basis: auto;
-    padding: 1.2rem .8rem 0rem .8rem;
+  .search-field:focus {
+    outline: none;
+    background: transparent;
+    border-bottom: 3px solid white;
   }
   .search-box {
+    position: relative;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -92,22 +33,6 @@
   .search-box::placeholder {
     color: white;
     text-align: center;
-  }
-  li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-  }
-  .white-to-purple {
-    color: white;
-  }
-  .white-to-purple:hover {
-    color: rgb(62,7,104);
-  }
-  .pointer:hover {
-    cursor: pointer;
-  }
-  input:focus {
-    outline: none;
   }
   @media only screen and (max-width: 1300px) {
     

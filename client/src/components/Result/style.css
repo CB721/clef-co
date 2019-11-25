@@ -11,6 +11,7 @@
 }
 .result:hover {
     cursor: pointer;
+    border: 3px solid rgb(62,7.104);
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 .result-type {

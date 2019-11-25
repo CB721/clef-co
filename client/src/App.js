@@ -20,6 +20,7 @@ import './App.css';
 
 function App() {
   const products = useSelector(state => state.products);
+  const [stars, setStars] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   return (
       <Router>
@@ -43,6 +44,9 @@ function App() {
           <Route exact path="/create_account" component={SignUp} />
           <Route exact path="/user/profile" component={User} />
         </Switch>
+        {stars.map((star) => (
+          <div id="stars" key={star} />
+        ))}
         <Footer />
       </Router>
   );
