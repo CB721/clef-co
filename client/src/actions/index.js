@@ -1,4 +1,11 @@
-import { Get_Products, Save_User, Logged_In, Get_Cart, Get_Orders, Complete_Cart } from './types';
+import {
+    Get_Products,
+    Save_User,
+    Logged_In,
+    Get_Cart,
+    Get_Orders,
+    Complete_Cart
+} from './types';
 import axios from 'axios';
 
 export const getProducts = (products) => {

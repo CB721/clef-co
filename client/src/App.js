@@ -21,14 +21,6 @@ import './App.css';
 function App() {
   const products = useSelector(state => state.products);
 
-  useEffect(() => {
-    if (window.sessionStorage.logged_in) {
-
-    } else {
-      console.log("not logged in");
-    }
-  });
-
   return (
       <Router>
         <Navbar />

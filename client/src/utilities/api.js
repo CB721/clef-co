@@ -64,5 +64,14 @@ export default {
     },
     getAllContactForms: function() {
         return axios.get("/api/contact/all");
+    },
+    searchAllProducts: function(input) {
+        return axios.get("/api/search/products/" + input);
+    },
+    searchUserOrders: function(userID, input) {
+        return axios.get("/api/search/orders/" + userID + "/" + input);
+    },
+    searchUserContactForms: function(userID, input) {
+        return axios.get("/api/search/contact/" + userID + "/" + input);
     }
 }

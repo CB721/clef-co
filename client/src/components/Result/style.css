@@ -1,9 +1,42 @@
 .result {
+    background: white;
+    border-radius: 17px;
     cursor: pointer;
     padding-bottom: 25px;
     margin-bottom: 15px;
+    width: 100%;
+    height: auto;
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+    position: relative;
 }
 .result:hover {
+    cursor: pointer;
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
+}
+.result-type {
+    position: absolute;
+    left: 10;
+    top: 0;
+    padding: 10px 0 0 10px;
+}
+.result-basic-info {
+    position: absolute;
+    right: 10;
+    top: 0;
+    padding: 10px 0 0 10px;
+}
+.result-product-name {
+    text-align: center;
+}
+.result-secondary-info {
+    position: absolute;
+    left: 10;
+}
+.result-description {
+    text-align: center;
+}
+.result-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 17px;
 }

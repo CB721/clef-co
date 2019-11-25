@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "../components/Grid";
+import API from "../utilities/api";
 import Result from "../components/Result";
 import Fade from 'react-reveal/Fade';
 import { ToastContainer } from 'react-toastify';
@@ -7,10 +8,47 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
 
 function Search() {
+    const [results, setResults] = useState([]);
+
+    useEffect(() => {
+        if (window.sessionStorage.id) {
+            searchOrders();
+            searchContactForms();
+            searchProducts();
+        } else {
+            searchProducts();
+        }
+    }, []);
 
     function goToProduct(event, link) {
         event.preventDefault();
-        window.location.href = link;
+        window.location.href = "/shop/product/" + link;
+    }
+    function searchProducts() {
+        API.searchAllProducts(window.sessionStorage.search)
+            .then(res =>
+                updateResults(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }
+    function searchOrders() {
+        API.searchUserOrders(window.sessionStorage.id, window.sessionStorage.search)
+            .then(res =>
+                updateResults(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }
+    function searchContactForms() {
+        API.searchUserContactForms(window.sessionStorage.id, window.sessionStorage.search)
+            .then(res =>
+                updateResults(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }
+    function updateResults(data) {
+        for (let i = 0; i < data.length; i++) {
+            setResults(results => [...results, data[i]]);
+        }
     }
 
 
@@ -29,47 +67,30 @@ function Search() {
             <Row no-gutters>
                 <Col size="md-1" />
                 <Col size="md-10">
-                    <Fade bottom>
-                        <Result
-                            productName="Guitar"
-                            productDescription="Crafted from the finest wood, the finest guitar ever made."
-                            productLink="/"
-                            goToProduct={this.goToProduct}
-                        />
-                    </Fade>
-                    <Fade bottom>
-                        <Result
-                            productName="Guitar"
-                            productDescription="Crafted from the finest wood, the finest guitar ever made."
-                            productLink="/"
-                            goToProduct={this.goToProduct}
-                        />
-                    </Fade>
-                    <Fade bottom>
-                        <Result
-                            productName="Guitar"
-                            productDescription="Crafted from the finest wood, the finest guitar ever made."
-                            productLink="/"
-                            goToProduct={this.goToProduct}
-                        />
-                    </Fade>
-                    <Fade bottom>
-                        <Result
-                            productName="Guitar"
-                            productDescription="Crafted from the finest wood, the finest guitar ever made."
-                            productLink="/"
-                            goToProduct={this.goToProduct}
-                        />
-                    </Fade>
-                    <Fade bottom>
-                        <Result
-                            productName="Guitar"
-                            productDescription="Crafted from the finest wood, the finest guitar ever made."
-                            productLink="/"
-                            goToProduct={this.goToProduct}
-                        />
-                    </Fade>
+                    {results.map((result, index) => (
+                        <Fade bottom key={index}>
+                            <Result
+                                created={result.created_at}
+                                checkedOut={result.checked_out_at}
+                                orderID={result.order_id}
+                                productID={result.product_id}
+                                productIDProduct={result.id}
+                                email={result.user_email}
+                                subject={result.user_subject}
+                                formDescription={result.user_description}
+                                productDescription={result.product_description}
+                                image={result.image_link}
+                                price={result.price}
+                                productName={result.product_name}
+                                hardware={result.hardware}
+                                software={result.software}
+                                instrumentType={result.instrument_type}
+                                goToProduct={goToProduct}
+                            />
+                        </Fade>
+                    ))}
                 </Col>
+                <Col size="md-1" />
             </Row>
             <ToastContainer
                 position="bottom-right"

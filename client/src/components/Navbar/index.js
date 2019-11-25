@@ -6,7 +6,7 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import AlbumIconOutlinedIcon from '@material-ui/icons/AlbumOutlined';
 import Badge from '@material-ui/core/Badge';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
 import "./style.css";
@@ -16,7 +16,7 @@ function Navbar() {
     const cart = useSelector(state => state.cart);
     const [cartTotal, setCartTotal] = useState(0);
     const [loggedIn, setLoggedIn] = useState(false);
-    const [visibility, setVisibility] = useState("");
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         if (cart[0]) {
@@ -51,12 +51,34 @@ function Navbar() {
         }
     }
     function Search() {
-        window.location.href = "/search";
+        if (search) {
+            sessionStorage.setItem("search", search);
+            window.location.href = "/search";
+        } else {
+            toast("Search field cannot be empty", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        }
     }
     function logOut(event) {
         event.preventDefault();
         sessionStorage.clear();
         window.location.href = "/login";
+    }
+    function handleInputChange(event) {
+        let value = event.target.value.trim();
+        setSearch(value);
     }
     const theme = createMuiTheme({
         palette: {
@@ -103,6 +125,8 @@ function Navbar() {
                                     type="text"
                                     name="search"
                                     placeholder="Search"
+                                    value={search}
+                                    onChange={handleInputChange}
                                 />
                             </li>
                             <li className="list-items white">
@@ -167,6 +191,8 @@ function Navbar() {
                                         type="text"
                                         name="search"
                                         placeholder="Search"
+                                        value={search}
+                                        onChange={handleInputChange}
                                     />
                                 </li>
                                 <li className="list-items white">
