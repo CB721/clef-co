@@ -97,15 +97,15 @@ function Products() {
                     <Col size="md-12">
                         <div className="purple-background add-shadow rounded-corners">
                             <Row no-gutters>
-                                <Col size="md-6">
+                                <Col size="md-6 12">
                                     <h1 className="white">
                                         Products
-                                            </h1>
+                                    </h1>
                                 </Col>
-                                <Col size="md-6">
+                                <Col size="md-6 12">
                                     <p className="white">
                                         Browse our collection of state-of-the-art music equipment and software plugins.
-                                            </p>
+                                    </p>
                                 </Col>
                             </Row>
                         </div>
@@ -123,7 +123,7 @@ function Products() {
                         {/* replace with most recently added product when configured */}
                         {products.length > 0 ? (
                             <Row no-gutters>
-                                <Col size="md-4">
+                                <Col size="md-4 12">
                                     <Row no-gutters>
                                         <Col size="md-12">
                                             <h2 className="white t-top-pad">
@@ -143,7 +143,7 @@ function Products() {
                                             <div className="t-top-pad">
                                                 <Row no-gutters>
                                                     <Col size="md-1" />
-                                                    <Col size="md-1">
+                                                    <Col size="md-1 12">
                                                         {/* <ProductButton 
                                                             id={products[10].id}
                                                         /> */}
@@ -154,7 +154,7 @@ function Products() {
                                                         />
                                                     </Col>
                                                     <Col size="md-4" />
-                                                    <Col size="md-1">
+                                                    <Col size="md-1 12">
                                                         <Button
                                                             buttonClass="shop-now"
                                                             text="Shop Now"
@@ -166,7 +166,7 @@ function Products() {
                                         </Col>
                                     </Row>
                                 </Col>
-                                <Col size="md-8">
+                                <Col size="md-8 12">
                                     <a href="/products">
                                         <img src={products[10].image_link} alt={products[10].product_name} className="current-promo-image"></img>
                                     </a>
@@ -187,7 +187,7 @@ function Products() {
             </Row>
             <Row no-gutters>
                 <Col size="md-1" />
-                <Col size="md-4">
+                <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
                             bundleImage={Bundles[0].images}
@@ -203,7 +203,7 @@ function Products() {
                     </Fade>
                 </Col>
                 <Col size="md-2" />
-                <Col size="md-4">
+                <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
                             bundleImage={Bundles[1].images}
@@ -220,7 +220,7 @@ function Products() {
                 </Col>
                 <Col size="md-1" />
                 <Col size="md-1" />
-                <Col size="md-4">
+                <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
                             bundleImage={Bundles[2].images}
@@ -236,7 +236,7 @@ function Products() {
                     </Fade>
                 </Col>
                 <Col size="md-2" />
-                <Col size="md-4">
+                <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
                             bundleImage={Bundles[3].images}
@@ -271,10 +271,10 @@ function Products() {
                     {products.length > 0 ? (
                         <div className="secondary-highlighted-product white rounded-corners">
                             <Row no-gutters>
-                                <Col size="md-6">
+                                <Col size="md-6 12">
                                     <img src={products[6].image_link} alt="Demo Company Microphone" className="current-promo-image"></img>
                                 </Col>
-                                <Col size="md-6">
+                                <Col size="md-6 12">
                                     <Row no-gutters>
                                         <Col size="md-12">
                                             <h1 className="so-bold t-top-pad">
@@ -295,7 +295,7 @@ function Products() {
                                             <Col size="md-12">
                                                 <Row no-gutters>
                                                     <Col size="md-1" />
-                                                    <Col size="md-1">
+                                                    <Col size="md-1 12">
                                                         <Button
                                                             buttonClass="explore"
                                                             text="Explore"
@@ -303,7 +303,7 @@ function Products() {
                                                         />
                                                     </Col>
                                                     <Col size="md-6" />
-                                                    <Col size="md-1">
+                                                    <Col size="md-1 12">
                                                         <Button
                                                             buttonClass="shop-now"
                                                             text="Shop Now"
@@ -325,7 +325,7 @@ function Products() {
                     <Col size="md-12">
                         <Row no-gutters>
                             <Col size="md-1" />
-                            <Col size="md-2">
+                            <Col size="md-2 12">
                                 <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToSupport}>
@@ -359,7 +359,7 @@ function Products() {
                                 </Row>
                             </Col>
                             <Col size="md-2" />
-                            <Col size="md-2">
+                            <Col size="md-2 12">
                                 <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToTutorials}>
@@ -393,7 +393,7 @@ function Products() {
                                 </Row>
                             </Col>
                             <Col size="md-2" />
-                            <Col size="md-2">
+                            <Col size="md-2 12">
                                 <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToCart}>
