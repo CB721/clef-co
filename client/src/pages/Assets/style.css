@@ -299,7 +299,7 @@ span {
     padding-bottom: 25%;
 }
 .padding-bottom {
-    padding-bottom: 7vh;
+    padding-bottom: 5vh;
 }
 .company-section {
     min-height: 40vh;
@@ -428,6 +428,12 @@ span {
     z-index: -100;
     height: 50vh;
     opacity: 1;
+    width: 100%;
+}
+.video-player-text {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
 }
 .white {
     color: white;
