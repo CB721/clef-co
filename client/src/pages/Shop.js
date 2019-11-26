@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import Menu from "../components/Menu";
 import Product from "../components/Product";
 import Bundles from "./Assets/Data/bundles.json";
+import ProductData from "../pages/Assets/Data/products.json";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -50,12 +51,22 @@ class Shop extends Component {
     getProducts = () => {
         API.getAllProducts()
             .then(res =>
-                this.setState({
-                    products: res.data.results,
-                    displayProducts: res.data.results
-                })
+                this.validateProduct(res.data.results)
             )
             .catch(err => console.log("Error getting products: " + err));
+    }
+    validateProduct(data) {
+        if (data) {
+            this.setState({
+                product: data,
+                displayProducts: data
+            });
+        } else {
+            this.setState({
+                product: ProductData,
+                displayProducts: ProductData
+            });
+        }
     }
     getCart = () => {
         if (window.sessionStorage.logged_in) {

@@ -9,6 +9,7 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import Waves from "../components/Waves";
 import API from "../utilities/api";
+import ProductData from "../pages/Assets/Data/products.json";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
@@ -36,9 +37,16 @@ class Contact extends Component {
     getProducts = () => {
         API.getAllProducts()
             .then(res =>
-                this.setState({ products: res.data.results })
+                this.validateProductResponse(res.data.results)
             )
             .catch(err => console.log("Error getting products: " + err));
+    }
+    validateProductResponse(data) {
+        if (data) {
+            this.setState({ products: data });
+        } else {
+            this.setState({ products: ProductData });
+        }
     }
     handleInputChange = () => event => {
         let value = event.target.value;

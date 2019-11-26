@@ -4,6 +4,7 @@ import Flip from 'react-reveal/Flip';
 import Review from "../components/Review";
 import Button from "../components/Button";
 import ProductOrder from "../components/ProductOrder";
+import ProductData from "../pages/Assets/Data/products.json";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -32,6 +33,20 @@ class ProductPage extends Component {
                 })
             )
             .catch(err => console.log(err));
+    }
+    validateProduct(data, id) {
+        if (data) {
+            this.setState({
+                product: data,
+                backgroundImage: `url(${data.image_link})`
+            });
+        } else {
+            let filteredProduct = ProductData.filter(product => product.id === id);
+            this.setState({
+                product: filteredProduct,
+                backgroundImage: `url(${filteredProduct.image_link})`
+            });
+        }
     }
     getCart = () => {
         if (window.sessionStorage.logged_in) {

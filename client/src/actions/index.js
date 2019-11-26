@@ -6,10 +6,10 @@ import {
     Get_Orders,
     Complete_Cart
 } from './types';
+import Data from '../pages/Assets/Data/products.json';
 import axios from 'axios';
 
 export const getProducts = (products) => {
-    const noProducts = [];
     if (products) {
         return {
             type: Get_Products,
@@ -18,7 +18,7 @@ export const getProducts = (products) => {
     } else {
         return {
             type: Get_Products,
-            noProducts
+            Data
         }
     }
 };

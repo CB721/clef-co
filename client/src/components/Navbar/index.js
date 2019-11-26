@@ -7,7 +7,7 @@ import { Row, Col } from '../Grid';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
-import AlbumIconOutlinedIcon from '@material-ui/icons/AlbumOutlined';
+import MenuIcon from '@material-ui/icons/Menu';
 import Badge from '@material-ui/core/Badge';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
@@ -23,6 +23,7 @@ function Navbar(props) {
     const [cartTotal, setCartTotal] = useState(0);
     const [loggedIn, setLoggedIn] = useState(false);
     const [search, setSearch] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         if (cart[0]) {
@@ -99,6 +100,9 @@ function Navbar(props) {
         let value = event.target.value.trim();
         setSearch(value);
     }
+    function toggleMenu() {
+        setIsOpen(!isOpen);
+    }
     const theme = createMuiTheme({
         palette: {
             primary: {
@@ -122,18 +126,21 @@ function Navbar(props) {
                 <AppBar position="fixed" color="primary">
                     <Toolbar>
                         <Col size="md-1">
-                            <a href="/">
-                                <AlbumIconOutlinedIcon
+                            <IconButton
+                                onClick={toggleMenu}
+                                aria-label="Menu"
+                            >
+                                <MenuIcon
                                     fontSize="large"
                                     className="white"
                                 />
-                            </a>
+                            </IconButton>
                         </Col>
                         <Col size="md-2">
-                            <a href="/" className="white">Demo Company</a>
+                            <a href="/" className="white ">Demo Company</a>
                         </Col>
                         <Col size="md-1">
-                            <a href="/products" className="white">Products</a>
+                            <a href="/products" className="white center-text">Products</a>
                         </Col>
                         <Col size="md-1">
                             <a href="/tutorials" className="white">Tutorials</a>

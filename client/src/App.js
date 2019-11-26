@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Navbar from "./components/Navbar";
+import Dropdown from "./components/Dropdown";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -20,11 +21,11 @@ import './App.css';
 
 function App() {
   const products = useSelector(state => state.products);
-  const [stars, setStars] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
   return (
       <Router>
         <Navbar />
+        <Dropdown />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />
@@ -44,9 +45,6 @@ function App() {
           <Route exact path="/create_account" component={SignUp} />
           <Route exact path="/user/profile" component={User} />
         </Switch>
-        {stars.map((star) => (
-          <div id="stars" key={star} />
-        ))}
         <Footer />
       </Router>
   );
