@@ -313,6 +313,12 @@ span {
     -webkit-box-shadow: 0 0 10px #000000;
     box-shadow: 0 0 10px #000000;
 }
+.center-social-links {
+    width: 100%;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+}
 #top-products-section {
     width: 100%;
     height: 90vh;
@@ -699,5 +705,10 @@ figure:hover img {
     }
     .hover-title {
         width: 92%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .center-social-links {
+        display: flex;
     }
 }
