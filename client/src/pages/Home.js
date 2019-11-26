@@ -118,7 +118,7 @@ function Home() {
                     <div className="black">
                         <Row no-gutters>
                             <Col size="md-1" />
-                            <Col size="md-4">
+                            <Col size="md-4 12">
                                 <Fade bottom>
                                     <div
                                         className="add-shadow"
@@ -133,7 +133,7 @@ function Home() {
                                 </Fade>
                             </Col>
                             <Col size="md-2" />
-                            <Col size="md-4">
+                            <Col size="md-4 12">
                                 <Fade bottom>
                                     <div
                                         className="add-shadow"
@@ -156,7 +156,7 @@ function Home() {
                     <div className="padding-top-bottom t-top-margin text-grow black-background rounded-corners add-shadow" id="top-products-section">
                         <Row no-gutters>
                             <Col size="md-4" />
-                            <Col size="md-4">
+                            <Col size="md-4 12">
                                 <RubberBand>
                                     <h2 className="f-top-pad bottom-pad-f">
                                         Top Products
@@ -168,7 +168,7 @@ function Home() {
                         {products.length > 5 ? (
                             <Row no-gutters>
                                 <Col size="md-4" />
-                                <Col size="md-4">
+                                <Col size="md-4 12">
                                     <ul id="ul-honey-comb">
                                         <Zoom left cascade>
                                             <li className="li-honey-comb">
@@ -289,7 +289,7 @@ function Home() {
                                 </Row>
                                 <Row no-gutters>
                                     <Col size="md-1" />
-                                    <Col size="md-4">
+                                    <Col size="md-4 12">
                                         <Flip top>
                                             <Review
                                                 reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
@@ -300,7 +300,7 @@ function Home() {
                                         </Flip>
                                     </Col>
                                     <Col size="md-2" />
-                                    <Col size="md-4">
+                                    <Col size="md-4 12">
                                         <Flip top>
                                             <Review
                                                 reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
@@ -313,7 +313,7 @@ function Home() {
                                 </Row>
                                 <Row no-gutters>
                                     <Col size="md-1" />
-                                    <Col size="md-4">
+                                    <Col size="md-4 12">
                                         <Flip top>
                                             <Review
                                                 reviewerImage="https://images.unsplash.com/photo-1525954322486-aa196091220f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
@@ -324,7 +324,7 @@ function Home() {
                                         </Flip>
                                     </Col>
                                     <Col size="md-2" />
-                                    <Col size="md-4">
+                                    <Col size="md-4 12">
                                         <Flip top>
                                             <Review
                                                 reviewerImage="https://images.unsplash.com/photo-1454024183771-42d54053cd75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
