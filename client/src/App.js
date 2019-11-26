@@ -25,7 +25,6 @@ function App() {
   return (
       <Router>
         <Navbar />
-        <Dropdown />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/products" component={Products} />

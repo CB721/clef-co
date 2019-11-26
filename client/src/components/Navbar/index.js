@@ -11,6 +11,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Badge from '@material-ui/core/Badge';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
+import Dropdown from '../Dropdown';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -24,6 +25,7 @@ function Navbar(props) {
     const [loggedIn, setLoggedIn] = useState(false);
     const [search, setSearch] = useState("");
     const [isOpen, setIsOpen] = useState(false);
+    const [renderMiddleCol, setMiddleCol] = useState(true);
 
     useEffect(() => {
         if (cart[0]) {
@@ -37,6 +39,13 @@ function Navbar(props) {
             setLoggedIn(false);
         }
     }, [loggedIn]);
+    useEffect(() => {
+        if (window.innerWidth < 450) {
+            setMiddleCol(false);
+        } else {
+            setMiddleCol(true);
+        }
+    }, [window.innerWidth]);
     function HideOnScroll(props) {
         const { children, window } = props;
         const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -93,6 +102,7 @@ function Navbar(props) {
     }
     function logOut(event) {
         event.preventDefault();
+        setIsOpen(false);
         sessionStorage.clear();
         window.location.href = "/login";
     }
@@ -139,32 +149,23 @@ function Navbar(props) {
                         <Col size="md-2">
                             <a href="/" className="white ">Demo Company</a>
                         </Col>
-                        <Col size="md-1">
-                            <a href="/products" className="white center-text">Products</a>
-                        </Col>
-                        <Col size="md-1">
-                            <a href="/tutorials" className="white">Tutorials</a>
-                        </Col>
-                        <Col size="md-1">
-                            <a href="/shop" className="white">Shop</a>
-                        </Col>
-                        <Col size="md-1">
-                            <a href="/contact" className="white">Contact</a>
-                        </Col>
-                        <Col size="md-2">
+                        {renderMiddleCol ? (
+                            <Col size="lg-6 md-5 sm-3" />
+                        ) : (<div />)}
+                        <Col size="md-2 4">
                             <Row no-gutters>
                                 <div className="search-box">
-                                    <Col size="md-2">
+                                    <Col size="md-2 1">
                                         <IconButton onClick={Search} aria-label="search" >
                                             <SearchIcon className="white" />
                                         </IconButton>
                                     </Col>
-                                    <Col size="md-8">
+                                    <Col size="md-8 9">
                                         <input
                                             className="search-field white"
                                             type="text"
                                             name="search"
-                                            placeholder="Search"
+                                            // placeholder="Search"
                                             value={search}
                                             onChange={handleInputChange}
                                         />
@@ -172,34 +173,6 @@ function Navbar(props) {
                                 </div>
                             </Row>
                         </Col>
-                        {loggedIn ? (
-                            <Col size="md-2">
-                                <Row>
-                                    <Col size="md-6">
-                                        <a href="/user/profile" className="white">Profile</a>
-                                    </Col>
-                                    <Col size="md-6">
-                                        <div
-                                            className="white-to-purple pointer"
-                                            onClick={(event) => logOut(event)}
-                                        >
-                                            Sign Out
-                                </div>
-                                    </Col>
-                                </Row>
-                            </Col>
-                        ) : (
-                                <Col size="md-2">
-                                    <Row>
-                                        <Col size="md-6">
-                                            <a href="/login" className="white">Login</a>
-                                        </Col>
-                                        <Col size="md-6">
-                                            <a href="/create_account" className="white">Sign Up</a>
-                                        </Col>
-                                    </Row>
-                                </Col>
-                            )}
                         <Col size="md-1">
                             <IconButton
                                 onClick={CheckCart}
@@ -218,6 +191,11 @@ function Navbar(props) {
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>
+            <Dropdown
+                isOpen={isOpen}
+                loggedIn={loggedIn}
+                logOut={logOut}
+            />
         </MuiThemeProvider>
     );
 }
