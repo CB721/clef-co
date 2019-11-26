@@ -10,6 +10,7 @@ import Data from '../pages/Assets/Data/products.json';
 import axios from 'axios';
 
 export const getProducts = (products) => {
+    const productData = Data.results;
     if (products) {
         return {
             type: Get_Products,
@@ -18,7 +19,7 @@ export const getProducts = (products) => {
     } else {
         return {
             type: Get_Products,
-            Data
+            productData
         }
     }
 };

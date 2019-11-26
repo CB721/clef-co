@@ -63,8 +63,8 @@ class Shop extends Component {
             });
         } else {
             this.setState({
-                product: ProductData,
-                displayProducts: ProductData
+                product: ProductData.results,
+                displayProducts: ProductData.results
             });
         }
     }
@@ -384,10 +384,10 @@ class Shop extends Component {
                     <Col size="md-12">
                         <div className="company-section rounded-corners">
                             <Row no-gutters>
-                                <Col size="md-6">
+                                <Col size="md-6 12">
                                     <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
                                 </Col>
-                                <Col size="md-6">
+                                <Col size="md-6 12">
                                     <h1 className="white q-top-pad">
                                         Current special on our product!
                                         </h1>
@@ -403,7 +403,7 @@ class Shop extends Component {
                     <Col size="md-12">
                         <div className="all-products">
                             <Row no-gutters>
-                                <Col size="md-2">
+                                <Col size="lg-2 md-4 12">
                                     <Menu
                                         collapseFeatured={this.expandFeatured()}
                                         featuredClass={this.state.featuredMenu}
@@ -437,11 +437,11 @@ class Shop extends Component {
                                     />
                                 </Col>
                                 {this.state.displayProducts.length > 0 ? (
-                                    <Col size="md-9">
+                                    <Col size="lg-9 md-8 12">
                                         <Row no-gutters>
                                             {this.state.displayProducts.map(product => (
                                                 <Col
-                                                    size="md-3"
+                                                    size="lg-3 md-4 12"
                                                     key={product.id}
                                                 >
                                                     <Fade bottom>

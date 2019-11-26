@@ -5,6 +5,7 @@ import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutline
 import MusicVideoOutlinedIcon from '@material-ui/icons/MusicVideoOutlined';
 import HeadsetOutlinedIcon from '@material-ui/icons/HeadsetOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -85,7 +86,7 @@ function Dropdown(props) {
 
         <MuiThemeProvider theme={theme}>
             <Drawer
-                classes={{ paper: styles.paper }}
+                classes={{ paper: styles.paper.background }}
                 open={state.left}
                 onClose={toggleDrawer('left', false)}
             >
@@ -108,6 +109,12 @@ function Dropdown(props) {
                             <MusicVideoOutlinedIcon />
                         </ListItemIcon>
                         <ListItemText primary={"Tutorials"} />
+                    </ListItem>
+                    <ListItem button onClick={goToShop}>
+                        <ListItemIcon>
+                            <AddShoppingCartOutlinedIcon />
+                        </ListItemIcon>
+                        <ListItemText primary={"Shop"} />
                     </ListItem>
                     <ListItem button onClick={goToContact}>
                         <ListItemIcon>
