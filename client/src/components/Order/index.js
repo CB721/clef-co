@@ -32,97 +32,105 @@ function Order(props) {
     return (
         <div className="user-orders">
             <div className="order-summary">
-                <div className="order-details">
-                    <div className="order-column detail-date">
-                        <span className="white order-column-header">
-                            Order placed
-                        </span>
-                        <span className="white">
-                            {props.date}
-                        </span>
-                    </div>
-                    <div className="order-column detail-date">
-                        <span className="white order-column-header">
-                            Total
-                        </span>
-                        <span className="white">
-                            ${total}
-                        </span>
-                    </div>
-                    <div className="order-column detail-date">
-                        <span className="white order-column-header">
-                            Ship To
-                        </span>
-                        <span className="white">
-                            {props.name}
-                        </span>
-                    </div>
-                </div>
-                <div className="order-number">
-                    <div className="order-column detail-date">
-                        <span className="white order-column-header">
-                            Order Number
-                        </span>
-                        <span className="white">
-                            {props.number}
-                        </span>
-                    </div>
-                </div>
+                <Row no-gutters>
+                    <Col size="md-12">
+                        <Row no-gutters>
+                            <Col size="lg-3 sm-6 12">
+                                <span className="white order-column-header">
+                                    Order placed
+                            </span>
+                                <span className="white">
+                                    {props.date}
+                                </span>
+                            </Col>
+                            <Col size="lg-3 sm-6 12">
+                                <span className="white order-column-header">
+                                    Total
+                            </span>
+                                <span className="white">
+                                    ${total}
+                                </span>
+                            </Col>
+                            <Col size="lg-3 sm-6 12">
+                                <span className="white order-column-header">
+                                    Ship To
+                            </span>
+                                <span className="white">
+                                    {props.name}
+                                </span>
+                            </Col>
+                            <Col size="lg-3 sm-6 12">
+                                <span className="white order-column-header">
+                                    Order Number
+                            </span>
+                                <span className="white">
+                                    {props.number}
+                                </span>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
             </div>
             {product.map((item, index) => (
-                <div
-                    className="order-items"
-                    key={item.id}
-                >
-                    <div className="order-details">
-                        <div className="order-column detail-date">
-                            <span className="white order-column-header" />
-                        </div>
-                    </div>
-                    <div className="order-details">
-                        <div className="item-row">
-                            <div className="order-item-img-column">
-                                <div className="item-view-left-column-inner">
-                                    <a href={"/shop/product/" + item.id}>
-                                        <img src={item.image_link} alt={item.product_name} className="order-item-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="item-details-section">
-                                <div className="item-row ">
-                                    <span className="white">
-                                        {item.product_name}
-                                    </span>
-                                </div>
-                                <div className="item-row ">
-                                    <span className="white">
-                                        ${item.price + " X " + quantity[index]}
-                                    </span>
-                                </div>
-                                <div className="item-row ">
-                                    <button className="order-item-button">
-                                        Buy it again
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="order-number">
-                        <div className="item-row">
-                            <div className="button-stack">
-                                <div className="item-row">
-                                    <button className="order-item-button" onClick={goToSupport}>
-                                        Get product support
-                                    </button>
-                                </div>
-                                <div className="item-row">
-                                    <button className="order-item-button">
-                                        Write a review
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div className="order-items" key={item.id}>
+                    <Row no-gutters>
+                        <Col size="md-12">
+                            <Row no-gutters>
+                                <Col size="lg-3 sm-4 12">
+                                    <Row no-gutters>
+                                        <Col size="lg-12">
+                                            <div className="order-container">
+                                                <a href={"/shop/product/" + item.id}>
+                                                    <img src={item.image_link} alt={item.product_name} className="order-item-img order-column-header" />
+                                                </a>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                    <Row no-gutters>
+                                        <Col size="lg-12">
+                                            <div className="order-container">
+                                                <button className="order-item-button order-column-header">
+                                                    Buy it again
+                                                </button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col size="lg-6 sm-4 12">
+                                    <Row no-gutters>
+                                        <Col size="lg-12">
+                                            <span className="white order-column-header">
+                                                {item.product_name}
+                                            </span>
+                                        </Col>
+                                        <Col size="lg-12">
+                                            <span className="white order-column-header">
+                                                ${item.price + " X " + quantity[index]}
+                                            </span>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                                <Col size="lg-3 sm-4 12">
+                                    <Row no-gutters>
+                                        <Col size="lg-12">
+                                            <div className="order-container">
+                                                <button className="order-item-button order-column-header" onClick={goToSupport}>
+                                                    Get product support
+                                                </button>
+                                            </div>
+                                        </Col>
+                                        <Col size="lg-12">
+                                            <div className="order-container">
+                                                <button className="order-item-button order-column-header">
+                                                    Write a review
+                                                </button>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </Col>
+                    </Row>
                 </div>
             ))}
         </div>

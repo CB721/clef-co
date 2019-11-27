@@ -1,7 +1,7 @@
 .user-orders {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100%;
     -webkit-box-shadow: 18px -18px 14px 2px #00000077; 
     box-shadow: 18px -18px 14px 2px #00000077;
     border-radius: 25px;
@@ -13,7 +13,7 @@
     border: 1px solid black;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    height: 100px;
+    height: 100%;
 }
 .order-details {
     width: 75%;
@@ -34,13 +34,12 @@
     width: 23.448%;
 }
 .order-column-header {
-    font-size: 12px;
-    margin-top: 4px;
-    margin-bottom: 12px;
+    margin-top: 0.86rem;
+    margin-bottom: 0.86rem;
 }
 .order-items {
     display: block;
-    height: 175px;
+    height: 100%;
     border: 1px solid black;
 }
 .order-items:last-child {
@@ -59,14 +58,16 @@
     /* width: 100%; */
     margin-bottom: 0px!important;
 }
-.order-item-img-column {
-    width: 100px;
-    /* margin-left: -95%; */
-    float: left;
-}
 .item-view-left-column-inner {
     position: sticky;
     display: inline;
+}
+.order-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .order-item-img {
     height: 90px;

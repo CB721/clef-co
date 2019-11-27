@@ -12,6 +12,9 @@
     -webkit-box-shadow: 18px -18px 14px 2px #00000077; 
     box-shadow: 18px -18px 14px 2px #00000077;
 }
+.profile-card-email {
+    width: 100%;
+}
 .profile-card-edit {
     position: relative;
     height: 975px;

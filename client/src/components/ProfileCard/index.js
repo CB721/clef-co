@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from "../Button";
 import Waves from "../Waves";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { Textfit } from 'react-textfit';
 
 import "./style.css";
 
@@ -153,31 +154,62 @@ function ProfileCard(props) {
                         <div>
                             <div className="profile-card-email white">
                                 {props.email !== "null" ? (
-                                    <span>
-                                        {props.email}
-                                    </span>
+                                    <Textfit
+                                        mode="single"
+                                        min={10}
+                                        max={20}
+                                    >
+                                        <span>
+                                            {props.email}
+                                        </span>
+                                    </Textfit>
+
                                 ) : (<div />)}
                             </div>
                             <div className="profile-card-phone white">
                                 {props.email !== "null" ? (
-                                    <span>
-                                        {props.phone}
-                                    </span>
+                                    <Textfit
+                                        mode="single"
+                                        min={10}
+                                        max={20}
+                                    >
+                                        <span>
+                                            {props.phone}
+                                        </span>
+                                    </Textfit>
                                 ) : (<div />)}
                             </div>
                             <div className="profile-card-address white">
-                                <span>
-                                    {props.streetAddress}
-                                </span>
-                                {props.secondaryAddress !== "null" ? (
+                                <Textfit
+                                    mode="multi"
+                                    min={6}
+                                    max={20}
+                                >
                                     <span>
-                                        {props.secondaryAddress}
+                                        {props.streetAddress}
                                     </span>
+                                </Textfit>
+                                {props.secondaryAddress !== "null" ? (
+                                    <Textfit
+                                        mode="multi"
+                                        min={6}
+                                        max={20}
+                                    >
+                                        <span>
+                                            {props.secondaryAddress}
+                                        </span>
+                                    </Textfit>
                                 ) : (<div />)}
                                 {props.city !== "null" && props.state !== "null" && props.zip !== "null" ? (
-                                    <span>
-                                        {props.city + ", " + props.state + " " + props.zip}
-                                    </span>
+                                    <Textfit
+                                        mode="multi"
+                                        min={6}
+                                        max={20}
+                                    >
+                                        <span>
+                                            {props.city + ", " + props.state + " " + props.zip}
+                                        </span>
+                                    </Textfit>
                                 ) : (<div />)}
                             </div>
                         </div >
@@ -190,9 +222,15 @@ function ProfileCard(props) {
                 ) : (
                         <div>
                             <div className="profile-card-joined-date white">
+                                <Textfit
+                                    mode="single"
+                                    min={6}
+                                    max={20}
+                                >
                                 <span>
                                     Member since {props.joinedDate}
                                 </span>
+                                </Textfit>
                             </div>
                             <div className="profile-card-status white">
                                 <span>
