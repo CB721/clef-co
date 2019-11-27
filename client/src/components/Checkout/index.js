@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
@@ -21,6 +24,7 @@ import moment from "moment";
 const useStyles = makeStyles(theme => ({
     root: {
         width: '90%',
+        height: '100%'
     },
     button: {
         marginRight: theme.spacing(2)
@@ -79,6 +83,7 @@ function Checkout(props) {
     const [cardDate, setCardDate] = useState("");
     const [cardCode, setCardCode] = useState();
     const [errorMessage, setErrorMessage] = useState("");
+    const [showMobile, setShowMobile] = useState(false);
 
     function goToSupport() {
         window.location.href = "/contact"
@@ -147,6 +152,16 @@ function Checkout(props) {
             setTax(stateTax.tax);
         }
     }, [userState])
+    useEffect(() => {
+        if (window.innerWidth < 450) {
+            setShowMobile(true);
+        } else if (window.innerWidth < 1230 && window.innerWidth >= 768) {
+            setShowMobile(true);
+        }
+        else {
+            setShowMobile(false);
+        }
+    }, [window.innerWidth]);
 
     const classes = useStyles();
     const [activeStep, setActiveStep] = useState(0);
@@ -308,17 +323,46 @@ function Checkout(props) {
     return (
         <div className={classes.root}>
             <MuiThemeProvider theme={theme}>
-                <Stepper activeStep={activeStep}>
-                    {steps.map((label, index) => {
-                        const stepProps = {};
-                        const labelProps = {};
-                        return (
-                            <Step key={label} {...stepProps}>
-                                <StepLabel {...labelProps}>{label}</StepLabel>
-                            </Step>
-                        );
-                    })}
-                </Stepper>
+                <Row no-gutters>
+                    <Col size="12">
+
+                        <div className="stepper-header">
+                            {showMobile ? (
+                                <MobileStepper
+                                    variant="progress"
+                                    steps={4}
+                                    position="static"
+                                    activeStep={activeStep}
+                                    className={classes.root}
+                                    nextButton={
+                                        <Button size="small" onClick={handleNext} disabled={activeStep === 4}>
+                                            Next
+                                {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+                                        </Button>
+                                    }
+                                    backButton={
+                                        <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                                            {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+                                            Back
+                                        </Button>
+                                    }
+                                />
+                            ) : (
+                                    <Stepper activeStep={activeStep}>
+                                        {steps.map((label, index) => {
+                                            const stepProps = {};
+                                            const labelProps = {};
+                                            return (
+                                                <Step key={label} {...stepProps}>
+                                                    <StepLabel {...labelProps}>{label}</StepLabel>
+                                                </Step>
+                                            );
+                                        })}
+                                    </Stepper>
+                                )}
+                        </div>
+                    </Col>
+                </Row>
             </MuiThemeProvider>
             <div>
                 {activeStep === steps.length ? (
@@ -368,25 +412,25 @@ function Checkout(props) {
                             <Slide left={leftSlide} right={rightSlide} key={index}>
                                 <div className="cart-item">
                                     <Row>
-                                        <Col size="md-2">
+                                        <Col size="md-2 12">
                                             <img src={item.image_link} alt={item.product_name} className="cart-item-img" />
                                         </Col>
-                                        <Col size="md-2">
+                                        <Col size="md-2 sm-5 12">
                                             <div className="cart-item-name">
                                                 <span>
                                                     {item.product_name}
                                                 </span>
                                             </div>
                                         </Col>
-                                        <Col size="md-2" />
-                                        <Col size="md-2">
+                                        <Col size="md-2 sm-2" />
+                                        <Col size="md-2 sm-5 12">
                                             <div className="cart-item-price">
                                                 <span>
                                                     ${item.price}
                                                 </span>
                                             </div>
                                         </Col>
-                                        <Col size="md-2">
+                                        <Col size="md-2 10">
                                             <div className="cart-item-quantity">
                                                 <MuiThemeProvider theme={theme}>
                                                     <FormControl
@@ -410,7 +454,7 @@ function Checkout(props) {
                                                 </MuiThemeProvider>
                                             </div>
                                         </Col>
-                                        <Col size="md-2">
+                                        <Col size="md-2 2">
                                             <div className="cart-item-quantity">
                                                 <IconButton
                                                     onClick={(event) => deleteItem(event, item.id, item.product_name, index)}
@@ -718,39 +762,39 @@ function Checkout(props) {
                                         <Row>
                                             <Slide left={leftSlide} right={rightSlide}>
                                                 <Col size="md-12">
-                                                    <h6 className="form-titles">
+                                                    <h6 className="price-text">
                                                         Delivery Details
                                             </h6>
                                                 </Col>
                                                 <Col size="md-12">
-                                                    <h6 className="form-titles">
+                                                    <h6 className="price-text">
                                                         {first + " " + last}
                                                     </h6>
                                                 </Col>
                                                 <Col size="md-12">
-                                                    <h6 className="form-titles">
+                                                    <h6 className="price-text">
                                                         {street}
                                                     </h6>
                                                 </Col>
                                                 {second ? (
                                                     <Col size="md-12">
-                                                        <h6 className="form-titles">
+                                                        <h6 className="price-text">
                                                             {second}
                                                         </h6>
                                                     </Col>
                                                 ) : (<div />)}
                                                 <Col size="md-12">
-                                                    <h6 className="form-titles">
+                                                    <h6 className="price-text">
                                                         {city}
                                                     </h6>
                                                 </Col>
                                                 <Col size="md-12">
-                                                    <h6 className="form-titles">
+                                                    <h6 className="price-text">
                                                         {userState}
                                                     </h6>
                                                 </Col>
                                                 <Col size="md-12">
-                                                    <h6 className="form-titles">
+                                                    <h6 className="price-text">
                                                         {zip}
                                                     </h6>
                                                 </Col>
@@ -761,22 +805,22 @@ function Checkout(props) {
                                     <Col size="md-4">
                                         <Row>
                                             <Col size="md-12">
-                                                <h6 className="form-titles">
+                                                <h6 className="price-text">
                                                     Payment Information
                                             </h6>
                                             </Col>
-                                            <Col size="md-6">
-                                                <h6 className="form-titles">
+                                            <Col size="lg-6">
+                                                <h6 className="price-text">
                                                     {cardBrand}
                                                 </h6>
                                             </Col>
-                                            <Col size="md-6">
-                                                <h6 className="form-titles">
-                                                    {cardNumber.replace(/.(?=.{4})/g, 'x')}
+                                            <Col size="lg-6">
+                                                <h6 className="price-text">
+                                                    {cardNumber.replace(/.(?=.{4})/g, '')}
                                                 </h6>
                                             </Col>
-                                            <Col size="md-6">
-                                                <h6 className="form-titles">
+                                            <Col size="md-12">
+                                                <h6 className="price-text">
                                                     {cardDate}
                                                 </h6>
                                             </Col>
@@ -788,7 +832,7 @@ function Checkout(props) {
                             <Row>
                                 <Col size="md-1" />
                                 <Col size="md-10">
-                                    <h6 className="form-titles">
+                                    <h6 className="price-text">
                                         Cart ({props.lineItems.length + " Items"})
                                     </h6>
                                 </Col>
@@ -833,22 +877,22 @@ function Checkout(props) {
                 {userState ? (
                     <div className="cart-total-bg cart-total-section">
                         <Row>
-                            <Col size="md-4">
+                            <Col size="lg-4 md-12">
                                 <h6 className="form-titles price-text">
                                     Order Price Information
                                     </h6>
                             </Col>
-                            <Col size="md-2">
+                            <Col size="lg-2 md-3 sm-6 12">
                                 <h6 className="form-titles price-text">
                                     Before Tax: ${total.toFixed(2)}
                                 </h6>
                             </Col>
-                            <Col size="md-2">
+                            <Col size="lg-2 md-3 sm-6 12">
                                 <h6 className="form-titles price-text">
                                     {userState} Tax: ${(tax * total).toFixed(2)}
                                 </h6>
                             </Col>
-                            <Col size="md-2">
+                            <Col size="lg-2 md-3 sm-6 12">
                                 {total > 99 ? (
                                     <h6 className="form-titles price-text">
                                         Free shipping!
@@ -859,7 +903,7 @@ function Checkout(props) {
                                         </h6>
                                     )}
                             </Col>
-                            <Col size="md-2">
+                            <Col size="lg-2 md-3 sm-6 12">
                                 {total > 99 ? (
                                     <h6 className="form-titles price-text">
                                         Order Total: ${(total + (tax * total)).toFixed(2)}

@@ -90,8 +90,8 @@ function Cart() {
                 <Col size="md-2" />
             </Row>
             <Row no-gutters>
-                <Col size="md-3" />
-                <Col size="md-6">
+                <Col size="lg-3 md-2 sm-1" />
+                <Col size="lg-6 md-8 sm-10 12">
                     <div className="cart-bg add-shadow">
                         {cart.length >= 1 ? (
                             <Checkout
@@ -113,7 +113,7 @@ function Cart() {
                             )}
                     </div>
                 </Col>
-                <Col size="md-3" />
+                <Col size="lg-3 md-2 sm-1" />
             </Row>
             <ToastContainer
                 position="bottom-right"
