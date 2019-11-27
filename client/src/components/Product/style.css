@@ -1,7 +1,11 @@
 .product-card {
-    height: auto;
-    min-height: 43vh;
+    height: 100%;
+    /* min-height: 43vh; */
     margin-top: 10%;
+    position: relative;
+}
+.product-card-content {
+    height: 11.938rem;
 }
 .product-description {
     overflow: hidden;
@@ -34,7 +38,7 @@
     box-shadow: 21px 23px 22px -12px rgba(62, 7, 104, 0.646);
 }
 .product-button {
-    margin-bottom: 3%;
+    /* margin-bottom: 5.12rem; */
     width: 100%;
     display: flex;
     align-items: center;

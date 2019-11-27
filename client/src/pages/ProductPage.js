@@ -209,8 +209,8 @@ class ProductPage extends Component {
                     <Col size="md-12">
                         <div className="review-section">
                             <Row no-gutters>
-                                <Col size="md-1" />
-                                <Col size="md-4">
+                                <Col size="lg-1 md-12" />
+                                <Col size="lg-4 md-6">
                                     <Flip top>
                                         <Review
                                             reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
@@ -220,8 +220,8 @@ class ProductPage extends Component {
                                         />
                                     </Flip>
                                 </Col>
-                                <Col size="md-2" />
-                                <Col size="md-4">
+                                <Col size="lg-2 md-12 sm-12" />
+                                <Col size="lg-4 md-6 sm-12">
                                     <Flip top>
                                         <Review
                                             reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"

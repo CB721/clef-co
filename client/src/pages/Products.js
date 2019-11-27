@@ -95,7 +95,7 @@ function Products() {
             <div className="t-top-pad">
                 <Row no-gutters>
                     <Col size="md-12">
-                        <div className="purple-background add-shadow rounded-corners">
+                        <div className="purple-background add-shadow rounded-corners all-products">
                             <Row no-gutters>
                                 <Col size="md-6 12">
                                     <h1 className="white">
@@ -114,7 +114,7 @@ function Products() {
             </div>
             <Row no-gutters>
                 <Col size="md-12">
-                    <h2 className="white center-text black-background rounded-corners">
+                    <h2 className="white center-text black-background rounded-corners all-products">
                         Newest arrival!
                             </h2>
                 </Col>
@@ -291,7 +291,7 @@ function Products() {
                                         </Col>
                                     </Row>
                                     <Row no-gutters>
-                                        <div className="f-top-pad">
+                                        {/* <div className="f-top-pad"> */}
                                             <Col size="md-12">
                                                 <Row no-gutters>
                                                     <Col size="md-1" />
@@ -312,7 +312,7 @@ function Products() {
                                                     </Col>
                                                 </Row>
                                             </Col>
-                                        </div>
+                                        {/* </div> */}
                                     </Row>
                                 </Col>
                             </Row>

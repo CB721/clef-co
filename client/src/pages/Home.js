@@ -272,7 +272,7 @@ function Home() {
                         <div className="purple-background t-top-margin add-shadow rounded-corners">
                             <Row no-gutters>
                                 <Col size="md-12">
-                                    <h2 className="white f-top-pad padding-bottom">
+                                    <h2 className="white ">
                                         What the Experts are Saying
                                             </h2>
                                 </Col>

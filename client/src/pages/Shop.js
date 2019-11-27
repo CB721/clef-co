@@ -441,7 +441,7 @@ class Shop extends Component {
                                         <Row no-gutters>
                                             {this.state.displayProducts.map(product => (
                                                 <Col
-                                                    size="lg-3 md-4 12"
+                                                    size="lg-3 md-6 12"
                                                     key={product.id}
                                                 >
                                                     <Fade bottom>

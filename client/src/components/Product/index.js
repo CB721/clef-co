@@ -21,30 +21,32 @@ function Product(props) {
                             props.action(event, props.id)
                         }}
                     />
-                    <CardContent>
-                        <Textfit
-                            mode="single"
-                            className="purple product-title"
-                            min={10}
-                            max={20}
-                        >
-                            {props.cardTitle}
-                        </Textfit>
-                        <Textfit
-                            mode="multi"
-                            className="purple product-title"
-                            min={6}
-                            max={9}
-                        >
-                            {props.cardDescription}
-                        </Textfit>
-                        <Typography gutterBottom variant="h5" className="purple product-title" component="h2">
-                            {"$" + props.price}
-                        </Typography>
-                        <CardActions className="product-button">
-                            {props.button}
-                        </CardActions>
-                    </CardContent>
+                    <div className="product-card-content">
+                        <CardContent>
+                            <Textfit
+                                mode="single"
+                                className="purple product-title"
+                                min={10}
+                                max={20}
+                            >
+                                {props.cardTitle}
+                            </Textfit>
+                            <Textfit
+                                mode="multi"
+                                className="purple product-title"
+                                min={6}
+                                max={9}
+                            >
+                                {props.cardDescription}
+                            </Textfit>
+                            <Typography gutterBottom variant="h5" className="purple product-title" component="h2">
+                                {"$" + props.price}
+                            </Typography>
+                            <CardActions className="product-button">
+                                {props.button}
+                            </CardActions>
+                        </CardContent>
+                    </div>
                 </CardActionArea>
             </Card>
         </div>

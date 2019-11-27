@@ -396,7 +396,7 @@ function User() {
                         <Col size="md-1" />
                         <Col size="md-10">
                             <Row no-gutters>
-                                <Col size="md-4">
+                                <Col size="md-4 12">
                                     <ProfileCard
                                         cardClass={cardClass}
                                         image={statusImage}
