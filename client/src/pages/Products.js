@@ -76,22 +76,22 @@ function Products() {
         event.preventDefault();
         if (cart.length > 0) {
             API.addBundleToCart(cart[0].cart_id, bundleIDs)
-            .then(
-                res => console.log(res.data)
-            )
-            .catch(err => console.log(err));
+                .then(
+                    res => console.log(res.data)
+                )
+                .catch(err => console.log(err));
         } else {
             API.createCartFromBundle(window.sessionStorage.id, bundleIDs)
-            .then(
-                res => console.log(res.data)
-            )
-            .catch(err => console.log(err));
+                .then(
+                    res => console.log(res.data)
+                )
+                .catch(err => console.log(err));
         }
     }
 
     return (
         <div className="page-container">
-        {/* <Container fluid> */}
+            {/* <Container fluid> */}
             <div className="t-top-pad">
                 <Row no-gutters>
                     <Col size="md-12">
@@ -143,31 +143,21 @@ function Products() {
                                             <div className="t-top-pad">
                                                 <Row no-gutters>
                                                     <Col size="md-1" />
-                                                    <Col size="md-1 12">
-                                                        {/* <ProductButton 
-                                                            id={products[10].id}
-                                                        /> */}
-                                                        <Button
-                                                            buttonClass="explore"
-                                                            text="Explore"
-                                                        // action={(event) => goToProductPage(event, products[10].id)}
-                                                        />
-                                                    </Col>
-                                                    <Col size="md-4" />
-                                                    <Col size="md-1 12">
+                                                    <Col size="md-10 12">
                                                         <Button
                                                             buttonClass="shop-now"
                                                             text="Shop Now"
-                                                            // action={goToShop}
+                                                            action={goToShop}
                                                         />
                                                     </Col>
+                                                    <Col size="md-1" />
                                                 </Row>
                                             </div>
                                         </Col>
                                     </Row>
                                 </Col>
                                 <Col size="md-8 12">
-                                    <a href="/products">
+                                    <a href={`/shop/product/${products[10].id}`}>
                                         <img src={products[10].image_link} alt={products[10].product_name} className="current-promo-image"></img>
                                     </a>
                                 </Col>
@@ -272,7 +262,9 @@ function Products() {
                         <div className="secondary-highlighted-product white rounded-corners">
                             <Row no-gutters>
                                 <Col size="md-6 12">
-                                    <img src={products[6].image_link} alt="Demo Company Microphone" className="current-promo-image"></img>
+                                    <a href={`/shop/product/${products[6].id}`}>
+                                        <img src={products[6].image_link} alt="Demo Company Microphone" className="current-promo-image"></img>
+                                    </a>
                                 </Col>
                                 <Col size="md-6 12">
                                     <Row no-gutters>
@@ -292,26 +284,19 @@ function Products() {
                                     </Row>
                                     <Row no-gutters>
                                         {/* <div className="f-top-pad"> */}
-                                            <Col size="md-12">
-                                                <Row no-gutters>
-                                                    <Col size="md-1" />
-                                                    <Col size="md-1 12">
-                                                        <Button
-                                                            buttonClass="explore"
-                                                            text="Explore"
-                                                        // action={goToProductPage(products[6].id)}
-                                                        />
-                                                    </Col>
-                                                    <Col size="md-6" />
-                                                    <Col size="md-1 12">
-                                                        <Button
-                                                            buttonClass="shop-now"
-                                                            text="Shop Now"
-                                                            action={goToShop}
-                                                        />
-                                                    </Col>
-                                                </Row>
-                                            </Col>
+                                        <Col size="md-12">
+                                            <Row no-gutters>
+                                                <Col size="md-1" />
+                                                <Col size="md-10 12">
+                                                    <Button
+                                                        buttonClass="shop-now"
+                                                        text="Shop Now"
+                                                        action={goToShop}
+                                                    />
+                                                </Col>
+                                                <Col size="md-1" />
+                                            </Row>
+                                        </Col>
                                         {/* </div> */}
                                     </Row>
                                 </Col>
@@ -428,7 +413,7 @@ function Products() {
                     </Col>
                 </Row>
             </div>
-        {/* </Container> */}
+            {/* </Container> */}
         </div>
     )
 }

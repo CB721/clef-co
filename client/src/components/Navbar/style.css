@@ -8,7 +8,6 @@
   .search-field:focus {
     outline: none;
     background: transparent;
-    border-bottom: 3px solid white;
   }
   .search-box {
     position: relative;
@@ -23,17 +22,4 @@
     border: 3px solid white;
     border-radius: 7px;
     background-color: transparent;
-    color: rgb(62,7,104);
-    transition: ease-in-out, border .35s ease-in-out;
-  }
-  .search-box:focus {
-    background-color: white;
-    border: 3px solid rgb(62,7,104);
-  }
-  .search-box::placeholder {
-    color: white;
-    text-align: center;
-  }
-  @media only screen and (max-width: 1300px) {
-    
   }

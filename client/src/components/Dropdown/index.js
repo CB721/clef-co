@@ -97,52 +97,52 @@ function Dropdown(props) {
                 <List>
                     <ListItem button onClick={goToHome}>
                         <ListItemIcon>
-                            <HomeOutlinedIcon className="white"/>
+                            <HomeOutlinedIcon className="black"/>
                         </ListItemIcon>
                         <ListItemText primary={"Home"} />
                     </ListItem>
                     <Divider />
                     <ListItem button onClick={goToProducts}>
                         <ListItemIcon>
-                            <AudiotrackOutlinedIcon className="white"/>
+                            <AudiotrackOutlinedIcon className="black"/>
                         </ListItemIcon>
                         <ListItemText primary={"Products"} />
                     </ListItem>
                     <ListItem button onClick={goToTutorials}>
                         <ListItemIcon>
-                            <MusicVideoOutlinedIcon className="white"/>
+                            <MusicVideoOutlinedIcon className="black"/>
                         </ListItemIcon>
                         <ListItemText primary={"Tutorials"} />
                     </ListItem>
                     <ListItem button onClick={goToShop}>
                         <ListItemIcon>
-                            <AddShoppingCartOutlinedIcon className="white"/>
+                            <AddShoppingCartOutlinedIcon className="black"/>
                         </ListItemIcon>
                         <ListItemText primary={"Shop"} />
                     </ListItem>
                     <ListItem button onClick={goToContact}>
                         <ListItemIcon>
-                            <ContactSupportOutlinedIcon className="white"/>
+                            <ContactSupportOutlinedIcon className="black"/>
                         </ListItemIcon>
                         <ListItemText primary={"Contact"} />
                     </ListItem>
                     <ListItem button onClick={goToSearch}>
                         <ListItemIcon>
-                            <SearchOutlinedIcon className="white"/>
+                            <SearchOutlinedIcon className="black"/>
                         </ListItemIcon>
                         <ListItemText primary={"Search"} />
                     </ListItem>
                     {props.loggedIn ? (
                         <ListItem button onClick={goToProfile}>
                             <ListItemIcon>
-                                <HeadsetOutlinedIcon className="white"/>
+                                <HeadsetOutlinedIcon className="black"/>
                             </ListItemIcon>
                             <ListItemText primary={"Profile"} />
                         </ListItem>
                     ) : (
                             <ListItem button onClick={goToLogin}>
                                 <ListItemIcon>
-                                    <HeadsetOutlinedIcon className="white"/>
+                                    <HeadsetOutlinedIcon className="black"/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Login"} />
                             </ListItem>
@@ -150,14 +150,14 @@ function Dropdown(props) {
                     {props.loggedIn ? (
                         <ListItem button onClick={(event) => props.logOut(event)}>
                             <ListItemIcon>
-                                <AccountCircleOutlinedIcon className="white"/>
+                                <AccountCircleOutlinedIcon className="black"/>
                             </ListItemIcon>
                             <ListItemText primary={"Sign Out"} />
                         </ListItem>
                     ) : (
                             <ListItem button onClick={goToSignUp}>
                                 <ListItemIcon>
-                                    <AccountCircleOutlinedIcon className="white"/>
+                                    <AccountCircleOutlinedIcon className="black"/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Sign Up"} />
                             </ListItem>

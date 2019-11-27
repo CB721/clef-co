@@ -17,7 +17,9 @@ function Login(props) {
                     {props.formMessage}
                 </span>
                 <h6 className="form-titles">
-                    Email Address
+                    {props.type === "login" ? (
+                        "Email Address"
+                    ) : ("")}
                 </h6>
                 <MuiThemeProvider theme={theme}>
                     <Input
@@ -30,20 +32,24 @@ function Login(props) {
                         }}
                     />
                 </MuiThemeProvider>
-                <h6 className="form-titles">
-                    Password
+                {props.type === "login" ? (
+                    <h6 className="form-titles">
+                        Password
                 </h6>
-                <MuiThemeProvider theme={theme}>
-                    <Input
-                        value={props.password}
-                        name="password"
-                        onChange={props.handleInputChange}
-                        type="password"
-                        inputProps={{
-                            'aria-label': 'password',
-                        }}
-                    />
-                </MuiThemeProvider>
+                ) : (<div />)}
+                {props.type === "login" ? (
+                    <MuiThemeProvider theme={theme}>
+                        <Input
+                            value={props.password}
+                            name="password"
+                            onChange={props.handleInputChange}
+                            type="password"
+                            inputProps={{
+                                'aria-label': 'password',
+                            }}
+                        />
+                    </MuiThemeProvider>
+                ) : (<div />)}
             </FormControl>
             <div className="form-titles">
                 {props.button}

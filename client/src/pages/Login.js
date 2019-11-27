@@ -96,6 +96,7 @@ function Login() {
                             <Col size="md-4" />
                             <Col size="md-4">
                                 <LoginForm
+                                    type="login"
                                     errorClass={errorClass}
                                     formMessage={formMessage}
                                     handleInputChange={handleInputChange}

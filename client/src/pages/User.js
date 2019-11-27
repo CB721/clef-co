@@ -58,7 +58,7 @@ function User() {
                         background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
                     })
                 });
-            }, 3000)
+            }, 2000)
         } else {
             window.location.href = "/login";
         }
@@ -202,7 +202,7 @@ function User() {
                     })
                 });
             }
-        }, 8500);
+        }, 12500);
     }
     function determineStatus(dateJoined) {
         const today = moment().format("YYYY-MM-DD");
@@ -232,107 +232,113 @@ function User() {
             setstatusImage(profileImages[1].image);
             setuserStatus("novice");
             if (moment(today).diff(dateJoined, 'weeks') % 3 === 0) {
-                toast("What music have you done lately?", {
-                    className: css({
-                        background: '#3E0768',
-                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                        borderRadius: '17px'
-                    }),
-                    bodyClassName: css({
-                        fontSize: '20px',
-                        color: 'white'
-                    }),
-                    progressClassName: css({
-                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                    })
-                });
+                setTimeout(function() {
+                    toast("What music have you done lately?", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                }, 25000);
             }
         }
         if (moment(today).diff(dateJoined, 'months') >= 1 &&
             moment(today).diff(dateJoined, 'years') < 1) {
             setstatusImage(profileImages[2].image);
             setuserStatus("expert");
-            if (moment(today).diff(dateJoined, 'days') % 17 === 0) {
-                toast("Have you though of writing a review?", {
-                    className: css({
-                        background: '#3E0768',
-                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                        borderRadius: '17px'
-                    }),
-                    bodyClassName: css({
-                        fontSize: '20px',
-                        color: 'white'
-                    }),
-                    progressClassName: css({
-                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                    })
-                });
-            } else if (moment(today).diff(dateJoined, 'weeks') % 17 === 0) {
-                toast("We really appreciate having you as a member " + window.sessionStorage.first_name, {
-                    className: css({
-                        background: '#3E0768',
-                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                        borderRadius: '17px'
-                    }),
-                    bodyClassName: css({
-                        fontSize: '20px',
-                        color: 'white'
-                    }),
-                    progressClassName: css({
-                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                    })
-                });
-            }
+            setTimeout(function() {
+                if (moment(today).diff(dateJoined, 'days') % 17 === 0) {
+                    toast("Have you though of writing a review?", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                } else if (moment(today).diff(dateJoined, 'weeks') % 17 === 0) {
+                    toast("We really appreciate having you as a member " + window.sessionStorage.first_name, {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                }
+            }, 25000);
         }
         if (moment(today).diff(dateJoined, 'years') >= 1) {
             setstatusImage(profileImages[3].image);
             setuserStatus("master");
-            if (moment(today).diff(dateJoined, 'years') % 1 === 0) {
-                toast("One year already?  Wow!", {
-                    className: css({
-                        background: '#3E0768',
-                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                        borderRadius: '17px'
-                    }),
-                    bodyClassName: css({
-                        fontSize: '20px',
-                        color: 'white'
-                    }),
-                    progressClassName: css({
-                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                    })
-                });
-            } else if (moment(today).diff(dateJoined, 'months') % 7 === 0) {
-                toast("What music have you done lately?", {
-                    className: css({
-                        background: '#3E0768',
-                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                        borderRadius: '17px'
-                    }),
-                    bodyClassName: css({
-                        fontSize: '20px',
-                        color: 'white'
-                    }),
-                    progressClassName: css({
-                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                    })
-                });
-            } else if (moment(today).diff(dateJoined, 'weeks') % 23 === 0) {
-                toast("Have you though of writing a review?", {
-                    className: css({
-                        background: '#3E0768',
-                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                        borderRadius: '17px'
-                    }),
-                    bodyClassName: css({
-                        fontSize: '20px',
-                        color: 'white'
-                    }),
-                    progressClassName: css({
-                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                    })
-                });
-            }
+            setTimeout(function() {
+                if (moment(today).diff(dateJoined, 'years') % 1 === 0) {
+                    toast("One year already?  Wow!", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                } else if (moment(today).diff(dateJoined, 'months') % 7 === 0) {
+                    toast("What music have you done lately?", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                } else if (moment(today).diff(dateJoined, 'weeks') % 23 === 0) {
+                    toast("Have you though of writing a review?", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                }
+            }, 25000);
         }
     }
     function EditProfile(event) {

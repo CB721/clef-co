@@ -14,9 +14,9 @@
     background: white;
     color: rgb(62, 7, 104);
     animation-iteration-count: 1s;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
     -webkit-box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
     box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
     -webkit-transition: .1s;
@@ -39,9 +39,9 @@
     background: white;
     color: rgb(62, 7, 104);
     animation-iteration-count: 1s;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
     -webkit-box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
     box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
     -webkit-transition: .1s;
@@ -63,9 +63,9 @@
     background: rgb(62, 7, 104);
     color: white;
     animation-iteration-count: 1s;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
     -webkit-box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
     box-shadow: 0 14px 280px rgba(0,0,0,.25),0 10px 100px rgba(0,0,0,.22);
     -webkit-transition: .1s;

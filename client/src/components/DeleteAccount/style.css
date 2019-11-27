@@ -53,21 +53,19 @@
     border-radius: 25px;
     border-color: rgb(255, 255, 255);
     border-width: 1px;
+    width: 100%;
     -webkit-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
     -moz-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
     box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
 }
 .dont-delete-button:hover {
     border-color: white;
-    -webkit-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    transform: scale(1.01);
     -webkit-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
     -moz-box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
     box-shadow: inset 0px 0px 3px 2px rgba(255, 255, 255, 0.75);
-}
-.delete-margin-left {
-    margin-left: 5%;
 }
 .delete-account-button {
     margin-top: 6px!important;
@@ -76,6 +74,7 @@
     border-radius: 25px;
     border-color: rgb(62,7,104);
     border-width: 1px;
+    width: 100%;
     -webkit-box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
     -moz-box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);
     box-shadow: inset 0px 0px 3px 2px rgba(62,7,104,0.75);

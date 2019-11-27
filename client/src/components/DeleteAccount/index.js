@@ -60,7 +60,7 @@ function DeleteAccount(props) {
                                         No, take me back!
                                     </button>
                                     <button
-                                        className="delete-account-button delete-margin-left"
+                                        className="delete-account-button"
                                         onClick={props.delete}
                                     >
                                         Yes, delete account
