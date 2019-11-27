@@ -6,6 +6,7 @@ import MusicVideoOutlinedIcon from '@material-ui/icons/MusicVideoOutlined';
 import HeadsetOutlinedIcon from '@material-ui/icons/HeadsetOutlined';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import AddShoppingCartOutlinedIcon from '@material-ui/icons/AddShoppingCartOutlined';
+import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -64,6 +65,9 @@ function Dropdown(props) {
     function goToShop() {
         window.location.href = "/shop";
     }
+    function goToSearch() {
+        window.location.href = "/search";
+    }
     function goToContact() {
         window.location.href = "/contact";
     }
@@ -93,46 +97,52 @@ function Dropdown(props) {
                 <List>
                     <ListItem button onClick={goToHome}>
                         <ListItemIcon>
-                            <HomeOutlinedIcon />
+                            <HomeOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary={"Home"} />
                     </ListItem>
                     <Divider />
                     <ListItem button onClick={goToProducts}>
                         <ListItemIcon>
-                            <AudiotrackOutlinedIcon />
+                            <AudiotrackOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary={"Products"} />
                     </ListItem>
                     <ListItem button onClick={goToTutorials}>
                         <ListItemIcon>
-                            <MusicVideoOutlinedIcon />
+                            <MusicVideoOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary={"Tutorials"} />
                     </ListItem>
                     <ListItem button onClick={goToShop}>
                         <ListItemIcon>
-                            <AddShoppingCartOutlinedIcon />
+                            <AddShoppingCartOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary={"Shop"} />
                     </ListItem>
                     <ListItem button onClick={goToContact}>
                         <ListItemIcon>
-                            <ContactSupportOutlinedIcon />
+                            <ContactSupportOutlinedIcon className="white"/>
                         </ListItemIcon>
                         <ListItemText primary={"Contact"} />
+                    </ListItem>
+                    <ListItem button onClick={goToSearch}>
+                        <ListItemIcon>
+                            <SearchOutlinedIcon className="white"/>
+                        </ListItemIcon>
+                        <ListItemText primary={"Search"} />
                     </ListItem>
                     {props.loggedIn ? (
                         <ListItem button onClick={goToProfile}>
                             <ListItemIcon>
-                                <HeadsetOutlinedIcon />
+                                <HeadsetOutlinedIcon className="white"/>
                             </ListItemIcon>
                             <ListItemText primary={"Profile"} />
                         </ListItem>
                     ) : (
                             <ListItem button onClick={goToLogin}>
                                 <ListItemIcon>
-                                    <HeadsetOutlinedIcon />
+                                    <HeadsetOutlinedIcon className="white"/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Login"} />
                             </ListItem>
@@ -140,14 +150,14 @@ function Dropdown(props) {
                     {props.loggedIn ? (
                         <ListItem button onClick={(event) => props.logOut(event)}>
                             <ListItemIcon>
-                                <AccountCircleOutlinedIcon />
+                                <AccountCircleOutlinedIcon className="white"/>
                             </ListItemIcon>
                             <ListItemText primary={"Sign Out"} />
                         </ListItem>
                     ) : (
                             <ListItem button onClick={goToSignUp}>
                                 <ListItemIcon>
-                                    <AccountCircleOutlinedIcon />
+                                    <AccountCircleOutlinedIcon className="white"/>
                                 </ListItemIcon>
                                 <ListItemText primary={"Sign Up"} />
                             </ListItem>
