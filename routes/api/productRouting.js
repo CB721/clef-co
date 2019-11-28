@@ -13,5 +13,8 @@ router
 router
     .route("/sales/grossing")
     .get(controller.getAllProductsBySalesTotal);
+router
+    .route("/viewed/user")
+    .post(controller.addToUserViewedProducts);
 
 module.exports = router;

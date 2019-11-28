@@ -1,3 +1,19 @@
+INSERT INTO oxn711nfcpjgwcr2.viewedProducts
+    (
+    viewed_on,
+    views,
+    product_id,
+    user_id,
+    purchased
+    )
+VALUES
+    (
+    '2019-11-27T21:34:23',
+    1,
+    13,
+    3,
+    0
+);
 INSERT INTO oxn711nfcpjgwcr2.products
     (
     product_name,

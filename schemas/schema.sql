@@ -119,3 +119,16 @@ CREATE TABLE review
 	, FOREIGN KEY (user_id) REFERENCES users(id)
 	, PRIMARY KEY (id)
 );
+
+CREATE TABLE viewedProducts
+(
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, viewed_on CHAR(20) NOT NULL
+	, views INT NOT NULL
+	, product_id INT NOT NULL
+	, user_id INT NOT NULL
+	, purchased BOOLEAN NOT NULL
+	, FOREIGN KEY (product_id) REFERENCES products(id)
+	, FOREIGN KEY (user_id) REFERENCES users(id)
+	, PRIMARY KEY (id)
+);

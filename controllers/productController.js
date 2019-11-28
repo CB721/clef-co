@@ -1,4 +1,6 @@
 const db = require("../connection/connection");
+const moment = require("moment");
+const rightNow = "'" + moment().format("YYYY-MM-DDTHH:mm:ss") + "'";
 
 module.exports = {
     getAllProducts: function (req, res) {
@@ -48,6 +50,45 @@ module.exports = {
                     return res.json({
                         results
                     });
+                }
+            }
+        )
+    },
+    addToUserViewedProducts: function (req, res) {
+        const userID = req.body.user_id;
+        const productID = req.body.product_id;
+        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts WHERE oxn711nfcpjgwcr2.viewedProducts.product_id = " + productID + ";",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    if (results.length > 0) {
+                        const viewID = results[0].id;
+                        const viewTotal = results[0].views + 1;
+                        db.query("UPDATE oxn711nfcpjgwcr2.viewedProducts SET views = " + viewTotal + " WHERE id = " + viewID + ";",
+                            function (err, results) {
+                                if (err) {
+                                    return res.send(err);
+                                } else {
+                                    if (results.affectedRows > 0) {
+                                        return res.send("View count updated");
+                                    }
+                                }
+                            }
+                        )
+                    } else {
+                        db.query("INSERT INTO oxn711nfcpjgwcr2.viewedProducts (viewed_on, views, product_id, user_id, purchased) VALUES (" + rightNow + ", 1, " + productID + ", " + userID + ", 0);",
+                            function (err, results) {
+                                if (err) {
+                                    return res.send(err);
+                                } else {
+                                    return res.json({
+                                        results
+                                    });
+                                }
+                            }
+                        )
+                    }
                 }
             }
         )

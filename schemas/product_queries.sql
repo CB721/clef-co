@@ -26,3 +26,5 @@ FROM oxn711nfcpjgwcr2.orderItems
 LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id
 GROUP BY oxn711nfcpjgwcr2.products.id
 ORDER BY oxn711nfcpjgwcr2.orderItems.quantity * oxn711nfcpjgwcr2.products.price DESC;
+
+SELECT * oxn711nfcpjgwcr2.viewedProducts WHERE product_id = 13;
