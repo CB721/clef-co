@@ -10,5 +10,8 @@ router
 router
     .route("/rating/top_ten")
     .get(controller.getTopRatedProducts);
+router
+    .route("/sales/grossing")
+    .get(controller.getAllProductsBySalesTotal);
 
 module.exports = router;
