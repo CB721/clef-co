@@ -106,3 +106,18 @@ CREATE TABLE contactForms
 	, FOREIGN KEY (user_id) REFERENCES users(id)
 	, PRIMARY KEY (id)
 );
+
+CREATE TABLE review
+(
+	id INT NOT NULL UNIQUE AUTO_INCREMENT
+	, review MEDIUMTEXT
+	, rating BIT(5)
+	, created_at CHAR(20)
+	, user_id INT NOT NULL
+	, user_joined_date CHAR(20) NOT NULL
+	, product_id INT NOT NULL
+	, FOREIGN KEY (product_id) REFERENCES products(id)
+	, FOREIGN KEY (user_id) REFERENCES users(id)
+	, FOREIGN KEY (user_joined_date) REFERENCES users(joined_date)
+	, PRIMARY KEY (id)
+);
