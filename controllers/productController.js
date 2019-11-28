@@ -65,7 +65,7 @@ module.exports = {
                     if (results.length > 0) {
                         const viewID = results[0].id;
                         const viewTotal = results[0].views + 1;
-                        db.query("UPDATE oxn711nfcpjgwcr2.viewedProducts SET views = " + viewTotal + " WHERE id = " + viewID + ";",
+                        db.query("UPDATE oxn711nfcpjgwcr2.viewedProducts SET views = " + viewTotal + ", " + rightNow + " WHERE id = " + viewID + ";",
                             function (err, results) {
                                 if (err) {
                                     return res.send(err);
@@ -96,6 +96,39 @@ module.exports = {
     getAllViewedProductsByUser: function (req, res) {
         const userID = req.params.userid;
         db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts WHERE user_id = " + userID + ";",
+            function (err, allProducts) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    const resLen = allProducts.length;
+                    if (resLen > 0) {
+                        const results = [];
+                        for (let i = 0; i < resLen; i++) {
+                            const productID = allProducts[i].product_id;
+                            db.query("SELECT * FROM oxn711nfcpjgwcr2.products WHERE id = " + productID + ";",
+                                function (err, product) {
+                                    if (err) {
+                                        return res.send(err);
+                                    } else {
+                                        results.push(product[0]);
+                                    }
+                                }
+                            )
+                        }
+                        setTimeout(function () {
+                            return res.json({
+                                results
+                            });
+                        }, resLen * 100);
+                    } else {
+                        return res.send("No viewed products");
+                    }
+                }
+            }
+        )
+    },
+    getAllViewedProducts: function (req, res) {
+        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts;",
             function (err, allProducts) {
                 if (err) {
                     return res.send(err);
