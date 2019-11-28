@@ -6,6 +6,9 @@ router.route("/")
 
 router
     .route("/:id")
-    .get(controller.getProductById)
+    .get(controller.getProductById);
+router
+    .route("/rating/top_ten")
+    .get(controller.getTopRatedProducts);
 
 module.exports = router;
