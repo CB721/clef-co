@@ -16,5 +16,8 @@ router
 router
     .route("/viewed/user")
     .post(controller.addToUserViewedProducts);
+router
+    .route("/viewed/user/all/:userid")
+    .get(controller.getAllViewedProductsByUser);
 
 module.exports = router;

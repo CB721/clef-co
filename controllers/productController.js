@@ -92,5 +92,39 @@ module.exports = {
                 }
             }
         )
+    },
+    getAllViewedProductsByUser: function (req, res) {
+        const userID = req.params.userid;
+        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts WHERE user_id = " + userID + ";",
+            function (err, allProducts) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    const resLen = allProducts.length;
+                    if (resLen > 0) {
+                        const results = [];
+                        for (let i = 0; i < resLen; i++) {
+                            const productID = allProducts[i].product_id;
+                            db.query("SELECT * FROM oxn711nfcpjgwcr2.products WHERE id = " + productID + ";",
+                                function (err, product) {
+                                    if (err) {
+                                        return res.send(err);
+                                    } else {
+                                        results.push(product[0]);
+                                    }
+                                }
+                            )
+                        }
+                        setTimeout(function () {
+                            return res.json({
+                                results
+                            });
+                        }, resLen * 100);
+                    } else {
+                        return res.send("No viewed products");
+                    }
+                }
+            }
+        )
     }
 }
