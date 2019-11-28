@@ -5,9 +5,8 @@ router.route("/")
     .get(controller.getAllReviews);
 router.route("/new")
     .post(controller.addReview);
+router.route("/product/:id")
+    .get(controller.getAverageProductReview);
 
-// router
-//     .route("/:id")
-//     .get(controller.getProductById)
 
 module.exports = router;
