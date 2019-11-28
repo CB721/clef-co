@@ -7,6 +7,8 @@ router.route("/new")
     .post(controller.addReview);
 router.route("/product/:id")
     .get(controller.getAverageProductReview);
+router.route("/product/all/:id")
+    .get(controller.getAllReviewsByProductID);
 
 
 module.exports = router;
