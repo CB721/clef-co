@@ -4,11 +4,26 @@ const moment = require("moment");
 const reviewTable = "oxn711nfcpjgwcr2.review";
 const userTable = "oxn711nfcpjgwcr2.users";
 const productTable = "oxn711nfcpjgwcr2.products";
+const rightNow = "'" + moment().format("YYYY-MM-DDTHH:mm:ss") + "'";
 
 module.exports = {
     getAllReviews: function (req, res) {
         db.query("SELECT * FROM " + reviewTable + " ORDER BY created_at DESC",
-            function(err, results) {
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
+    },
+    addReview: function (req, res) {
+        const review = req.body;
+        db.query("INSERT INTO " + reviewTable + " (review, rating, created_at, user_id, product_id) VALUES ('" + review.description + "', " + review.rating + ", " + rightNow + ", " + review.user_id + ", " + review.product_id + ");",
+            function (err, results) {
                 if (err) {
                     return res.send(err);
                 } else {

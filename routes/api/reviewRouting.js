@@ -3,6 +3,8 @@ const controller = require("../../controllers/reviewController");
 
 router.route("/")
     .get(controller.getAllReviews);
+router.route("/new")
+    .post(controller.addReview);
 
 // router
 //     .route("/:id")
