@@ -313,6 +313,18 @@ span {
     -webkit-box-shadow: 0 0 10px #000000;
     box-shadow: 0 0 10px #000000;
 }
+.submit-review-section {
+    width: 100%;
+    height: auto;
+    background: white;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 17px;
+}
+#star-ratings {
+    width: 100%;
+    margin: 3% 0 3% 0;
+}
 .center-social-links {
     width: 100%;
     /* display: flex; */

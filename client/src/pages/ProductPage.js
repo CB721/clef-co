@@ -9,20 +9,33 @@ import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
+import Input from '@material-ui/core/Input';
+import FormControl from '@material-ui/core/FormControl';
+import StarRatings from 'react-star-ratings';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import "./Assets/style.css";
 
 class ProductPage extends Component {
     state = {
         product: [],
+        orders: [],
         backgroundImage: ``,
         backgroundPosition: '0% 0%',
         borderRadius: "4px",
         cart: [],
         quantity: 0,
+        reviewDesc: "",
+        reviewRating: 0,
+        theme: createMuiTheme({
+            palette: {
+                primary: { main: '#ffffff' }
+            }
+        })
     }
     componentDidMount() {
         this.getProduct(window.location.pathname.slice(14));
         this.getCart();
+        this.getUserOrders();
     }
     getProduct = (id) => {
         API.getProductById(id)
@@ -33,6 +46,15 @@ class ProductPage extends Component {
                 })
             )
             .catch(err => console.log(err));
+    }
+    getUserOrders = () => {
+        if (window.sessionStorage.logged_in) {
+            API.getOrders(window.sessionStorage.id)
+                .then(res =>
+                    this.setState({ orders: res.data.ordersArr })
+                )
+                .catch(err => console.log(err));
+        }
     }
     validateProduct(data, id) {
         if (data) {
@@ -139,6 +161,133 @@ class ProductPage extends Component {
         const name = event.target.name;
         this.setState({ [name]: value });
     };
+    handleFormSubmit = () => {
+        this.setState({
+            reviewMessage: "Leave a review"
+        });
+        if (window.sessionStorage.id) {
+            if (this.state.reviewDesc === "") {
+                toast("Please add a description to help us understand your rating", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
+                setTimeout(function () {
+                    toast("We really appreciate you taking the time to send us a review!", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
+                }, 4000)
+            } else {
+                for (let i = 0; i < this.state.orders.length; i++) {
+                    if (this.state.orders[i].line_items.filter(item => item.product_id === this.state.product.id).length > 0) {
+                        const review = {
+                            description: this.state.reviewDesc,
+                            rating: this.state.reviewRating,
+                            user_id: window.sessionStorage.id,
+                            product_id: this.state.product.id
+                        }
+                        this.submitReview(review);
+                        break;
+                    } else {
+                        console.log("No match");
+                        if (i === this.state.orders.length - 1) {
+                            toast("You must purchase the " + this.state.product.product_name + " before leaving a review", {
+                                className: css({
+                                    background: '#3E0768',
+                                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                                    borderRadius: '17px'
+                                }),
+                                bodyClassName: css({
+                                    fontSize: '20px',
+                                    color: 'white'
+                                }),
+                                progressClassName: css({
+                                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                                })
+                            });
+                        }
+                    }
+                }
+            }
+        } else {
+            toast("Please log in to leave a review for " + this.state.product.product_name, {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        }
+    }
+    submitReview = (review) => {
+        API.addReview(review)
+            .then(res => this.handleReviewResponse(res.data.results))
+            .catch(err => console.log(err));
+    }
+    handleReviewResponse = (data) => {
+        if (data.affectedRows > 0) {
+            this.setState({
+                reviewDesc: "",
+                reviewRating: 0
+            })
+            toast("Thanks for the review!", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        } else {
+            toast("There seems to a problem on our end.  Please try again later!", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        }
+    }
     handleMouseMove = e => {
         const { left, top, width, height } = e.target.getBoundingClientRect();
         const x = (e.pageX - left) / width * 100;
@@ -209,6 +358,58 @@ class ProductPage extends Component {
                     <Col size="md-12">
                         <div className="review-section">
                             <Row no-gutters>
+                                <Col size="lg-1 md-3 12" />
+                                <Col size="lg-10 md-6 12">
+                                    <div className="submit-review-section padding-bottom f-top-pad">
+                                        <Row no-gutters>
+                                            <Col size="md-12">
+                                                <div className="purple">
+                                                    <p>
+                                                        Leave a review for the{this.state.product.product_name}
+                                                    </p>
+                                                </div>
+                                            </Col>
+                                            <Col size="lg-8 md-5">
+                                                <FormControl fullWidth={true}>
+                                                    <MuiThemeProvider theme={this.state.theme}>
+                                                        <Input
+                                                            value={this.state.reviewDesc}
+                                                            name="reviewDesc"
+                                                            onChange={this.handleInputChange}
+                                                            type="text"
+                                                            inputProps={{
+                                                                'aria-label': 'review description',
+                                                            }}
+                                                        />
+                                                    </MuiThemeProvider>
+                                                </FormControl>
+                                            </Col>
+                                            <Col size="lg-2 md-3">
+                                                <div id="star-ratings">
+                                                    <StarRatings
+                                                        rating={this.state.reviewRating}
+                                                        starRatedColor="rgb(62, 7, 104)"
+                                                        changeRating={(event) => this.setState({ reviewRating: event })}
+                                                        numberOfStars={5}
+                                                        starDimension="1.25rem"
+                                                        starEmptyColor="rgb(156, 128, 176)"
+                                                        starHoverColor="rgb(62, 7, 104)"
+                                                        starRatedColor="rgb(62, 7, 104)"
+                                                        name='reviewRating'
+                                                    />
+                                                </div>
+                                            </Col>
+                                            <Col size="lg-1 md-4">
+                                                <Button
+                                                    action={this.handleFormSubmit}
+                                                    buttonClass="explore"
+                                                    text="Submit Review"
+                                                />
+                                            </Col>
+                                        </Row>
+                                    </div>
+                                </Col>
+                                <Col size="lg-1 md-3 12" />
                                 <Col size="lg-1 md-12" />
                                 <Col size="lg-4 md-6">
                                     <Flip top>

@@ -73,5 +73,8 @@ export default {
     },
     searchUserContactForms: function(userID, input) {
         return axios.get("/api/search/contact/" + userID + "/" + input);
+    },
+    addReview: function(review) {
+        return axios.post("/api/reviews/new", review);
     }
 }
