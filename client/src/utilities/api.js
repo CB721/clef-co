@@ -76,5 +76,8 @@ export default {
     },
     addReview: function(review) {
         return axios.post("/api/reviews/new", review);
+    },
+    getReviewsByProductID: function (productID) {
+        return axios.get("/api/reviews/product/all/" + productID);
     }
 }

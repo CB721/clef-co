@@ -19,6 +19,7 @@ class ProductPage extends Component {
     state = {
         product: [],
         orders: [],
+        reviews: [],
         backgroundImage: ``,
         backgroundPosition: '0% 0%',
         borderRadius: "4px",
@@ -36,6 +37,7 @@ class ProductPage extends Component {
         this.getProduct(window.location.pathname.slice(14));
         this.getCart();
         this.getUserOrders();
+        this.getAllProductReviews();
     }
     getProduct = (id) => {
         API.getProductById(id)
@@ -55,6 +57,13 @@ class ProductPage extends Component {
                 )
                 .catch(err => console.log(err));
         }
+    }
+    getAllProductReviews = () => {
+        API.getReviewsByProductID(window.location.pathname.slice(14))
+            .then(res =>
+                this.setState({ reviews: res.data.results })
+            )
+            .catch(err => console.log(err));
     }
     validateProduct(data, id) {
         if (data) {
@@ -388,7 +397,6 @@ class ProductPage extends Component {
                                                 <div id="star-ratings">
                                                     <StarRatings
                                                         rating={this.state.reviewRating}
-                                                        starRatedColor="rgb(62, 7, 104)"
                                                         changeRating={(event) => this.setState({ reviewRating: event })}
                                                         numberOfStars={5}
                                                         starDimension="1.25rem"
@@ -409,29 +417,22 @@ class ProductPage extends Component {
                                         </Row>
                                     </div>
                                 </Col>
-                                <Col size="lg-1 md-3 12" />
-                                <Col size="lg-1 md-12" />
-                                <Col size="lg-4 md-6">
-                                    <Flip top>
-                                        <Review
-                                            reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
-                                            reviewerName="Bruce Wayne"
-                                            review="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
-                                            bio="https://en.wikipedia.org/wiki/Batman"
-                                        />
-                                    </Flip>
-                                </Col>
-                                <Col size="lg-2 md-12 sm-12" />
-                                <Col size="lg-4 md-6 sm-12">
-                                    <Flip top>
-                                        <Review
-                                            reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
-                                            reviewerName="Tony Stark"
-                                            review="All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
-                                            bio="https://en.wikipedia.org/wiki/Tony_Stark_(Marvel_Cinematic_Universe)"
-                                        />
-                                    </Flip>
-                                </Col>
+                            </Row>
+                            <Row no-gutters>
+                                {this.state.reviews.map(review => (
+                                    <Col size="sm-6" key={review.id}>
+                                        <Flip top>
+                                            <Review
+                                                product={review.product_name}
+                                                dateJoined={review.joined_date}
+                                                createdAt={review.created_at}
+                                                reviewerName={review.first_name}
+                                                review={review.review}
+                                                rating={review.rating}
+                                            />
+                                        </Flip>
+                                    </Col>
+                                ))}
                             </Row>
                         </div>
                     </Col>
