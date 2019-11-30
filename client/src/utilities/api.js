@@ -79,5 +79,8 @@ export default {
     },
     getReviewsByProductID: function (productID) {
         return axios.get("/api/reviews/product/all/" + productID);
+    }, 
+    getAllReviews: function() {
+        return axios.get("/api/reviews/");
     }
 }

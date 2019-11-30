@@ -8,7 +8,6 @@ import moment from "moment";
 import "./style.css";
 
 function Review(props) {
-    console.log(props.createdAt)
     const today = moment().format("YYYY-MM-DD");
     const [statusImage, setstatusImage] = useState("");
     const [userStatus, setuserStatus] = useState("");
@@ -35,12 +34,6 @@ function Review(props) {
             setuserStatus("master");
         }
     }, [props.dateJoined])
-    useEffect(() => {
-        const dateRemoveHours = props.createdAt.split("T")[0];
-        const dateRemoveDash = dateRemoveHours.split("-");
-        setCreatedAt(moment(dateRemoveDash[1] + " " + dateRemoveDash[2] + " " + dateRemoveDash[0]).format("MMM Do YYYY"));
-    }, [props.createdAt])
-
 
     return (
         <div className="review shadow-effect hover-shadow-review">
@@ -59,7 +52,7 @@ function Review(props) {
                         </Col>
                         <Col size="lg-4 md-8 6">
                             <StarRatings
-                                rating={props.rating.data[0]}
+                                rating={props.rating}
                                 numberOfStars={5}
                                 starDimension="0.7rem"
                                 starRatedColor="rgb(255, 255, 255)"
@@ -74,7 +67,7 @@ function Review(props) {
                                 min={8}
                                 max={16}
                             >
-                                {createdAt}
+                                {props.createdAt}
                             </Textfit>
                         </Col>
                     </Row>

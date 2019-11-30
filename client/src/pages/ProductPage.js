@@ -13,6 +13,7 @@ import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import StarRatings from 'react-star-ratings';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import moment from "moment";
 import "./Assets/style.css";
 
 class ProductPage extends Component {
@@ -374,11 +375,11 @@ class ProductPage extends Component {
                                             <Col size="md-12">
                                                 <div className="purple">
                                                     <p>
-                                                        Leave a review for the{this.state.product.product_name}
+                                                        Leave a review for {this.state.product.product_name}
                                                     </p>
                                                 </div>
                                             </Col>
-                                            <Col size="lg-8 md-5">
+                                            <Col size="lg-8 md-5 12">
                                                 <FormControl fullWidth={true}>
                                                     <MuiThemeProvider theme={this.state.theme}>
                                                         <Input
@@ -393,7 +394,7 @@ class ProductPage extends Component {
                                                     </MuiThemeProvider>
                                                 </FormControl>
                                             </Col>
-                                            <Col size="lg-2 md-3">
+                                            <Col size="lg-2 md-5 sm-6">
                                                 <div id="star-ratings">
                                                     <StarRatings
                                                         rating={this.state.reviewRating}
@@ -407,7 +408,7 @@ class ProductPage extends Component {
                                                     />
                                                 </div>
                                             </Col>
-                                            <Col size="lg-1 md-4">
+                                            <Col size="lg-1 md-2 sm-6">
                                                 <Button
                                                     action={this.handleFormSubmit}
                                                     buttonClass="explore"
@@ -425,10 +426,21 @@ class ProductPage extends Component {
                                             <Review
                                                 product={review.product_name}
                                                 dateJoined={review.joined_date}
-                                                createdAt={review.created_at}
+                                                createdAt={
+                                                    moment(
+                                                        review.created_at.split("T")[0].split("-")[1] +
+                                                        " " +
+                                                        review.created_at.split("T")[0].split("-")[2] +
+                                                        " " +
+                                                        review.created_at.split("T")[0].split("-")[0]
+                                                    )
+                                                        .format(
+                                                            "MMM Do YYYY"
+                                                        )
+                                                }
                                                 reviewerName={review.first_name}
                                                 review={review.review}
-                                                rating={review.rating}
+                                                rating={review.rating.data[0]}
                                             />
                                         </Flip>
                                     </Col>

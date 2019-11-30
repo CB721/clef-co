@@ -11,17 +11,27 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
+import API from "../utilities/api";
+import moment from "moment";
 import "./Assets/style.css";
 
 
 function Home() {
     const [productOne, setProductOne] = useState([]);
     const [productTwo, setProductTwo] = useState([]);
+    const [reviews, setReviews] = useState([]);
     const products = useSelector(state => state.products);
 
     useEffect(() => {
         displayRandomProducts();
     });
+    useEffect(() => {
+        API.getAllReviews()
+            .then(res =>
+                setReviews(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }, [reviews]);
     useEffect(() => {
         if (window.sessionStorage.id) {
             setTimeout(function () {
@@ -273,7 +283,7 @@ function Home() {
                             <Row no-gutters>
                                 <Col size="md-12">
                                     <h2 className="white ">
-                                        What the Experts are Saying
+                                        What customers are saying
                                             </h2>
                                 </Col>
                             </Row>
@@ -283,57 +293,31 @@ function Home() {
                         <Col size="md-12">
                             <div className="review-section">
                                 <Row no-gutters>
-                                    <Col size="md-4" />
-                                    <Col size="md-4">
-                                    </Col>
-                                </Row>
-                                <Row no-gutters>
-                                    <Col size="md-1" />
-                                    <Col size="md-4 12">
-                                        <Flip top>
-                                            <Review
-                                                reviewerImage="https://images.unsplash.com/photo-1520715246086-96c95638169d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=932&q=80"
-                                                reviewerName="Bruce Wayne"
-                                                review="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text."
-                                                bio="https://en.wikipedia.org/wiki/Batman"
-                                            />
-                                        </Flip>
-                                    </Col>
-                                    <Col size="md-2" />
-                                    <Col size="md-4 12">
-                                        <Flip top>
-                                            <Review
-                                                reviewerImage="https://images.unsplash.com/photo-1529847556963-9653a9366021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1523&q=80"
-                                                reviewerName="Tony Stark"
-                                                review="All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet."
-                                                bio="https://en.wikipedia.org/wiki/Tony_Stark_(Marvel_Cinematic_Universe)"
-                                            />
-                                        </Flip>
-                                    </Col>
-                                </Row>
-                                <Row no-gutters>
-                                    <Col size="md-1" />
-                                    <Col size="md-4 12">
-                                        <Flip top>
-                                            <Review
-                                                reviewerImage="https://images.unsplash.com/photo-1525954322486-aa196091220f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                                                reviewerName="Harry Potter"
-                                                review="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                                                bio="https://en.wikipedia.org/wiki/Harry_Potter"
-                                            />
-                                        </Flip>
-                                    </Col>
-                                    <Col size="md-2" />
-                                    <Col size="md-4 12">
-                                        <Flip top>
-                                            <Review
-                                                reviewerImage="https://images.unsplash.com/photo-1454024183771-42d54053cd75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
-                                                reviewerName="Harley Quinn"
-                                                review="The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from de Finibus Bonorum et Malorum by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham."
-                                                bio="https://en.wikipedia.org/wiki/Harley_Quinn"
-                                            />
-                                        </Flip>
-                                    </Col>
+                                    {reviews.map(review => (
+                                        <Col size="sm-6" key={review.id}>
+                                            <Flip top>
+                                                <Review
+                                                    product={review.product_name}
+                                                    dateJoined={review.joined_date}
+                                                    createdAt={
+                                                        moment(
+                                                            review.created_at.split("T")[0].split("-")[1] +
+                                                            " " +
+                                                            review.created_at.split("T")[0].split("-")[2] +
+                                                            " " +
+                                                            review.created_at.split("T")[0].split("-")[0]
+                                                        )
+                                                            .format(
+                                                                "MMM Do YYYY"
+                                                            )
+                                                    }
+                                                    reviewerName={review.first_name}
+                                                    review={review.review}
+                                                    rating={review.rating.data[0]}
+                                                />
+                                            </Flip>
+                                        </Col>
+                                    ))}
                                 </Row>
                             </div>
                         </Col>
