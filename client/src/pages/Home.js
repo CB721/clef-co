@@ -284,7 +284,7 @@ function Home() {
                                 <Col size="md-12">
                                     <h2 className="white ">
                                         What customers are saying
-                                            </h2>
+                                    </h2>
                                 </Col>
                             </Row>
                         </div>
