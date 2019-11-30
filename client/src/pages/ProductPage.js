@@ -41,6 +41,18 @@ class ProductPage extends Component {
         this.getUserOrders();
         this.getAllProductReviews();
         this.getAverageProductReview();
+        this.addProductToViewed();
+    }
+    addProductToViewed() {
+        if (window.sessionStorage.logged_in) {
+            const userAndProduct = {
+                user_id: window.sessionStorage.id,
+                product_id: window.location.pathname.slice(14)
+            }
+            API.addProductToViewed(userAndProduct)
+                .then()
+                .catch(err => console.log(err));
+        }
     }
     getProduct = (id) => {
         API.getProductById(id)
@@ -351,38 +363,38 @@ class ProductPage extends Component {
                                         </figure>
                                     </Col>
                                     <Col size="12">
-                                    
+
                                     </Col>
                                 </Row>
                             </Col>
                             <Col size="md-4">
                                 <Row no-gutters>
                                     <Col size="12">
-                                    <div className="center-stars f-top-pad">
-                                        <StarRatings
-                                            rating={this.state.averageRating}
-                                            numberOfStars={5}
-                                            starDimension="1.7rem"
-                                            starRatedColor="rgb(255, 255, 255)"
-                                            starEmptyColor="rgba(156, 128, 176, 0.3)"
-                                            name='averageRating'
-                                        />
-                                    </div>
+                                        <div className="center-stars f-top-pad">
+                                            <StarRatings
+                                                rating={this.state.averageRating}
+                                                numberOfStars={5}
+                                                starDimension="1.7rem"
+                                                starRatedColor="rgb(255, 255, 255)"
+                                                starEmptyColor="rgba(156, 128, 176, 0.3)"
+                                                name='averageRating'
+                                            />
+                                        </div>
                                     </Col>
                                     <Col size="12">
-                                    <ProductOrder
-                                        price={this.state.product.price}
-                                        hardware={this.state.product.hardware}
-                                        quantity={this.state.product.quantity}
-                                        software={this.state.product.software}
-                                        id={window.location.pathname.slice(14)}
-                                        handleInputChange={this.handleInputChange}
-                                        button={<Button
-                                            action={this.addToCart(window.location.pathname.slice(14))}
-                                            buttonClass="cart-add-button white"
-                                            text="Add to cart"
-                                        />}
-                                    />
+                                        <ProductOrder
+                                            price={this.state.product.price}
+                                            hardware={this.state.product.hardware}
+                                            quantity={this.state.product.quantity}
+                                            software={this.state.product.software}
+                                            id={window.location.pathname.slice(14)}
+                                            handleInputChange={this.handleInputChange}
+                                            button={<Button
+                                                action={this.addToCart(window.location.pathname.slice(14))}
+                                                buttonClass="cart-add-button white"
+                                                text="Add to cart"
+                                            />}
+                                        />
                                     </Col>
                                 </Row>
                             </Col>

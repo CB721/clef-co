@@ -57,7 +57,7 @@ module.exports = {
     addToUserViewedProducts: function (req, res) {
         const userID = req.body.user_id;
         const productID = req.body.product_id;
-        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts WHERE oxn711nfcpjgwcr2.viewedProducts.product_id = " + productID + ";",
+        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts WHERE oxn711nfcpjgwcr2.viewedProducts.product_id = " + productID + " AND oxn711nfcpjgwcr2.viewedProducts.user_id = " + userID + ";",
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -65,7 +65,7 @@ module.exports = {
                     if (results.length > 0) {
                         const viewID = results[0].id;
                         const viewTotal = results[0].views + 1;
-                        db.query("UPDATE oxn711nfcpjgwcr2.viewedProducts SET views = " + viewTotal + ", " + rightNow + " WHERE id = " + viewID + ";",
+                        db.query("UPDATE oxn711nfcpjgwcr2.viewedProducts SET views = " + viewTotal + ", viewed_on = " + rightNow + " WHERE id = " + viewID + ";",
                             function (err, results) {
                                 if (err) {
                                     return res.send(err);

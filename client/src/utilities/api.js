@@ -85,5 +85,8 @@ export default {
     },
     getAverageProductRating: function(productID) {
         return axios.get("/api/reviews/product/avg/" + productID);
+    },
+    addProductToViewed: function(userAndProduct) {
+        return axios.post("/api/products/viewed/user", userAndProduct);
     }
 }
