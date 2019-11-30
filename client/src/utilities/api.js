@@ -82,5 +82,8 @@ export default {
     }, 
     getAllReviews: function() {
         return axios.get("/api/reviews/");
+    },
+    getAverageProductRating: function(productID) {
+        return axios.get("/api/reviews/product/avg/" + productID);
     }
 }

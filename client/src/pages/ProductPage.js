@@ -32,13 +32,15 @@ class ProductPage extends Component {
             palette: {
                 primary: { main: '#ffffff' }
             }
-        })
+        }),
+        averageRating: 0,
     }
     componentDidMount() {
         this.getProduct(window.location.pathname.slice(14));
         this.getCart();
         this.getUserOrders();
         this.getAllProductReviews();
+        this.getAverageProductReview();
     }
     getProduct = (id) => {
         API.getProductById(id)
@@ -65,6 +67,20 @@ class ProductPage extends Component {
                 this.setState({ reviews: res.data.results })
             )
             .catch(err => console.log(err));
+    }
+    getAverageProductReview = () => {
+        API.getAverageProductRating(window.location.pathname.slice(14))
+            .then(res =>
+                this.validateAverage(res.data.results[0].rating_average)
+            )
+            .catch(err => console.log(err));
+    }
+    validateAverage(data) {
+        if (data) {
+            this.setState({
+                averageRating: Math.round(data)
+            });
+        }
     }
     validateProduct(data, id) {
         if (data) {
@@ -219,7 +235,6 @@ class ProductPage extends Component {
                         this.submitReview(review);
                         break;
                     } else {
-                        console.log("No match");
                         if (i === this.state.orders.length - 1) {
                             toast("You must purchase the " + this.state.product.product_name + " before leaving a review", {
                                 className: css({
@@ -320,21 +335,41 @@ class ProductPage extends Component {
                         <Row no-gutters>
                             <Col size="md-1" />
                             <Col size="md-6">
-                                <figure
-                                    className="product-image-zoom"
-                                    onMouseMove={this.handleMouseMove}
-                                    style={this.state}
-                                >
-                                    <img
-                                        src={this.state.product.image_link}
-                                        alt={this.state.product.product_name}
-                                        className="product-image-page"
+                                <Row no-gutters>
+                                    <Col size="12">
+                                        <figure
+                                            className="product-image-zoom"
+                                            onMouseMove={this.handleMouseMove}
+                                            style={this.state}
+                                        >
+                                            <img
+                                                src={this.state.product.image_link}
+                                                alt={this.state.product.product_name}
+                                                className="product-image-page"
 
-                                    />
-                                </figure>
+                                            />
+                                        </figure>
+                                    </Col>
+                                    <Col size="12">
+                                    
+                                    </Col>
+                                </Row>
                             </Col>
                             <Col size="md-4">
                                 <Row no-gutters>
+                                    <Col size="12">
+                                    <div className="center-stars f-top-pad">
+                                        <StarRatings
+                                            rating={this.state.averageRating}
+                                            numberOfStars={5}
+                                            starDimension="1.7rem"
+                                            starRatedColor="rgb(255, 255, 255)"
+                                            starEmptyColor="rgba(156, 128, 176, 0.3)"
+                                            name='averageRating'
+                                        />
+                                    </div>
+                                    </Col>
+                                    <Col size="12">
                                     <ProductOrder
                                         price={this.state.product.price}
                                         hardware={this.state.product.hardware}
@@ -348,6 +383,7 @@ class ProductPage extends Component {
                                             text="Add to cart"
                                         />}
                                     />
+                                    </Col>
                                 </Row>
                             </Col>
                         </Row>
@@ -395,7 +431,7 @@ class ProductPage extends Component {
                                                 </FormControl>
                                             </Col>
                                             <Col size="lg-2 md-5 sm-6">
-                                                <div id="star-ratings">
+                                                <div id="star-ratings" className="center-stars">
                                                     <StarRatings
                                                         rating={this.state.reviewRating}
                                                         changeRating={(event) => this.setState({ reviewRating: event })}

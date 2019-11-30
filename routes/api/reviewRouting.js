@@ -5,7 +5,7 @@ router.route("/")
     .get(controller.getAllReviews);
 router.route("/new")
     .post(controller.addReview);
-router.route("/product/:id")
+router.route("/product/avg/:id")
     .get(controller.getAverageProductReview);
 router.route("/product/all/:id")
     .get(controller.getAllReviewsByProductID);

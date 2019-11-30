@@ -8,7 +8,7 @@ import "./style.css";
 function ProductOrder(props) {
     const theme = createMuiTheme({
         palette: {
-            primary: { main: '#3E0768' }
+            primary: { main: '#ffffff' }
         },
     });
     return (
@@ -22,19 +22,21 @@ function ProductOrder(props) {
                         <div>
                             <p>
                                 Orders of $99.99 or more ship free!
-                                                        </p>
+                            </p>
                             <p>
                                 In stock!
-                                                        </p>
+                            </p>
                             <form>
-                                <Input
-                                    type="number"
-                                    placeholder="Quantity"
-                                    name="quantity"
-                                    fullWidth={true}
-                                    value={props.productQuantity}
-                                    onChange={props.handleInputChange}
-                                />
+                                <MuiThemeProvider theme={theme}>
+                                    <Input
+                                        type="number"
+                                        placeholder="Quantity"
+                                        name="quantity"
+                                        fullWidth={true}
+                                        value={props.productQuantity}
+                                        onChange={props.handleInputChange}
+                                    />
+                                </MuiThemeProvider>
                             </form>
                         </div>
                     ) : (<div />)}
@@ -54,7 +56,7 @@ function ProductOrder(props) {
                     ) : (<div />)}
                 </div>
                 <div className="product-add-cart f-top-pad">
-                {props.button}
+                    {props.button}
                 </div>
             </Col>
         </FormControl>

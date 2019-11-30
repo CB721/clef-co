@@ -17,6 +17,11 @@ h1 {
     letter-spacing: .2em;
     padding: 7px 10px;
 }
+.center-stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .t-top-pad {
     padding-top: 10%;
 }
@@ -667,6 +672,9 @@ ul {
     min-height: 300px;
     z-index: 1;
     -webkit-box-reflect: below 1px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(70%, transparent), to(rgba(62, 7, 104, 0.1)));
+}
+.product-image-zoom:hover {
+    cursor: zoom-in;
 }
 figure {
     height: 100%;
