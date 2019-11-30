@@ -7,6 +7,7 @@ import UserNews from "../components/UserNews";
 import Order from "../components/Order";
 import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
+import ViewedProducts from "../components/ViewedProducts";
 import headerImages from "../pages/Assets/Data/profile-headers.json";
 import profileImages from "../pages/Assets/Data/profile-status.json";
 import { ToastContainer, toast } from 'react-toastify';
@@ -141,7 +142,7 @@ function User() {
         const xmas = "12-25";
         const finalSalesStart = "12-26";
         const finalSatesEnd = "01-02";
-        setTimeout(function() {
+        setTimeout(function () {
             if (moment(todayMonth).isBetween(holidayStart, holidayEnd)) {
                 toast("Give the gift of music this holiday season!", {
                     className: css({
@@ -232,7 +233,7 @@ function User() {
             setstatusImage(profileImages[1].image);
             setuserStatus("novice");
             if (moment(today).diff(dateJoined, 'weeks') % 3 === 0) {
-                setTimeout(function() {
+                setTimeout(function () {
                     toast("What music have you done lately?", {
                         className: css({
                             background: '#3E0768',
@@ -254,7 +255,7 @@ function User() {
             moment(today).diff(dateJoined, 'years') < 1) {
             setstatusImage(profileImages[2].image);
             setuserStatus("expert");
-            setTimeout(function() {
+            setTimeout(function () {
                 if (moment(today).diff(dateJoined, 'days') % 17 === 0) {
                     toast("Have you though of writing a review?", {
                         className: css({
@@ -291,7 +292,7 @@ function User() {
         if (moment(today).diff(dateJoined, 'years') >= 1) {
             setstatusImage(profileImages[3].image);
             setuserStatus("master");
-            setTimeout(function() {
+            setTimeout(function () {
                 if (moment(today).diff(dateJoined, 'years') % 1 === 0) {
                     toast("One year already?  Wow!", {
                         className: css({
@@ -434,6 +435,18 @@ function User() {
                             </Row>
                         </Col>
                         <Col size="md-1" />
+                    </Row>
+                    <Row no-gutters>
+                        <Col size="md-12">
+                            <div className="product-header f-top-pad white">
+                                <p>
+                                    Last Viewed Products
+                            </p>
+                            </div>
+                        </Col>
+                        <Col size="12">
+                            <ViewedProducts />
+                        </Col>
                     </Row>
                     <Row no-gutters>
                         <Col size="md-12">

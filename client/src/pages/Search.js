@@ -5,6 +5,7 @@ import Result from "../components/Result";
 import Fade from 'react-reveal/Fade';
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
+import ViewedProducts from "../components/ViewedProducts";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
@@ -147,6 +148,18 @@ function Search() {
                     ))}
                 </Col>
                 <Col size="md-1" />
+            </Row>
+            <Row no-gutters>
+                <Col size="md-12">
+                    <div className="product-header f-top-pad white">
+                        <p>
+                            Last Viewed Products
+                            </p>
+                    </div>
+                </Col>
+                <Col size="12">
+                    <ViewedProducts />
+                </Col>
             </Row>
             <ToastContainer
                 position="bottom-right"

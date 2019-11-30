@@ -5,6 +5,7 @@ import Fade from 'react-reveal/Fade';
 import { Col, Row, Container } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
+import ViewedProducts from "../components/ViewedProducts";
 import ProductButton from "../components/ProductButton";
 import Bundle from "../components/Bundle";
 import Bundles from "./Assets/Data/bundles.json";
@@ -413,6 +414,18 @@ function Products() {
                     </Col>
                 </Row>
             </div>
+            <Row no-gutters>
+                <Col size="md-12">
+                    <div className="product-header f-top-pad white">
+                        <p>
+                            Last Viewed Products
+                            </p>
+                    </div>
+                </Col>
+                <Col size="12">
+                    <ViewedProducts />
+                </Col>
+            </Row>
             {/* </Container> */}
         </div>
     )

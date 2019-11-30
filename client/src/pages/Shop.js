@@ -326,7 +326,20 @@ class Shop extends Component {
             if (cart.length > 0) {
                 const checkCart = cart.findIndex(item => item.product_id === id);
                 if (checkCart >= 0) {
-                    alert("Item already added to cart");
+                    toast("Item already added to cart", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
                 } else {
                     API.addItemToCart(this.state.cartID, id, 1)
                         .then(res =>

@@ -128,11 +128,6 @@ module.exports = {
                                 }
                             }
                         )
-                        // setTimeout(function () {
-                        //     return res.json({
-                        //         cartArr
-                        //     });
-                        // }, 1055);
                     } else {
                         return null;
                     }

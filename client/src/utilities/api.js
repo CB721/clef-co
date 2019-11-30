@@ -88,5 +88,8 @@ export default {
     },
     addProductToViewed: function(userAndProduct) {
         return axios.post("/api/products/viewed/user", userAndProduct);
+    },
+    getAllViewedProductsForUser: function(userID) {
+        return axios.get("/api/products/viewed/user/all/" + userID);
     }
 }

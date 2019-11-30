@@ -95,34 +95,14 @@ module.exports = {
     },
     getAllViewedProductsByUser: function (req, res) {
         const userID = req.params.userid;
-        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts WHERE user_id = " + userID + ";",
-            function (err, allProducts) {
+        db.query("SELECT oxn711nfcpjgwcr2.viewedProducts.id, oxn711nfcpjgwcr2.viewedProducts.viewed_on, oxn711nfcpjgwcr2.viewedProducts.views, oxn711nfcpjgwcr2.viewedProducts.product_id, oxn711nfcpjgwcr2.viewedProducts.user_id, oxn711nfcpjgwcr2.viewedProducts.purchased, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.cost, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.hardware, oxn711nfcpjgwcr2.products.software, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.quantity FROM oxn711nfcpjgwcr2.viewedProducts LEFT JOIN oxn711nfcpjgwcr2.products ON oxn711nfcpjgwcr2.products.id = oxn711nfcpjgwcr2.viewedProducts.product_id WHERE oxn711nfcpjgwcr2.viewedProducts.user_id = " + userID + " ORDER BY oxn711nfcpjgwcr2.viewedProducts.viewed_on DESC;",
+            function (err, results) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    const resLen = allProducts.length;
-                    if (resLen > 0) {
-                        const results = [];
-                        for (let i = 0; i < resLen; i++) {
-                            const productID = allProducts[i].product_id;
-                            db.query("SELECT * FROM oxn711nfcpjgwcr2.products WHERE id = " + productID + ";",
-                                function (err, product) {
-                                    if (err) {
-                                        return res.send(err);
-                                    } else {
-                                        results.push(product[0]);
-                                    }
-                                }
-                            )
-                        }
-                        setTimeout(function () {
-                            return res.json({
-                                results
-                            });
-                        }, resLen * 100);
-                    } else {
-                        return res.send("No viewed products");
-                    }
+                    return res.json({
+                        results
+                    });
                 }
             }
         )

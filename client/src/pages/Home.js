@@ -7,6 +7,7 @@ import Zoom from 'react-reveal/Zoom';
 import { Col, Row, Container } from "../components/Grid";
 import videoBG from "../pages/Assets/video/audio-visual2.mp4";
 import Review from "../components/Review";
+import ViewedProducts from "../components/ViewedProducts";
 import Tooltip from '@material-ui/core/Tooltip';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -333,6 +334,18 @@ function Home() {
                         draggable
                         pauseOnHover
                     />
+                </Col>
+            </Row>
+            <Row no-gutters>
+                <Col size="md-12">
+                    <div className="product-header f-top-pad white">
+                        <p>
+                            Last Viewed Products
+                            </p>
+                    </div>
+                </Col>
+                <Col size="12">
+                    <ViewedProducts />
                 </Col>
             </Row>
             {/* </Container> */}
