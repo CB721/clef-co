@@ -6,6 +6,7 @@ import Menu from "../components/Menu";
 import Product from "../components/Product";
 import Bundles from "./Assets/Data/bundles.json";
 import ProductData from "../pages/Assets/Data/products.json";
+import Loading from "../components/Loading";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -489,7 +490,9 @@ class Shop extends Component {
                                             pauseOnHover
                                         />
                                     </Col>
-                                ) : (<div />)}
+                                ) : (<Loading
+                                    color="white"
+                                />)}
                             </Row>
                         </div>
                     </Col>

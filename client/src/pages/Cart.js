@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { Col, Row, Container } from "../components/Grid";
+import Loading from "../components/Loading";
 import Checkout from "../components/Checkout";
 import API from "../utilities/api";
 import { ToastContainer, toast } from 'react-toastify';
@@ -108,7 +109,9 @@ function Cart() {
                                     <h1 className="purple">
                                         Your Cart Is Empty
                                         </h1>
-                                    {/* instruments unattended animation */}
+                                        <Loading 
+                                                color="white"
+                                            />
                                 </div>
                             )}
                     </div>

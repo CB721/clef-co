@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Flip from 'react-reveal/Flip';
 import Review from "../components/Review";
 import Button from "../components/Button";
+import Loading from "../components/Loading";
 import ViewedProducts from "../components/ViewedProducts";
 import ProductOrder from "../components/ProductOrder";
 import ProductData from "../pages/Assets/Data/products.json";
@@ -499,19 +500,21 @@ class ProductPage extends Component {
                     </Col>
                 </Row>
                 {window.sessionStorage.logged_in ? (
-                <Row no-gutters>
-                    <Col size="md-12">
-                        <div className="product-header f-top-pad white">
-                            <p>
-                                Last Viewed Products
+                    <Row no-gutters>
+                        <Col size="md-12">
+                            <div className="product-header f-top-pad white">
+                                <p>
+                                    Last Viewed Products
                             </p>
-                        </div>
-                    </Col>
-                    <Col size="12">
-                        <ViewedProducts />
-                    </Col>
-                </Row>
-            ) : (<div />)}
+                            </div>
+                        </Col>
+                        <Col size="12">
+                            <ViewedProducts />
+                        </Col>
+                    </Row>
+                ) : (<Loading
+                    color="white"
+                />)}
                 <ToastContainer
                     position="bottom-right"
                     autoClose={5000}

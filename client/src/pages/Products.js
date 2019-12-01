@@ -6,7 +6,7 @@ import { Col, Row, Container } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
 import ViewedProducts from "../components/ViewedProducts";
-import ProductButton from "../components/ProductButton";
+import Loading from "../components/Loading";
 import Bundle from "../components/Bundle";
 import Bundles from "./Assets/Data/bundles.json";
 import Modal from "../components/Modal";
@@ -163,7 +163,9 @@ function Products() {
                                     </a>
                                 </Col>
                             </Row>
-                        ) : (<div />)}
+                        ) : (<Loading
+                            color="white"
+                        />)}
                     </div>
                 </Col>
             </Row>
@@ -303,7 +305,9 @@ function Products() {
                                 </Col>
                             </Row>
                         </div>
-                    ) : (<div />)}
+                    ) : (<Loading
+                        color="white"
+                    />)}
                 </Col>
             </Row>
             <div className="company-section">
@@ -427,7 +431,9 @@ function Products() {
                         <ViewedProducts />
                     </Col>
                 </Row>
-            ) : (<div />)}
+            ) : (<Loading
+                color="white"
+            />)}
             {/* </Container> */}
         </div>
     )
