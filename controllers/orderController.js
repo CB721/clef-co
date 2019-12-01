@@ -29,13 +29,20 @@ module.exports = {
                                 }
                             }
                         )
-                        
                     }
-                    setTimeout(function() {
-                        return res.json({
-                            ordersArr
-                        });
-                    }, resLen * 100);
+                    if (resLen < 5) {
+                        setTimeout(function () {
+                            return res.json({
+                                ordersArr
+                            });
+                        }, 5000);
+                    } else {
+                        setTimeout(function () {
+                            return res.json({
+                                ordersArr
+                            });
+                        }, resLen * 100);
+                    }
                 }
             }
         )

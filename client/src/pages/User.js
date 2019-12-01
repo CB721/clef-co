@@ -5,6 +5,7 @@ import { Col, Row, Container } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import UserNews from "../components/UserNews";
 import Order from "../components/Order";
+import Loading from "../components/Loading";
 import DeleteAccount from "../components/DeleteAccount";
 import moment from "moment";
 import ViewedProducts from "../components/ViewedProducts";
@@ -424,10 +425,10 @@ function User() {
                         </Col>
                     </Row>
                     <Row no-gutters>
-                        <Col size="md-1" />
-                        <Col size="md-10">
+                        <Col size="sm-1" />
+                        <Col size="sm-10">
                             <Row no-gutters>
-                                <Col size="md-4 12">
+                                <Col size="sm-4 12">
                                     <ProfileCard
                                         cardClass={cardClass}
                                         image={statusImage}
@@ -446,19 +447,21 @@ function User() {
                                         updateUser={updateUser}
                                     />
                                 </Col>
-                                <Col size="md-2" />
-                                <Col size="md-6">
+                                <Col size="sm-2" />
+                                <Col size="sm-6">
                                     {allNews.length > 3 ? (
                                         <UserNews
                                             news={allNews}
                                         />
                                     ) : (
-                                            <div />
+                                            <Loading 
+                                                color="white"
+                                            />
                                         )}
                                 </Col>
                             </Row>
                         </Col>
-                        <Col size="md-1" />
+                        <Col size="sm-1" />
                     </Row>
                     <Row no-gutters>
                         <Col size="md-12">

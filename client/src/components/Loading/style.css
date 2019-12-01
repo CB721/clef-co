@@ -1,0 +1,9 @@
+.loading-circle {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

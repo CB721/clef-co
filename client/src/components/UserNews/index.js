@@ -6,7 +6,6 @@ import MonthNews from "../../pages/Assets/Data/season-news.json";
 import "./style.css";
 
 function UserNews(props) {
-    console.log(props.news);
     const [news, setNews] = useState([]);
     const todayMonth = moment().format("MMMM");
     const today = moment().format("YYYY-MM-DDTHH:mm:ss");
@@ -22,14 +21,12 @@ function UserNews(props) {
     }
     useEffect(() => {
         for (let i = 0; i < props.news.length; i++) {
-            console.log(props.news[i]);
             if (props.news[i]) {
                 routeNews(props.news[i]);
             }
         }
     }, []);
     function routeNews(item) {
-        console.log(item);
         switch (Object.keys(item)[0]) {
             case 'review':
                 if (item.rating.data[0] < 4) {
