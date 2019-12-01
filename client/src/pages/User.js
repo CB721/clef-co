@@ -37,6 +37,9 @@ function User() {
     const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const orders = useSelector(state => state.orders);
+    const [reviews, setReviews] = useState([]);
+    const [allNews, setAllNews] = useState([]);
+    const [selectedNews, setSelectedNews] = useState([]);
 
 
     useEffect(() => {
@@ -63,7 +66,21 @@ function User() {
         } else {
             window.location.href = "/login";
         }
-    }, [])
+    }, []);
+    useEffect(() => {
+        API.getUserReviews(window.sessionStorage.id)
+            .then(res =>
+                setNews(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }, []);
+    useEffect(() => {
+        setAllNews(allNews => [...allNews, orders[0]]);
+    }, [orders])
+    function setNews(data) {
+        setReviews(data);
+        setAllNews(allNews => [...allNews, data[data.length - 1]]);
+    }
     function setUpUser() {
         setFirst(window.sessionStorage.first_name);
         setJoinedDate(window.sessionStorage.joined_date);
@@ -424,13 +441,13 @@ function User() {
                                 </Col>
                                 <Col size="md-2" />
                                 <Col size="md-6">
-                                    <UserNews
-                                        news={[
-                                            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                                            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-                                            "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. "
-                                        ]}
-                                    />
+                                    {allNews.length > 2 ? (
+                                        <UserNews
+                                            news={allNews}
+                                        />
+                                    ) : (
+                                            <div />
+                                        )}
                                 </Col>
                             </Row>
                         </Col>

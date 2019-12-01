@@ -91,5 +91,8 @@ export default {
     },
     getAllViewedProductsForUser: function(userID) {
         return axios.get("/api/products/viewed/user/all/" + userID);
+    },
+    getUserReviews: function(userID) {
+        return axios.get("/api/reviews/user/" + userID);
     }
 }
