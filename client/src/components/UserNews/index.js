@@ -1,11 +1,23 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
+import Zoom from 'react-reveal/Zoom';
 import Waves from "../Waves";
+import MonthNews from "../../pages/Assets/Data/season-news.json";
 import "./style.css";
 
 function UserNews(props) {
     const [news, setNews] = useState([]);
+    const todayMonth = moment().format("MMMM");
 
+    useEffect(() => {
+        MonthNews.forEach(month => 
+            handleMonthNews(month.month, month.news))
+    }, []);
+    function handleMonthNews(month, monthNews) {
+        if (month === todayMonth) {
+            setNews(news => [...news, monthNews]);
+        }
+    }
     useEffect(() => {
         for (let i = 0; i < props.news.length; i++) {
             if (props.news[i]) {
@@ -25,9 +37,6 @@ function UserNews(props) {
                 }
                 break;
             case 'order_id':
-                let orderDay = moment(item.checked_out_at.split("T")[0].split("-")[2]).format("Do");
-                let orderDayName = moment(item.checked_out_at.split("T")[0].split("-")[2]).format("dddd");
-                let orderMonth = moment(item.checked_out_at.split("T")[0].split("-")[1]).format("MMMM");
                 let orderDate = moment(
                     item.checked_out_at.split("T")[0].split("-")[1] +
                     " " +
@@ -54,16 +63,18 @@ function UserNews(props) {
                     News Feed
                 </h1>
             </div>
-            <ul className="news-list">
-                {news.map((story, index) =>
-                    <li
-                        key={index}
-                        className="news-item white"
-                    >
-                        {story}
-                    </li>
-                )}
-            </ul>
+            <Zoom bottom cascade>
+                <ul className="news-list">
+                    {news.map((story, index) =>
+                        <li
+                            key={index}
+                            className="news-item white"
+                        >
+                            {story}
+                        </li>
+                    )}
+                </ul>
+            </Zoom>
             <Waves />
         </div>
     )
