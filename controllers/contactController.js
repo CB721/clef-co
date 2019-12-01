@@ -24,7 +24,7 @@ module.exports = {
     },
     getFormsByUserID: function(req, res) {
         const user = req.params.userid;
-        db.query("SELECT * FROM " + contactTable + " WHERE user_id = " + user + ";",
+        db.query("SELECT oxn711nfcpjgwcr2.contactForms.id AS form_id, oxn711nfcpjgwcr2.contactForms.user_email, oxn711nfcpjgwcr2.contactForms.user_subject, oxn711nfcpjgwcr2.contactForms.user_description, oxn711nfcpjgwcr2.contactForms.product_id, oxn711nfcpjgwcr2.contactForms.created_at, oxn711nfcpjgwcr2.contactForms.user_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.hardware, oxn711nfcpjgwcr2.products.software FROM oxn711nfcpjgwcr2.contactForms LEFT JOIN oxn711nfcpjgwcr2.products ON oxn711nfcpjgwcr2.products.id = oxn711nfcpjgwcr2.contactForms.product_id WHERE oxn711nfcpjgwcr2.contactForms.user_id = " + user + ";",
             function(err, results) {
                 if (err) {
                     return res.send(err);

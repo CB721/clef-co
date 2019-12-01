@@ -77,6 +77,13 @@ function User() {
     useEffect(() => {
         setAllNews(allNews => [...allNews, orders[0]]);
     }, [orders])
+    useEffect(() => {
+        API.getContactFormByUser(window.sessionStorage.id)
+            .then(res =>
+                setNews(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }, []);
     function setNews(data) {
         setReviews(data);
         setAllNews(allNews => [...allNews, data[data.length - 1]]);
@@ -441,7 +448,7 @@ function User() {
                                 </Col>
                                 <Col size="md-2" />
                                 <Col size="md-6">
-                                    {allNews.length > 2 ? (
+                                    {allNews.length > 3 ? (
                                         <UserNews
                                             news={allNews}
                                         />

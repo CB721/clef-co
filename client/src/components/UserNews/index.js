@@ -6,8 +6,10 @@ import MonthNews from "../../pages/Assets/Data/season-news.json";
 import "./style.css";
 
 function UserNews(props) {
+    console.log(props.news);
     const [news, setNews] = useState([]);
     const todayMonth = moment().format("MMMM");
+    const today = moment().format("YYYY-MM-DDTHH:mm:ss");
 
     useEffect(() => {
         MonthNews.forEach(month => 
@@ -20,12 +22,14 @@ function UserNews(props) {
     }
     useEffect(() => {
         for (let i = 0; i < props.news.length; i++) {
+            console.log(props.news[i]);
             if (props.news[i]) {
                 routeNews(props.news[i]);
             }
         }
     }, []);
     function routeNews(item) {
+        console.log(item);
         switch (Object.keys(item)[0]) {
             case 'review':
                 if (item.rating.data[0] < 4) {
@@ -48,6 +52,18 @@ function UserNews(props) {
                     )
                 let orderStr = "How is your order from " + orderDate + " working out for you?";
                 handleNews(orderStr);
+                break;
+            case 'form_id':
+                if (moment(today).diff(item.created_at, 'days') < 2) {
+                    let contactStr = "We have received your support ticket about " + item.product_name + ".  Our support team will reach out to you soon!";
+                    handleNews(contactStr);
+                } else if (moment(today).diff(item.created_at, 'days') > 2 && moment(today).diff(item.created_at, 'days') < 7) {
+                    let contactStr = "We haven't heard back from you. Where you able to get your " + item.product_name + " up and running?";
+                    handleNews(contactStr);
+                } else {
+                    let contactStr = "Our customer service team is available 24/7 and will give you expert advice.  We know all of the products we sell inside and out and would love to help you!";
+                    handleNews(contactStr);
+                }
                 break;
             default:
                 return;
