@@ -498,6 +498,7 @@ class ProductPage extends Component {
                         </div>
                     </Col>
                 </Row>
+                {window.sessionStorage.logged_in ? (
                 <Row no-gutters>
                     <Col size="md-12">
                         <div className="product-header f-top-pad white">
@@ -510,6 +511,7 @@ class ProductPage extends Component {
                         <ViewedProducts />
                     </Col>
                 </Row>
+            ) : (<div />)}
                 <ToastContainer
                     position="bottom-right"
                     autoClose={5000}
