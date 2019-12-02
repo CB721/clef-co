@@ -11,7 +11,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Badge from '@material-ui/core/Badge';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
-import Dropdown from '../Dropdown';
 import SideMenu from '../SideMenu';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
@@ -206,11 +205,6 @@ function Navbar(props) {
                 loggedIn={loggedIn}
                 logOut={logOut}
             />
-            {/* <Dropdown
-                isOpen={isOpen}
-                loggedIn={loggedIn}
-                logOut={logOut}
-            /> */}
         </MuiThemeProvider>
     );
 }

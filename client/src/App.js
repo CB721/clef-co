@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Navbar from "./components/Navbar";
-import Dropdown from "./components/Dropdown";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
