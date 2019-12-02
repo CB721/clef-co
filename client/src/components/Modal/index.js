@@ -13,8 +13,6 @@ function Modal(props) {
         event.preventDefault();
         window.location.href = "/login";
     }
-    // console.log(props.products);
-    // console.log(props.open);
     return (
         <div className={props.class}>
             {props.open ? (

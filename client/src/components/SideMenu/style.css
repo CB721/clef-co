@@ -1,0 +1,94 @@
+.no-menu {
+    display: none;
+}
+.menu-background {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.509);
+    transition: 3.5s;
+}
+#menu-outer-section {
+    position: relative;
+    left: 20;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    overflow: auto;
+    float: left;
+}
+.side-menu {
+    float: left;
+    position: relative;
+    left: 0;
+    margin-top: 59px;
+    padding-top: 5px;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    background: black;
+}
+.side-menu-item {
+    width: 100%;
+    font-size: 1.938rem;
+    border-bottom: 1px solid white;
+}
+.side-menu .side-menu-item {
+    list-style: none;
+    transition: 0.5s;
+    color: white;
+}
+.side-menu .side-menu-item a {
+    position: relative;
+    color: transparent;
+    text-decoration: none;
+}
+.side-menu .side-menu-item a:before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    color: white;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    transform: translateX(0);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.side-menu .side-menu-item a:hover:before {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.side-menu .side-menu-item a::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    color: white;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+.side-menu .side-menu-item a:hover::after {
+    transform: translateX(0);
+    color: rgb(62,7,104);
+    opacity: 1;
+}
+.menu-sign-out {
+    color: white;
+    transition: 0.5s;
+}
+.menu-sign-out:hover {
+    color: red;
+}

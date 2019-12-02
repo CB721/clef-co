@@ -12,6 +12,7 @@ import Badge from '@material-ui/core/Badge';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import Dropdown from '../Dropdown';
+import SideMenu from '../SideMenu';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,6 +27,7 @@ function Navbar(props) {
     const [search, setSearch] = useState("");
     const [isOpen, setIsOpen] = useState(false);
     const [renderMiddleCol, setMiddleCol] = useState(true);
+    const [menuClass, setMenuClass] = useState("no-menu");
 
     useEffect(() => {
         if (cart[0]) {
@@ -110,8 +112,14 @@ function Navbar(props) {
         let value = event.target.value;
         setSearch(value);
     }
-    function toggleMenu() {
+    function toggleMenu(event) {
+        event.preventDefault();
         setIsOpen(!isOpen);
+        if (menuClass === "no-menu") {
+            setMenuClass("menu-background");
+        } else {
+            setMenuClass("no-menu");
+        }
     }
     const theme = createMuiTheme({
         palette: {
@@ -191,11 +199,18 @@ function Navbar(props) {
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>
-            <Dropdown
+            <SideMenu 
                 isOpen={isOpen}
+                menuClass={menuClass}
+                toggleMenu={toggleMenu}
                 loggedIn={loggedIn}
                 logOut={logOut}
             />
+            {/* <Dropdown
+                isOpen={isOpen}
+                loggedIn={loggedIn}
+                logOut={logOut}
+            /> */}
         </MuiThemeProvider>
     );
 }
