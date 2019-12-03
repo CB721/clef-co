@@ -24,18 +24,18 @@ function Result(props) {
     return (
         <div className="result purple" onClick={(event) => props.goToProduct(event, id)}>
             <Row no-gutters>
-                <Col size="md-2">
+                <Col size="sm-2 12">
                     <h6 className="result-type">
                         {type}
                     </h6>
 
                 </Col>
-                <Col size="md-8">
+                <Col size="sm-8 12">
                     <h3 className="result-product-name">
                         {props.productName}
                     </h3>
                 </Col>
-                <Col size="md-2">
+                <Col size="sm-2 12">
                     {type === "product" ? (
                         <h6 className="result-basic-info">
                             ${props.price}
@@ -52,7 +52,7 @@ function Result(props) {
                 </Col>
             </Row>
             <Row no-gutters>
-                <Col size="md-2">
+                <Col size="sm-2 12">
                     {type === "product" ? (
                         <p className="result-secondary-info">
                             {props.instrumentType}
@@ -67,7 +67,7 @@ function Result(props) {
                         </p>
                     ) : (<div />)}
                 </Col>
-                <Col size="md-8">
+                <Col size="sm-8 12">
                     {type === "product" || type === "order" ? (
                         <p className="result-description">
                             {props.productDescription.slice(0, 200) + "..."}
@@ -78,7 +78,7 @@ function Result(props) {
                         </p>
                     ) : (<div />)}
                 </Col>
-                <Col size="md-2">
+                <Col size="sm-2 12">
                     <img src={props.image} alt={props.productName} className="result-image"></img>
                 </Col>
             </Row>

@@ -13,6 +13,7 @@ import "./style.css";
 function ViewedProducts() {
     const [products, setProducts] = useState([]);
     const cart = useSelector(state => state.cart);
+    const allProducts = useSelector(state => state.products);
 
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
@@ -24,7 +25,7 @@ function ViewedProducts() {
         }
     }, []);
     function validateProducts(data) {
-        if (data) {
+        if (data.length > 2) {
             let i = 0;
             while (i < 3) {
                 setProducts(products => [...products, data[i]]);
@@ -71,7 +72,6 @@ function ViewedProducts() {
         }
     }
     function handleCartAddition(data, product) {
-        console.log(data);
         toast(product + " has been added to your cart!", {
             className: css({
                 background: '#3E0768',
@@ -89,6 +89,8 @@ function ViewedProducts() {
     }
     return (
         <Row no-gutters>
+        {products.length > 2 ? (
+            <div>
             {products.map(product => (
                 <Col size="md-4" key={product.product_id}>
                     <Slide bottom >
@@ -109,6 +111,8 @@ function ViewedProducts() {
                     </Slide>
                 </Col>
             ))}
+            </div>
+        ) : (<div />)}
         </Row>
     )
 }

@@ -5,6 +5,7 @@
     padding-bottom: 25px;
     margin-bottom: 15px;
     width: 100%;
+    overflow: hidden;
     height: auto;
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
     position: relative;

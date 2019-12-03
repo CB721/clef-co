@@ -163,9 +163,7 @@ function Search() {
                         <ViewedProducts />
                     </Col>
                 </Row>
-            ) : (<Loading
-                color="white"
-            />)}
+            ) : (<div />)}
             <ToastContainer
                 position="bottom-right"
                 autoClose={5000}

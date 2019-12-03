@@ -62,6 +62,12 @@
     font-size: 1.938rem;
     border-bottom: 1px solid white;
 }
+.side-menu-item:hover {
+    border-bottom: 1px solid rgb(62,7,104);
+}
+.side-menu-item:hover .white {
+    color: rgb(62,7,104);
+}
 .side-menu .side-menu-item {
     list-style: none;
     transition: 0.5s;

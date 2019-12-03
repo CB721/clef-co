@@ -154,7 +154,7 @@ function Navbar(props) {
                             </IconButton>
                         </Col>
                         <Col size="md-2">
-                            <a href="/" className="white ">Demo Company</a>
+                            <a href="/" className="white "><h6>Demo Company</h6></a>
                         </Col>
                         {renderMiddleCol ? (
                             <Col size="lg-6 md-5 sm-3" />
