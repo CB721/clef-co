@@ -94,5 +94,8 @@ export default {
     },
     getUserReviews: function(userID) {
         return axios.get("/api/reviews/user/" + userID);
+    },
+    getAllProductsBySalesTotal: function() {
+        return axios.get("/api/products/sales/grossing");
     }
 }

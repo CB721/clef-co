@@ -44,6 +44,7 @@ class Shop extends Component {
         software: false,
         cartID: 0,
         cart: [],
+        topProducts: [],
     }
     UNSAFE_componentWillMount() {
         this.getProducts();

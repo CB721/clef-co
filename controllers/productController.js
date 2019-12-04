@@ -42,7 +42,7 @@ module.exports = {
         )
     },
     getAllProductsBySalesTotal: function (req, res) {
-        db.query("SELECT oxn711nfcpjgwcr2.orderItems.quantity * oxn711nfcpjgwcr2.products.price AS product_sales_totals, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.cost, oxn711nfcpjgwcr2.products.quantity, oxn711nfcpjgwcr2.products.hardware, oxn711nfcpjgwcr2.products.software FROM oxn711nfcpjgwcr2.orderItems LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id GROUP BY oxn711nfcpjgwcr2.products.id ORDER BY oxn711nfcpjgwcr2.orderItems.quantity * oxn711nfcpjgwcr2.products.price DESC;",
+        db.query("SELECT oxn711nfcpjgwcr2.orderItems.quantity * oxn711nfcpjgwcr2.products.price AS product_sales_totals, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.orderItems.product_id AS id, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.cost, oxn711nfcpjgwcr2.products.quantity, oxn711nfcpjgwcr2.products.hardware, oxn711nfcpjgwcr2.products.software FROM oxn711nfcpjgwcr2.orderItems LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id GROUP BY oxn711nfcpjgwcr2.products.id ORDER BY oxn711nfcpjgwcr2.orderItems.quantity * oxn711nfcpjgwcr2.products.price DESC;",
             function (err, results) {
                 if (err) {
                     return res.send(err);

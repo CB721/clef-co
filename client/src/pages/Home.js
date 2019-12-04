@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
+import Loading from "../components/Loading";
 import Fade from 'react-reveal/Fade';
 import RubberBand from 'react-reveal/RubberBand';
 import Flip from 'react-reveal/Flip';
@@ -22,11 +23,12 @@ function Home() {
     const [productTwo, setProductTwo] = useState([]);
     const [reviews, setReviews] = useState([]);
     const products = useSelector(state => state.products);
+    const [topProducts, setTopProducts] = useState([]);
 
     useEffect(() => {
         if (products.length > 12) {
-            setProductOne(products[7]);
-            setProductTwo(products[13]);
+            setProductOne(products[10]);
+            setProductTwo(products[12]);
         }
     }, [products]);
     useEffect(() => {
@@ -45,6 +47,13 @@ function Home() {
         }
         setReviews(filteredArr);
     }
+    useEffect(() => {
+        API.getAllProductsBySalesTotal()
+            .then(res =>
+                setTopProducts(res.data.results)
+            )
+            .catch(err => console.log(err));
+    }, [topProducts]);
     useEffect(() => {
         if (window.sessionStorage.id) {
             setTimeout(function () {
@@ -169,8 +178,7 @@ function Home() {
                                 </RubberBand>
                             </Col>
                         </Row>
-                        {/* change to top selling products once configured */}
-                        {products.length > 5 ? (
+                        {topProducts.length > 5 ? (
                             <Row no-gutters>
                                 <Col size="md-4" />
                                 <Col size="md-4 12">
@@ -178,87 +186,87 @@ function Home() {
                                         <Zoom left cascade>
                                             <li className="li-honey-comb">
                                                 <Tooltip
-                                                    title={products[0].product_name}
+                                                    title={topProducts[0].product_name}
                                                     leaveDelay={3}
                                                     placement="top"
                                                 >
                                                     <img
                                                         className="img-honey-comb"
-                                                        src={products[0].image_link}
-                                                        alt={products[0].product_name}
+                                                        src={topProducts[0].image_link}
+                                                        alt={topProducts[0].product_name}
                                                         onClick={(event) => {
-                                                            goToProductPage(event, products[0].id)
+                                                            goToProductPage(event, topProducts[0].id)
                                                         }}
                                                     ></img>
                                                 </Tooltip>
                                             </li>
                                             <li className="li-honey-comb">
                                                 <Tooltip
-                                                    title={products[1].product_name}
+                                                    title={topProducts[1].product_name}
                                                     leaveDelay={3}
                                                     placement="left"
                                                 >
                                                     <img className="img-honey-comb"
-                                                        src={products[1].image_link}
-                                                        alt={products[1].product_name}
+                                                        src={topProducts[1].image_link}
+                                                        alt={topProducts[1].product_name}
                                                         onClick={(event) => {
-                                                            goToProductPage(event, products[1].id)
+                                                            goToProductPage(event, topProducts[1].id)
                                                         }}></img>
                                                 </Tooltip>
                                             </li>
                                             <li className="li-honey-comb">
                                                 <Tooltip
-                                                    title={products[2].product_name}
+                                                    title={topProducts[2].product_name}
                                                     leaveDelay={3}
                                                     placement="left"
                                                 >
                                                     <img className="img-honey-comb"
-                                                        src={products[2].image_link}
-                                                        alt={products[2].product_name}
+                                                        src={topProducts[2].image_link}
+                                                        alt={topProducts[2].product_name}
                                                         onClick={(event) => {
-                                                            goToProductPage(event, products[2].id)
+                                                            goToProductPage(event, topProducts[2].id)
                                                         }}></img>
                                                 </Tooltip>
                                             </li>
                                             <li className="li-honey-comb">
                                                 <Tooltip
-                                                    title={products[3].product_name}
+                                                    title={topProducts[3].product_name}
                                                     leaveDelay={3}
                                                     placement="bottom"
                                                 >
                                                     <img className="img-honey-comb"
-                                                        src={products[3].image_link}
-                                                        alt={products[3].product_name}
+                                                        src={topProducts[3].image_link}
+                                                        alt={topProducts[3].product_name}
                                                         onClick={(event) => {
-                                                            goToProductPage(event, products[3].id)
+                                                            goToProductPage(event, topProducts[3].id)
                                                         }}></img>
                                                 </Tooltip>
                                             </li>
                                             <li className="li-honey-comb">
                                                 <Tooltip
-                                                    title={products[4].product_name}
+                                                    title={topProducts[4].product_name}
                                                     leaveDelay={3}
                                                     placement="right"
                                                 >
                                                     <img className="img-honey-comb"
-                                                        src={products[4].image_link}
-                                                        alt={products[4].product_name}
+                                                        src={topProducts[4].image_link}
+                                                        alt={topProducts[4].product_name}
                                                         onClick={(event) => {
-                                                            goToProductPage(event, products[4].id)
+                                                            goToProductPage(event, topProducts[4].id)
                                                         }}></img>
                                                 </Tooltip>
                                             </li>
                                             <li className="li-honey-comb">
                                                 <Tooltip
-                                                    title={products[5].product_name}
+                                                    title={topProducts[5].product_name}
                                                     leaveDelay={3}
                                                     placement="right"
                                                 >
                                                     <img className="img-honey-comb"
-                                                        src={products[5].image_link}
-                                                        alt={products[5].product_name}
+                                                        src={topProducts[5].image_link}
+                                                        alt={topProducts[5].product_name}
                                                         onClick={(event) => {
-                                                            goToProductPage(event, products[5].id)
+                                                            goToProductPage(event, topProducts[5].id)
                                                         }}></img>
                                                 </Tooltip>
                                             </li>
@@ -267,7 +275,9 @@ function Home() {
                                 </Col>
                                 <Col size="md-4" />
                             </Row>
-                        ) : (<div />)}
+                        ) : (<Loading
+                            color="white"
+                        />)}
                     </div>
                 </Col>
             </Row>
