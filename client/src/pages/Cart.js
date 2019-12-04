@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import Loading from "../components/Loading";
 import Checkout from "../components/Checkout";
 import API from "../utilities/api";
@@ -80,7 +80,6 @@ function Cart() {
 
     return (
         <div className="page-container">
-            {/* <Container fluid> */}
             <Row no-gutters>
                 <Col size="md-2" />
                 <Col size="md-8">
@@ -129,7 +128,6 @@ function Cart() {
                 draggable
                 pauseOnHover
             />
-            {/* </Container> */}
         </div>
     )
 }

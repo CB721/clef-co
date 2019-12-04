@@ -27,8 +27,12 @@
 }
 #image-overlay-n {
     z-index: 0;
-    left: 50%;
+    top: 0;
+    left: 55%;
     -ms-transform: skewY(20deg);
     -webkit-transform: skewY(20deg);
     transform: skewY(20deg);
+    -ms-transform: scale(0.5,0.5);
+    -webkit-transform: scale(0.5,0.5);
+    transform: scale(0.5,0.5);
 }

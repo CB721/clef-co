@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
 import Form from "../components/Form";
@@ -154,7 +154,6 @@ class Contact extends Component {
     render() {
         return (
             <div className="page-container">
-                {/* <Container fluid> */}
                 <Row no-gutters>
                     <Col size="md-2" />
                     <Col size="md-8">
@@ -285,7 +284,6 @@ class Contact extends Component {
                     draggable
                     pauseOnHover
                 />
-                {/* </Container> */}
             </div>
         )
     }

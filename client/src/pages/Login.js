@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveUser, switchLoggedStatus } from '../actions';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
 import API from "../utilities/api";
@@ -48,9 +48,6 @@ function Login() {
             window.location.href = "/user/profile";
         }
     };
-    function updateLastVisit(user) {
-        
-    }
     function handleInputChange(event) {
         let value = event.target.value.trim();
         const name = event.target.name.trim();
@@ -81,38 +78,37 @@ function Login() {
 
     return (
         <div className="page-container">
-            {/* <Container fluid> */}
-                <Row no-gutters>
-                    <Col size="md-2" />
-                    <Col size="md-8">
-                        <h1 className="white q-top-pad text-shadow">
-                            Login
+            <Row no-gutters>
+                <Col size="md-2" />
+                <Col size="md-8">
+                    <h1 className="white q-top-pad text-shadow">
+                        Login
                             </h1>
-                    </Col>
-                </Row>
-                <Row no-gutters>
-                    <Col size="md-12">
-                        <Row no-gutters>
-                            <Col size="md-4" />
-                            <Col size="md-4">
-                                <LoginForm
-                                    type="login"
-                                    errorClass={errorClass}
-                                    formMessage={formMessage}
-                                    handleInputChange={handleInputChange}
-                                    email={email}
-                                    password={password}
-                                    button={<Button
-                                        action={handleFormSubmit}
-                                        buttonClass="explore"
-                                        text="Log In"
-                                    />}
-                                />
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
-                <ToastContainer
+                </Col>
+            </Row>
+            <Row no-gutters>
+                <Col size="md-12">
+                    <Row no-gutters>
+                        <Col size="md-4" />
+                        <Col size="md-4">
+                            <LoginForm
+                                type="login"
+                                errorClass={errorClass}
+                                formMessage={formMessage}
+                                handleInputChange={handleInputChange}
+                                email={email}
+                                password={password}
+                                button={<Button
+                                    action={handleFormSubmit}
+                                    buttonClass="explore"
+                                    text="Log In"
+                                />}
+                            />
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
+            <ToastContainer
                 position="bottom-right"
                 autoClose={5000}
                 hideProgressBar={false}
@@ -123,8 +119,7 @@ function Login() {
                 draggable
                 pauseOnHover
             />
-            {/* </Container> */}
-            </div>
+        </div>
     )
 }
 

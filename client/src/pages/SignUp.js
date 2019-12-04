@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import SignUpForm from "../components/SignUp";
 import Button from "../components/Button";
 import API from "../utilities/api";
@@ -79,41 +79,39 @@ class SignUp extends Component {
     render() {
         return (
             <div className="page-container">
-                {/* <Container fluid> */}
-                    <Row no-gutters>
-                        <Col size="md-2" />
-                        <Col size="md-8">
-                            <h1 className="white q-top-pad text-shadow">
-                                Create a new account
-                            </h1>
-                        </Col>
-                    </Row>
-                    <Row no-gutters>
-                        <Col size="md-12">
-                            <Row no-gutters>
-                                <Col size="md-4" />
-                                <Col size="md-4">
-                                    <SignUpForm
-                                        errorClass={this.state.errorClass}
-                                        formMessage={this.state.formMessage}
-                                        first={this.state.first}
-                                        last={this.state.last}
-                                        email={this.state.email}
-                                        password={this.state.password}
-                                        conPassword={this.state.conPassword}
-                                        handleInputChange={this.handleInputChange()}
-                                        button={<Button
-                                            action={this.handleFormSubmit()}
-                                            buttonClass="explore"
-                                            text="Join!"
-                                        />}
-                                    />
-                                </Col>
-                            </Row>
-                        </Col>
-                    </Row>
-                {/* </Container> */}
-                </div>
+                <Row no-gutters>
+                    <Col size="md-2" />
+                    <Col size="md-8">
+                        <h1 className="white q-top-pad text-shadow">
+                            Create a new account
+                        </h1>
+                    </Col>
+                </Row>
+                <Row no-gutters>
+                    <Col size="md-12">
+                        <Row no-gutters>
+                            <Col size="md-4" />
+                            <Col size="md-4">
+                                <SignUpForm
+                                    errorClass={this.state.errorClass}
+                                    formMessage={this.state.formMessage}
+                                    first={this.state.first}
+                                    last={this.state.last}
+                                    email={this.state.email}
+                                    password={this.state.password}
+                                    conPassword={this.state.conPassword}
+                                    handleInputChange={this.handleInputChange()}
+                                    button={<Button
+                                        action={this.handleFormSubmit()}
+                                        buttonClass="explore"
+                                        text="Join!"
+                                    />}
+                                />
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
+            </div>
         )
     }
 }

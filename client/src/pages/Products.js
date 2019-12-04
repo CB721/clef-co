@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import Pulse from 'react-reveal/Pulse';
 import Fade from 'react-reveal/Fade';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import IconButton from '@material-ui/core/IconButton';
 import Button from "../components/Button";
 import ViewedProducts from "../components/ViewedProducts";
@@ -92,7 +92,6 @@ function Products() {
 
     return (
         <div className="page-container">
-            {/* <Container fluid> */}
             <div className="t-top-pad">
                 <Row no-gutters>
                     <Col size="md-12">
@@ -286,7 +285,6 @@ function Products() {
                                         </Col>
                                     </Row>
                                     <Row no-gutters>
-                                        {/* <div className="f-top-pad"> */}
                                         <Col size="md-12">
                                             <Row no-gutters>
                                                 <Col size="md-1" />
@@ -300,7 +298,6 @@ function Products() {
                                                 <Col size="md-1" />
                                             </Row>
                                         </Col>
-                                        {/* </div> */}
                                     </Row>
                                 </Col>
                             </Row>
@@ -391,14 +388,14 @@ function Products() {
                                                 <Col size="md-12">
                                                     <h2 className="white f-top-pad">
                                                         Check Cart
-                                                            </h2>
+                                                    </h2>
                                                 </Col>
                                             </Row>
                                             <Row no-gutters>
                                                 <Col size="md-12">
                                                     <span className="white">
                                                         View and purchase your currently selected products
-                                                            </span>
+                                                    </span>
                                                 </Col>
                                             </Row>
                                             <Row no-gutters>
@@ -434,7 +431,6 @@ function Products() {
             ) : (<Loading
                 color="white"
             />)}
-            {/* </Container> */}
         </div>
     )
 }

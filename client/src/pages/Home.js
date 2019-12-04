@@ -4,8 +4,8 @@ import Fade from 'react-reveal/Fade';
 import RubberBand from 'react-reveal/RubberBand';
 import Flip from 'react-reveal/Flip';
 import Zoom from 'react-reveal/Zoom';
-import { Col, Row, Container } from "../components/Grid";
-import videoBG from "../pages/Assets/video/audio-visual2.mp4";
+import { Col, Row } from "../components/Grid";
+import videoBG from "../pages/Assets/video/simplified-home-video.mp4";
 import Review from "../components/Review";
 import ViewedProducts from "../components/ViewedProducts";
 import Tooltip from '@material-ui/core/Tooltip';
@@ -88,17 +88,16 @@ function Home() {
     }
     return (
         <div className="page-container">
-            {/* <Container fluid > */}
             <Row no-gutters>
                 <Col size="md-12">
-                    {/* <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
+                    <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
                         style={{
                             objectFit: 'cover',
                             width: '100%',
                             height: '100vh',
                         }}
                         src={videoBG}>
-                    </video> */}
+                    </video>
                     <h1 className="white center middle video-text-overlay">
                         Demo Company
                     </h1>
@@ -345,7 +344,6 @@ function Home() {
                     </Col>
                 </Row>
             ) : (<div />)}
-            {/* </Container> */}
         </div>
     )
 }

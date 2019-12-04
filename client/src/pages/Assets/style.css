@@ -161,7 +161,7 @@ h6 {
     transform: scale(1.05);
 }
 .video-background {
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.502);
     z-index: 4;
     mix-blend-mode: multiply;
 }

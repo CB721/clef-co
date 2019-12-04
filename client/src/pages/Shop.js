@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Fade from 'react-reveal/Fade';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import Button from "../components/Button";
 import Menu from "../components/Menu";
 import Product from "../components/Product";
@@ -393,7 +393,6 @@ class Shop extends Component {
     render() {
         return (
             <div className="page-container">
-                {/* <Container fluid> */}
                 <Row no-gutters>
                     <Col size="md-12">
                         <div className="company-section rounded-corners">
@@ -497,7 +496,6 @@ class Shop extends Component {
                         </div>
                     </Col>
                 </Row>
-                {/* </Container> */}
             </div>
         )
     }

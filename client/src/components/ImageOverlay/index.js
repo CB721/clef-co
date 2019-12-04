@@ -3,6 +3,7 @@ import bass from "./Images/bass.png";
 import drums from "./Images/drums.png";
 import guitar from "./Images/guitar.png";
 import piano from "./Images/piano.png";
+import Fade from 'react-reveal/Fade';
 import "./style.css";
 
 function ImageOverlay(props) {
@@ -35,7 +36,9 @@ function ImageOverlay(props) {
     return (
         <div className="image-overlay-wrapper">
             {images.map((image, index) => (
-                <img src={image} key={image[index + 14]} alt={props.status} id={"image-overlay-" + image[index + 14]} className="image-overlay"></img>
+                <Fade bottom big key={image[index + 14]}>
+                    <img src={image} alt={props.status} id={"image-overlay-" + image[index + 14]} className="image-overlay"></img>
+                </Fade>
             ))}
         </div>
     )

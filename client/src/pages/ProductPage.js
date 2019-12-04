@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import Flip from 'react-reveal/Flip';
 import Review from "../components/Review";
 import Button from "../components/Button";
@@ -336,7 +336,6 @@ class ProductPage extends Component {
     render() {
         return (
             <div className="page-container">
-                {/* <Container fluid> */}
                 <Row no-gutters>
                     <Col size="md-12">
                         <div className="product-header t-top-pad white">
@@ -525,7 +524,6 @@ class ProductPage extends Component {
                     draggable
                     pauseOnHover
                 />
-                {/* </Container> */}
             </div>
         )
     }

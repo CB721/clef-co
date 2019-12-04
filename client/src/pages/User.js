@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import Fade from 'react-reveal/Fade';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import ProfileCard from "../components/ProfileCard";
 import UserNews from "../components/UserNews";
 import Order from "../components/Order";
@@ -410,7 +410,6 @@ function User() {
         <div>
             {window.sessionStorage.logged_in ? (
                 <div className="page-container">
-                    {/* <Container fluid> */}
                     <Row no-gutters>
                         <Col size="md-12">
                             {headerImage ? (
@@ -527,7 +526,6 @@ function User() {
                         draggable
                         pauseOnHover
                     />
-                    {/* </Container> */}
                 </div>
             ) : (<div />)}
         </div>

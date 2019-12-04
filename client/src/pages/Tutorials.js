@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactPlayer from 'react-player';
-import { Col, Row, Container } from "../components/Grid";
+import { Col, Row } from "../components/Grid";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
@@ -13,7 +13,6 @@ class Tutorials extends Component {
     render() {
         return (
             <div className="page-container">
-                {/* <Container fluid> */}
                 <Row no-gutters>
                     <Col size="md-12">
                         <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Learn" className="add-shadow rounded-corners" id="search-top-image"></img>
@@ -134,7 +133,6 @@ class Tutorials extends Component {
                     draggable
                     pauseOnHover
                 />
-                {/* </Container> */}
             </div>
         )
     }
