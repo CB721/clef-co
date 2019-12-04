@@ -14,6 +14,9 @@ router
     .route("/sales/grossing")
     .get(controller.getAllProductsBySalesTotal);
 router
+    .route("/sales/quantity_sold")
+    .get(controller.getAllProductsByQuantitySold);
+router
     .route("/viewed/user")
     .post(controller.addToUserViewedProducts);
 router

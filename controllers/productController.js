@@ -54,6 +54,19 @@ module.exports = {
             }
         )
     },
+    getAllProductsByQuantitySold: function (req, res) {
+        db.query("SELECT oxn711nfcpjgwcr2.orderItems.quantity * oxn711nfcpjgwcr2.products.price AS product_sales_totals, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.orderItems.product_id AS id, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.cost, SUM(oxn711nfcpjgwcr2.orderItems.quantity) AS total_quantity, oxn711nfcpjgwcr2.products.hardware, oxn711nfcpjgwcr2.products.software FROM oxn711nfcpjgwcr2.orderItems LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id GROUP BY oxn711nfcpjgwcr2.products.id ORDER BY total_quantity DESC;",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    return res.json({
+                        results
+                    });
+                }
+            }
+        )
+    },
     addToUserViewedProducts: function (req, res) {
         const userID = req.body.user_id;
         const productID = req.body.product_id;

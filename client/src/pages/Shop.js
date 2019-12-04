@@ -26,7 +26,7 @@ class Shop extends Component {
         products: [],
         displayProducts: [],
         selectedCategories: [],
-        onSale: false,
+        topProducts: false,
         bestsellers: false,
         guitars: false,
         microphone: false,
@@ -60,12 +60,12 @@ class Shop extends Component {
     validateProduct(data) {
         if (data) {
             this.setState({
-                product: data,
+                products: data,
                 displayProducts: data
             });
         } else {
             this.setState({
-                product: ProductData.results,
+                products: ProductData.results,
                 displayProducts: ProductData.results
             });
         }
@@ -170,7 +170,7 @@ class Shop extends Component {
         const name = event.target.name;
         const selectedCategories = this.state.selectedCategories;
         const thisIsThis = this;
-        const products = this.state.products;
+        const products = [...this.state.products];
         if (name === "rock-band" || name === "country" || name === "hip-hop" || name === "edm") {
             this.setState({
                 selectedCategories: [],
@@ -185,6 +185,24 @@ class Shop extends Component {
                     )
                 })
             }
+            thisIsThis.setState({
+                guitars: false,
+                microphone: false,
+                keyboards: false,
+                bass: false,
+                headphones: false,
+                drums: false,
+                dj: false,
+                recording: false,
+                rockBand: false,
+                country: false,
+                hipHop: false,
+                edm: false,
+                hardware: false,
+                software: false,
+                bestsellers: false,
+                topProducts: false,
+            })
             switch (name) {
                 case "rock-band":
                     if (thisIsThis.state.rockBand) {
@@ -293,7 +311,68 @@ class Shop extends Component {
                 default:
                     return;
             }
+        } else if (name === "topProducts" || name === "bestsellers") {
+            thisIsThis.setState({
+                guitars: false,
+                microphone: false,
+                keyboards: false,
+                bass: false,
+                headphones: false,
+                drums: false,
+                dj: false,
+                recording: false,
+                rockBand: false,
+                country: false,
+                hipHop: false,
+                edm: false,
+                hardware: false,
+                software: false,
+            });
+            switch (name) {
+                case "topProducts":
+                    if (thisIsThis.state.topProducts) {
+                        thisIsThis.setState({
+                            topProducts: false,
+                            displayProducts: thisIsThis.state.products
+                        });
+                    }
+                    API.getAllProductsByQuantitySold()
+                        .then(res =>
+                            thisIsThis.setState({
+                                displayProducts: res.data.results,
+                                topProducts: true,
+                                bestsellers: false
+                            })
+                        )
+                    break;
+                case "bestsellers":
+                    if (thisIsThis.state.bestsellers) {
+                        thisIsThis.setState({
+                            topProducts: false,
+                            displayProducts: thisIsThis.state.products
+                        });
+                    }
+                    API.getAllProductsBySalesTotal()
+                        .then(res =>
+                            thisIsThis.setState({
+                                displayProducts: res.data.results,
+                                topProducts: false,
+                                bestsellers: true
+                            })
+                        )
+                    break;
+                default:
+                    return;
+            }
         } else {
+            thisIsThis.setState({
+                topProducts: false,
+                bestsellers: false,
+                rockBand: false,
+                country: false,
+                hipHop: false,
+                edm: false
+            });
             let updateCategories = function (clicked, newCategories) {
                 return new Promise(function (resolve, reject) {
                     resolve(
@@ -431,7 +510,7 @@ class Shop extends Component {
                                         collapseTypes={this.expandType()}
                                         typeClass={this.state.typeMenu}
                                         collapseTypeItems={this.state.typeItems}
-                                        onSale={this.state.onSale}
+                                        topProducts={this.state.topProducts}
                                         bestsellers={this.state.bestsellers}
                                         guitars={this.state.guitars}
                                         microphone={this.state.microphone}

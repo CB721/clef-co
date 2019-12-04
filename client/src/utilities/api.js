@@ -97,5 +97,8 @@ export default {
     },
     getAllProductsBySalesTotal: function() {
         return axios.get("/api/products/sales/grossing");
+    },
+    getAllProductsByQuantitySold: function() {
+        return axios.get("/api/products/sales/quantity_sold");
     }
 }

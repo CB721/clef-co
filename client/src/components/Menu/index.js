@@ -36,16 +36,16 @@ function ShopMenu(props) {
                             <Row>
                                 <Col size="md-8">
                                     <h6>
-                                        On Sale
-                                                </h6>
+                                        Most popular
+                                    </h6>
                                 </Col>
                                 <Col size="md-4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
-                                            name="onSale"
+                                            name="topProducts"
                                             onClick={props.handleChange}
-                                            checked={props.onSale}
+                                            checked={props.topProducts}
                                         />
                                     </MuiThemeProvider>
                                 </Col>
