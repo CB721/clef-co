@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ImageOverlay from "../ImageOverlay";
 import CreateIcon from '@material-ui/icons/Create';
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
@@ -39,7 +40,9 @@ function ProfileCard(props) {
                 </IconButton>
             </MuiThemeProvider>
             <div className="profile-card-image">
-                <img src={props.image} alt={props.status} />
+                <ImageOverlay
+                    status={props.status}
+                />
             </div>
             <div className="profile-card-contact">
                 <div className="profile-card-name white">
@@ -227,9 +230,9 @@ function ProfileCard(props) {
                                     min={6}
                                     max={20}
                                 >
-                                <span>
-                                    Member since {props.joinedDate}
-                                </span>
+                                    <span>
+                                        Member since {props.joinedDate}
+                                    </span>
                                 </Textfit>
                             </div>
                             <div className="profile-card-status white">

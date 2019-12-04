@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "../Grid";
+import ImageOverlay from "../ImageOverlay";
 import Typography from '@material-ui/core/Typography';
 import profileImages from "../../pages/Assets/Data/profile-status.json";
 import StarRatings from 'react-star-ratings';
@@ -11,8 +12,6 @@ function Review(props) {
     const today = moment().format("YYYY-MM-DD");
     const [statusImage, setstatusImage] = useState("");
     const [userStatus, setuserStatus] = useState("");
-    const [createdAt, setCreatedAt] = useState("");
-
 
     useEffect(() => {
         if (moment(today).diff(props.dateJoined, 'days') < 7) {
@@ -76,7 +75,10 @@ function Review(props) {
             <div className="f-top-pad padding-bottom">
                 <Row>
                     <Col size="lg-3 2">
-                        <img src={statusImage} alt={userStatus} className="review-image"></img>
+                        <ImageOverlay
+                            status={userStatus}
+                        />
+                        {/* <img src={statusImage} alt={userStatus} className="review-image"></img> */}
                     </Col>
                     <Col size="lg-9 10">
                         <Row no-gutters>

@@ -13,7 +13,6 @@ import "./style.css";
 function ViewedProducts() {
     const [products, setProducts] = useState([]);
     const cart = useSelector(state => state.cart);
-    const allProducts = useSelector(state => state.products);
 
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
@@ -88,32 +87,32 @@ function ViewedProducts() {
         });
     }
     return (
-        <Row no-gutters>
-        {products.length > 2 ? (
-            <div>
-            {products.map(product => (
-                <Col size="md-4" key={product.product_id}>
-                    <Slide bottom >
-                        <Product
-                            action={(event) => goToProductPage(event, product.product_id)}
-                            image={product.image_link}
-                            imageTitle={product.product_name}
-                            cardTitle={product.product_name}
-                            cardDescription={product.product_description.slice(0, 65) + "..."}
-                            price={product.price}
-                            button={<Button
-                                key={product.product_id}
-                                buttonClass="explore"
-                                text="Add to cart"
-                                action={(event) => addToCart(event, product.product_id, product.product_name)}
-                            />}
-                        />
-                    </Slide>
-                </Col>
-            ))}
-            </div>
-        ) : (<div />)}
-        </Row>
+        <div>
+            {products.length > 2 ? (
+                <Row no-gutters>
+                    {products.map(product => (
+                        <Col size="sm-4" key={product.product_id}>
+                            <Slide bottom >
+                                <Product
+                                    action={(event) => goToProductPage(event, product.product_id)}
+                                    image={product.image_link}
+                                    imageTitle={product.product_name}
+                                    cardTitle={product.product_name}
+                                    cardDescription={product.product_description.slice(0, 65) + "..."}
+                                    price={product.price}
+                                    button={<Button
+                                        key={product.product_id}
+                                        buttonClass="explore"
+                                        text="Add to cart"
+                                        action={(event) => addToCart(event, product.product_id, product.product_name)}
+                                    />}
+                                />
+                            </Slide>
+                        </Col>
+                    ))}
+                </Row>
+            ) : (<div />)}
+        </div>
     )
 }
 

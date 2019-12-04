@@ -24,8 +24,11 @@ function Home() {
     const products = useSelector(state => state.products);
 
     useEffect(() => {
-        displayRandomProducts();
-    }, []);
+        if (products.length > 12) {
+            setProductOne(products[7]);
+            setProductTwo(products[13]);
+        }
+    }, [products]);
     useEffect(() => {
         API.getAllReviews()
             .then(res =>
@@ -78,24 +81,7 @@ function Home() {
                 });
             }, 8080);
         }
-    }, [])
-
-    function displayRandomProducts() {
-        const productArrLen = products.length - 1;
-        const randomOne = Math.floor(Math.random() * productArrLen) + 1;
-        let randomTwo = Math.floor(Math.random() * productArrLen) + 1;
-        if (randomOne === randomTwo) {
-            randomTwo += 1;
-        }
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].id === randomOne) {
-                setProductOne(products[i]);
-            }
-            if (products[i].id === randomTwo) {
-                setProductTwo(products[i]);
-            }
-        }
-    }
+    }, []);
     function goToProductPage(event, link) {
         event.preventDefault();
         window.location.href = "/shop/product/" + link;

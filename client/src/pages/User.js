@@ -464,14 +464,14 @@ function User() {
                         <Col size="sm-1" />
                     </Row>
                     <Row no-gutters>
-                        <Col size="md-12">
+                        <Col size="12">
                             <div className="product-header f-top-pad white">
                                 <p>
                                     Last Viewed Products
                             </p>
                             </div>
                         </Col>
-                        <Col size="12">
+                        <Col size="md-12">
                             <ViewedProducts />
                         </Col>
                     </Row>

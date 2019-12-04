@@ -2,6 +2,7 @@
     height: 100%;
     margin-top: 10%;
     position: relative;
+    width: 100%;
 }
 .product-card-content {
     height: 11.938rem;
