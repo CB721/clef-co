@@ -512,8 +512,7 @@ class ProductPage extends Component {
                             <ViewedProducts />
                         </Col>
                     </Row>
-                ) : (<Loading
-                    color="white"
+                ) : (<div
                 />)}
                 <ToastContainer
                     position="bottom-right"

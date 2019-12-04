@@ -25,14 +25,23 @@ function Home() {
 
     useEffect(() => {
         displayRandomProducts();
-    });
+    }, []);
     useEffect(() => {
         API.getAllReviews()
             .then(res =>
-                setReviews(res.data.results)
+                filterResults(res.data.results)
             )
             .catch(err => console.log(err));
     }, [reviews]);
+    function filterResults(data) {
+        const filteredArr = [];
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].rating.data > 3 && filteredArr.length < 10) {
+                filteredArr.push(data[i]);
+            }
+        }
+        setReviews(filteredArr);
+    }
     useEffect(() => {
         if (window.sessionStorage.id) {
             setTimeout(function () {
@@ -96,14 +105,14 @@ function Home() {
             {/* <Container fluid > */}
             <Row no-gutters>
                 <Col size="md-12">
-                    <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
+                    {/* <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
                         style={{
                             objectFit: 'cover',
                             width: '100%',
                             height: '100vh',
                         }}
                         src={videoBG}>
-                    </video>
+                    </video> */}
                     <h1 className="white center middle video-text-overlay">
                         Demo Company
                     </h1>
