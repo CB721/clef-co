@@ -49,6 +49,9 @@ class Shop extends Component {
     UNSAFE_componentWillMount() {
         this.getProducts();
         this.getCart();
+        this.setState({
+            topProducts: false
+        })
     }
     getProducts = () => {
         API.getAllProducts()
@@ -365,6 +368,7 @@ class Shop extends Component {
                     return;
             }
         } else {
+            if (name === "")
             thisIsThis.setState({
                 topProducts: false,
                 bestsellers: false,
@@ -473,25 +477,6 @@ class Shop extends Component {
     render() {
         return (
             <div className="page-container">
-                <Row no-gutters>
-                    <Col size="md-12">
-                        <div className="company-section rounded-corners">
-                            <Row no-gutters>
-                                <Col size="md-6 12">
-                                    <img src="https://images.unsplash.com/photo-1485030056468-3820ff9e6e90?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2090&q=80" alt="turntable"></img>
-                                </Col>
-                                <Col size="md-6 12">
-                                    <h1 className="white q-top-pad">
-                                        Current special on our product!
-                                        </h1>
-                                    <span className="white">
-                                        Morbi tincidunt risus sit amet varius tempus. Nullam ac felis augue. Aliquam euismod lobortis metus, sit amet aliquam diam pulvinar vel. Quisque viverra consequat mi.
-                                        </span>
-                                </Col>
-                            </Row>
-                        </div>
-                    </Col>
-                </Row>
                 <Row no-gutters>
                     <Col size="md-12">
                         <div className="all-products">

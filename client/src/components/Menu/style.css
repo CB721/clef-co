@@ -41,8 +41,10 @@
     width: 100%;
 }
 .category-header {
+    height: auto;
     width: 100%;
     background: rgb(62, 7, 104);
+    padding-bottom: 3px;
 }
 .category-header:hover {
     animation-iteration-count: 1s;
@@ -72,8 +74,10 @@
     transition: .1s;
 }
 .menu-sub-category {
-    height: 50px;
+    height: auto;
+    min-height: 3.125rem;
     background: rgb(87, 15, 143);
+    padding-left: 1.063rem;
 }
 .last-sub-category {
     border-bottom-right-radius: 17px;

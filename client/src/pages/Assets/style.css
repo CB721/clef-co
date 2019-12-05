@@ -292,8 +292,7 @@ span {
     padding-bottom: 5vh;
 }
 .company-section {
-    min-height: 40vh;
-    max-height: 150vh;
+    height: 50vh;
     align-items: center;
     justify-content: flex-end;
     background: rgb(62, 7, 104);
@@ -333,6 +332,7 @@ span {
 }
 .all-products {
     margin-bottom: 5%;
+    margin-top: 3.688rem;
 }
 .text-grow {
     /* color: rgba(62, 7, 104, 0); */

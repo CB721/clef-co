@@ -16,12 +16,12 @@ function ShopMenu(props) {
         <div className="menu white">
             <Row>
                 <div className="category-header menu-top" onClick={props.collapseFeatured}>
-                    <Col size="md-9">
+                    <Col size="9">
                         <h4 className="white">
                             Featured
-                                </h4>
+                        </h4>
                     </Col>
-                    <Col size="md-3">
+                    <Col size="3">
                         <ArrowForwardIcon
                             className={props.featuredClass}
                         />
@@ -34,12 +34,12 @@ function ShopMenu(props) {
                     <div className={props.collapseFeaturedItems}>
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Most popular
                                     </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -54,12 +54,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Bestsellers
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -77,12 +77,12 @@ function ShopMenu(props) {
             </Row>
             <Row>
                 <div className="category-header" onClick={props.collapseInsturments}>
-                    <Col size="md-9">
+                    <Col size="9">
                         <h4 className="white">
                             Instruments
                                 </h4>
                     </Col>
-                    <Col size="md-3">
+                    <Col size="3">
                         <ArrowForwardIcon
                             className={props.instrumentClass}
                         />
@@ -95,12 +95,12 @@ function ShopMenu(props) {
                     <div className={props.collapseInstrumentItems}>
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Guitars & Amps
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -116,12 +116,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Microphones
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -137,12 +137,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Keyboards & Pianos
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -158,12 +158,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Bass
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -179,12 +179,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Headphones
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -200,12 +200,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Drums
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -221,12 +221,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         DJ Equipment
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -242,12 +242,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Recording Software
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -266,12 +266,12 @@ function ShopMenu(props) {
             </Row>
             <Row>
                 <div className="category-header" onClick={props.collapseBundles}>
-                    <Col size="md-9">
+                    <Col size="9">
                         <h4 className="white">
                             Bundles
                                 </h4>
                     </Col>
-                    <Col size="md-3">
+                    <Col size="3">
                         <ArrowForwardIcon
                             className={props.bundleClass}
                         />
@@ -284,12 +284,12 @@ function ShopMenu(props) {
                     <div className={props.collapseBundleItems}>
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Rock Band
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -305,12 +305,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Country
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -326,12 +326,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Hip Hop
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -347,12 +347,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         EDM
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -370,12 +370,12 @@ function ShopMenu(props) {
             </Row>
             <Row>
                 <div className="category-header menu-bottom" onClick={props.collapseTypes}>
-                    <Col size="md-9">
+                    <Col size="9">
                         <h4 className="white">
                             Type
                                 </h4>
                     </Col>
-                    <Col size="md-2">
+                    <Col size="2">
                         <ArrowForwardIcon
                             className={props.typeClass}
                         />
@@ -388,12 +388,12 @@ function ShopMenu(props) {
                     <div className={props.collapseTypeItems}>
                         <div className="menu-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Hardware
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"
@@ -409,12 +409,12 @@ function ShopMenu(props) {
                         <Divider orientation="horizonal" />
                         <div className="menu-sub-category last-sub-category">
                             <Row>
-                                <Col size="md-8">
+                                <Col size="8">
                                     <h6>
                                         Software
                                                 </h6>
                                 </Col>
-                                <Col size="md-4">
+                                <Col size="4">
                                     <MuiThemeProvider theme={theme}>
                                         <Radio
                                             color="primary"

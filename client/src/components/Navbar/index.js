@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
@@ -108,6 +108,7 @@ function Navbar(props) {
         window.location.href = "/login";
     }
     function handleInputChange(event) {
+        event.preventDefault();
         let value = event.target.value;
         setSearch(value);
     }
@@ -168,11 +169,15 @@ function Navbar(props) {
                                         </IconButton>
                                     </Col>
                                     <Col size="md-8 9">
+                                        {/* <SearchForm
+                                            value={search}
+                                            onChange={handleInputChange}
+                                        /> */}
                                         <input
                                             className="search-field white"
                                             type="text"
                                             name="search"
-                                            // placeholder="Search"
+                                            placeholder="Search"
                                             value={search}
                                             onChange={handleInputChange}
                                         />
@@ -198,7 +203,7 @@ function Navbar(props) {
                     </Toolbar>
                 </AppBar>
             </HideOnScroll>
-            <SideMenu 
+            <SideMenu
                 isOpen={isOpen}
                 menuClass={menuClass}
                 toggleMenu={toggleMenu}
