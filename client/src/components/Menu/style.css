@@ -78,6 +78,7 @@
     min-height: 3.125rem;
     background: rgb(87, 15, 143);
     padding-left: 1.063rem;
+    padding-top: 0.625rem;
 }
 .last-sub-category {
     border-bottom-right-radius: 17px;

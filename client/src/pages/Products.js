@@ -14,6 +14,9 @@ import ContactSupportOutlinedIcon from '@material-ui/icons/ContactSupportOutline
 import SubscriptionsOutlinedIcon from '@material-ui/icons/SubscriptionsOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import API from "../utilities/api";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./Assets/style.css";
 
 function Products() {
@@ -41,7 +44,24 @@ function Products() {
         window.location.href = "/tutorials";
     }
     function goToCart() {
-        window.location.href = "/cart";
+        if (window.sessionStorage.logged_in) {
+            window.location.href = "/cart";
+        } else {
+            toast("Please login to view your cart", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        }
     }
     function goToShop() {
         window.location.href = "/shop";
@@ -127,14 +147,14 @@ function Products() {
                                     <Row no-gutters>
                                         <Col size="md-12">
                                             <h2 className="white t-top-pad">
-                                                {products[10].product_name}
+                                                {products[products.length - 1].product_name}
                                             </h2>
                                         </Col>
                                     </Row>
                                     <Row no-gutters>
                                         <Col size="md-12">
                                             <span className="white f-top-pad" id="promo-product-desc">
-                                                {products[10].product_description.split(".", 1) + "."}
+                                                {products[products.length - 1].product_description.split(".", 1) + "."}
                                             </span>
                                         </Col>
                                     </Row>
@@ -336,6 +356,7 @@ function Products() {
                                                         <IconButton onClick={goToSupport} aria-label="support">
                                                             <ContactSupportOutlinedIcon
                                                                 fontSize="large"
+                                                                className="white"
                                                             />
                                                         </IconButton>
                                                     </div>
@@ -354,14 +375,14 @@ function Products() {
                                                 <Col size="md-12">
                                                     <h2 className="white f-top-pad">
                                                         Tutorials
-                                                            </h2>
+                                                    </h2>
                                                 </Col>
                                             </Row>
                                             <Row no-gutters>
                                                 <Col size="md-12">
                                                     <span className="white">
                                                         Watch videos made by our team members walking through a variety of our most popular products
-                                                            </span>
+                                                    </span>
                                                 </Col>
                                             </Row>
                                             <Row no-gutters>
@@ -370,6 +391,7 @@ function Products() {
                                                         <IconButton onClick={goToTutorials} aria-label="support">
                                                             <SubscriptionsOutlinedIcon
                                                                 fontSize="large"
+                                                                className="white"
                                                             />
                                                         </IconButton>
                                                     </div>
@@ -402,7 +424,9 @@ function Products() {
                                                 <Col size="md-12">
                                                     <div className="center-icons">
                                                         <IconButton onClick={goToCart} aria-label="Go to cart">
-                                                            <ShoppingCartOutlinedIcon />
+                                                            <ShoppingCartOutlinedIcon
+                                                                className="white"
+                                                            />
                                                         </IconButton>
                                                     </div>
                                                 </Col>
@@ -428,9 +452,18 @@ function Products() {
                         <ViewedProducts />
                     </Col>
                 </Row>
-            ) : (<Loading
-                color="white"
-            />)}
+            ) : (<div />)}
+            <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+            />
         </div>
     )
 }

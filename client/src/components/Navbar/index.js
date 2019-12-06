@@ -108,7 +108,6 @@ function Navbar(props) {
         window.location.href = "/login";
     }
     function handleInputChange(event) {
-        event.preventDefault();
         let value = event.target.value;
         setSearch(value);
     }
@@ -155,7 +154,7 @@ function Navbar(props) {
                             </IconButton>
                         </Col>
                         <Col size="md-2">
-                            <a href="/" className="white "><h6>Demo Company</h6></a>
+                            <a href="/" className="white "><h6>Clef Co</h6></a>
                         </Col>
                         {renderMiddleCol ? (
                             <Col size="lg-6 md-5 sm-3" />
@@ -169,10 +168,6 @@ function Navbar(props) {
                                         </IconButton>
                                     </Col>
                                     <Col size="md-8 9">
-                                        {/* <SearchForm
-                                            value={search}
-                                            onChange={handleInputChange}
-                                        /> */}
                                         <input
                                             className="search-field white"
                                             type="text"

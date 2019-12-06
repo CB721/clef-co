@@ -292,7 +292,7 @@ span {
     padding-bottom: 5vh;
 }
 .company-section {
-    height: 50vh;
+    height: auto;
     align-items: center;
     justify-content: flex-end;
     background: rgb(62, 7, 104);

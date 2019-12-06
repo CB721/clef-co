@@ -3,7 +3,6 @@ import { Col, Row } from "../components/Grid";
 import Flip from 'react-reveal/Flip';
 import Review from "../components/Review";
 import Button from "../components/Button";
-import Loading from "../components/Loading";
 import ViewedProducts from "../components/ViewedProducts";
 import ProductOrder from "../components/ProductOrder";
 import ProductData from "../pages/Assets/Data/products.json";

@@ -108,7 +108,7 @@ function Home() {
                         src={videoBG}>
                     </video>
                     <h1 className="white center middle video-text-overlay">
-                        Demo Company
+                        Clef Co
                     </h1>
                 </Col>
             </Row>

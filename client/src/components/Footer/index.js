@@ -5,8 +5,8 @@ function Footer() {
     return (
         <footer className="footer navbar-fixed-bottom">
             <p className="bottom">
-                Demo Company
-                        </p>
+                Clef Co
+            </p>
             <span>Copyright &copy; 2019 Clint Brodar</span>
         </footer>
     )
