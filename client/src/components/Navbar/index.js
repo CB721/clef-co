@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
@@ -47,6 +47,10 @@ function Navbar(props) {
             setMiddleCol(true);
         }
     }, [window.innerWidth]);
+    const searchInput = useRef(null);
+    useEffect(() => {
+        searchInput.current.focus();
+      }, [search]);
     function HideOnScroll(props) {
         const { children, window } = props;
         const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -169,6 +173,8 @@ function Navbar(props) {
                                     </Col>
                                     <Col size="md-8 9">
                                         <input
+                                            ref={searchInput}
+                                            // ref={(input) => { this.nameInput = input; }}
                                             className="search-field white"
                                             type="text"
                                             name="search"

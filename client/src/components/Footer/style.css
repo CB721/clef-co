@@ -10,6 +10,9 @@
     display: block;
     background: #3e0768;
     position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 100vw;
     color: white;
     overflow: auto;
