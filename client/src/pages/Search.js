@@ -5,7 +5,6 @@ import Result from "../components/Result";
 import Fade from 'react-reveal/Fade';
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
-import Loading from "../components/Loading";
 import ViewedProducts from "../components/ViewedProducts";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

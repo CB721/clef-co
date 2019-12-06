@@ -108,7 +108,7 @@ function Navbar(props) {
         window.location.href = "/login";
     }
     function handleInputChange(event) {
-        let value = event.target.value;
+        let value = event.target.value.trim();
         setSearch(value);
     }
     function toggleMenu(event) {
