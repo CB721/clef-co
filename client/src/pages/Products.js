@@ -140,7 +140,6 @@ function Products() {
                 </Col>
                 <Col size="md-12">
                     <div className="current-highlighted-product-section add-shadow rounded-corners">
-                        {/* replace with most recently added product when configured */}
                         {products.length > 0 ? (
                             <Row no-gutters>
                                 <Col size="md-4 12">
@@ -177,8 +176,11 @@ function Products() {
                                     </Row>
                                 </Col>
                                 <Col size="md-8 12">
-                                    <a href={`/shop/product/${products[10].id}`}>
-                                        <img src={products[10].image_link} alt={products[10].product_name} className="current-promo-image"></img>
+                                    <a href={`/shop/product/${products[products.length - 1].id}`}>
+                                        <img
+                                            src={products[10].products.length - 1}
+                                            alt={products[products.length - 1].product_name} className="current-promo-image"
+                                        ></img>
                                     </a>
                                 </Col>
                             </Row>
@@ -193,7 +195,7 @@ function Products() {
                     <Pulse>
                         <h1 className="white f-top-pad padding-bottom text-shadow">
                             Purchase our product bundles
-                                </h1>
+                        </h1>
                     </Pulse>
                 </Col>
             </Row>
@@ -340,14 +342,14 @@ function Products() {
                                                 <Col size="md-12">
                                                     <h2 className="white f-top-pad section-headers center-text">
                                                         Contact Us
-                                                            </h2>
+                                                    </h2>
                                                 </Col>
                                             </Row>
                                             <Row no-gutters>
                                                 <Col size="md-12">
                                                     <span className="white">
                                                         Our award-winning support team is available 24/7 to help with your questions
-                                                            </span>
+                                                    </span>
                                                 </Col>
                                             </Row>
                                             <Row no-gutters>

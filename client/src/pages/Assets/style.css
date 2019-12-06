@@ -618,11 +618,12 @@ ul {
     margin-top: 10vh;
     height: 50vh;
     background: white;
-    border-radius: 25px;
+    border-radius: 17px;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* border: 3px solid rgb(62, 7, 104); */
 }
 .contact-message {
     position: absolute;
