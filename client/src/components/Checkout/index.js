@@ -245,8 +245,8 @@ function Checkout(props) {
                                         window.scrollTo({ top: 0 });
                                     }
                                 }
-                            } else {
-                                setErrorMessage("Please enter a valid expiration date");
+                            } else if (cardDate <= today || cardDate >= maxDate) {
+                                setErrorMessage("Invalid expiration date");
                                 window.scrollTo({ top: 0, behavior: 'smooth' });
                             }
                         }
@@ -319,7 +319,7 @@ function Checkout(props) {
                 }
             }
         } else {
-            setErrorMessage("Software can onl")
+            setErrorMessage("You can only purchase one license at a time");
         }
     }
     function deleteItem(event, itemID, name, index) {
@@ -350,6 +350,13 @@ function Checkout(props) {
                     setCardBrand(defaultCard);
                     break;
             }
+        }
+    }
+    function validateCardDate(date) {
+        if (date <= today || date >= maxDate) {
+            setErrorMessage("Invalid expiration date");
+        } else {
+            setCardDate(date);
         }
     }
 
@@ -770,7 +777,7 @@ function Checkout(props) {
                                                     min={today}
                                                     max={maxDate}
                                                     fullWidth={true}
-                                                    onChange={(event) => setCardDate(event.target.value)}
+                                                    onChange={(event) => validateCardDate(event.target.value)}
                                                 />
                                             </Slide>
                                         </Col>
