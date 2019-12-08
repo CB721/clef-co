@@ -464,18 +464,7 @@ function User() {
                         </Col>
                         <Col size="sm-1" />
                     </Row>
-                    <Row no-gutters>
-                        <Col size="12">
-                            <div className="product-header f-top-pad white">
-                                <p>
-                                    Last Viewed Products
-                            </p>
-                            </div>
-                        </Col>
-                        <Col size="md-12">
-                            <ViewedProducts />
-                        </Col>
-                    </Row>
+                    <ViewedProducts />
                     <Row>
                         <Col size="12">
                             {showOrders ? (

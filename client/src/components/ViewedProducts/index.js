@@ -87,32 +87,47 @@ function ViewedProducts() {
         });
     }
     return (
-        <div>
+        <Row>
             {products.length > 2 ? (
-                <Row no-gutters>
-                    {products.map(product => (
-                        <Col size="sm-4" key={product.product_id}>
-                            <Slide bottom >
-                                <Product
-                                    action={(event) => goToProductPage(event, product.product_id)}
-                                    image={product.image_link}
-                                    imageTitle={product.product_name}
-                                    cardTitle={product.product_name}
-                                    cardDescription={product.product_description.slice(0, 65) + "..."}
-                                    price={product.price}
-                                    button={<Button
-                                        key={product.product_id}
-                                        buttonClass="explore"
-                                        text="Add to cart"
-                                        action={(event) => addToCart(event, product.product_id, product.product_name)}
-                                    />}
-                                />
-                            </Slide>
+                <Col size="12">
+                    <Row>
+                        <Col size="12">
+                            <div className="product-header f-top-pad white">
+                                <p>
+                                    Last Viewed Products
+                                </p>
+                            </div>
                         </Col>
-                    ))}
-                </Row>
+                        <Col size="12">
+                            {products.length > 2 ? (
+                                <Row no-gutters>
+                                    {products.map(product => (
+                                        <Col size="sm-4" key={product.product_id}>
+                                            <Slide bottom >
+                                                <Product
+                                                    action={(event) => goToProductPage(event, product.product_id)}
+                                                    image={product.image_link}
+                                                    imageTitle={product.product_name}
+                                                    cardTitle={product.product_name}
+                                                    cardDescription={product.product_description.slice(0, 65) + "..."}
+                                                    price={product.price}
+                                                    button={<Button
+                                                        key={product.product_id}
+                                                        buttonClass="explore"
+                                                        text="Add to cart"
+                                                        action={(event) => addToCart(event, product.product_id, product.product_name)}
+                                                    />}
+                                                />
+                                            </Slide>
+                                        </Col>
+                                    ))}
+                                </Row>
+                            ) : (<div />)}
+                        </Col>
+                    </Row>
+                </Col>
             ) : (<div />)}
-        </div>
+        </Row>
     )
 }
 

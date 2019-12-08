@@ -446,18 +446,7 @@ function Products() {
                 </Row>
             </div>
             {window.sessionStorage.logged_in ? (
-                <Row no-gutters>
-                    <Col size="md-12">
-                        <div className="product-header f-top-pad white">
-                            <p>
-                                Last Viewed Products
-                            </p>
-                        </div>
-                    </Col>
-                    <Col size="12">
-                        <ViewedProducts />
-                    </Col>
-                </Row>
+                <ViewedProducts />
             ) : (<div />)}
             <ToastContainer
                 position="bottom-right"
