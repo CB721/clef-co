@@ -18,12 +18,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
 import './App.css';
-import { func } from "prop-types";
 
 
 function App() {
   const products = useSelector(state => state.products);
-  const cart = useSelector(state => state.cart);
+
   if (!window.sessionStorage.cookie_notification) {
     toast("This website stores data such as cookies to enable important site functionality including analytics, targeting, and personalization.  Click to confirm.", {
       closeButton: false,

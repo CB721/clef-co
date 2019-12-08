@@ -9,7 +9,7 @@ function Order(props) {
     const [total, setTotal] = useState(0);
 
     function goToSupport() {
-        window.location.href = "/contact"
+        window.location.href = "/contact";
     }
     function getProduct(quantity, id) {
         API.getProductById(id)
@@ -29,6 +29,10 @@ function Order(props) {
             getProduct(ele.quantity, ele.product_id)
         });
     }, [props.lineItems]);
+    function goToProductPage(event, id) {
+        event.preventDefault();
+        window.location.href = "/shop/product/" + id;
+    }
     return (
         <div className="user-orders">
             <div className="order-summary">
@@ -89,7 +93,7 @@ function Order(props) {
                                     <Row no-gutters>
                                         <Col size="lg-12">
                                             <div className="order-container">
-                                                <button className="order-item-button order-column-header">
+                                                <button className="order-item-button order-column-header" onClick={(event) => goToProductPage(event, item.id)}>
                                                     Buy it again
                                                 </button>
                                             </div>
@@ -121,7 +125,7 @@ function Order(props) {
                                         </Col>
                                         <Col size="lg-12">
                                             <div className="order-container">
-                                                <button className="order-item-button order-column-header">
+                                                <button className="order-item-button order-column-header" onClick={(event) => goToProductPage(event, item.id)}>
                                                     Write a review
                                                 </button>
                                             </div>
