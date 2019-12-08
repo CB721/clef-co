@@ -6,17 +6,17 @@
 
 ### Page Details
 * Home
-    * The user is greated with the company name over a video background
-    * If they are first viewing the page, they are presented with a cookie warning
+    * The user is greeted with the company name over a video background
+    * On the first view of the website, they are presented with a cookie warning
     * As they scroll down, they are presented with two random products followed by the top six selling products
-    * Following the products, there are reviews from users
+    * Afterwards, there are reviews from users
         * Only reviews that are four stars or above are displayed
     * Finally, if they are logged in, the last three viewed products are displayed
 * Products
-    * The user is shown the most recently add product
+    * The user is shown the most recently added product
         * Product name, description and image are displayed
     * Next, they encounter the product bundles
-        * Bundles are predetemined products based off of genres
+        * Bundles are predetermined products based off of genres
         * When they click the "Learn more" button, a modal with the all products included appears
             * If they are logged in, they have the ability to add all of the items to their cart
             * Otherwise, they are prompted to login
@@ -41,7 +41,7 @@
             * Instruments - user can select and combination of different instruments to display on page
             * Bundles - when any option is selected, all other categories are deselected
                 * All products displayed are predetermined based off of genres
-            * Type - use can select either option to display on page
+            * Type - user can select either option to display on page
                 * Allows user to filter by hardware or software
 * Tutorials
     * The user is presented with a list of videos embedded on the page
@@ -65,15 +65,15 @@
             * Populated with information about their last order, contact form, last rating and a message from the company for that month
                 * If rating is below three stars, they are asked to submit a contact form
         * User status is determined based on the length of time since they created the account
-            * The images displayed are based off the four statuses
-    * Scrolling down, the user is presented with the last three viewed products are displayed
-    * After that, all of the orders for the user are displayed, most recent first
+            * The images displayed are based off the four statuses (Beginner, Novice, Expert, Master)
+    * Scrolling down, the user is presented with the last three viewed products
+    * After that, the user has the option of displaying all of their orders starting with the most recent
     * At the bottom of the page, they are given the option to delete their account
         * If they choose to not delete the account, the page is scrolled to the top
         * If they do delete their account, their account is deleted and they are redirected to the create account page
 * Cart
-    * Every time the user adds an item to the cart, it is saved to the database
-    * Only one cart can be available for a user at a time, once an order is completed, it is converted into an order
+    * Every time the user adds an item to the cart it is saved to the database
+    * Only one cart can be available for a user at a time.  Once an order is completed it is converted into an order
     * The cart is pulled from the API on every page using Redux
     * If an item is already in the cart, a notification appears letting the user know
     * Checking out
@@ -92,12 +92,12 @@
             * The date input must be after the current date
             * The security code must be at least three numbers
             * If any of the information is invalid or empty, they will not be able to proceed to the next page
-        * On the final page, they are presented with all of order information, address/contact informationa and credit card information
+        * On the final page, they are presented with all of the order, address/contact and credit card information
             * Once they click the "proceed" button, the order is saved and they are presented with options to go to their profile and to contact support
             * A notification confirming their order is displayed
         * At any point before completing the purchase, they can go back to a previous step and their information will be saved
 * Product Page
-    * Each product is dynamically created on the App component through mapping through the products
+    * Each product is dynamically created on the App component by mapping through the products
     * Page is populated with product information, average rating on the product and ability for the user to add to their cart
         * If the product is hardware, they can change the quantity
     * Next, the user is presented with the option to submit a review
@@ -108,7 +108,8 @@
 ### Back-end Process
 * Because every schema on this application relates to at least one other table, I used SQL.  In order to avoid any future security risks from using an ORM tool like Sequelize, I wrote out my SQL queries.  Also, because I was writing complex queries, I was able to test them out in MySQL Workbench without having my server running the entire time.
     * Table relationships
-       ![image](./Assets/table-relations.png) 
+       ![image](./Assets/table-relations.png)
+* To connect the information from the database for use on the front-end, I used Express.js to create a serverless REST API.
 
 ## User Stories
 
@@ -134,16 +135,16 @@
 ## Major Issues Encountered
 * Responsiveness / Consistent styling
     * React-textfit
-        * Allowed me to set a max and min size on the text for similiar items
-            * Ex. All of the products on the Shop page
+        * Allowed me to set a maximum and minimum font size on the text for similar items
+            * Ex. All of the products on the shop page
     * Bootstrap Grid
         * Using the grid properly, I was able to achieve 95% of the mobile responsiveness
     * Media queries
 * API routing and SQL queries
-    * As demonstrated on the [table relationships](###back-end-process) section, there is a lot of relational data.  To establish these relations, I used multiple joins.
-        * Ex. To get a review, you have to join the review table with both the users and products tables.
+    * As demonstrated in the [table relationships](###back-end-process) section, there is a lot of relational data.  To establish these relations, I used multiple joins.
+        * Ex. To get a review, I joined the review table with both the users and products tables.
 * Converting React class components to functions in order to use hooks and Redux
-    * In order to have the user's cart information across all pages, I used Redux to save it in global state.  This allowed me to check if an item was already in the cart and prevent the user from adding it again.  It also allowed me to visually represent how many items were in the cart for the user to qucikly reference.
+    * In order to have the user's cart information across all pages, I used Redux to save it in global state.  This allowed me to check if an item was already in the cart and prevent the user from adding it again.  It also allowed me to visually represent how many items were in the cart for the user to quickly reference.
     * When I first started the project, I created all of my pages using class components.  However, when I realized I needed to implement Redux, I needed to convert the necessary components into function components.
 * Implementing Redux
     * This was my first application implementing Redux on my own.  Because of that, I struggled with how to use hooks and useEffect.  Also, I struggled setting up the actions and reducers.  I found this [tutorial](https://youtu.be/CVpUuw9XSjY) to be very helpful.
