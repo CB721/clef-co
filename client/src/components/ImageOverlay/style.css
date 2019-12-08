@@ -14,25 +14,25 @@
 #image-overlay-u {
     z-index: 2;
     left: 0;
-    -ms-transform: rotate(-20deg);
-    -webkit-transform: rotate(-20deg);
-    transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg) !important;
+    -webkit-transform: rotate(-20deg) !important;
+    transform: rotate(-20deg) !important;
 }
 #image-overlay-s {
     z-index: 2;
     right: 0%;
-    -ms-transform: rotate(-15deg);
-    -webkit-transform: rotate(-15deg);
-    transform: rotate(-15deg);
+    -ms-transform: rotate(-5deg) !important;
+    -webkit-transform: rotate(-5deg) !important;
+    transform: rotate(-5deg) !important;
 }
 #image-overlay-n {
     z-index: 0;
     top: 0;
     left: 55%;
-    -ms-transform: skewY(20deg);
-    -webkit-transform: skewY(20deg);
-    transform: skewY(20deg);
-    -ms-transform: scale(0.5,0.5);
-    -webkit-transform: scale(0.5,0.5);
-    transform: scale(0.5,0.5);
+    -ms-transform: skewY(20deg) !important;
+    -webkit-transform: skewY(20deg) !important;
+    transform: skewY(20deg) !important;
+    -ms-transform: scale(0.5,0.5) !important;
+    -webkit-transform: scale(0.5,0.5) !important;
+    transform: scale(0.5,0.5) !important;
 }

@@ -11,14 +11,12 @@ function UserNews(props) {
     const today = moment().format("YYYY-MM-DDTHH:mm:ss");
 
     useEffect(() => {
-        MonthNews.forEach(month => 
-            handleMonthNews(month.month, month.news))
-    }, []);
-    function handleMonthNews(month, monthNews) {
-        if (month === todayMonth) {
-            setNews(news => [...news, monthNews]);
+        for (let i = 0; i < MonthNews.length; i++) {
+            if (MonthNews[i] === todayMonth) {
+                setNews(news => [...news, MonthNews[i]]);
+            }
         }
-    }
+    }, []);
     useEffect(() => {
         for (let i = 0; i < props.news.length; i++) {
             if (props.news[i]) {

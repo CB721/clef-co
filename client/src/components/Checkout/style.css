@@ -48,7 +48,6 @@
     padding: 10px;
 }
 .cart-total-section {
-    /* padding: 15px; */
     font-size: 12px;
     height: 80%;
 }
@@ -71,6 +70,10 @@
     align-items: center;
     justify-content: center;
 }
-..MuiStepper-horizontal {
+.MuiStepper-horizontal {
     width: 100% !important;
+}
+.credit-card-image {
+    width: 1.875rem;
+    height: 1.25rem;
 }

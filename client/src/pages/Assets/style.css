@@ -32,6 +32,10 @@ h1 {
     height: 75vh;
     width: 110%;
 }
+.product-header-images {
+    height: 100%;
+    width: 100%;
+}
 h2 {
     font-weight: bolder;
     text-align: center;

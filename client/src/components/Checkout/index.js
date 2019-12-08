@@ -16,8 +16,14 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import states from '../../pages/Assets/Data/states.json';
 import Slide from 'react-reveal/Slide';
+import Zoom from 'react-reveal/Zoom';
 import { Col, Row } from "../Grid";
 import API from "../../utilities/api";
+import visa from "./Images/visa.svg";
+import discover from "./Images/discover.svg";
+import mastercard from "./Images/mastercard.svg";
+import amex from "./Images/amex.svg";
+import defaultCard from "./Images/default.svg";
 import "./style.css";
 import moment from "moment";
 
@@ -171,94 +177,99 @@ function Checkout(props) {
 
     const handleNext = () => {
         setErrorMessage("");
-        if (activeStep === 1) {
-            if (!first) {
-                setErrorMessage("Please add your first name");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            else if (!last) {
-                setErrorMessage("Please add your last name");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            else if (!street) {
-                setErrorMessage("Please add your street address");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            else if (!city) {
-                setErrorMessage("Please add your city");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            else if (!userState) {
-                setErrorMessage("Please add your state");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            else if (!zip) {
-                setErrorMessage("Please add your zip code");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            else if (!phone) {
-                setErrorMessage("Please add your phone number");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (props.lineItems.length) {
+            if (activeStep === 1) {
+                if (!first) {
+                    setErrorMessage("Please add your first name");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                else if (!last) {
+                    setErrorMessage("Please add your last name");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                else if (!street) {
+                    setErrorMessage("Please add your street address");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                else if (!city) {
+                    setErrorMessage("Please add your city");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                else if (!userState) {
+                    setErrorMessage("Please add your state");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                else if (!zip) {
+                    setErrorMessage("Please add your zip code");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                else if (!phone) {
+                    setErrorMessage("Please add your phone number");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    setErrorMessage("");
+                    setActiveStep(prevActiveStep => prevActiveStep + 1);
+                    setRightSlide(true);
+                    setLeftSlide(false);
+                    window.scrollTo({ top: 0 });
+                }
+
+            } else if (activeStep === 2) {
+                if (!cardNumber) {
+                    setErrorMessage("Please add your credit card number");
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    if (cardNumber.match(
+                        /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/g
+                    )) {
+                        if (!cardDate) {
+                            setErrorMessage("Please enter your card's expiration date");
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            if (cardDate.length === 7) {
+                                if (!cardName) {
+                                    setErrorMessage("Who is this going to?");
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                } else {
+                                    if (!cardCode) {
+                                        setErrorMessage("Please check you card code and try again");
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    } else if (cardCode.length !== 3) {
+                                        setErrorMessage("Please check you card code and try again");
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    } else {
+                                        setErrorMessage("");
+                                        setActiveStep(prevActiveStep => prevActiveStep + 1);
+                                        setRightSlide(true);
+                                        setLeftSlide(false);
+                                        window.scrollTo({ top: 0 });
+                                    }
+                                }
+                            } else {
+                                setErrorMessage("Please enter a valid expiration date");
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                        }
+                    } else {
+                        setErrorMessage("Please enter a valid credit card number");
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }
+            } else if (activeStep === 3) {
+                props.completeOrder();
+                setActiveStep(prevActiveStep => prevActiveStep + 1);
+                setRightSlide(true);
+                setLeftSlide(false);
+                window.scrollTo({ top: 0 });
             } else {
-                setErrorMessage("");
                 setActiveStep(prevActiveStep => prevActiveStep + 1);
                 setRightSlide(true);
                 setLeftSlide(false);
                 window.scrollTo({ top: 0 });
             }
-
-        } else if (activeStep === 2) {
-            if (!cardNumber) {
-                setErrorMessage("Please add your credit card number");
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                if (cardNumber.match(
-                    /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/g
-                )) {
-                    if (!cardDate) {
-                        setErrorMessage("Please enter your card's expiration date");
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else {
-                        if (cardDate.length === 7) {
-                            if (!cardName) {
-                                setErrorMessage("Who is this going to?");
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
-                            } else {
-                                if (!cardCode) {
-                                    setErrorMessage("Please check you card code and try again");
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                } else if (cardCode.length !== 3) {
-                                    setErrorMessage("Please check you card code and try again");
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                } else {
-                                    setErrorMessage("");
-                                    setActiveStep(prevActiveStep => prevActiveStep + 1);
-                                    setRightSlide(true);
-                                    setLeftSlide(false);
-                                    window.scrollTo({ top: 0 });
-                                }
-                            }
-                        } else {
-                            setErrorMessage("Please enter a valid expiration date");
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                    }
-                } else {
-                    setErrorMessage("Please enter a valid credit card number");
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-            }
-        } else if (activeStep === 3) {
-            props.completeOrder();
-            setActiveStep(prevActiveStep => prevActiveStep + 1);
-            setRightSlide(true);
-            setLeftSlide(false);
-            window.scrollTo({ top: 0 });
         } else {
-            setActiveStep(prevActiveStep => prevActiveStep + 1);
-            setRightSlide(true);
-            setLeftSlide(false);
-            window.scrollTo({ top: 0 });
+            setErrorMessage("Please add an item in your cart to proceed");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
@@ -319,13 +330,34 @@ function Checkout(props) {
             setProduct(product);
         }
     }
+    function handleCardNumber(number) {
+        setCardNumber(number);
+        if (number.length > 0) {
+            switch (number.charAt(0)) {
+                case "3":
+                    setCardBrand(amex);
+                    break;
+                case "4":
+                    setCardBrand(visa);
+                    break;
+                case "5":
+                    setCardBrand(mastercard);
+                    break;
+                case "6":
+                    setCardBrand(discover);
+                    break;
+                default:
+                    setCardBrand(defaultCard);
+                    break;
+            }
+        }
+    }
 
     return (
         <div className={classes.root}>
             <MuiThemeProvider theme={theme}>
                 <Row no-gutters>
                     <Col size="12">
-
                         <div className="stepper-header">
                             {showMobile ? (
                                 <MobileStepper
@@ -527,7 +559,7 @@ function Checkout(props) {
                                             <Slide left={leftSlide} right={rightSlide} cascade>
                                                 <h6 className="form-titles">
                                                     Email
-                                            </h6>
+                                                </h6>
                                                 <Input
                                                     type="text"
                                                     value={email}
@@ -664,31 +696,48 @@ function Checkout(props) {
                                 <FormControl
                                     fullWidth={true}
                                 >
-                                    <Row>
-                                        <Col size="md-12">
-                                            <div className="card-icons">
-
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col size="md-1" />
-                                        <Col size="md-10">
-                                            <Slide left={leftSlide} right={rightSlide} cascade>
-                                                <h6 className="form-titles">
-                                                    Card Number
-                                                </h6>
-                                                <Input
-                                                    type="number"
-                                                    value={cardNumber}
-                                                    name="cardNumber"
-                                                    fullWidth={true}
-                                                    onChange={(event) => setCardNumber(event.target.value)}
-                                                />
-                                            </Slide>
-                                        </Col>
-                                        <Col size="md-1" />
-                                    </Row>
+                                    {cardNumber ? (
+                                        <Row>
+                                            <Col size="sm-1" />
+                                            <Col size="sm-10">
+                                                <Slide left={leftSlide} right={rightSlide} cascade>
+                                                    <h6 className="form-titles">
+                                                        Card Number
+                                                        </h6>
+                                                    <Input
+                                                        type="number"
+                                                        value={cardNumber}
+                                                        name="cardNumber"
+                                                        fullWidth={true}
+                                                        onChange={(event) => handleCardNumber(event.target.value)}
+                                                    />
+                                                    <Zoom top>
+                                                        <img src={cardBrand} alt="credit card" className="credit-card-image"></img>
+                                                    </Zoom>
+                                                </Slide>
+                                            </Col>
+                                            <Col size="sm-1" />
+                                        </Row>
+                                    ) : (
+                                            <Row>
+                                                <Col size="sm-1" />
+                                                <Col size="sm-10">
+                                                    <Slide left={leftSlide} right={rightSlide} cascade>
+                                                        <h6 className="form-titles">
+                                                            Card Number
+                                                        </h6>
+                                                        <Input
+                                                            type="number"
+                                                            value={cardNumber}
+                                                            name="cardNumber"
+                                                            fullWidth={true}
+                                                            onChange={(event) => handleCardNumber(event.target.value)}
+                                                        />
+                                                    </Slide>
+                                                </Col>
+                                                <Col size="sm-1" />
+                                            </Row>
+                                        )}
                                     <Row>
                                         <Col size="md-1" />
                                         <Col size="md-10">
@@ -804,22 +853,20 @@ function Checkout(props) {
                                     <Col size="md-2" />
                                     <Col size="md-4">
                                         <Row>
-                                            <Col size="md-12">
+                                            <Col size="12">
                                                 <h6 className="price-text">
                                                     Payment Information
-                                            </h6>
-                                            </Col>
-                                            <Col size="lg-6">
-                                                <h6 className="price-text">
-                                                    {cardBrand}
                                                 </h6>
                                             </Col>
-                                            <Col size="lg-6">
+                                            <Col size="3">
+                                                <img src={cardBrand} alt="credit card" className="credit-card-image"></img>
+                                            </Col>
+                                            <Col size="4">
                                                 <h6 className="price-text">
                                                     {cardNumber.replace(/.(?=.{4})/g, '')}
                                                 </h6>
                                             </Col>
-                                            <Col size="md-12">
+                                            <Col size="5">
                                                 <h6 className="price-text">
                                                     {cardDate}
                                                 </h6>

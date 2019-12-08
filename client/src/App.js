@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Navbar from "./components/Navbar";
@@ -18,12 +18,16 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
 import './App.css';
+import { func } from "prop-types";
 
 
 function App() {
   const products = useSelector(state => state.products);
+  const cart = useSelector(state => state.cart);
   if (!window.sessionStorage.cookie_notification) {
     toast("This website stores data such as cookies to enable important site functionality including analytics, targeting, and personalization.  Click to confirm.", {
+      closeButton: false,
+      draggable: false,
       closeOnClick: true,
       autoClose: false,
       className: css({
@@ -34,10 +38,11 @@ function App() {
       bodyClassName: css({
         fontSize: '20px',
         color: 'white'
-      })
+      }),
+      onClick: function () { sessionStorage.setItem("cookie_notification", true) }
     });
-    sessionStorage.setItem("cookie_notification", true);
   }
+
 
   return (
     <Router>

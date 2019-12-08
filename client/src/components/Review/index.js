@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "../Grid";
 import ImageOverlay from "../ImageOverlay";
 import Typography from '@material-ui/core/Typography';
-import profileImages from "../../pages/Assets/Data/profile-status.json";
 import StarRatings from 'react-star-ratings';
 import { Textfit } from 'react-textfit';
 import moment from "moment";
@@ -10,26 +9,21 @@ import "./style.css";
 
 function Review(props) {
     const today = moment().format("YYYY-MM-DD");
-    const [statusImage, setstatusImage] = useState("");
     const [userStatus, setuserStatus] = useState("");
 
     useEffect(() => {
         if (moment(today).diff(props.dateJoined, 'days') < 7) {
-            setstatusImage(profileImages[0].image);
             setuserStatus("beginner");
         }
         if (moment(today).diff(props.dateJoined, 'days') >= 7 &&
             moment(today).diff(props.dateJoined, 'months') < 1) {
-            setstatusImage(profileImages[1].image);
             setuserStatus("novice");
         }
         if (moment(today).diff(props.dateJoined, 'months') >= 1 &&
             moment(today).diff(props.dateJoined, 'years') < 1) {
-            setstatusImage(profileImages[2].image);
             setuserStatus("expert");
         }
         if (moment(today).diff(props.dateJoined, 'years') >= 1) {
-            setstatusImage(profileImages[3].image);
             setuserStatus("master");
         }
     }, [props.dateJoined])
@@ -78,7 +72,6 @@ function Review(props) {
                         <ImageOverlay
                             status={userStatus}
                         />
-                        {/* <img src={statusImage} alt={userStatus} className="review-image"></img> */}
                     </Col>
                     <Col size="lg-9 10">
                         <Row no-gutters>
@@ -95,7 +88,7 @@ function Review(props) {
                                 </Typography>
                             </Col>
                             <Col size="6">
-                                <Typography variant="p" component="p" className="white">
+                                <Typography variant="subtitle1" className="white">
                                     <Textfit
                                         mode="single"
                                         className="white"

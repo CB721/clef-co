@@ -10,7 +10,7 @@
     height: 100%;
     overflow: auto;
     display: inline-block;
-    background: rgba(0, 0, 0, 0.509);
+    background: rgba(0, 0, 0, 0);
     transition: 3.5s;
 }
 .menu-background .col-sm-4 {

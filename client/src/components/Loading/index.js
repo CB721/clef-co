@@ -10,7 +10,7 @@ function Loading(props) {
         } else {
             setColor("#ffffff");
         }
-    }, [])
+    }, [props.color])
     return (
         <div className="loading-circle">
         <CircleLoader 

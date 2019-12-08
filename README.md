@@ -166,6 +166,7 @@
 * [Glamor CSS](https://www.npmjs.com/package/glamor)
 * [React-player](https://www.npmjs.com/package/react-player)
 * [React-star-ratings](https://www.npmjs.com/package/react-star-ratings)
+* [Payment-icons](https://github.com/muffinresearch/payment-icons)
 
 ## Author
 * Clint Brodar

@@ -178,7 +178,7 @@ function Products() {
                                 <Col size="md-8 12">
                                     <a href={`/shop/product/${products[products.length - 1].id}`}>
                                         <img
-                                            src={products[10].products.length - 1}
+                                            src={products[products.length - 1].image_link}
                                             alt={products[products.length - 1].product_name} className="current-promo-image"
                                         ></img>
                                     </a>
