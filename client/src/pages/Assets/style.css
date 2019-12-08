@@ -604,8 +604,6 @@ ul {
 .title {
     position: -webkit-sticky;
     position: sticky;
-    /* height: 75vh; */
-    /* top: 0; */
 }
 .entire-sections {
     min-height: calc(100vh - 70px);
@@ -627,7 +625,6 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 3px solid rgb(62, 7, 104); */
 }
 .contact-message {
     position: absolute;
@@ -699,6 +696,20 @@ figure:hover img {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.show-all-orders {
+    display: inline;
+}
+.hide-orders {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 5%;
+    width: 100%;
+    height: auto;
+    background: rgb(62, 7, 104);
+}
+.hide-orders:hover {
+    cursor: pointer;
 }
 
 /* responsive */

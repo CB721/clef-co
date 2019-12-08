@@ -38,9 +38,8 @@ function User() {
     const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);
     const [passwordError, setPasswordError] = useState("");
     const orders = useSelector(state => state.orders);
-    const [reviews, setReviews] = useState([]);
     const [allNews, setAllNews] = useState([]);
-    const [selectedNews, setSelectedNews] = useState([]);
+    const [showOrders, setShowOrders] = useState(false);
 
 
     useEffect(() => {
@@ -86,7 +85,6 @@ function User() {
             .catch(err => console.log(err));
     }, []);
     function setNews(data) {
-        setReviews(data);
         setAllNews(allNews => [...allNews, data[data.length - 1]]);
     }
     function setUpUser() {
@@ -406,6 +404,10 @@ function User() {
             window.location.href = "/create_account";
         }
     }
+    function displayOrders(event) {
+        event.preventDefault();
+        setShowOrders(true);
+    }
     return (
         <div>
             {window.sessionStorage.logged_in ? (
@@ -453,7 +455,7 @@ function User() {
                                             news={allNews}
                                         />
                                     ) : (
-                                            <Loading 
+                                            <Loading
                                                 color="white"
                                             />
                                         )}
@@ -474,29 +476,46 @@ function User() {
                             <ViewedProducts />
                         </Col>
                     </Row>
-                    <Row no-gutters>
-                        <Col size="md-12">
-                            <h1 className="white f-top-pad">
-                                Orders
-                            </h1>
+                    <Row>
+                        <Col size="12">
+                            {showOrders ? (
+                                <div>
+                                    <Row no-gutters>
+                                        <Col size="md-12">
+                                            <h1 className="white f-top-pad">
+                                                Orders
+                                            </h1>
+                                        </Col>
+                                    </Row>
+                                    <Row no-gutters>
+                                        <Col size="md-1" />
+                                        <Col size="md-10">
+                                            {orders.map(order =>
+                                                <Fade bottom key={order.order_id}>
+                                                    <Order
+                                                        id={order.order_id}
+                                                        number={order.order_id}
+                                                        date={order.checked_out_at.split('T')[0]}
+                                                        lineItems={order.line_items}
+                                                        name={first + " " + last}
+                                                    />
+                                                </Fade>
+                                            )}
+                                        </Col>
+                                        <Col size="md-1" />
+                                    </Row>
+                                </div>
+                            ) : (
+                                    <div
+                                        className="hide-orders rounded-corners"
+                                        onClick={(event) => displayOrders(event)}
+                                    >
+                                        <h1 className="white">
+                                            Show Orders
+                                        </h1>
+                                    </div>
+                                )}
                         </Col>
-                    </Row>
-                    <Row no-gutters>
-                        <Col size="md-1" />
-                        <Col size="md-10">
-                            {orders.map(order =>
-                                <Fade bottom key={order.order_id}>
-                                    <Order
-                                        id={order.order_id}
-                                        number={order.order_id}
-                                        date={order.checked_out_at.split('T')[0]}
-                                        lineItems={order.line_items}
-                                        name={first + " " + last}
-                                    />
-                                </Fade>
-                            )}
-                        </Col>
-                        <Col size="md-1" />
                     </Row>
                     <Row no-gutters>
                         <Col size="md-3" />
@@ -526,9 +545,10 @@ function User() {
                         draggable
                         pauseOnHover
                     />
-                </div>
-            ) : (<div />)}
-        </div>
+                </div >
+            ) : (<div />)
+            }
+        </div >
     )
 }
 
