@@ -174,7 +174,6 @@ function Navbar(props) {
                                     <Col size="md-8 9">
                                         <input
                                             ref={searchInput}
-                                            // ref={(input) => { this.nameInput = input; }}
                                             className="search-field white"
                                             type="text"
                                             name="search"

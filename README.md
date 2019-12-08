@@ -17,7 +17,7 @@
         * Product name, description and image are displayed
     * Next, they encounter the product bundles
         * Bundles are predetemined products based off of genres
-        * When they click the "Learn more" button, a modal with the all the products included appears.
+        * When they click the "Learn more" button, a modal with the all products included appears
             * If they are logged in, they have the ability to add all of the items to their cart
             * Otherwise, they are prompted to login
         * Each bundle is designed to look an iPod
@@ -132,12 +132,21 @@
 * Add a forgot password option on the login screen after the user attempts to login three times.
 
 ## Major Issues Encountered
-* Responsiveness
+* Responsiveness / Consistent styling
+    * React-textfit
+        * Allowed me to set a max and min size on the text for similiar items
+            * Ex. All of the products on the Shop page
+    * Bootstrap Grid
+        * Using the grid properly, I was able to achieve 95% of the mobile responsiveness
+    * Media queries
 * API routing and SQL queries
+    * As demonstrated on the [table relationships](###back-end-process) section, there is a lot of relational data.  To establish these relations, I used multiple joins.
+        * Ex. To get a review, you have to join the review table with both the users and products tables.
 * Converting React class components to functions in order to use hooks and Redux
-* Consistent styling across all pages
-* Loading time
+    * In order to have the user's cart information across all pages, I used Redux to save it in global state.  This allowed me to check if an item was already in the cart and prevent the user from adding it again.  It also allowed me to visually represent how many items were in the cart for the user to qucikly reference.
+    * When I first started the project, I created all of my pages using class components.  However, when I realized I needed to implement Redux, I needed to convert the necessary components into function components.
 * Implementing Redux
+    * This was my first application implementing Redux on my own.  Because of that, I struggled with how to use hooks and useEffect.  Also, I struggled setting up the actions and reducers.  I found this [tutorial](https://youtu.be/CVpUuw9XSjY) to be very helpful.
 
 ## Technologies Used
 
