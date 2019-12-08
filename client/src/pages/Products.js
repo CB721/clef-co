@@ -204,6 +204,7 @@ function Products() {
                 <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
+                            action={(event) => openBundleModal(event, 0)}
                             bundleImage={Bundles[0].images}
                             bundleTitle={Bundles[0].name}
                             bundleDescription={Bundles[0].description}
@@ -220,6 +221,7 @@ function Products() {
                 <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
+                            action={(event) => openBundleModal(event, 1)}
                             bundleImage={Bundles[1].images}
                             bundleTitle={Bundles[1].name}
                             bundleDescription={Bundles[1].description}
@@ -237,6 +239,7 @@ function Products() {
                 <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
+                            action={(event) => openBundleModal(event, 2)}
                             bundleImage={Bundles[2].images}
                             bundleTitle={Bundles[2].name}
                             bundleDescription={Bundles[2].description}
@@ -253,6 +256,7 @@ function Products() {
                 <Col size="md-4 12">
                     <Fade bottom>
                         <Bundle
+                            action={(event) => openBundleModal(event, 3)}
                             bundleImage={Bundles[3].images}
                             bundleTitle={Bundles[3].name}
                             bundleDescription={Bundles[3].description}

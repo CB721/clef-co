@@ -25,7 +25,7 @@ function Bundle(props) {
     return (
         <Row>
             <Col size="md-12">
-                <div className="bundle white">
+                <div className="bundle white" onClick={props.action}>
                     <Row>
                         <Col size="md-12">
                             <img src={image} alt={props.bundleTitle} className="bundle-image"></img>
