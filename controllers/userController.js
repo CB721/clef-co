@@ -1,7 +1,7 @@
 const db = require("../connection/connection");
 const moment = require("moment");
 const bcrypt = require("bcryptjs");
-
+const crypto = require("crypto");
 const today = moment().format("YYYY-MM-DD");
 const table = "oxn711nfcpjgwcr2.users";
 
@@ -31,9 +31,18 @@ module.exports = {
                             .then(
                                 match => {
                                     if (match) {
-                                        return res.json({
-                                            results
-                                        });
+                                        results[0].token = crypto.randomBytes(64).toString('hex');
+                                        db.query("UPDATE " + table + " SET user_auth = '" + results[0].token + "' WHERE id = " + results[0].id + ";",
+                                            function (err, tokenUpdate) {
+                                                if (err) {
+                                                    return res.send(err);
+                                                } else if (tokenUpdate.affectedRows == 1) {
+                                                    return res.json({
+                                                        results
+                                                    });
+                                                }
+                                            }
+                                        )
                                     } else {
                                         return res.send("login error");
                                     }
@@ -122,7 +131,7 @@ module.exports = {
         const password = req.params.password;
         const email = req.params.email;
         db.query("SELECT * FROM " + table + " WHERE email = '" + email + "';",
-            function(err, results) {
+            function (err, results) {
                 if (err) {
                     return res.send(err);
                 } else {
@@ -132,15 +141,15 @@ module.exports = {
                                 match => {
                                     if (match) {
                                         db.query("DELETE FROM " + table + " WHERE id = " + ID + ";",
-                                        function(err, results) {
-                                            if (err) {
-                                                return res.send(err);
-                                            } else {
-                                                return res.json({
-                                                    results
-                                                });
+                                            function (err, results) {
+                                                if (err) {
+                                                    return res.send(err);
+                                                } else {
+                                                    return res.json({
+                                                        results
+                                                    });
+                                                }
                                             }
-                                        }
                                         )
                                     } else {
                                         return res.send("Incorrect password");
@@ -150,6 +159,24 @@ module.exports = {
                     } else {
                         return res.send("No account found");
                     }
+                }
+            }
+        )
+    },
+    verifyUserLoggedIn: function (req, res) {
+        const userID = req.params.id;
+        const userToken = req.params.token;
+        if (userToken === undefined) {
+            return res.send(false);
+        }
+        db.query("SELECT * FROM " + table + " WHERE id = " + userID + " AND user_auth = '" + userToken + "';",
+            function (err, results) {
+                if (err) {
+                    return res.send(err);
+                } else if (results.length > 0) {
+                    return res.send(true)
+                } else {
+                    return res.send(false);
                 }
             }
         )

@@ -14,5 +14,8 @@ router
 router
     .route("/delete/:id/:email/:password")
     .delete(controller.deleteUser);
+router
+    .route("/status/:id/:token")
+    .get(controller.verifyUserLoggedIn);
 
 module.exports = router;

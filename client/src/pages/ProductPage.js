@@ -158,7 +158,7 @@ class ProductPage extends Component {
         if (window.sessionStorage.logged_in) {
             if (cart.length > 0) {
                 for (const item in cartItems) {
-                    if (cartItems[item].product_id == id) {
+                    if (cartItems[item].product_id === id) {
                         toast("Item already in your cart", {
                             className: css({
                                 background: '#3E0768',

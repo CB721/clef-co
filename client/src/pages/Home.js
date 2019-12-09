@@ -57,7 +57,7 @@ function Home() {
     useEffect(() => {
         if (window.sessionStorage.id) {
             setTimeout(function () {
-                toast("Thanks for visiting today " + window.sessionStorage.first_name + "!", {
+                toast("Thanks for visiting today, " + window.sessionStorage.first_name + "!", {
                     className: css({
                         background: '#3E0768',
                         boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',

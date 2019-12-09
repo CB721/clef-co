@@ -17,6 +17,9 @@ export default {
     userLogin: function(email, password) {
         return axios.get("/api/users/login/" + email + "/" + password);
     },
+    veriftyUserLoggedIn: function(userID, token) {
+        return axios.get("/api/users/status/" + userID + "/" + token);
+    },
     updateUser: function (userID, userData) {
         return axios.put("/api/users/" + userID, userData);
     },

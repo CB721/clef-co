@@ -16,6 +16,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { css } from 'glamor';
+import API from '../../utilities/api';
 import "./style.css";
 
 
@@ -28,29 +29,42 @@ function Navbar(props) {
     const [renderMiddleCol, setMiddleCol] = useState(true);
     const [menuClass, setMenuClass] = useState("no-menu");
 
-    useEffect(() => {
-        if (cart[0]) {
-            setCartTotal(cart[0].line_items.length)
-        }
-    }, [cart[0]]);
-    useEffect(() => {
-        if (window.sessionStorage.id) {
+    function validateUser(status) {
+        if (status) {
             setLoggedIn(true);
         } else {
+            sessionStorage.clear();
+            setLoggedIn(false);
+            window.location.href = "/login";
+        }
+    }
+    useEffect(() => {
+        if (window.sessionStorage.id) {
+            console.log(window.sessionStorage.token);
+            API.veriftyUserLoggedIn(window.sessionStorage.id, window.sessionStorage.token)
+                .then(res => validateUser(res.data))
+                .catch(err => console.log(err))
+        } else {
+            sessionStorage.clear();
             setLoggedIn(false);
         }
-    }, [loggedIn]);
+    }, [window.sessionStorage.id]);
+    useEffect(() => {
+        if (cart[0]) {
+            setCartTotal(cart[0].line_items.length);
+        }
+    }, [cart[0]]);
     useEffect(() => {
         if (window.innerWidth < 450) {
             setMiddleCol(false);
         } else {
             setMiddleCol(true);
         }
-    }, [window.innerWidth]);
+    }, []);
     const searchInput = useRef(null);
     useEffect(() => {
         searchInput.current.focus();
-      }, [search]);
+    }, [search]);
     function HideOnScroll(props) {
         const { children, window } = props;
         const trigger = useScrollTrigger({ target: window ? window() : undefined });
@@ -109,7 +123,12 @@ function Navbar(props) {
         event.preventDefault();
         setIsOpen(false);
         sessionStorage.clear();
-        window.location.href = "/login";
+        const user = { "user_auth": "" };
+        API.updateUser(window.sessionStorage.id, user)
+            .then(
+                window.location.href = "/login"
+            )
+            .catch(err => console.log(err));
     }
     function handleInputChange(event) {
         let value = event.target.value.trim();

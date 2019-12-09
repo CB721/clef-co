@@ -41,7 +41,24 @@ function User() {
     const [allNews, setAllNews] = useState([]);
     const [showOrders, setShowOrders] = useState(false);
 
+    function validateUser(status) {
+        if (status) {
 
+        } else {
+            sessionStorage.clear();
+            window.location.href = "/login";
+        }
+    }
+    useEffect(() => {
+        if (window.sessionStorage.logged_in) {
+            API.veriftyUserLoggedIn(window.sessionStorage.id, window.sessionStorage.token)
+                .then(res => validateUser(res.data))
+                .catch(err => console.log(err))
+
+        } else {
+            window.location.href = "/login";
+        }
+    }, []);
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
             generateRandomImage();
@@ -235,7 +252,7 @@ function User() {
             setstatusImage(profileImages[0].image);
             setuserStatus("beginner");
             if (moment(today).diff(dateJoined, 'days') % 3 === 0) {
-                toast("Thanks for beening a member for " + moment(today).diff(dateJoined, 'days'), {
+                toast("Thanks for being a member for " + moment(today).diff(dateJoined, 'days'), {
                     className: css({
                         background: '#3E0768',
                         boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
@@ -495,16 +512,16 @@ function User() {
                                     </Row>
                                 </div>
                             ) : (
-                                <Fade bottom>
-                                    <div
-                                        className="hide-orders rounded-corners"
-                                        onClick={(event) => displayOrders(event)}
-                                    >
-                                        <h1 className="white">
-                                            Show Orders
+                                    <Fade bottom>
+                                        <div
+                                            className="hide-orders rounded-corners"
+                                            onClick={(event) => displayOrders(event)}
+                                        >
+                                            <h1 className="white">
+                                                Show Orders
                                         </h1>
-                                    </div>
-                                </Fade>
+                                        </div>
+                                    </Fade>
                                 )}
                         </Col>
                     </Row>

@@ -34,6 +34,7 @@ function Login() {
             dispatch(saveUser(user.results[0]));
             dispatch(switchLoggedStatus());
             sessionStorage.setItem("logged_in", true);
+            sessionStorage.setItem("token", user.results[0].token);
             sessionStorage.setItem("first_name", user.results[0].first_name);
             sessionStorage.setItem("last_name", user.results[0].last_name);
             sessionStorage.setItem("email", user.results[0].email);
