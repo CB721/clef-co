@@ -409,9 +409,9 @@ class Shop extends Component {
         const cart = this.state.cart;
         if (window.sessionStorage.logged_in) {
             if (cart.length > 0) {
-                const checkCart = cart.findIndex(item => item.product_id === id);
+                const checkCart = cart.findIndex(item => item === id);
                 if (checkCart >= 0) {
-                    toast("Item already added to cart", {
+                    toast("Item already in your cart", {
                         className: css({
                             background: '#3E0768',
                             boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
