@@ -85,9 +85,15 @@ export const completeCart = (cart) => {
     }
 };
 export const getOrders = (orders) => {
-    return {
-        type: Get_Orders,
-        orders
+    if (!orders) {
+        setTimeout(function() {
+            getOrdersByUser();
+        }, 5000);
+    } else {
+        return {
+            type: Get_Orders,
+            orders
+        }
     }
 };
 export const getOrdersByUser = () => {

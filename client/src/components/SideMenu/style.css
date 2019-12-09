@@ -71,17 +71,20 @@
 .side-menu-item:hover .white {
     color: rgb(62,7,104);
 }
+.side-menu-item:hover .all-side-items-except-sign-out {
+    color: rgb(62,7,104);
+}
 .side-menu .side-menu-item {
     list-style: none;
     transition: 0.5s;
     color: white;
 }
-.side-menu .side-menu-item a {
+.side-menu .side-menu-item .all-side-items-except-sign-out {
     position: relative;
     color: transparent;
     text-decoration: none;
 }
-.side-menu .side-menu-item a:before {
+.side-menu .side-menu-item .all-side-items-except-sign-out:before {
     content: attr(data-text);
     position: absolute;
     left: 0;
@@ -93,11 +96,11 @@
     transition: 0.5s;
     pointer-events: none;
 }
-.side-menu .side-menu-item a:hover:before {
+.side-menu .side-menu-item .all-side-items-except-sign-out:hover:before {
     transform: translateX(100%) rotateX( 180deg );
     opacity: 0;
 }
-.side-menu .side-menu-item a::after {
+.side-menu .side-menu-item .all-side-items-except-sign-out::after {
     content: attr(data-text);
     position: absolute;
     left: 0;
@@ -110,7 +113,7 @@
     opacity: 0;
     pointer-events: none;
 }
-.side-menu .side-menu-item a:hover::after {
+.side-menu .side-menu-item .all-side-items-except-sign-out:hover::after {
     transform: translateX(0) rotateX( 0 );
     color: rgb(62,7,104);
     opacity: 1;
@@ -121,4 +124,11 @@
 }
 .menu-sign-out:hover {
     color: red;
+}
+@media only screen and (max-width: 574px) {
+    .side-menu {
+        border-right: none;
+        border-bottom: none;
+        border-bottom-right-radius: 0px;
+    }
 }

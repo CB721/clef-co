@@ -21,107 +21,11 @@ function SideMenu(props) {
                 <Fade top>
                     <Slide top cascade>
                         <ul className="side-menu">
-                            <li className="side-menu-item">
-                                <Row no-gutters>
-                                    <Col size="3">
-                                        <HomeOutlinedIcon className="white" fontSize={"large"} />
-                                    </Col>
-                                    <Col size="9">
-                                        <Textfit
-                                            mode="single"
-                                            min={10}
-                                            max={32}
-                                        >
-                                            <a href="/" data-text="Home">Home</a>
-                                        </Textfit>
-                                    </Col>
-                                </Row>
-                            </li>
-                            <li className="side-menu-item">
-                                <Row no-gutters>
-                                    <Col size="3">
-                                        <AudiotrackOutlinedIcon className="white" fontSize={"large"} />
-                                    </Col>
-                                    <Col size="9">
-                                        <Textfit
-                                            mode="single"
-                                            min={10}
-                                            max={32}
-                                        >
-                                            <a href="/products" data-text="Products">Products</a>
-                                        </Textfit>
-                                    </Col>
-                                </Row>
-                            </li>
-                            <li className="side-menu-item">
-                                <Row no-gutters>
-                                    <Col size="3">
-                                        <AddShoppingCartOutlinedIcon className="white" fontSize={"large"} />
-                                    </Col>
-                                    <Col size="9">
-                                        <Textfit
-                                            mode="single"
-                                            min={10}
-                                            max={32}
-                                        >
-                                            <a href="/shop" data-text="Shop">Shop</a>
-                                        </Textfit>
-                                    </Col>
-                                </Row>
-                            </li>
-                            <li className="side-menu-item">
-                                <Row no-gutters>
-                                    <Col size="3">
-                                        <SearchOutlinedIcon className="white" fontSize={"large"} />
-                                    </Col>
-                                    <Col size="9">
-                                        <Textfit
-                                            mode="single"
-                                            min={10}
-                                            max={32}
-                                        >
-                                            <a href="/search" data-text="Search">Search</a>
-                                        </Textfit>
-                                    </Col>
-                                </Row>
-                            </li>
-                            <li className="side-menu-item">
-                                <Row no-gutters>
-                                    <Col size="3">
-                                        <MusicVideoOutlinedIcon className="white" fontSize={"large"} />
-                                    </Col>
-                                    <Col size="9">
-                                        <Textfit
-                                            mode="single"
-                                            min={10}
-                                            max={32}
-                                        >
-                                            <a href="/tutorials" data-text="Tutorials">Tutorials</a>
-                                        </Textfit>
-                                    </Col>
-                                </Row>
-                            </li>
-                            <li className="side-menu-item">
-                                <Row no-gutters>
-                                    <Col size="3">
-                                        <ContactSupportOutlinedIcon className="white" fontSize={"large"} />
-                                    </Col>
-                                    <Col size="9">
-                                        <Textfit
-                                            mode="single"
-                                            min={10}
-                                            max={32}
-                                        >
-                                            <a href="/contact" data-text="Contact Us">Contact Us</a>
-                                        </Textfit>
-                                    </Col>
-                                </Row>
-                            </li>
-                            {props.loggedIn ? (
+                            <a href="/">
                                 <li className="side-menu-item">
                                     <Row no-gutters>
                                         <Col size="3">
-                                            <HeadsetOutlinedIcon className="white" fontSize={"large"} />
+                                            <HomeOutlinedIcon className="white" fontSize={"large"} />
                                         </Col>
                                         <Col size="9">
                                             <Textfit
@@ -129,12 +33,104 @@ function SideMenu(props) {
                                                 min={10}
                                                 max={32}
                                             >
-                                                <a href="/user/profile" data-text="Profile">Profile</a>
+                                                <div className="all-side-items-except-sign-out" data-text="Home">Home</div>
                                             </Textfit>
                                         </Col>
                                     </Row>
                                 </li>
-                            ) : (
+                            </a>
+                            <a href="/products">
+                                <li className="side-menu-item">
+                                    <Row no-gutters>
+                                        <Col size="3">
+                                            <AudiotrackOutlinedIcon className="white" fontSize={"large"} />
+                                        </Col>
+                                        <Col size="9">
+                                            <Textfit
+                                                mode="single"
+                                                min={10}
+                                                max={32}
+                                            >
+                                                <div className="all-side-items-except-sign-out" data-text="Products">Products</div>
+                                            </Textfit>
+                                        </Col>
+                                    </Row>
+                                </li>
+                            </a>
+                            <a href="/shop">
+                                <li className="side-menu-item">
+                                    <Row no-gutters>
+                                        <Col size="3">
+                                            <AddShoppingCartOutlinedIcon className="white" fontSize={"large"} />
+                                        </Col>
+                                        <Col size="9">
+                                            <Textfit
+                                                mode="single"
+                                                min={10}
+                                                max={32}
+                                            >
+                                                <div className="all-side-items-except-sign-out" data-text="Shop">Shop</div>
+                                            </Textfit>
+                                        </Col>
+                                    </Row>
+                                </li>
+                            </a>
+                            <a href="/search">
+                                <li className="side-menu-item">
+                                    <Row no-gutters>
+                                        <Col size="3">
+                                            <SearchOutlinedIcon className="white" fontSize={"large"} />
+                                        </Col>
+                                        <Col size="9">
+                                            <Textfit
+                                                mode="single"
+                                                min={10}
+                                                max={32}
+                                            >
+                                                <div className="all-side-items-except-sign-out" data-text="Search">Search</div>
+                                            </Textfit>
+                                        </Col>
+                                    </Row>
+                                </li>
+                            </a>
+                            <a href="/tutorials">
+                                <li className="side-menu-item">
+                                    <Row no-gutters>
+                                        <Col size="3">
+                                            <MusicVideoOutlinedIcon className="white" fontSize={"large"} />
+                                        </Col>
+                                        <Col size="9">
+                                            <Textfit
+                                                mode="single"
+                                                min={10}
+                                                max={32}
+                                            >
+                                                <div className="all-side-items-except-sign-out" data-text="Tutorials">Tutorials</div>
+                                            </Textfit>
+                                        </Col>
+                                    </Row>
+                                </li>
+                            </a>
+                            <a href="/contact">
+                                <li className="side-menu-item">
+                                    <Row no-gutters>
+                                        <Col size="3">
+                                            <ContactSupportOutlinedIcon className="white" fontSize={"large"} />
+                                        </Col>
+                                        <Col size="9">
+                                            <Textfit
+                                                mode="single"
+                                                min={10}
+                                                max={32}
+                                            >
+                                                <div className="all-side-items-except-sign-out" data-text="Contact Us">Contact Us</div>
+                                            </Textfit>
+                                        </Col>
+                                    </Row>
+                                </li>
+                            </a>
+                            {props.loggedIn ? (
+                                <a href="/user/profile">
                                     <li className="side-menu-item">
                                         <Row no-gutters>
                                             <Col size="3">
@@ -146,11 +142,31 @@ function SideMenu(props) {
                                                     min={10}
                                                     max={32}
                                                 >
-                                                    <a href="/login" data-text="Login">Login</a>
+                                                    <div className="all-side-items-except-sign-out" data-text="Profile">Profile</div>
                                                 </Textfit>
                                             </Col>
                                         </Row>
                                     </li>
+                                </a>
+                            ) : (
+                                    <a href="/login">
+                                        <li className="side-menu-item">
+                                            <Row no-gutters>
+                                                <Col size="3">
+                                                    <HeadsetOutlinedIcon className="white" fontSize={"large"} />
+                                                </Col>
+                                                <Col size="9">
+                                                    <Textfit
+                                                        mode="single"
+                                                        min={10}
+                                                        max={32}
+                                                    >
+                                                        <div className="all-side-items-except-sign-out" data-text="Login">Login</div>
+                                                    </Textfit>
+                                                </Col>
+                                            </Row>
+                                        </li>
+                                    </a>
                                 )}
                             {props.loggedIn ? (
                                 <li className="side-menu-item">
@@ -164,28 +180,30 @@ function SideMenu(props) {
                                                 min={10}
                                                 max={32}
                                             >
-                                                <div className="menu-sign-out" onClick={(event) => props.logOut(event)}>Sign Out</div>
+                                                <div className="menu-sign-out white" onClick={(event) => props.logOut(event)}>Sign Out</div>
                                             </Textfit>
                                         </Col>
                                     </Row>
                                 </li>
                             ) : (
-                                    <li className="side-menu-item">
-                                        <Row no-gutters>
-                                            <Col size="3">
-                                                <AccountCircleOutlinedIcon className="white" fontSize={"large"} />
-                                            </Col>
-                                            <Col size="9">
-                                                <Textfit
-                                                    mode="single"
-                                                    min={10}
-                                                    max={32}
-                                                >
-                                                    <a href="/create_account" data-text="Sign Up">Sign Up</a>
-                                                </Textfit>
-                                            </Col>
-                                        </Row>
-                                    </li>
+                                    <a href="/create_account">
+                                        <li className="side-menu-item">
+                                            <Row no-gutters>
+                                                <Col size="3">
+                                                    <AccountCircleOutlinedIcon className="white" fontSize={"large"} />
+                                                </Col>
+                                                <Col size="9">
+                                                    <Textfit
+                                                        mode="single"
+                                                        min={10}
+                                                        max={32}
+                                                    >
+                                                        <div className="all-side-items-except-sign-out" data-text="Sign Up">Sign Up</div>
+                                                    </Textfit>
+                                                </Col>
+                                            </Row>
+                                        </li>
+                                    </a>
                                 )}
                         </ul>
                     </Slide>

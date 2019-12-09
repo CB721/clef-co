@@ -495,6 +495,7 @@ function User() {
                                     </Row>
                                 </div>
                             ) : (
+                                <Fade bottom>
                                     <div
                                         className="hide-orders rounded-corners"
                                         onClick={(event) => displayOrders(event)}
@@ -503,6 +504,7 @@ function User() {
                                             Show Orders
                                         </h1>
                                     </div>
+                                </Fade>
                                 )}
                         </Col>
                     </Row>

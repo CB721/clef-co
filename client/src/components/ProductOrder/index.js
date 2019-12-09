@@ -26,10 +26,10 @@ function ProductOrder(props) {
                                 <div>
                                     <p>
                                         Orders of $99.99 or more ship free!
-                            </p>
+                                    </p>
                                     <p>
                                         In stock!
-                            </p>
+                                    </p>
                                     <form>
                                         <MuiThemeProvider theme={theme}>
                                             <Input
