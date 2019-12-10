@@ -62,16 +62,21 @@ function Search() {
     }
     function handleFormSubmit() {
         setErrorClass("");
+        let searchMessage = function () {
+            return new Promise(function (resolve, reject) {
+                if (window.sessionStorage.id) {
+                    searchOrders();
+                    searchContactForms();
+                    searchProducts();
+                } else {
+                    searchProducts();
+                }
+            })
+        }
         if (search) {
             sessionStorage.setItem("search", search);
             setSearch("");
-            if (window.sessionStorage.id) {
-                searchOrders();
-                searchContactForms();
-                searchProducts();
-            } else {
-                searchProducts();
-            }
+            
         } else {
             setErrorClass("form-titles fade-error-message");
             setFormMessage("Search field cannot be empty");

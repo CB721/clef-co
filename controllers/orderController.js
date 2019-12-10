@@ -8,13 +8,13 @@ module.exports = {
                 if (err) {
                     return res.send(err);
                 } else {
-                    const resLen = results.length;
                     const ordersArr = [];
-                    for (let i = 0; i < resLen; i++) {
+                    let i = 0;
+                    while (i < results.length) {
                         const orderID = results[i].id;
                         const created = results[i].created_at;
                         const checked = results[i].checked_out_at;
-                        db.query("SELECT * FROM oxn711nfcpjgwcr2.orderItems WHERE order_id = " + results[i].id + ";",
+                        db.query("SELECT * FROM oxn711nfcpjgwcr2.orderItems WHERE order_id = " + orderID + ";",
                             function (err, results) {
                                 if (err) {
                                     return res.send(err);
@@ -28,21 +28,22 @@ module.exports = {
                                     ordersArr.push(order);
                                 }
                             }
-                        )
-                    }
-                    if (resLen < 5) {
-                        setTimeout(function () {
+                            )
+                            i++;
+                        }
+                    setTimeout(function() {
+                        if (ordersArr.length === results.length) {
                             return res.json({
                                 ordersArr
                             });
-                        }, 5000);
-                    } else {
-                        setTimeout(function () {
-                            return res.json({
-                                ordersArr
-                            });
-                        }, resLen * 100);
-                    }
+                        } else {
+                            setTimeout(function() {
+                                return res.json({
+                                    ordersArr
+                                });
+                            }, 500 * results.length)
+                        }
+                    }, 2000);
                 }
             }
         )

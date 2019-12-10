@@ -457,7 +457,6 @@ class Shop extends Component {
         }
     }
     handleCartAddition = (data, product) => {
-        console.log(data);
         this.setState({ cart: data });
         toast(product + " has been added to your cart!", {
             className: css({

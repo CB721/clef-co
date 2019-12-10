@@ -23,12 +23,13 @@ import './App.css';
 function App() {
   const products = useSelector(state => state.products);
 
-  if (!window.sessionStorage.cookie_notification) {
+  if (!window.localStorage.cookie_notification) {
     toast("This website stores data such as cookies to enable important site functionality including analytics, targeting, and personalization.  Click to confirm.", {
       closeButton: false,
       draggable: false,
       closeOnClick: true,
       autoClose: false,
+      toastId: 1234,
       className: css({
         background: '#3E0768',
         boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
@@ -38,7 +39,7 @@ function App() {
         fontSize: '20px',
         color: 'white'
       }),
-      onClick: function () { sessionStorage.setItem("cookie_notification", true) }
+      onClick: function () { localStorage.setItem("cookie_notification", true) }
     });
   }
 

@@ -62,7 +62,7 @@ export const getCart = (cart) => {
     }
 };
 export const getCartByUser = () => {
-    if (window.sessionStorage.id) {
+    if (window.sessionStorage.id && window.sessionStorage.token) {
         return (dispatch) => {
             return axios.get("/api/cart/user/" + window.sessionStorage.id)
                 .then(res => {
@@ -97,7 +97,7 @@ export const getOrders = (orders) => {
     }
 };
 export const getOrdersByUser = () => {
-    if (window.sessionStorage.id) {
+    if (window.sessionStorage.id && window.sessionStorage.token) {
         return (dispatch) => {
             return axios.get("/api/orders/" + window.sessionStorage.id)
                 .then(res => {

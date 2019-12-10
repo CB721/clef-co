@@ -40,7 +40,6 @@ function Navbar(props) {
     }
     useEffect(() => {
         if (window.sessionStorage.id) {
-            console.log(window.sessionStorage.token);
             API.veriftyUserLoggedIn(window.sessionStorage.id, window.sessionStorage.token)
                 .then(res => validateUser(res.data))
                 .catch(err => console.log(err))
