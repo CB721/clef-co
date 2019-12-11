@@ -17,6 +17,9 @@ router
     .route("/sales/quantity_sold")
     .get(controller.getAllProductsByQuantitySold);
 router
+    .route("/sales/profit_margin")
+    .get(controller.getProductsProfit);
+router
     .route("/viewed/user")
     .post(controller.addToUserViewedProducts);
 router

@@ -103,5 +103,8 @@ export default {
     },
     getAllProductsByQuantitySold: function() {
         return axios.get("/api/products/sales/quantity_sold");
+    },
+    getProductsProfit: function() {
+        return axios.get("/api/products/sales/profit_margin");
     }
 }
