@@ -57,6 +57,7 @@
     * Both pages validate the user input for a valid email and password length that is greater than 8
     * When creating an account, if the email matches one already in the database, the user is unable to create an account
     * On successful login, the user profile information is saved to session storage and the user is redirected to the profile page
+    * On every login a unique 128 character token is created, preventing unauthorized access
 * Profile
     * Populated with information about the user
         * User address and contact information is displayed
