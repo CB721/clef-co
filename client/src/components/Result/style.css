@@ -22,6 +22,7 @@
 }
 .result-basic-info {
     position: absolute;
+    margin-right: 10px;
     right: 10;
     top: 0;
     padding: 10px 0 0 10px;

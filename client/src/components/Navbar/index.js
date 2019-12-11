@@ -185,7 +185,7 @@ function Navbar(props) {
                             <Row no-gutters>
                                 <div className="search-box">
                                     <Col size="md-2 1">
-                                        <IconButton onClick={Search} aria-label="search" >
+                                        <IconButton onClick={Search} type="submit" aria-label="search" >
                                             <SearchIcon className="white" />
                                         </IconButton>
                                     </Col>

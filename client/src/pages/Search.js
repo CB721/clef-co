@@ -6,8 +6,9 @@ import Fade from 'react-reveal/Fade';
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
 import ViewedProducts from "../components/ViewedProducts";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { css } from 'glamor';
 import "./Assets/style.css";
 
 function Search() {
@@ -17,13 +18,9 @@ function Search() {
     const [formMessage, setFormMessage] = useState("");
 
     useEffect(() => {
-        if (window.sessionStorage.id) {
-            searchOrders();
-            searchContactForms();
-            searchProducts();
-        } else {
-            searchProducts();
-        }
+        getSearchResults()
+            .then(handleSearchResults())
+            .catch(err => console.log(err));
     }, []);
 
     function goToProduct(event, link) {
@@ -60,26 +57,42 @@ function Search() {
         let value = event.target.value.trim();
         setSearch(value);
     }
+    function getSearchResults() {
+        return new Promise(function (resolve, reject) {
+            if (window.sessionStorage.id && window.sessionStorage.token) {
+                resolve(
+                    searchOrders()
+                )
+                resolve(
+                    searchContactForms()
+                )
+                resolve(
+                    searchProducts()
+                )
+            } else {
+                resolve(
+                    searchProducts()
+                )
+            }
+        })
+    }
     function handleFormSubmit() {
         setErrorClass("");
-        let searchMessage = function () {
-            return new Promise(function (resolve, reject) {
-                if (window.sessionStorage.id) {
-                    searchOrders();
-                    searchContactForms();
-                    searchProducts();
-                } else {
-                    searchProducts();
-                }
-            })
-        }
         if (search) {
             sessionStorage.setItem("search", search);
             setSearch("");
-            
+            getSearchResults()
+                .then(handleSearchResults())
+                .catch(err => console.log(err));
         } else {
             setErrorClass("form-titles fade-error-message");
             setFormMessage("Search field cannot be empty");
+        }
+    }
+    function handleSearchResults() {
+        if (!results) {
+            setErrorClass("form-titles fade-error-message");
+            setFormMessage("Please try another search");
         }
     }
 

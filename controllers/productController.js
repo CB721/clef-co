@@ -121,34 +121,14 @@ module.exports = {
         )
     },
     getAllViewedProducts: function (req, res) {
-        db.query("SELECT * FROM oxn711nfcpjgwcr2.viewedProducts;",
-            function (err, allProducts) {
+        db.query("SELECT oxn711nfcpjgwcr2.viewedProducts.viewed_on AS last_view_date, oxn711nfcpjgwcr2.viewedProducts.views AS total_views, oxn711nfcpjgwcr2.viewedProducts.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.cost, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type, oxn711nfcpjgwcr2.products.quantity, oxn711nfcpjgwcr2.products.hardware, oxn711nfcpjgwcr2.products.software FROM oxn711nfcpjgwcr2.viewedProducts LEFT JOIN oxn711nfcpjgwcr2.products ON oxn711nfcpjgwcr2.viewedProducts.product_id = oxn711nfcpjgwcr2.products.id;",
+            function (err, results) {
                 if (err) {
                     return res.send(err);
                 } else {
-                    const resLen = allProducts.length;
-                    if (resLen > 0) {
-                        const results = [];
-                        for (let i = 0; i < resLen; i++) {
-                            const productID = allProducts[i].product_id;
-                            db.query("SELECT * FROM oxn711nfcpjgwcr2.products WHERE id = " + productID + ";",
-                                function (err, product) {
-                                    if (err) {
-                                        return res.send(err);
-                                    } else {
-                                        results.push(product[0]);
-                                    }
-                                }
-                            )
-                        }
-                        setTimeout(function () {
-                            return res.json({
-                                results
-                            });
-                        }, resLen * 100);
-                    } else {
-                        return res.send("No viewed products");
-                    }
+                    return res.json({
+                        results
+                    });
                 }
             }
         )
