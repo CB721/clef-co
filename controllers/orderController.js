@@ -1,4 +1,7 @@
 const db = require("../connection/connection");
+const moment = require("moment");
+const async = require("async");
+// import mapSeries from 'async/mapSeries';
 
 module.exports = {
     getOrdersByUserID: function (req, res) {
@@ -28,16 +31,16 @@ module.exports = {
                                     ordersArr.push(order);
                                 }
                             }
-                            )
-                            i++;
-                        }
-                    setTimeout(function() {
+                        )
+                        i++;
+                    }
+                    setTimeout(function () {
                         if (ordersArr.length === results.length) {
                             return res.json({
                                 ordersArr
                             });
                         } else {
-                            setTimeout(function() {
+                            setTimeout(function () {
                                 return res.json({
                                     ordersArr
                                 });
@@ -47,5 +50,39 @@ module.exports = {
                 }
             }
         )
+    },
+    getAverageCheckoutTime: function (req, res) {
+        db.query("SELECT oxn711nfcpjgwcr2.orders.checked_out_at, oxn711nfcpjgwcr2.orders.created_at FROM oxn711nfcpjgwcr2.orders;",
+            function (err, responses) {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    let totalDiff = 0;
+                    async.each(responses, function (response, callback) {
+                        const checked = new Date(response.checked_out_at);
+                        const created = new Date(response.created_at);
+                        const difference = checked.getTime() - created.getTime();
+                        totalDiff += difference;
+                        return callback();
+                    }, function (err) {
+                        if (err) {
+                            return res.send(err);
+                        } else {
+                            const difference = totalDiff / responses.length;
+                            const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                            const minutes = Math.floor(difference / 60000);
+                            const seconds = parseFloat(((difference % 60000) / 1000).toFixed(0));
+                            const results = {
+                                hours,
+                                minutes,
+                                seconds
+                            }
+                            return res.json({
+                                results
+                            });
+                        }
+                    });
+                }
+            })
     }
 }
