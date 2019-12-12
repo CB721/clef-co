@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Redirect, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -65,6 +65,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/create_account" component={SignUp} />
         <Route exact path="/user/profile" component={User} />
+        <Route render={() => <Redirect to={{pathname: "/"}} />} />
       </Switch>
       <Footer />
     </Router>
