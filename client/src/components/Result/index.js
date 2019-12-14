@@ -22,7 +22,7 @@ function Result(props) {
     }, [props])
 
     return (
-        <div className="result purple" onClick={(event) => props.goToProduct(event, id)}>
+        <div className="result purple add-shadow" onClick={(event) => props.goToProduct(event, id)}>
             <Row no-gutters>
                 <Col size="sm-2 12">
                     <div className="center-stars">

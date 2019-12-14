@@ -51,7 +51,7 @@ function Cart() {
         }
     }
     function completeOrder() {
-        const userID = parseInt(window.sessionStorage.id); 
+        const userID = parseInt(window.sessionStorage.id);
         const lineItems = JSON.stringify(cart[0].line_items);
         API.completeCart(cart[0].cart_id, userID, lineItems)
             .then(displayOrderConfirmation())
@@ -109,10 +109,10 @@ function Cart() {
                                 <div className="no-cart-area">
                                     <h1 className="purple">
                                         Your Cart Is Empty
-                                        </h1>
-                                        <Loading 
-                                                color="white"
-                                            />
+                                    </h1>
+                                    <Loading
+                                        color="white"
+                                    />
                                 </div>
                             )}
                     </div>

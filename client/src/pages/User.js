@@ -489,7 +489,7 @@ function User() {
                                     <Row no-gutters>
                                         <Col size="md-12">
                                             <div
-                                                className="hide-orders rounded-corners"
+                                                className="hide-orders rounded-corners add-shadow"
                                                 onClick={(event) => displayOrders(event)}
                                             >
                                                 <h1 className="white">
@@ -521,7 +521,7 @@ function User() {
                             ) : (
                                     <Fade bottom>
                                         <div
-                                            className="hide-orders rounded-corners"
+                                            className="hide-orders rounded-corners add-shadow"
                                             onClick={(event) => displayOrders(event)}
                                         >
                                             <h1 className="white">

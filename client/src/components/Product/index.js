@@ -10,8 +10,8 @@ import "./style.css";
 
 function Product(props) {
     return (
-        <div>
-            <Card className="card product-card product-shadow">
+        <div className="add-shadow">
+            <Card className="card product-card">
                 <CardActionArea>
                     <CardMedia
                         className="card-media product-image"

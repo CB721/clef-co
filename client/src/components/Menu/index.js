@@ -13,7 +13,7 @@ function ShopMenu(props) {
         },
     });
     return (
-        <div className="menu white">
+        <div className="menu white add-shadow">
             <Row>
                 <div className="category-header menu-top" onClick={props.collapseFeatured}>
                     <Col size="9">

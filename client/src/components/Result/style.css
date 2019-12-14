@@ -8,12 +8,10 @@
     width: 100%;
     overflow: hidden;
     height: auto;
-    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
     position: relative;
 }
 .result:hover {
     cursor: pointer;
-    box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 .result-type {
     display: inline;
@@ -50,5 +48,9 @@
     .result {
         color: white;
         background: rgb(62,7,104);
+        border: 1px solid black;
+    }
+    .result-basic-info {
+        display: none;
     }
 }
