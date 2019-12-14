@@ -1,6 +1,7 @@
 const db = require("../connection/connection");
 const moment = require("moment");
-const async = require("async");
+
+const productController = require("./productController");
 const cartTable = "oxn711nfcpjgwcr2.cart";
 const cartItemsTable = "oxn711nfcpjgwcr2.cartItems";
 const ordersTable = "oxn711nfcpjgwcr2.orders";
@@ -177,6 +178,7 @@ module.exports = {
                                             return res.send(err);
                                         } else {
                                             const orderID = lastID[0].id;
+                                            productController.updateProductQuantity(lineItems);
                                             db.query("SELECT * FROM oxn711nfcpjgwcr2.cartItems WHERE cart_id = " + cartID + ";",
                                                 function (err, results) {
                                                     if (err) {

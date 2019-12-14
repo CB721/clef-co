@@ -145,5 +145,20 @@ module.exports = {
                 }
             }
         )
+    },
+    updateProductQuantity: function (products) {
+        products.forEach(product => {
+            const id = product.product_id;
+            const amount = product.quantity;
+            db.query("UPDATE oxn711nfcpjgwcr2.products SET quantity = (SELECT SUM(quantity) GROUP BY oxn711nfcpjgwcr2.products.id) - " + amount + " WHERE id = " + id + ";",
+                function (err, results) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(results);
+                    }
+                }
+            )
+        })
     }
 }

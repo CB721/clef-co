@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { Col, Row } from "../components/Grid";
 import Loading from "../components/Loading";
@@ -23,9 +23,13 @@ function Cart() {
 
     function updateItem(itemID, amount) {
         API.updateCartItem(cart[0].cart_id, itemID, amount)
-            .then()
+            .then(res => handleCartUpdate(res.data))
             .catch(err => console.log(err));
-
+    }
+    function handleCartUpdate(data) {
+        if (data.results.affectedRows > 0) {
+            window.location.reload(true);
+        }
     }
     function deleteItem(itemID) {
         if (cart[0].line_items.length > 1) {
@@ -85,9 +89,7 @@ function Cart() {
             <Row no-gutters>
                 <Col size="md-2" />
                 <Col size="md-8">
-                    <div className="f-top-pad q-top-pad">
-
-                    </div>
+                    <div className="f-top-pad q-top-pad" />
                 </Col>
                 <Col size="md-2" />
             </Row>
@@ -133,7 +135,5 @@ function Cart() {
         </div>
     )
 }
-
-
 
 export default Cart;
