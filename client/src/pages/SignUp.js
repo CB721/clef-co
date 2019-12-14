@@ -3,6 +3,8 @@ import { Col, Row } from "../components/Grid";
 import SignUpForm from "../components/SignUp";
 import Button from "../components/Button";
 import API from "../utilities/api";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
 
 class SignUp extends Component {
@@ -111,6 +113,17 @@ class SignUp extends Component {
                         </Row>
                     </Col>
                 </Row>
+                <ToastContainer
+                position="bottom-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnVisibilityChange
+                draggable
+                pauseOnHover
+            />
             </div>
         )
     }

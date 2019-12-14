@@ -78,7 +78,7 @@ function Navbar(props) {
         window: PropTypes.func,
     };
     function CheckCart() {
-        if (window.sessionStorage.id) {
+        if (window.sessionStorage.id && window.sessionStorage.token.length >= 64) {
             window.location.href = "/cart";
         } else {
             toast("Please login to view your cart", {
