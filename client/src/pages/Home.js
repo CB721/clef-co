@@ -135,14 +135,16 @@ function Home() {
                             <Col size="md-4 12">
                                 <Fade bottom>
                                     <div
-                                        className="add-shadow"
+                                        className="add-shadow f-top-margin home-promo-img"
                                         onClick={(event) => {
                                             goToProductPage(event, productOne.id)
                                         }}>
                                         <img className="image-grow" src={productOne.image_link} alt={productOne.product_name}></img>
-                                        <h3 className="white f-top-pad center middle hover-title add-shadow">
-                                            {productOne.product_name}
-                                        </h3>
+                                        <div className="home-promo-image-overlay">
+                                            <div className="image-text">
+                                                {productOne.product_name}
+                                            </div>
+                                        </div>
                                     </div>
                                 </Fade>
                             </Col>
@@ -150,14 +152,16 @@ function Home() {
                             <Col size="md-4 12">
                                 <Fade bottom>
                                     <div
-                                        className="add-shadow"
+                                        className="add-shadow f-top-margin home-promo-img"
                                         onClick={(event) => {
                                             goToProductPage(event, productTwo.id)
                                         }}>
                                         <img className="image-grow" src={productTwo.image_link} alt={productTwo.product_name}></img>
-                                        <h3 className="white f-top-pad center middle hover-title add-shadow">
-                                            {productTwo.product_name}
-                                        </h3>
+                                        <div className="home-promo-image-overlay">
+                                            <div className="image-text">
+                                                {productTwo.product_name}
+                                            </div>
+                                        </div>
                                     </div>
                                 </Fade>
                             </Col>
@@ -174,7 +178,7 @@ function Home() {
                                 <RubberBand>
                                     <h2 className="f-top-pad bottom-pad-f">
                                         Top Products
-                                            </h2>
+                                    </h2>
                                 </RubberBand>
                             </Col>
                         </Row>
