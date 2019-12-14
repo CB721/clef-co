@@ -6,6 +6,7 @@
 }
 .product-card-content {
     height: 11.938rem;
+    min-height: auto;
 }
 .product-description {
     overflow: hidden;
@@ -41,4 +42,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.product-card-section {
+    min-height: 2rem;
 }
