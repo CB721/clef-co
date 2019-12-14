@@ -44,8 +44,8 @@ export default {
     deleteCart: function(cartID) {
         return axios.delete("/api/cart/delete/" + cartID);
     },
-    completeCart: function(cartID) {
-        return axios.put("/api/cart/complete/" + cartID);
+    completeCart: function(cartID, userID, items) {
+        return axios.put("/api/cart/complete/" + cartID + "/" + userID + "/" + items);
     },
     updateCartItem: function(cartID, cartItemID, quantity) {
         return axios.put("/api/cart/item/update/" + cartID + "/" + cartItemID + "/" + quantity);

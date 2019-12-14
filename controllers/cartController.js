@@ -1,6 +1,6 @@
 const db = require("../connection/connection");
 const moment = require("moment");
-
+const async = require("async");
 const cartTable = "oxn711nfcpjgwcr2.cart";
 const cartItemsTable = "oxn711nfcpjgwcr2.cartItems";
 const ordersTable = "oxn711nfcpjgwcr2.orders";
@@ -54,7 +54,7 @@ module.exports = {
         const quantity = req.params.quantity;
         const productID = req.params.productid;
         db.query("INSERT INTO " + cartItemsTable + " (quantity, product_id, cart_id) VALUES (" + quantity + ", " + productID + ", " + cartID + ");",
-            function (err, results) {
+            function (err, response) {
                 if (err) {
                     return res.send(err);
                 } else {
@@ -105,7 +105,7 @@ module.exports = {
         )
     },
     getCartByUser: function (req, res) {
-        const userID = req.params.userid;
+        const userID = JSON.parse(req.params.userid);
         db.query("SELECT * FROM " + cartTable + " WHERE user_id = " + userID + ";",
             function (err, results) {
                 if (err) {
@@ -159,40 +159,65 @@ module.exports = {
     },
     completeOrder: function (req, res) {
         const cartID = req.params.cartid;
+        const userID = req.params.userid;
+        const lineItems = JSON.parse(req.params.items);
         db.query("UPDATE " + cartTable + " SET checked_out_at = " + rightNow + ", checked_out = TRUE WHERE id = " + cartID + ";",
-            function (err, results) {
+            function (err, updateCart) {
                 if (err) {
                     return res.send(err);
                 } else {
                     db.query("INSERT INTO " + ordersTable + " (user_id, created_at, checked_out_at) SELECT user_id, created_at, checked_out_at FROM " + cartTable + " WHERE id = " + cartID + ";",
-                        function (err, results) {
+                        function (err, createOrder) {
                             if (err) {
                                 return res.send(err);
                             } else {
-                                db.query("SELECT id FROM " + ordersTable + " WHERE id = LAST_INSERT_ID();",
-                                    function (err, results) {
+                                db.query("SELECT id FROM " + ordersTable + " WHERE user_id = " + userID + " ORDER BY id DESC LIMIT 1;",
+                                    function (err, lastID) {
                                         if (err) {
                                             return res.send(err);
                                         } else {
-                                            const orderID = results[0].id;
-                                            db.query("SELECT * FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
+                                            const orderID = lastID[0].id;
+                                            db.query("SELECT * FROM oxn711nfcpjgwcr2.cartItems WHERE cart_id = " + cartID + ";",
                                                 function (err, results) {
                                                     if (err) {
                                                         return res.send(err);
                                                     } else {
-                                                        const itemLen = results.length;
-                                                        for (let i = 0; i < itemLen; i++) {
-                                                            db.query("INSERT INTO " + orderItemsTable + "(quantity, product_id, order_id) VALUES (" + results[i].quantity + ", " + results[i].product_id + ", " + orderID + ");",
+                                                        let i = 0;
+                                                        function callback() {
+                                                            db.query("DELETE FROM " + cartItemsTable + " WHERE cart_id = " + cartID + ";",
                                                                 function (err, results) {
                                                                     if (err) {
                                                                         return res.send(err);
+                                                                    } else {
+                                                                        db.query("DELETE FROM " + cartTable + " WHERE id = " + cartID + ";",
+                                                                            function (err, results) {
+                                                                                if (err) {
+                                                                                    return res.send(err);
+                                                                                } else {
+                                                                                    return res.send("success");
+                                                                                }
+                                                                            }
+                                                                        )
                                                                     }
                                                                 }
                                                             )
-                                                            if (i == itemLen - 1) {
-                                                                return res.send("success");
-                                                            }
                                                         }
+                                                        lineItems.forEach(item => {
+                                                            db.query("INSERT INTO " + orderItemsTable + "(quantity, product_id, order_id) VALUES (" + item.quantity + ", " + item.product_id + ", " + orderID + ");",
+                                                                function (err, confirmItem) {
+                                                                    if (err) {
+                                                                        return res.send(err);
+                                                                    } else {
+                                                                        if (confirmItem.affectedRows > 0) {
+                                                                            i++;
+                                                                            if (i === results.length) {
+                                                                                callback();
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            )
+                                                        });
                                                     }
                                                 }
                                             )

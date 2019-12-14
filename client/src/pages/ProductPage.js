@@ -120,7 +120,7 @@ class ProductPage extends Component {
     }
     handleCartAddition = (data) => {
         if (data) {
-            toast(this.state.product.product_name + " has been added to your cart", {
+            toast(this.state.product.product_name + " has been added to your cart!", {
                 className: css({
                     background: '#3E0768',
                     boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
@@ -154,57 +154,74 @@ class ProductPage extends Component {
     addToCart = (id) => (event) => {
         event.preventDefault();
         const cart = this.state.cart;
-        const cartItems = cart[0].line_items;
-        if (window.sessionStorage.logged_in) {
-            if (cart.length > 0) {
-                for (const item in cartItems) {
-                    if (cartItems[item].product_id === id) {
-                        toast("Item already in your cart", {
-                            className: css({
-                                background: '#3E0768',
-                                boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                                borderRadius: '17px'
-                            }),
-                            bodyClassName: css({
-                                fontSize: '20px',
-                                color: 'white'
-                            }),
-                            progressClassName: css({
-                                background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                            })
-                        });
-                        break;
+        if (cart.length > 0) {
+            const cartItems = cart[0].line_items;
+            if (cartItems.length > 0) {
+                if (window.sessionStorage.logged_in) {
+                    for (const item in cartItems) {
+                        if (cartItems[item].product_id === id) {
+                            toast("Item already in your cart", {
+                                className: css({
+                                    background: '#3E0768',
+                                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                                    borderRadius: '17px'
+                                }),
+                                bodyClassName: css({
+                                    fontSize: '20px',
+                                    color: 'white'
+                                }),
+                                progressClassName: css({
+                                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                                })
+                            });
+                            break;
+                        }
                     }
-                }
-                if (this.state.product.hardware && this.state.product.quantity > 0) {
-                    if (this.state.productQuantity > 0) {
-                        API.addItemToCart(this.state.cart[0].cart_id, id, this.state.productQuantity)
+                    if (this.state.product.hardware && this.state.product.quantity > 0) {
+                        if (this.state.productQuantity > 0) {
+                            API.addItemToCart(this.state.cart[0].cart_id, id, this.state.productQuantity)
+                                .then(res =>
+                                    this.handleCartAddition(res.data)
+                                )
+                                .catch(err => console.log(err));
+                        } else {
+                            toast("Please select a quantity", {
+                                className: css({
+                                    background: '#3E0768',
+                                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                                    borderRadius: '17px'
+                                }),
+                                bodyClassName: css({
+                                    fontSize: '20px',
+                                    color: 'white'
+                                }),
+                                progressClassName: css({
+                                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                                })
+                            });
+                        }
+                    } else {
+                        API.addItemToCart(this.state.cart[0].cart_id, id, 1)
                             .then(res =>
                                 this.handleCartAddition(res.data)
                             )
                             .catch(err => console.log(err));
-                    } else {
-                        toast("Please select a quantity", {
-                            className: css({
-                                background: '#3E0768',
-                                boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                                borderRadius: '17px'
-                            }),
-                            bodyClassName: css({
-                                fontSize: '20px',
-                                color: 'white'
-                            }),
-                            progressClassName: css({
-                                background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                            })
-                        });
                     }
                 } else {
-                    API.addItemToCart(this.state.cart[0].cart_id, id, 1)
-                        .then(res =>
-                            this.handleCartAddition(res.data)
-                        )
-                        .catch(err => console.log(err));
+                    toast("Please log in to add items to your cart", {
+                        className: css({
+                            background: '#3E0768',
+                            boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                            borderRadius: '17px'
+                        }),
+                        bodyClassName: css({
+                            fontSize: '20px',
+                            color: 'white'
+                        }),
+                        progressClassName: css({
+                            background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                        })
+                    });
                 }
             } else {
                 API.createCart(window.sessionStorage.id, id, 1)
@@ -214,20 +231,11 @@ class ProductPage extends Component {
                     .catch(err => console.log(err));
             }
         } else {
-            toast("Please log in to add items to your cart", {
-                className: css({
-                    background: '#3E0768',
-                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
-                    borderRadius: '17px'
-                }),
-                bodyClassName: css({
-                    fontSize: '20px',
-                    color: 'white'
-                }),
-                progressClassName: css({
-                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                })
-            });
+            API.createCart(window.sessionStorage.id, id, 1)
+                .then(res =>
+                    this.handleCartAddition(res.data)
+                )
+                .catch(err => console.log(err));
         }
     }
     handleInputChange = event => {

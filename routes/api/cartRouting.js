@@ -17,7 +17,7 @@ router
     .route("/delete/:cartid")
     .delete(controller.deleteCart);
 router
-    .route("/complete/:cartid")
+    .route("/complete/:cartid/:userid/:items")
     .put(controller.completeOrder);
 router
     .route("/item/delete/:cartid/:cartitemid")

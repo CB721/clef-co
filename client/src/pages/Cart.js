@@ -19,7 +19,7 @@ function Cart() {
             alert("Please create an account before proceeding");
             window.location.href = "/create_account";
         }
-    }, [cart]);
+    }, [cart[0]]);
 
     function updateItem(itemID, amount) {
         API.updateCartItem(cart[0].cart_id, itemID, amount)
@@ -51,7 +51,9 @@ function Cart() {
         }
     }
     function completeOrder() {
-        API.completeCart(cart[0].cart_id)
+        const userID = parseInt(window.sessionStorage.id); 
+        const lineItems = JSON.stringify(cart[0].line_items);
+        API.completeCart(cart[0].cart_id, userID, lineItems)
             .then(displayOrderConfirmation())
             .catch(err => console.log(err));
     }

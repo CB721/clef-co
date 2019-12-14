@@ -1,7 +1,6 @@
 const db = require("../connection/connection");
 const moment = require("moment");
 const async = require("async");
-// import mapSeries from 'async/mapSeries';
 
 module.exports = {
     getOrdersByUserID: function (req, res) {

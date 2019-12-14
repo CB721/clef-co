@@ -65,7 +65,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/create_account" component={SignUp} />
         <Route exact path="/user/profile" component={User} />
-        <Route render={() => <Redirect to={{pathname: "/"}} />} />
+        {/* <Route render={() => <Redirect to={{pathname: "/"}} />} /> */}
       </Switch>
       <Footer />
     </Router>
