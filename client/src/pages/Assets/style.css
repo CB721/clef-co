@@ -710,6 +710,10 @@ figure:hover img {
 .hide-orders:hover {
     cursor: pointer;
 }
+.order-area {
+    height: auto;
+    width: 100%;
+}
 
 /* responsive */
 @media only screen and (max-width: 1300px) {

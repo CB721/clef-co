@@ -9,8 +9,6 @@
     border-radius: 17px;
     border-bottom-left-radius: 17px;
     border-bottom-right-radius: 17px;
-    -webkit-box-shadow: 18px -18px 14px 2px #00000077; 
-    box-shadow: 18px -18px 14px 2px #00000077;
 }
 .profile-card-email {
     width: 100%;

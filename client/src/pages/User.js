@@ -33,7 +33,7 @@ function User() {
     const [userStatus, setuserStatus] = useState("");
     const [editContact, setEditContact] = useState(false);
     const [deleteCard, setDeleteCard] = useState("");
-    const [cardClass, setCardClass] = useState("profile-card");
+    const [cardClass, setCardClass] = useState("profile-card add-shadow");
     const [deleteOption, setDeleteOption] = useState(false);
     const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);
     const [passwordError, setPasswordError] = useState("");
@@ -387,9 +387,9 @@ function User() {
         const edit = editContact;
         setEditContact(!edit);
         if (editContact) {
-            setCardClass("profile-card");
+            setCardClass("profile-card add-shadow");
         } else {
-            setCardClass("profile-card-edit");
+            setCardClass("profile-card-edit add-shadow");
         }
     }
     function flipCard(event) {
@@ -423,7 +423,7 @@ function User() {
     }
     function displayOrders(event) {
         event.preventDefault();
-        setShowOrders(true);
+        setShowOrders(!showOrders);
     }
     return (
         <div>
@@ -488,25 +488,32 @@ function User() {
                                 <div>
                                     <Row no-gutters>
                                         <Col size="md-12">
-                                            <h1 className="white f-top-pad">
-                                                Orders
-                                            </h1>
+                                            <div
+                                                className="hide-orders rounded-corners"
+                                                onClick={(event) => displayOrders(event)}
+                                            >
+                                                <h1 className="white">
+                                                    Orders
+                                                </h1>
+                                            </div>
                                         </Col>
                                     </Row>
                                     <Row no-gutters>
                                         <Col size="md-1" />
                                         <Col size="md-10">
-                                            {orders.map(order =>
-                                                <Fade bottom key={order.order_id}>
-                                                    <Order
-                                                        id={order.order_id}
-                                                        number={order.order_id}
-                                                        date={order.checked_out_at.split('T')[0]}
-                                                        lineItems={order.line_items}
-                                                        name={first + " " + last}
-                                                    />
-                                                </Fade>
-                                            )}
+                                            <div className="order-area">
+                                                {orders.map(order =>
+                                                    <Fade bottom key={order.order_id}>
+                                                        <Order
+                                                            id={order.order_id}
+                                                            number={order.order_id}
+                                                            date={order.checked_out_at.split('T')[0]}
+                                                            lineItems={order.line_items}
+                                                            name={first + " " + last}
+                                                        />
+                                                    </Fade>
+                                                )}
+                                            </div>
                                         </Col>
                                         <Col size="md-1" />
                                     </Row>
@@ -519,7 +526,7 @@ function User() {
                                         >
                                             <h1 className="white">
                                                 Show Orders
-                                        </h1>
+                                            </h1>
                                         </div>
                                     </Fade>
                                 )}

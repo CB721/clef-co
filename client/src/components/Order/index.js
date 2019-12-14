@@ -34,7 +34,7 @@ function Order(props) {
         window.location.href = "/shop/product/" + id;
     }
     return (
-        <div className="user-orders">
+        <div className="user-orders add-shadow">
             <div className="order-summary">
                 <Row no-gutters>
                     <Col size="md-12">

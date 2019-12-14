@@ -68,7 +68,7 @@ function UserNews(props) {
         setNews(news => [...news, str]);
     }
     return (
-        <div className="user-news">
+        <div className="user-news add-shadow">
             <div className="news-header">
                 <h1 className="white">
                     News Feed
