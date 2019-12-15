@@ -10,9 +10,10 @@
 }
 .cart-item {
     height: 100%;
-    border: 1px solid rgb(62,7,104);
-    border-right: none;
-    border-left: none;
+    border-bottom: 1px solid rgb(62,7,104);
+}
+.cart-area .cart-item:nth-of-type(1) {
+    border-top: 1px solid rgb(62,7,104);
 }
 .cart-error {
     width: 100%;

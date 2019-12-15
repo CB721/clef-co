@@ -32,7 +32,7 @@ function User() {
     const [statusImage, setstatusImage] = useState("");
     const [userStatus, setuserStatus] = useState("");
     const [editContact, setEditContact] = useState(false);
-    const [deleteCard, setDeleteCard] = useState("");
+    const [deleteCard, setDeleteCard] = useState("delete-card");
     const [cardClass, setCardClass] = useState("profile-card add-shadow");
     const [deleteOption, setDeleteOption] = useState(false);
     const [confirmDeleteOption, setconfirmDeleteOption] = useState(false);

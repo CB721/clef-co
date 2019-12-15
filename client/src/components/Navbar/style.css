@@ -1,15 +1,25 @@
-  .search-field {
+.search-field {
     border: none;
     height: 100%;
     background: transparent;
     margin: 0 auto;
     position: absolute;
-  }
-  .search-field:focus {
+}
+.search-field:focus {
     outline: none;
     background: transparent;
-  }
-  .search-box {
+}
+.search-box:focus-within {
+  border: 3px solid rgb(62,7,104);
+  transition: 0.5s;
+}
+.white-to-purple {
+  color: white;
+}
+.white-to-purple:hover {
+  color: rgb(62,7,104);
+}
+.search-box {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -22,4 +32,7 @@
     border: 3px solid white;
     border-radius: 7px;
     background-color: transparent;
-  }
+}
+*:focus {
+    outline: none !important;
+}

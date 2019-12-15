@@ -224,42 +224,46 @@ class Contact extends Component {
                                 <Col size="md-1" />
                                 <Col size="md-2">
                                     <div className="center-social-links">
-                                    <IconButton onClick={this.goToTwitter} aria-label="twitter">
-                                        <TwitterIcon
-                                            fontSize="large"
-                                        />
-                                    </IconButton>
+                                        <IconButton onClick={this.goToTwitter} aria-label="twitter">
+                                            <TwitterIcon
+                                                fontSize="large"
+                                                className="white"
+                                            />
+                                        </IconButton>
                                     </div>
                                 </Col>
                                 <Col size="md-1" />
                                 <Col size="md-2">
-                                <div className="center-social-links">
-                                    <IconButton onClick={this.goToFacebook} aria-label="facebook">
-                                        <FacebookIcon
-                                            fontSize="large"
-                                        />
-                                    </IconButton>
-                                </div>
+                                    <div className="center-social-links">
+                                        <IconButton onClick={this.goToFacebook} aria-label="facebook">
+                                            <FacebookIcon
+                                                fontSize="large"
+                                                className="white"
+                                            />
+                                        </IconButton>
+                                    </div>
                                 </Col>
                                 <Col size="md-1" />
                                 <Col size="md-2">
-                                <div className="center-social-links">
-                                    <IconButton onClick={this.goToInstagram} aria-label="instagram">
-                                        <InstagramIcon
-                                            fontSize="large"
-                                        />
-                                    </IconButton>
-                                </div>
+                                    <div className="center-social-links">
+                                        <IconButton onClick={this.goToInstagram} aria-label="instagram">
+                                            <InstagramIcon
+                                                fontSize="large"
+                                                className="white"
+                                            />
+                                        </IconButton>
+                                    </div>
                                 </Col>
                                 <Col size="md-1" />
                                 <Col size="md-2">
-                                <div className="center-social-links">
-                                    <IconButton onClick={this.goToYouTube} aria-label="youtube">
-                                        <YouTubeIcon
-                                            fontSize="large"
-                                        />
-                                    </IconButton>
-                                </div>
+                                    <div className="center-social-links">
+                                        <IconButton onClick={this.goToYouTube} aria-label="youtube">
+                                            <YouTubeIcon
+                                                fontSize="large"
+                                                className="white"
+                                            />
+                                        </IconButton>
+                                    </div>
                                 </Col>
                             </Row>
                         </Col>

@@ -207,8 +207,15 @@ function Navbar(props) {
                             <Row no-gutters>
                                 <div className="search-box">
                                     <Col size="md-2 1">
-                                        <IconButton onClick={Search} type="submit" aria-label="search" >
-                                            <SearchIcon className="white" />
+                                        <IconButton
+                                            onClick={Search}
+                                            type="submit"
+                                            aria-label="search"
+                                            disableFocusRipple={true}
+                                            disableRipple={true}
+                                            edge={"start"}
+                                        >
+                                            <SearchIcon className="white-to-purple" />
                                         </IconButton>
                                     </Col>
                                     <Col size="md-8 9">

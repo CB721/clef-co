@@ -113,7 +113,7 @@ function Cart() {
                                         Your Cart Is Empty
                                     </h1>
                                     <Loading
-                                        color="white"
+                                        color="purple"
                                     />
                                 </div>
                             )}

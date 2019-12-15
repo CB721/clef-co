@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import Waves from "../Waves";
@@ -12,10 +12,18 @@ function DeleteAccount(props) {
         },
     });
     const [password, setPassword] = useState("");
+    const [hideBack, setHideBack] = useState("hide-delete-card-back");
     const handleSubmit = (event) => {
         event.preventDefault();
         props.confirmDelete(password);
     }
+    useEffect(() => {
+        if (props.deleteOption) {
+            setHideBack("delete-card-face delete-card-back");
+        } else {
+            setHideBack("hide-delete-card-back");
+        }
+    }, [props.deleteOption])
     return (
         <div className="delete-account-section">
             <div className={props.card}>
@@ -26,7 +34,7 @@ function DeleteAccount(props) {
                     <Waves />
                 </div>
                 {props.deleteOption ? (
-                    <div className="delete-card-face delete-card-back">
+                    <div className={hideBack}>
                         {props.confirmDeleteOption ? (
                             <MuiThemeProvider theme={theme}>
                                 <div className="confirmation-message">

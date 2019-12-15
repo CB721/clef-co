@@ -154,11 +154,12 @@
 
 * React.js/React-router
 * Node.js
-* Express.js
 * MySQL
 * Javascript/ES6
 * HTML/CSS
 * Local/Session Storage
+* [Express](https://www.npmjs.com/package/express)
+* [Passport](http://www.passportjs.org/)
 * [Material-UI](https://material-ui.com/)
 * [React Bootstrap](https://react-bootstrap.netlify.com/)
 * [Moment](https://momentjs.com/)
