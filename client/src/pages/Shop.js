@@ -370,12 +370,6 @@ class Shop extends Component {
         } else {
             if (name === "") {
                 thisIsThis.setState({
-                    topProducts: false,
-                    bestsellers: false,
-                    rockBand: false,
-                    country: false,
-                    hipHop: false,
-                    edm: false,
                     selectedCategories: []
                 });
             }

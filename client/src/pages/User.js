@@ -60,7 +60,7 @@ function User() {
         }
     }, []);
     useEffect(() => {
-        if (window.sessionStorage.logged_in) {
+        if (window.sessionStorage.logged_in && window.sessionStorage.id && window.sessionStorage.token.length >= 64) {
             generateRandomImage();
             determineStatus(window.sessionStorage.joined_date);
             setUpUser();
@@ -139,10 +139,6 @@ function User() {
         } else {
             setZip("");
         }
-
-
-
-
         const user = {
             "last_visit": moment().format("YYYY-MM-DD")
         }
@@ -176,13 +172,21 @@ function User() {
     }
     function updateSession(updatedUser) {
         sessionStorage.setItem("email", updatedUser.email);
+        setEmail(updatedUser.email);
         sessionStorage.setItem("phone", updatedUser.phone);
+        setPhone(updatedUser.phone);
         sessionStorage.setItem("street_address", updatedUser.street_address);
+        setStreetAddress(updatedUser.street_address);
         sessionStorage.setItem("secondary_address", updatedUser.secondary_address);
+        setSecondaryAddress(updatedUser.secondary_address);
         sessionStorage.setItem("city", updatedUser.city);
+        setCity(updatedUser.city);
         sessionStorage.setItem("user_state", updatedUser.user_state);
+        setState(updatedUser.user_state);
         sessionStorage.setItem("zip_code", updatedUser.zip_code);
+        setZip(updatedUser.zip_code);
         sessionStorage.setItem("last_visit", updatedUser.last_visit);
+        setEditContact(false);
         toast("Updates saved!", {
             className: css({
                 background: '#3E0768',

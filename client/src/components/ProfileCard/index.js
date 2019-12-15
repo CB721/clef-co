@@ -18,22 +18,27 @@ function ProfileCard(props) {
             secondary: { main: '#3E0768' }
         },
     });
-    const [newEmail, setNewEmail] = useState(window.sessionStorage.email);
-    const [newPhone, setNewPhone] = useState(window.sessionStorage.phone);
-    const [newStreet, setNewStreet] = useState(window.sessionStorage.street_address);
-    const [newSecond, setNewSecond] = useState(window.sessionStorage.secondary_address);
-    const [newCity, setNewCity] = useState(window.sessionStorage.city);
-    const [newState, setNewState] = useState(window.sessionStorage.user_state);
-    const [newZip, setNewZip] = useState(window.sessionStorage.zip_code);
-    const [userInfo, setUserInfo] = useState({});
+    const [newEmail, setNewEmail] = useState();
+    const [newPhone, setNewPhone] = useState();
+    const [newStreet, setNewStreet] = useState();
+    const [newSecond, setNewSecond] = useState();
+    const [newCity, setNewCity] = useState();
+    const [newState, setNewState] = useState();
+    const [newZip, setNewZip] = useState();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         props.updateUser(newEmail, newPhone, newStreet, newSecond, newCity, newState, newZip);
     }
     useEffect(() => {
-
-    }, [])
+        setNewEmail(props.email);
+        setNewPhone(props.phone);
+        setNewStreet(props.streetAddress);
+        setNewSecond(props.secondaryAddress);
+        setNewCity(props.city);
+        setNewState(props.state);
+        setNewZip(props.zip);
+    }, [props])
     return (
         <div className={props.cardClass}>
             <MuiThemeProvider theme={theme}>

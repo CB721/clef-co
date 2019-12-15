@@ -15,6 +15,21 @@ function Cart() {
 
     useEffect(() => {
         if (window.sessionStorage.logged_in) {
+            toast("We never store your credit card information", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                }),
+                toastId: 3456,
+            });
         } else {
             alert("Please create an account before proceeding");
             window.location.href = "/create_account";
