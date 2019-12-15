@@ -2,8 +2,6 @@ const db = require("../connection/connection");
 const moment = require("moment");
 
 const reviewTable = "oxn711nfcpjgwcr2.review";
-const userTable = "oxn711nfcpjgwcr2.users";
-const productTable = "oxn711nfcpjgwcr2.products";
 const rightNow = "'" + moment().format("YYYY-MM-DDTHH:mm:ss") + "'";
 
 module.exports = {

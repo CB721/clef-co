@@ -5,7 +5,8 @@ import { Col, Row } from "../components/Grid";
 import LoginForm from "../components/Login";
 import Button from "../components/Button";
 import API from "../utilities/api";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import { css } from 'glamor';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Assets/style.css";
 
@@ -61,20 +62,38 @@ function Login() {
         }
     }
     function handleFormSubmit() {
-        sessionStorage.clear();
-        setFormMessage("");
-        if (email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-            if (password.length < 8) {
-                setFormMessage("Passwords must be a least 8 characters");
-                setPassword("");
-                setErrorClass("form-titles fade-error-message");
+        const cookieEnabled = navigator.cookieEnabled;
+        if (cookieEnabled) {
+            sessionStorage.clear();
+            setFormMessage("");
+            if (email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+                if (password.length < 8) {
+                    setFormMessage("Passwords must be a least 8 characters");
+                    setPassword("");
+                    setErrorClass("form-titles fade-error-message");
+                } else {
+                    userLogin(email, password);
+                }
             } else {
-                userLogin(email, password);
+                setFormMessage("Please enter a valid email");
+                setEmail("");
+                setErrorClass("form-titles fade-error-message");
             }
         } else {
-            setFormMessage("Please enter a valid email");
-            setEmail("");
-            setErrorClass("form-titles fade-error-message");
+            toast("Please enable cookies to continue", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
         }
     }
 
@@ -85,7 +104,7 @@ function Login() {
                 <Col size="md-8">
                     <h1 className="white q-top-pad text-shadow">
                         Login
-                            </h1>
+                    </h1>
                 </Col>
             </Row>
             <Row no-gutters>

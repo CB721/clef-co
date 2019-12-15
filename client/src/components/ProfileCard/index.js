@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ImageOverlay from "../ImageOverlay";
 import CreateIcon from '@material-ui/icons/Create';
 import Input from '@material-ui/core/Input';
@@ -25,10 +25,15 @@ function ProfileCard(props) {
     const [newCity, setNewCity] = useState(window.sessionStorage.city);
     const [newState, setNewState] = useState(window.sessionStorage.user_state);
     const [newZip, setNewZip] = useState(window.sessionStorage.zip_code);
+    const [userInfo, setUserInfo] = useState({});
+
     const handleSubmit = (event) => {
         event.preventDefault();
         props.updateUser(newEmail, newPhone, newStreet, newSecond, newCity, newState, newZip);
     }
+    useEffect(() => {
+
+    }, [])
     return (
         <div className={props.cardClass}>
             <MuiThemeProvider theme={theme}>

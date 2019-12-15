@@ -33,16 +33,15 @@
         * Each product has the image, name, part of the description and button to add it to the cart
             * If the user is not logged in, the notification pops up telling them to login to add to their cart
             * If the user clicks on the product, they are redirected to the product page for that product
-    * There is a menu on the side that allows the user to filter the products
-        * Four main categories
-            * Featured - when either option is selected, all other categories are deselected
-                * Most popular displays products in order of quantity sold in descending order
-                * Bestsellers displays products in order of revenue in descending order
-            * Instruments - user can select and combination of different instruments to display on page
-            * Bundles - when any option is selected, all other categories are deselected
-                * All products displayed are predetermined based off of genres
-            * Type - user can select either option to display on page
-                * Allows user to filter by hardware or software
+    * The menu on the side allows the user to filter through four main categories
+        * Featured - when either option is selected, all other categories are deselected
+            * Most popular displays products in order of quantity sold in descending order
+            * Bestsellers displays products in order of revenue in descending order
+        * Instruments - user can select and combination of different instruments to display on page
+        * Bundles - when any option is selected, all other categories are deselected
+            * All products displayed are predetermined based off of genres
+        * Type - user can select either option to display on page
+            * Allows user to filter by hardware or software
 * Tutorials
     * The user is presented with a list of videos embedded on the page
 * Contact
@@ -107,24 +106,24 @@
     * Finally, if they are logged in, the last three viewed products are displayed 
 
 ### Back-end Process
-* Because every schema on this application relates to at least one other table, I used SQL.  In order to avoid any future security risks from using an ORM tool like Sequelize, I wrote out my SQL queries.  Also, because I was writing complex queries, I was able to test them out in MySQL Workbench without having my server running the entire time.
+* Because every schema on this application relates to at least one other table, I used SQL.  In order to avoid any future security risks from using an ORM tool like Sequelize, I wrote out my SQL queries.  Also, because I was writing complex queries, I was able to test them out in MySQL Workbench without having the server running.
     * Table relationships
        ![image](./Assets/table-relations.png)
 * To connect the information from the database for use on the front-end, I used Express.js to create a serverless REST API.
 
-## User Stories
+### User Stories
 
-* "I want to browse a site and find all kinds of instruments, music gear and tech."
-* "I want to order products and browse my previous orders."
-* "I want to easily access tutorials and contact support for products I previously ordered."
+* "As a customer, I want to browse a site and find all kinds of instruments, music gear and tech."
+* "As a customer, I want to order products and browse my previous orders."
+* "As a customer, I want to easily access tutorials and contact support for products I previously ordered."
 
-## Client Stories
+### Client Stories
 
-* "My company needs to sell our products online."
-* "My company wants to keep track of data on our users."
-* "My company wants to keep track of data about our products."
+* "As a business, I need to sell our products online."
+* "As a business, I need to keep track of data on our users."
+* "As a business, I need to keep track of data about our products."
 
-## Future Improvements
+#### Future Improvements
 
 * Save information on users that have not signed in and add to database if they create an account.
 * Add a chat function for customer support.
@@ -133,7 +132,8 @@
 * Add search suggestions drop down on the navbar.
 * Add a forgot password option on the login screen after the user attempts to login three times.
 
-## Major Issues Encountered
+#### Major Issues Encountered
+
 * Responsiveness / Consistent styling
     * React-textfit
         * Allowed me to set a maximum and minimum font size on the text for similar items
@@ -150,17 +150,17 @@
 * Implementing Redux
     * This was my first application implementing Redux on my own.  Because of that, I struggled with how to use hooks and useEffect.  Also, I struggled setting up the actions and reducers.  I found this [tutorial](https://youtu.be/CVpUuw9XSjY) to be very helpful.
 
-## Technologies Used
+### Technologies Used
 
 * React.js/React-router
 * Node.js
-* SQL
 * Express.js
+* MySQL
 * Javascript/ES6
 * HTML/CSS
-* Session Storage
+* Local/Session Storage
 * [Material-UI](https://material-ui.com/)
-* [Bootstrap](https://getbootstrap.com/)
+* [React Bootstrap](https://react-bootstrap.netlify.com/)
 * [Moment](https://momentjs.com/)
 * [React-textfit](https://www.npmjs.com/package/react-textfit)
 * [React-reveal](https://www.react-reveal.com/)
@@ -169,6 +169,10 @@
 * [React-player](https://www.npmjs.com/package/react-player)
 * [React-star-ratings](https://www.npmjs.com/package/react-star-ratings)
 * [Payment-icons](https://github.com/muffinresearch/payment-icons)
+
+### Resources
+* [Unsplash](https://unsplash.com/)
+* [Videezy](https://www.videezy.com/)
 
 ## Author
 * Clint Brodar

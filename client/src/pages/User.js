@@ -109,12 +109,40 @@ function User() {
         setJoinedDate(window.sessionStorage.joined_date);
         setLast(window.sessionStorage.last_name);
         setEmail(window.sessionStorage.email);
-        setPhone(window.sessionStorage.phone);
-        setSecondaryAddress(window.sessionStorage.secondary_address);
-        setStreetAddress(window.sessionStorage.street_address);
-        setCity(window.sessionStorage.city);
-        setState(window.sessionStorage.user_state);
-        setZip(window.sessionStorage.zip_code);
+        if (window.sessionStorage.phone) {
+            setPhone(window.sessionStorage.phone);
+        } else {
+            setPhone("");
+        }
+        if (window.sessionStorage.secondary_address) {
+            setSecondaryAddress(window.sessionStorage.secondary_address);
+        } else {
+            setSecondaryAddress("");
+        }
+        if (window.sessionStorage.street_address) {
+            setStreetAddress(window.sessionStorage.street_address);
+        } else {
+            setStreetAddress("");
+        }
+        if (window.sessionStorage.city) {
+            setCity(window.sessionStorage.city);
+        } else {
+            setCity("");
+        }
+        if (window.sessionStorage.user_state) {
+            setState(window.sessionStorage.user_state);
+        } else {
+            setState("");
+        }
+        if (window.sessionStorage.zip_code) {
+            setZip(window.sessionStorage.zip_code);
+        } else {
+            setZip("");
+        }
+        
+        
+        
+        
         const user = {
             "last_visit": moment().format("YYYY-MM-DD")
         }

@@ -98,11 +98,29 @@ function Navbar(props) {
         }
     }
     function Search() {
-        if (search) {
-            sessionStorage.setItem("search", search);
-            window.location.href = "/search";
+        const cookieEnabled = navigator.cookieEnabled;
+        if (cookieEnabled) {
+            if (search) {
+                sessionStorage.setItem("search", search);
+                window.location.href = "/search";
+            } else {
+                toast("Search field cannot be empty", {
+                    className: css({
+                        background: '#3E0768',
+                        boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                        borderRadius: '17px'
+                    }),
+                    bodyClassName: css({
+                        fontSize: '20px',
+                        color: 'white'
+                    }),
+                    progressClassName: css({
+                        background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                    })
+                });
+            }
         } else {
-            toast("Search field cannot be empty", {
+            toast("Please enable cookies to continue", {
                 className: css({
                     background: '#3E0768',
                     boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
@@ -114,7 +132,11 @@ function Navbar(props) {
                 }),
                 progressClassName: css({
                     background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
-                })
+                }),
+                toastId: 2345,
+                onClick: function () {
+                    window.location.href = "/search"
+                }
             });
         }
     }

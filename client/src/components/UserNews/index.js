@@ -31,7 +31,7 @@ function UserNews(props) {
                     let reviewStr = "You recently rated " + item.product_name + " with only " + item.rating.data[0] + " stars.  Please contact us so we can help!";
                     handleNews(reviewStr);
                 } else {
-                    let reviewStr = "Thanks for submitting your review about " + item.product_name + ".  We really appreciate it!";
+                    let reviewStr = "Thanks for writing about your experience with the" + item.product_name + ".  We really appreciate it!";
                     handleNews(reviewStr);
                 }
                 break;

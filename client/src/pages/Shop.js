@@ -472,6 +472,7 @@ class Shop extends Component {
                 background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
             })
         });
+        window.location.reload(true);
     }
 
     render() {
