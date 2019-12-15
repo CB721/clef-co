@@ -163,8 +163,8 @@ class Contact extends Component {
                     </Col>
                 </Row>
                 <Row no-gutters>
-                    <Col size="md-2" />
-                    <Col size="md-8">
+                    <Col size="md-2 sm-1 12" />
+                    <Col size="md-8 sm-10 12">
                         <div className="form-complete-area">
                             {this.state.displayPage ? (
                                 <Form
@@ -208,6 +208,7 @@ class Contact extends Component {
                                 )}
                         </div>
                     </Col>
+                    <Col size="md-2 sm-1 12" />
                 </Row>
                 <div className="social-media">
                     <Row no-gutters>
@@ -221,8 +222,7 @@ class Contact extends Component {
                     <Row no-gutters>
                         <Col size="md-12">
                             <Row no-gutters>
-                                <Col size="md-1" />
-                                <Col size="md-2">
+                                <Col size="3">
                                     <div className="center-social-links">
                                         <IconButton onClick={this.goToTwitter} aria-label="twitter">
                                             <TwitterIcon
@@ -232,8 +232,7 @@ class Contact extends Component {
                                         </IconButton>
                                     </div>
                                 </Col>
-                                <Col size="md-1" />
-                                <Col size="md-2">
+                                <Col size="3">
                                     <div className="center-social-links">
                                         <IconButton onClick={this.goToFacebook} aria-label="facebook">
                                             <FacebookIcon
@@ -243,8 +242,7 @@ class Contact extends Component {
                                         </IconButton>
                                     </div>
                                 </Col>
-                                <Col size="md-1" />
-                                <Col size="md-2">
+                                <Col size="3">
                                     <div className="center-social-links">
                                         <IconButton onClick={this.goToInstagram} aria-label="instagram">
                                             <InstagramIcon
@@ -254,8 +252,7 @@ class Contact extends Component {
                                         </IconButton>
                                     </div>
                                 </Col>
-                                <Col size="md-1" />
-                                <Col size="md-2">
+                                <Col size="3">
                                     <div className="center-social-links">
                                         <IconButton onClick={this.goToYouTube} aria-label="youtube">
                                             <YouTubeIcon
@@ -269,14 +266,11 @@ class Contact extends Component {
                         </Col>
                     </Row>
                 </div>
-                <Row no-gutters>
-                    <Col size="md-6">
-                        <img src="https://images.unsplash.com/photo-1562185000-12e4f02e2020?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="call center"></img>
-                    </Col>
-                    <Col size="md-6">
-                        <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="customer service"></img>
-                    </Col>
-                </Row>
+                <div className="contact-page-fluff-img-section">
+                    <img src="https://images.unsplash.com/photo-1562185000-12e4f02e2020?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="call center" className="contact-fluff-img"></img>
+
+                    <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" alt="customer service" className="contact-fluff-img"></img>
+                </div>
                 <ToastContainer
                     position="bottom-right"
                     autoClose={5000}

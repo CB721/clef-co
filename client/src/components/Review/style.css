@@ -15,14 +15,14 @@
     margin-top: 15%;
     width: 100%;
     border-radius: 17px;
-    border: 5px solid transparent;
+    border: 1px solid transparent;
     margin-bottom: 25px;
     background: rgb(62, 7, 104);
     padding: 1.563rem;
     box-shadow: 21px 23px 22px -12px rgba(0,0,0,0.5);
 }
 .review:hover {
-    border: 5px solid white;
+    border: 1px solid white;
 }
 .shadow-effect {
     position:relative;

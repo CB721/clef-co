@@ -200,8 +200,8 @@ function Products() {
                 </Col>
             </Row>
             <Row no-gutters>
-                <Col size="md-1" />
-                <Col size="md-4 12">
+                <Col size="md-1 sm-12 12" />
+                <Col size="md-4 sm-6 12">
                     <Fade bottom>
                         <Bundle
                             action={(event) => openBundleModal(event, 0)}
@@ -217,8 +217,8 @@ function Products() {
                         />
                     </Fade>
                 </Col>
-                <Col size="md-2" />
-                <Col size="md-4 12">
+                <Col size="md-2 sm-12 12" />
+                <Col size="md-4 sm-6 12">
                     <Fade bottom>
                         <Bundle
                             action={(event) => openBundleModal(event, 1)}
@@ -234,9 +234,9 @@ function Products() {
                         />
                     </Fade>
                 </Col>
-                <Col size="md-1" />
-                <Col size="md-1" />
-                <Col size="md-4 12">
+                <Col size="md-1 sm-12 12" />
+                <Col size="md-1 sm-12 12" />
+                <Col size="md-4 sm-6 12">
                     <Fade bottom>
                         <Bundle
                             action={(event) => openBundleModal(event, 2)}
@@ -252,8 +252,8 @@ function Products() {
                         />
                     </Fade>
                 </Col>
-                <Col size="md-2" />
-                <Col size="md-4 12">
+                <Col size="md-2 sm-12 12" />
+                <Col size="md-4 sm-6 12">
                     <Fade bottom>
                         <Bundle
                             action={(event) => openBundleModal(event, 3)}
@@ -271,7 +271,7 @@ function Products() {
                 </Col>
             </Row>
             <Row no-gutters>
-                <Col size="md-12">
+                <Col size="12">
                     <Modal
                         open={open}
                         class={modalClass}
@@ -337,8 +337,8 @@ function Products() {
                 <Row no-gutters>
                     <Col size="md-12">
                         <Row no-gutters>
-                            <Col size="md-1" />
-                            <Col size="md-2 12">
+                            <Col size="lg-1" />
+                            <Col size="lg-2 12">
                                 <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToSupport}>
@@ -372,8 +372,8 @@ function Products() {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col size="md-2" />
-                            <Col size="md-2 12">
+                            <Col size="lg-2" />
+                            <Col size="lg-2 12">
                                 <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToTutorials}>
@@ -407,8 +407,8 @@ function Products() {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col size="md-2" />
-                            <Col size="md-2 12">
+                            <Col size="lg-2" />
+                            <Col size="lg-2 12">
                                 <Row no-gutters>
                                     <Col size="md-12">
                                         <div onClick={goToCart}>

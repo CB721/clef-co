@@ -177,7 +177,7 @@ class Shop extends Component {
         if (name === "rock-band" || name === "country" || name === "hip-hop" || name === "edm") {
             this.setState({
                 selectedCategories: [],
-                displayProducts: []
+                displayProducts: [],
             });
             let displayBundle = function (items) {
                 return new Promise(function (resolve, reject) {
@@ -368,14 +368,24 @@ class Shop extends Component {
                     return;
             }
         } else {
-            if (name === "")
+            if (name === "") {
+                thisIsThis.setState({
+                    topProducts: false,
+                    bestsellers: false,
+                    rockBand: false,
+                    country: false,
+                    hipHop: false,
+                    edm: false,
+                    selectedCategories: []
+                });
+            }
             thisIsThis.setState({
                 topProducts: false,
                 bestsellers: false,
                 rockBand: false,
                 country: false,
                 hipHop: false,
-                edm: false
+                edm: false,
             });
             let updateCategories = function (clicked, newCategories) {
                 return new Promise(function (resolve, reject) {

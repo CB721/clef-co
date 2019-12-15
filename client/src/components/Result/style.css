@@ -48,7 +48,7 @@
     .result {
         color: white;
         background: rgb(62,7,104);
-        border: 1px solid black;
+        border: 1px solid white;
     }
     .result-basic-info {
         display: none;

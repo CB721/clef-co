@@ -3,10 +3,10 @@
     width: 100%;
     height: auto;
     padding-bottom: 75px;
-    border-radius: 25px;
+    border-radius:17px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1px solid black;
+    border: 1px solid white;
 }
 .news-header {
     width: 100%;

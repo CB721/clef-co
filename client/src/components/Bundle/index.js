@@ -24,14 +24,14 @@ function Bundle(props) {
     
     return (
         <Row>
-            <Col size="md-12">
+            <Col size="12">
                 <div className="bundle white" onClick={props.action}>
                     <Row>
-                        <Col size="md-12">
+                        <Col size="12">
                             <img src={image} alt={props.bundleTitle} className="bundle-image"></img>
                         </Col>
                         <div className="bundle-text">
-                            <Col size="md-12">
+                            <Col size="12">
                                 <Textfit
                                     mode="single"
                                     className="white product-title"
@@ -41,7 +41,7 @@ function Bundle(props) {
                                     {props.bundleTitle}
                                 </Textfit>
                             </Col>
-                            <Col size="md-12">
+                            <Col size="12">
                                 <div className="ipod-bg">
                                     <div className="ipod-cover">
                                         <span>
@@ -51,7 +51,7 @@ function Bundle(props) {
                                 </div>
                             </Col>
                         </div>
-                        <Col size="md-12">
+                        <Col size="12">
                             <div className="center-bundle-button">
                                 {props.button}
                             </div>

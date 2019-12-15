@@ -4,7 +4,7 @@
     background: none;
     font-weight: bolder;
     font-size: 25px;
-    border-radius: 3%;
+    border-radius: 17px;
 }
 .menu-expand {
     padding: 0;
@@ -15,15 +15,17 @@
     -ms-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
-    border-radius: 3%;
+    border-radius: 17px;
 }
 .menu {
     background-color: rgba(0, 0, 0, 0);
-    border-radius: 5%;
+    border-radius: 17px;
     margin-top: 10%;
+    margin-left: 0.5rem;
     padding: 0 15px 0 15px;
     width: 100%;
     position: relative;
+    border: 1px solid white;
 }
 .content-collapse {
     height: 0px;
@@ -112,4 +114,10 @@
     -webkit-transition: .1s;
     -o-transition: .1s;
     transition: .1s;
+}
+@media only screen and (max-width: 768px) {
+    .menu {
+        padding: none;
+        margin-left: none;
+    }
 }
