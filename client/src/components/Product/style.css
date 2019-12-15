@@ -1,11 +1,10 @@
 .product-card {
-    height: 100%;
+    height: auto;
     margin-top: 10%;
     position: relative;
     width: 100%;
 }
 .product-card-content {
-    height: 11.938rem;
     min-height: auto;
 }
 .product-description {

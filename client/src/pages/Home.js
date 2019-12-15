@@ -98,7 +98,7 @@ function Home() {
     return (
         <div className="page-container">
             <Row no-gutters>
-                <Col size="md-12">
+                <Col size="12">
                     <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
                         style={{
                             objectFit: 'cover',
@@ -113,7 +113,7 @@ function Home() {
                 </Col>
             </Row>
             <Row no-gutters>
-                <Col size="md-12">
+                <Col size="12">
                     <Fade bottom>
                         <div className="purple-background rounded-corners t-top-margin add-shadow all-products">
                             <Row no-gutters>
