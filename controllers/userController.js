@@ -106,36 +106,26 @@ module.exports = {
     },
     updateUser: function (req, res) {
         const ID = req.params.id;
-        const token = req.params.token;
-        db.query("SELECT * FROM " + table + " WHERE id = " + ID + " AND user_auth = '" + token + "';",
-            function (err, response) {
+        const update = req.body;
+        let queryUpdate = "UPDATE " + table + " SET"
+        for (const prop in update) {
+            if (update[prop] !== "null") {
+                queryUpdate += " " + `${prop}` + " = " + "'" + `${update[prop]}` + "'" + ",";
+            }
+        }
+        let queryStr = queryUpdate.slice(0, -1);
+        queryStr += " WHERE id = " + ID + ";";
+        db.query(queryStr,
+            function (err, results) {
                 if (err) {
                     return res.send(err);
-                } else if (response.length > 0) {
-                    const update = req.body;
-                    let queryUpdate = "UPDATE " + table + " SET"
-                    for (const prop in update) {
-                        if (update[prop] !== "null") {
-                            queryUpdate += " " + `${prop}` + " = " + "'" + `${update[prop]}` + "'" + ",";
-                        }
-                    }
-                    let queryStr = queryUpdate.slice(0, -1);
-                    queryStr += " WHERE id = " + ID + ";";
-                    db.query(queryStr,
-                        function (err, results) {
-                            if (err) {
-                                return res.send(err);
-                            } else {
-                                return res.json({
-                                    results
-                                });
-                            }
-                        })
                 } else {
-                    return res.send(false);
+                    return res.json({
+                        results
+                    });
                 }
             }
-        )
+        );
     },
     deleteUser: function (req, res) {
         const ID = req.params.id;

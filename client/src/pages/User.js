@@ -159,16 +159,33 @@ function User() {
         }
         API.updateUser(window.sessionStorage.id, user)
             .then(
-                getUser()
+                res => getUser(res.data)
             )
             .catch(err => console.log(err));
     }
-    function getUser() {
-        API.getUser(window.sessionStorage.id)
-            .then(res =>
-                updateSession(res.data.results[0])
-            )
-            .catch(err => console.log(err));
+    function getUser(data) {
+        if (data.results.affectedRows > 0) {
+            API.getUser(window.sessionStorage.id)
+                .then(res =>
+                    updateSession(res.data.results[0])
+                )
+                .catch(err => console.log(err));
+        } else {
+            toast("There was problem saving your information.  Please try again later.", {
+                className: css({
+                    background: '#3E0768',
+                    boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
+                    borderRadius: '17px'
+                }),
+                bodyClassName: css({
+                    fontSize: '20px',
+                    color: 'white'
+                }),
+                progressClassName: css({
+                    background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
+                })
+            });
+        }
     }
     function updateSession(updatedUser) {
         sessionStorage.setItem("email", updatedUser.email);
