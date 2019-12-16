@@ -1,8 +1,12 @@
-# Clef Co - Virtual Store
+# Clef Co
 
 * Clef Co is a mock E-commerce application based on musical instruments, audio equipment and recording software.
 
+## View Project
+[Clef Co](https://virtual-store-react.herokuapp.com/)
+
 ## Project Walk-through
+![walk through](Walkthrough/clef-co-walkthrough1.gif)
 
 ### Page Details
 * Home
