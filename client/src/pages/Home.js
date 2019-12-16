@@ -99,7 +99,7 @@ function Home() {
         <div className="page-container">
             <Row no-gutters>
                 <Col size="12">
-                    <video className="video-background rounded-corners add-shadow" loop playsInline muted aria-label="video-demo"
+                    <video className="video-background rounded-corners add-shadow" loop autoPlay playsInline muted aria-label="video-demo"
                         style={{
                             objectFit: 'cover',
                             width: '100%',

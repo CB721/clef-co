@@ -296,12 +296,16 @@ function User() {
     }
     function determineStatus(dateJoined) {
         const today = moment().format("YYYY-MM-DD");
+        const dayDifference = moment(today).diff(dateJoined, 'days');
+        const weekDifference = moment(today).diff(dateJoined, 'weeks');
+        const monthDifference = moment(today).diff(dateJoined, 'months');
+        const yearDifference = moment(today).diff(dateJoined, 'years');
         triggerHolidayPromos();
-        if (moment(today).diff(dateJoined, 'days') < 7) {
+        if (dayDifference < 7) {
             setstatusImage(profileImages[0].image);
             setuserStatus("beginner");
-            if (moment(today).diff(dateJoined, 'days') % 3 === 0) {
-                toast("Thanks for being a member for " + moment(today).diff(dateJoined, 'days'), {
+            if (dayDifference % 3 === 0 && dayDifference > 2) {
+                toast("Thanks for being a member for " + dayDifference, {
                     className: css({
                         background: '#3E0768',
                         boxShadow: '2px 2px 20px 2px rgba(0,0,0,0.3)',
@@ -317,11 +321,10 @@ function User() {
                 });
             }
         }
-        if (moment(today).diff(dateJoined, 'days') >= 7 &&
-            moment(today).diff(dateJoined, 'months') < 1) {
+        if (dayDifference >= 7 && monthDifference < 1) {
             setstatusImage(profileImages[1].image);
             setuserStatus("novice");
-            if (moment(today).diff(dateJoined, 'weeks') % 3 === 0) {
+            if (weekDifference % 3 === 0) {
                 setTimeout(function () {
                     toast("What music have you done lately?", {
                         className: css({
@@ -340,12 +343,11 @@ function User() {
                 }, 25000);
             }
         }
-        if (moment(today).diff(dateJoined, 'months') >= 1 &&
-            moment(today).diff(dateJoined, 'years') < 1) {
+        if (monthDifference >= 1 && yearDifference < 1) {
             setstatusImage(profileImages[2].image);
             setuserStatus("expert");
             setTimeout(function () {
-                if (moment(today).diff(dateJoined, 'days') % 17 === 0) {
+                if (dayDifference % 17 === 0) {
                     toast("Have you though of writing a review?", {
                         className: css({
                             background: '#3E0768',
@@ -360,7 +362,7 @@ function User() {
                             background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
                         })
                     });
-                } else if (moment(today).diff(dateJoined, 'weeks') % 17 === 0) {
+                } else if (weekDifference % 17 === 0) {
                     toast("We really appreciate having you as a member " + window.sessionStorage.first_name, {
                         className: css({
                             background: '#3E0768',
@@ -378,11 +380,11 @@ function User() {
                 }
             }, 25000);
         }
-        if (moment(today).diff(dateJoined, 'years') >= 1) {
+        if (yearDifference >= 1) {
             setstatusImage(profileImages[3].image);
             setuserStatus("master");
             setTimeout(function () {
-                if (moment(today).diff(dateJoined, 'years') % 1 === 0) {
+                if (yearDifference % 1 === 0) {
                     toast("One year already?  Wow!", {
                         className: css({
                             background: '#3E0768',
@@ -397,7 +399,7 @@ function User() {
                             background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
                         })
                     });
-                } else if (moment(today).diff(dateJoined, 'months') % 7 === 0) {
+                } else if (monthDifference % 7 === 0) {
                     toast("What music have you done lately?", {
                         className: css({
                             background: '#3E0768',
@@ -412,7 +414,7 @@ function User() {
                             background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(62,7,104,1) 80%)"
                         })
                     });
-                } else if (moment(today).diff(dateJoined, 'weeks') % 23 === 0) {
+                } else if (weekDifference % 23 === 0) {
                     toast("Have you though of writing a review?", {
                         className: css({
                             background: '#3E0768',
