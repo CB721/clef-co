@@ -7,9 +7,9 @@ const rightNow = "'" + moment().format("YYYY-MM-DDTHH:mm:ss") + "'";
 
 module.exports = {
     createCart: function (req, res) {
-        const userID = req.params.userid;
+        const userID = db.escape(req.params.userid);
         const productIDs = req.body;
-        db.query("INSERT INTO " + cartTable + " (user_id, created_at) VALUES (" + userID + ", " + rightNow + ");",
+            db.query("INSERT INTO " + cartTable + " (user_id, created_at) VALUES (" + userID + ", " + rightNow + ");",
             function (err, results) {
                 if (err) {
                     return res.send(err);

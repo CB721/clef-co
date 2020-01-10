@@ -5,12 +5,12 @@ const rightNow = "'" + moment().format("YYYY-MM-DDTHH:mm:ss") + "'";
 
 module.exports = {
     createForm: function (req, res) {
-        const email = req.body.email;
-        const subject = req.body.subject;
-        const description = req.body.description;
-        const product = req.body.product_id;
-        const user = req.body.user_id;
-        db.query("INSERT INTO " + contactTable + " (user_email, user_subject, user_description, product_id, created_at, user_id) VALUES (" + "'" + email + "'," + "'" + subject + "'," + "'" + description + "'," + "'" + product + "'," + rightNow + "," + "'" + user + "');",
+        const email = db.escape(req.body.email);
+        const subject = db.escape(req.body.subject);
+        const description = db.escape(req.body.description);
+        const product = db.escape(req.body.product_id);
+        const user = db.escape(req.body.user_id);
+        db.query("INSERT INTO " + contactTable + " (user_email, user_subject, user_description, product_id, created_at, user_id) VALUES (" + email + ", " + subject + ", " + description + ", " + product + ", " + rightNow + "," + user + ");",
             function (err, results) {
                 if (err) {
                     return res.send(err);

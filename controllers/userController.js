@@ -8,7 +8,7 @@ const table = "oxn711nfcpjgwcr2.users";
 module.exports = {
     getUserByID: function (req, res) {
         const userID = req.params.id;
-        db.query("SELECT * FROM " + table + " WHERE id = " + userID + ";",
+        db.query("SELECT * FROM " + table + " WHERE id = ?", [userID],
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -20,8 +20,8 @@ module.exports = {
             })
     },
     getUserByEmail: function (req, res) {
-        const userEmail = "'" + req.params.email + "'";
-        db.query("SELECT * FROM " + table + " WHERE email = " + userEmail + ";",
+        const userEmail = req.params.email;
+        db.query("SELECT * FROM " + table + " WHERE email = ?", [userEmail],
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -79,9 +79,7 @@ module.exports = {
                 .catch(err => console.log(err));
         }
         let completeUser = function (pass) {
-            const queryInsert = "INSERT INTO " + table + " (first_name, last_name, user_password, email, joined_date) VALUES (";
-            const queryValues = "'" + user.first_name + "'," + "'" + user.last_name + "'," + "'" + pass + "'," + "'" + user.email + "'," + "'" + today + "');";
-            db.query("SELECT * FROM " + table + " WHERE email = '" + user.email + "';",
+            db.query("SELECT * FROM " + table + " WHERE email = ?", [user.email],
                 function (err, results) {
                     if (err) {
                         return res.send(err);
@@ -89,7 +87,14 @@ module.exports = {
                         if (results.length > 0) {
                             return res.send("Account already created with that email address");
                         } else {
-                            db.query(queryInsert + queryValues,
+                            db.query("INSERT INTO " + table + " SET ?",
+                                {
+                                    first_name: user.first_name,
+                                    last_name: user.last_name,
+                                    user_password: pass,
+                                    email: user.email,
+                                    joined_date: today
+                                },
                                 function (err, results) {
                                     if (err) {
                                         return res.send(err);
@@ -105,12 +110,12 @@ module.exports = {
         }
     },
     updateUser: function (req, res) {
-        const ID = req.params.id;
+        const ID = db.escape(req.params.id);
         const update = req.body;
         let queryUpdate = "UPDATE " + table + " SET"
         for (const prop in update) {
             if (update[prop] !== "null") {
-                queryUpdate += " " + `${prop}` + " = " + "'" + `${update[prop]}` + "'" + ",";
+                queryUpdate += " " + `${prop}` + " = " + `${db.escape(update[prop])}` + ",";
             }
         }
         let queryStr = queryUpdate.slice(0, -1);
@@ -131,7 +136,7 @@ module.exports = {
         const ID = req.params.id;
         const password = req.params.password;
         const email = req.params.email;
-        db.query("SELECT * FROM " + table + " WHERE email = '" + email + "';",
+        db.query("SELECT * FROM " + table + " WHERE email = ?", [email],
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -141,7 +146,7 @@ module.exports = {
                             .then(
                                 match => {
                                     if (match) {
-                                        db.query("DELETE FROM " + table + " WHERE id = " + ID + ";",
+                                        db.query("DELETE FROM " + table + " WHERE id = ?", [ID],
                                             function (err, results) {
                                                 if (err) {
                                                     return res.send(err);
@@ -170,7 +175,7 @@ module.exports = {
         if (userToken === undefined) {
             return res.send(false);
         }
-        db.query("SELECT * FROM " + table + " WHERE id = " + userID + " AND user_auth = '" + userToken + "';",
+        db.query("SELECT * FROM " + table + " WHERE id = ? AND user_auth = ?", [userID, userToken],
             function (err, results) {
                 if (err) {
                     return res.send(err);

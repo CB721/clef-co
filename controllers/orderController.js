@@ -4,7 +4,7 @@ const async = require("async");
 
 module.exports = {
     getOrdersByUserID: function (req, res) {
-        const userID = req.params.userid;
+        const userID = db.escape(req.params.userid);
         db.query("SELECT * FROM oxn711nfcpjgwcr2.orders WHERE user_id = " + userID + " ORDER BY checked_out_at DESC;",
             function (err, results) {
                 if (err) {
@@ -13,7 +13,7 @@ module.exports = {
                     const ordersArr = [];
                     let i = 0;
                     while (i < results.length) {
-                        const orderID = results[i].id;
+                        const orderID = db.escape(results[i].id);
                         const created = results[i].created_at;
                         const checked = results[i].checked_out_at;
                         db.query("SELECT * FROM oxn711nfcpjgwcr2.orderItems WHERE order_id = " + orderID + ";",

@@ -1,8 +1,6 @@
 const db = require("../connection/connection");
 
 const productsTable = "oxn711nfcpjgwcr2.products";
-const ordersTable = "oxn711nfcpjgwcr2.orders";
-const orderItemsTable = "oxn711nfcpjgwcr2.orderItems";
 
 module.exports = {
     getFilteredProducts: function (req, res) {
@@ -97,8 +95,8 @@ module.exports = {
         }, 400);
     },
     searchProducts: function (req, res) {
-        const search = req.params.input;
-        db.query("SELECT * FROM " + productsTable + " WHERE product_name LIKE '%" + search + "%';",
+        const search = db.escape("%" + req.params.input + "%");
+        db.query("SELECT * FROM " + productsTable + " WHERE product_name LIKE " + search + ";",
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -111,9 +109,9 @@ module.exports = {
         )
     },
     searchUserOrders: function (req, res) {
-        const userID = req.params.userid;
-        const search = req.params.input;
-        db.query("SELECT oxn711nfcpjgwcr2.orders.created_at, oxn711nfcpjgwcr2.orders.checked_out_at, oxn711nfcpjgwcr2.orders.user_id, oxn711nfcpjgwcr2.orderItems.order_id, oxn711nfcpjgwcr2.orderItems.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.orders LEFT JOIN oxn711nfcpjgwcr2.orderItems on oxn711nfcpjgwcr2.orders.id = oxn711nfcpjgwcr2.orderItems.order_id LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.orders.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE '%" + search + "%' ORDER BY oxn711nfcpjgwcr2.orders.checked_out_at DESC;",
+        const userID = db.escape(req.params.userid);
+        const search = db.escape("%" + req.params.input + "%");
+        db.query("SELECT oxn711nfcpjgwcr2.orders.created_at, oxn711nfcpjgwcr2.orders.checked_out_at, oxn711nfcpjgwcr2.orders.user_id, oxn711nfcpjgwcr2.orderItems.order_id, oxn711nfcpjgwcr2.orderItems.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.orders LEFT JOIN oxn711nfcpjgwcr2.orderItems on oxn711nfcpjgwcr2.orders.id = oxn711nfcpjgwcr2.orderItems.order_id LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.orderItems.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.orders.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE " + search + " ORDER BY oxn711nfcpjgwcr2.orders.checked_out_at DESC;",
             function (err, results) {
                 if (err) {
                     return res.send(err);
@@ -126,9 +124,9 @@ module.exports = {
         )
     },
     searchUserContactForms: function(req, res) {
-        const userID = req.params.userid;
-        const search = req.params.input;
-        db.query("SELECT oxn711nfcpjgwcr2.contactForms.user_id, oxn711nfcpjgwcr2.contactForms.created_at, oxn711nfcpjgwcr2.contactForms.user_email, oxn711nfcpjgwcr2.contactForms.user_subject, oxn711nfcpjgwcr2.contactForms.user_description, oxn711nfcpjgwcr2.contactForms.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.contactForms LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.contactForms.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.contactForms.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE '%" + search + "%' ORDER BY oxn711nfcpjgwcr2.contactForms.created_at DESC;",
+        const userID = db.escape(req.params.userid);
+        const search = db.escape("%" + req.params.input + "%");
+        db.query("SELECT oxn711nfcpjgwcr2.contactForms.user_id, oxn711nfcpjgwcr2.contactForms.created_at, oxn711nfcpjgwcr2.contactForms.user_email, oxn711nfcpjgwcr2.contactForms.user_subject, oxn711nfcpjgwcr2.contactForms.user_description, oxn711nfcpjgwcr2.contactForms.product_id, oxn711nfcpjgwcr2.products.product_name, oxn711nfcpjgwcr2.products.price, oxn711nfcpjgwcr2.products.image_link, oxn711nfcpjgwcr2.products.product_description, oxn711nfcpjgwcr2.products.instrument_type FROM oxn711nfcpjgwcr2.contactForms LEFT JOIN oxn711nfcpjgwcr2.products on oxn711nfcpjgwcr2.contactForms.product_id = oxn711nfcpjgwcr2.products.id WHERE oxn711nfcpjgwcr2.contactForms.user_id = " + userID + " AND oxn711nfcpjgwcr2.products.product_name LIKE " + search + " ORDER BY oxn711nfcpjgwcr2.contactForms.created_at DESC;",
             function(err, results) {
                 if (err) {
                     return res.send(err);
